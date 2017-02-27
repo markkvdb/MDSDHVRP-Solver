@@ -5,8 +5,8 @@
 #ifndef ORACS_CUSTOMER_H
 #define ORACS_CUSTOMER_H
 
-
-#include "../route/route.h"
+#include <vector>
+#include "route.h"
 
 class Customer {
     int d_demand;

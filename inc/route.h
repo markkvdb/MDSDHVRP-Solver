@@ -5,8 +5,8 @@
 #ifndef ORACS_ROUTE_H
 #define ORACS_ROUTE_H
 
-#include "../customer/customer.h"
-#include "../depot/depot.h"
+#include "customer.h"
+#include "depot.h"
 #include <vector>
 
 class Route {

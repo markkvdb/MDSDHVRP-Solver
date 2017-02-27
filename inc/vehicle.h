@@ -6,7 +6,7 @@
 #define ORACS_VEHICLE_H
 
 #include <vector>
-#include "../route/route.h"
+#include "route.h"
 
 class Vehicle {
     static int noOfVehicles;

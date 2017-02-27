@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.6)
 project(ORACS)
 
 set(CMAKE_CXX_STANDARD 14)
+include_directories(./inc)
 
-set(SOURCE_FILES main.cpp main.h solution/solution.cpp solution/solution.h depot/depot.cpp depot/depot.h vehicle/vehicle.cpp vehicle/vehicle.h solution/print.cpp route/route.cpp route/route.h vehicle/vehicle1.cpp customer/customer.cpp customer/customer.h)
+set(SOURCE_FILES src/main.cpp main.h src/solution/solution.cpp inc/solution.h src/depot/depot.cpp inc/depot.h src/vehicle/vehicle.cpp inc/vehicle.h src/solution/print.cpp src/route/route.cpp inc/route.h src/vehicle/vehicle1.cpp src/customer/customer.cpp inc/customer.h)
 add_executable(ORACS ${SOURCE_FILES})

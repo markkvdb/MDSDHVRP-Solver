@@ -6,7 +6,7 @@
 #define ORACS_DEPOT_H
 
 #include <vector>
-#include "../vehicle/vehicle.h"
+#include "vehicle.h"
 
 class Depot {
     std::vector<Vehicle> d_vehicles;
