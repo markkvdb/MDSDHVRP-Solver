@@ -78,9 +78,34 @@ For each customer in `customerMatrix`:
 3. Loop over `customerMatrix`:
     - Create `leftoverDemand = customer.getDemand()`.
     - While `leftoverDemand > 0`
-    - Find smallest distance to depots, say `smallDepot`.
-    - Add customer.
-
+        - Find smallest distance to depots, say `smallDepot`.
+        - Add customer.
+    - end
+    
+4. Loop over depot (m depots):
+    - Sort vehicles based on costs.
+    - Create `customerList` and `customerDropOff`.
+    - Loop over sorted vehicle list:
+        - Create `leftoverCapacity = vehicle.getCapacity()`
+        - while (`leftoverCapacity > 0`) do 
+            - Take new customer from `depotCustomerAllocation` (first time random).
+            - Add customer to `customerList` and `customerDropOff`.
+            - Update `leftoverCapacity`.
+            - if (`leftoverCapacity >= demand`) then
+                - Delete from `depotCustomerAllocation`.
+            - else update `depotCustomerDemand`.
+        - end
+        - `cheapestInsertion(customerList)`
+        
+`cheapestInsertion(customerList)`
+1. Create `route = {0, 0};`
+2. While customerList is not empty
+    - For each customer in customerList
+        - For each insertion option (N - 1):
+            - Check if minimum
+    - Update route by inserting cheapest.
+    - Remove customer from customerList.
+3. Ready to rambo.
 
 
 ## Local search techniques
