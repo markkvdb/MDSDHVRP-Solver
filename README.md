@@ -45,12 +45,11 @@ Data members:
 Functions:
 
 
-### Customer
+### Customer (TODO)
 Data members:
 - Demand
-- Supplied
-- List of routes
-- Position in routes
+- Total delivery quantity
+- Depot
 
 ## Initialisation
 
@@ -95,7 +94,11 @@ For each customer in `customerMatrix`:
                 - Delete from `depotCustomerAllocation`.
             - else update `depotCustomerDemand`.
         - end
-        - `cheapestInsertion(customerList)`
+        - `route = cheapestInsertion(customerList)`
+        - `vehicle.setRoute(route, deliverQuantities)`
+        - `Customers.addRoute(route, deliverQuantities)`
+        
+5. 
         
 `cheapestInsertion(customerList)`
 1. Create `route = {0, 0};`
