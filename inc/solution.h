@@ -12,17 +12,23 @@
 #include "init.h"
 
 class Solution {
+
     std::vector<Depot> d_depots;
     std::vector<Customer> d_customers;
+    std::vector<std::vector<double>> d_distanceMatrix;
 
 public:
     Solution();
     Solution(Init &init);
+
     void addDepot(Depot &depot);
     void addCustomer(Customer &customer);
+    void initialSolution();
     void print();
 
 private:
+    std::vector<std::vector<int>> allocateCustomers();
+    std::vector<int> getClosestDepots(int customer);
 
 };
 

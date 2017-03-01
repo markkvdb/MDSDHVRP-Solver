@@ -7,17 +7,16 @@
 
 using namespace std;
 
-Depot::Depot()
-{}
-
-Depot::Depot(double leftOverInventory)
+Depot::Depot(int id, double leftOverInventory)
 :
+    d_id(id),
     d_vehicles(std::vector<Vehicle>{}),
     d_leftOverInventory(leftOverInventory)
 {}
 
-Depot::Depot(std::vector<Vehicle> &vehicles, double leftOverInventory)
+Depot::Depot(int id, std::vector<Vehicle> &vehicles, double leftOverInventory)
 :
+    d_id(id),
     d_vehicles(vehicles),
     d_leftOverInventory(leftOverInventory)
 {}

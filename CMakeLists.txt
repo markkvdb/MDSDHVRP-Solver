@@ -4,5 +4,5 @@ project(ORACS)
 set(CMAKE_CXX_STANDARD 14)
 include_directories(./inc)
 
-set(SOURCE_FILES src/main.cpp inc/main.h src/solution/solution.cpp inc/solution.h src/depot/depot.cpp inc/depot.h src/vehicle/vehicle.cpp inc/vehicle.h src/solution/print.cpp src/route/route.cpp inc/route.h src/vehicle/vehicle1.cpp src/customer/customer.cpp inc/customer.h inc/init.h src/init/init.cpp src/init/showmatrix.cpp src/init/showvehiclematrix.cpp src/init/showdepotmatrix.cpp src/init/showcustomermatrix.cpp src/solution/solution1.cpp src/init/createdistancematrix.cpp src/init/distance.cpp src/init/showdistancematrix.cpp inc/solution.h)
+set(SOURCE_FILES src/main.cpp inc/main.h src/solution/solution.cpp inc/solution.h src/depot/depot.cpp inc/depot.h src/vehicle/vehicle.cpp inc/vehicle.h src/solution/print.cpp src/route/route.cpp inc/route.h src/vehicle/vehicle1.cpp src/customer/customer.cpp inc/customer.h inc/init.h src/init/init.cpp src/init/showmatrix.cpp src/init/showvehiclematrix.cpp src/init/showdepotmatrix.cpp src/init/showcustomermatrix.cpp src/solution/solution1.cpp src/init/createdistancematrix.cpp src/init/distance.cpp src/init/showdistancematrix.cpp inc/solution.h src/solution/initialsolution.cpp src/solution/getclosestdepot.cpp src/solution/allocatecustomer.cpp src/customer/operatoroutput.cpp)
 add_executable(ORACS ${SOURCE_FILES})

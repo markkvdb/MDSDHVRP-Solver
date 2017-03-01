@@ -4,7 +4,7 @@
 
 #include "vehicle.ih"
 
-Vehicle::Vehicle(double capacity, double travelTime, double drivingSpeed, double cost)
+Vehicle::Vehicle(int id, double capacity, double travelTime, double drivingSpeed, double cost)
 :
     d_drivingSpeed(drivingSpeed),
     d_cost(cost),
@@ -12,6 +12,6 @@ Vehicle::Vehicle(double capacity, double travelTime, double drivingSpeed, double
     d_travelTime(travelTime),
     d_route(Route{}),
     d_deliveries(vector<int>{0}),
-    d_id(noOfVehicles++)
+    d_id(id)
 {}
 

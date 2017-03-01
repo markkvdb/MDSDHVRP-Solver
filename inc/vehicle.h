@@ -9,6 +9,7 @@
 #include "../inc/route.h"
 
 class Vehicle {
+
     int d_id;
     double const d_drivingSpeed;
     double const d_cost;
@@ -19,9 +20,9 @@ class Vehicle {
     std::vector<int> d_deliveries;
 
 public:
-    static int noOfVehicles;
-    Vehicle();
-    Vehicle(double capacity, double travelTime, double drivingSpeed, double cost);
+    Vehicle() = delete;
+    Vehicle(int id, double capacity, double travelTime, double drivingSpeed, double cost);
+
     int getId();
     double getDrivingSpeed();
     double getCost();

@@ -9,21 +9,29 @@
 #include "../inc/vehicle.h"
 
 class Depot {
+
+    int d_id;
     std::vector<Vehicle> d_vehicles;
     double d_leftOverInventory;
 
 public:
-    Depot();
-    Depot(double leftOverInventory);
-    Depot(std::vector<Vehicle> &vehicles, double leftOverInventory);
+    Depot() = delete;
+    Depot(int id, double leftOverInventory);
+    Depot(int id, std::vector<Vehicle> &vehicles, double leftOverInventory);
 
     double getLeftOverInventory();
+    void changeInventory(double amount);
     void addVehicle(Vehicle vehicle);
 
 private:
 
 
 };
+
+inline void Depot::changeInventory(double amount)
+{
+    d_leftOverInventory += amount;
+}
 
 inline double Depot::getLeftOverInventory()
 {

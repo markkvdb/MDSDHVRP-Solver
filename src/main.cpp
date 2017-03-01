@@ -4,12 +4,10 @@
 
 #include "main.h"
 
-int Vehicle::noOfVehicles = 0;
-
 int main()
 {
     // LOAD DATA
-    std::string fileName = "/Users/markvanderbroek/CLionProjects/ORACS/src/data/instanceA_1_input.txt";
+    std::string fileName = "/Users/markvanderbroek/CLionProjects/ORACS/src/data/instanceA_10_input.txt";
     Init init{fileName};
     init.show();
 
@@ -17,5 +15,6 @@ int main()
     Solution solution{init};
 
     // Construct initial solution
+    solution.initialSolution();
 
 }

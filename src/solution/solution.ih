@@ -1,4 +1,7 @@
 #include "solution.h"
 #include <iostream>
+#include <algorithm>
+#include <numeric>
+#include <iterator>
 
 using namespace std;
