@@ -6,25 +6,33 @@
 #define ORACS_DEPOT_H
 
 #include <vector>
-#include "vehicle.h"
+#include "../inc/vehicle.h"
 
 class Depot {
     std::vector<Vehicle> d_vehicles;
-    int d_inventory;
+    int d_leftOverInventory;
 
 public:
     Depot();
-    Depot(std::vector<Vehicle> &vehicles);
-    int getInventory();
+    Depot(int leftOverInventory);
+    Depot(std::vector<Vehicle> &vehicles, int leftOverInventory);
+
+    int getLeftOverInventory();
+    void addVehicle(Vehicle &vehicle);
 
 private:
 
 
 };
 
-inline int Depot::getInventory()
+inline int Depot::getLeftOverInventory()
 {
-    return d_inventory;
+    return d_leftOverInventory;
+}
+
+inline void Depot::addVehicle(Vehicle &vehicle)
+{
+    d_vehicles.push_back(vehicle);
 }
 
 #endif //ORACS_DEPOT_H

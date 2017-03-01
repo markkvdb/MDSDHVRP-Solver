@@ -6,10 +6,9 @@
 #define ORACS_VEHICLE_H
 
 #include <vector>
-#include "route.h"
+#include "../inc/route.h"
 
 class Vehicle {
-    static int noOfVehicles;
     int d_id;
     int const d_vehicleType;
     int const d_capacity;
@@ -19,6 +18,7 @@ class Vehicle {
     std::vector<int> d_deliveries;
 
 public:
+    static int noOfVehicles;
     Vehicle();
     Vehicle(int vehicleType, int capacity, int travelTime);
     int getId();

@@ -5,13 +5,11 @@
 #ifndef ORACS_ROUTE_H
 #define ORACS_ROUTE_H
 
-#include "customer.h"
-#include "depot.h"
+#include "../inc/customer.h"
 #include <vector>
 
 class Route {
     std::vector<Customer> d_route;
-    Depot d_depot;
     // TODO Why specify vehicle type and deliver quantity here?
 
 public:

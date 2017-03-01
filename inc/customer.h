@@ -6,11 +6,10 @@
 #define ORACS_CUSTOMER_H
 
 #include <vector>
-#include "route.h"
 
 class Customer {
     int d_demand;
-    std::vector<Route> d_routes;
+//    std::vector<Route> d_routes;
 
 public:
     Customer(int demand);

@@ -10,8 +10,6 @@ Vehicle::Vehicle()
         d_capacity(0),
         d_travelTime(0),
         d_route(Route{}),
-        d_deliveries(vector<int>{0})
-{
-    ++noOfVehicles;
-    d_id = noOfVehicles;
-}
+        d_deliveries(vector<int>{0}),
+        d_id(noOfVehicles++)
+{}
