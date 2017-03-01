@@ -99,7 +99,7 @@ For each customer in `customerMatrix`:
         - `Customers.addRoute(route, deliverQuantities)`
         
         
-`cheapestInsertion(customerList)`
+#### cheapestInsertion(customerList) #####
 1. Create `route = {0, 0};`
 2. While customerList is not empty
     - For each customer in customerList

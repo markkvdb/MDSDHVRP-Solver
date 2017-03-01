@@ -10,15 +10,13 @@ using namespace std;
 Depot::Depot()
 {}
 
-Depot::Depot(int leftOverInventory)
+Depot::Depot(double leftOverInventory)
 :
     d_vehicles(std::vector<Vehicle>{}),
     d_leftOverInventory(leftOverInventory)
-{
-    cout << "Created depot\n";
-}
+{}
 
-Depot::Depot(std::vector<Vehicle> &vehicles, int leftOverInventory)
+Depot::Depot(std::vector<Vehicle> &vehicles, double leftOverInventory)
 :
     d_vehicles(vehicles),
     d_leftOverInventory(leftOverInventory)

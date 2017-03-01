@@ -10,27 +10,27 @@
 
 class Depot {
     std::vector<Vehicle> d_vehicles;
-    int d_leftOverInventory;
+    double d_leftOverInventory;
 
 public:
     Depot();
-    Depot(int leftOverInventory);
-    Depot(std::vector<Vehicle> &vehicles, int leftOverInventory);
+    Depot(double leftOverInventory);
+    Depot(std::vector<Vehicle> &vehicles, double leftOverInventory);
 
-    int getLeftOverInventory();
-    void addVehicle(Vehicle &vehicle);
+    double getLeftOverInventory();
+    void addVehicle(Vehicle vehicle);
 
 private:
 
 
 };
 
-inline int Depot::getLeftOverInventory()
+inline double Depot::getLeftOverInventory()
 {
     return d_leftOverInventory;
 }
 
-inline void Depot::addVehicle(Vehicle &vehicle)
+inline void Depot::addVehicle(Vehicle vehicle)
 {
     d_vehicles.push_back(vehicle);
 }

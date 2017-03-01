@@ -10,9 +10,10 @@
 
 class Vehicle {
     int d_id;
-    int const d_vehicleType;
-    int const d_capacity;
-    int const d_travelTime;
+    double const d_drivingSpeed;
+    double const d_cost;
+    double const d_capacity;
+    double const d_travelTime;
     Route d_route;
     // TODO Should the deliveries be stored in the route?
     std::vector<int> d_deliveries;
@@ -20,11 +21,12 @@ class Vehicle {
 public:
     static int noOfVehicles;
     Vehicle();
-    Vehicle(int vehicleType, int capacity, int travelTime);
+    Vehicle(double capacity, double travelTime, double drivingSpeed, double cost);
     int getId();
-    int getVehicleType();
-    int getCapacity();
-    int getTravelTime();
+    double getDrivingSpeed();
+    double getCost();
+    double getCapacity();
+    double  getTravelTime();
     Route &getRoute();
 
 private:
@@ -36,17 +38,22 @@ inline int Vehicle::getId()
     return d_id;
 }
 
-inline int Vehicle::getVehicleType()
+inline double Vehicle::getDrivingSpeed()
 {
-    return d_vehicleType;
+    return d_drivingSpeed;
 }
 
-inline int Vehicle::getCapacity()
+inline double Vehicle::getCost()
+{
+    return d_cost;
+}
+
+inline double Vehicle::getCapacity()
 {
     return d_capacity;
 }
 
-inline int Vehicle::getTravelTime()
+inline double Vehicle::getTravelTime()
 {
     return d_travelTime;
 }

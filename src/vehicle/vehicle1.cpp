@@ -4,9 +4,10 @@
 
 #include "vehicle.ih"
 
-Vehicle::Vehicle(int vehicleType, int capacity, int travelTime)
+Vehicle::Vehicle(double capacity, double travelTime, double drivingSpeed, double cost)
 :
-    d_vehicleType(vehicleType),
+    d_drivingSpeed(drivingSpeed),
+    d_cost(cost),
     d_capacity(capacity),
     d_travelTime(travelTime),
     d_route(Route{}),

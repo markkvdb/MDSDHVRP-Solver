@@ -8,4 +8,5 @@ void Init::showDistanceMatrix()
 {
     cout << "Distance matrix:\n";
     showMatrix(d_distanceMatrix);
+    cout << '\n';
 }

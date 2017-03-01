@@ -6,7 +6,8 @@
 
 Vehicle::Vehicle()
 :
-        d_vehicleType(0),
+        d_drivingSpeed(0),
+        d_cost(0),
         d_capacity(0),
         d_travelTime(0),
         d_route(Route{}),

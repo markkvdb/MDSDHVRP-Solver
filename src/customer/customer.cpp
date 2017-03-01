@@ -4,7 +4,8 @@
 
 #include "customer.h"
 
-Customer::Customer(int demand)
+Customer::Customer(double demand, double serviceTime)
 :
-    d_demand(demand)
+    d_demand(demand),
+    d_serviceTime(serviceTime)
 {}

@@ -8,11 +8,12 @@
 #include <vector>
 
 class Customer {
-    int d_demand;
+    double d_demand;
+    double d_serviceTime;
 //    std::vector<Route> d_routes;
 
 public:
-    Customer(int demand);
+    Customer(double demand, double serviceTime);
 
 };
 
