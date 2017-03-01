@@ -9,9 +9,12 @@
 using namespace std;
 
 Init::Init(std::string &file) {
+
+    // Open file
     ifstream inputFile{file};
     string line;
 
+    // Read the number of vehicles types, depots, and customers.
     getline(inputFile, line);
     istringstream parameters(line);
     parameters >> d_noOfVehicleTypes;

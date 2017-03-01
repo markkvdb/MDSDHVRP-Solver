@@ -28,6 +28,14 @@ public:
     void showDistanceMatrix();
     void show();
 
+    int getNoOfDepots() const;
+    int getNoOfVehicleTypes() const;
+    int getNoOfCustomers() const;
+    const std::vector<std::vector<double>> &getVehicleMatrix() const;
+    const std::vector<std::vector<double>> &getDepotMatrix() const;
+    const std::vector<std::vector<double>> &getCustomerMatrix() const;
+    const std::vector<std::vector<double>> &getDistanceMatrix() const;
+
 private:
     void showMatrix(std::vector<std::vector<double>> matrix);
     void createDistanceMatrix();
@@ -40,6 +48,41 @@ inline void Init::show()
     showDepotMatrix();
     showCustomerMatrix();
     showDistanceMatrix();
+}
+
+inline int Init::getNoOfDepots() const
+{
+    return d_noOfDepots;
+}
+
+inline int Init::getNoOfVehicleTypes() const
+{
+    return d_noOfVehicleTypes;
+}
+
+inline int Init::getNoOfCustomers() const
+{
+    return d_noOfCustomers;
+}
+
+inline const std::vector<std::vector<double>> &Init::getVehicleMatrix() const
+{
+    return d_vehicleMatrix;
+}
+
+inline const std::vector<std::vector<double>> &Init::getDepotMatrix() const
+{
+    return d_depotMatrix;
+}
+
+inline const std::vector<std::vector<double>> &Init::getCustomerMatrix() const
+{
+    return d_customerMatrix;
+}
+
+inline const std::vector<std::vector<double>> &Init::getDistanceMatrix() const
+{
+    return d_distanceMatrix;
 }
 
 #endif //ORACS_INIT_H
