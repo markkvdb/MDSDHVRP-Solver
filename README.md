@@ -98,7 +98,6 @@ For each customer in `customerMatrix`:
         - `vehicle.setRoute(route, deliverQuantities)`
         - `Customers.addRoute(route, deliverQuantities)`
         
-5. 
         
 `cheapestInsertion(customerList)`
 1. Create `route = {0, 0};`
