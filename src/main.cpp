@@ -4,10 +4,16 @@
 
 #include "main.h"
 
-int main()
+int main(int argc, char* argv[])
 {
     // LOAD DATA
-    std::string fileName = "/Users/markvanderbroek/CLionProjects/ORACS/src/data/instanceA_10_input.txt";
+    if (argc != 2)
+    {
+        cerr << "Usage: " << argv[0] << " <FILENAME>\n";
+        return 1;
+    }
+
+    std::string fileName{argv[1]};
     Init init{fileName};
     init.show();
 
