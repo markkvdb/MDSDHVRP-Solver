@@ -28,7 +28,7 @@ Solution::Solution(Init &init)
                                               vehicleMatrix[vehicleType-4][4]});
             }
         }
-        addDepot(depotToAdd);
+        addDepot(depotToAdd);;
     }
 
     for (int customer = 0; customer != init.getNoOfCustomers(); ++customer)
