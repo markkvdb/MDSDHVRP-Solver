@@ -13,9 +13,10 @@ void Solver::assignRouteToVehicle(int vehicleNumber, int depotNumber,
     std::vector<int> customerList{};
     std::vector<double> customerDropOff{};
 
-    random_device rd;                                   // only used once to initialise (seed) engine
-    mt19937 rng(rd());                                  // random-number engine used (Mersenne-Twister in this case)
-    std::uniform_int_distribution<int> uni(0, depotCustomerAllocation.size());    // guaranteed unbiased
+    // Uncomment this if you don't want fixed seed value and change rng(1) to rng(rd);
+    // random_device rd;
+    mt19937 rng(1);
+    std::uniform_int_distribution<int> uni(0, depotCustomerAllocation.size());
 
     int pickedCustomer = depotCustomerAllocation[uni(rng)];
 
@@ -31,10 +32,5 @@ void Solver::assignRouteToVehicle(int vehicleNumber, int depotNumber,
     }
 
     // TODO Cheapest insertion
-
-    cout << "[" << depotNumber << ", " << vehicleNumber << "]: ";
-    for (int customer: customerList)
-        cout << customer << ' ';
-    cout << '\n';
-
+    
 }
