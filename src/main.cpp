@@ -17,10 +17,12 @@ int main(int argc, char* argv[])
     Init init{fileName};
     init.show();
 
+    // Create environment with all the data
+    Env env{init};
     // Create empty solution
-    Solution solution{init};
+    Solver solver{&env};
 
     // Construct initial solution
-    solution.initialSolution();
+    solver.initialSolution();
 
 }

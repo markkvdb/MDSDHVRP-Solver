@@ -2,7 +2,7 @@
 // Created by Mark van der Broek on 01/03/2017.
 //
 
-#include "customer.h"
+#include "customer.ih"
 
 std::ostream& operator<<(std::ostream &os, Customer const &customer)
 {

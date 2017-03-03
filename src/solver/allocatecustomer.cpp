@@ -1,28 +1,28 @@
 //
-// Created by Mark van der Broek on 01/03/2017.
+// Created by Mark van der Broek on 03/03/2017.
 //
 
-#include "solution.ih"
+#include "solver.ih"
 
-vector<vector<int>> Solution::allocateCustomers()
+vector<vector<int>> Solver::allocateCustomers()
 {
     // Create Depot-Customer allocation
-    vector<vector<int>> depotCustomerAllocation(d_depots.size());
+    vector<vector<int>> depotCustomerAllocation(d_env->d_depots.size());
 
-    vector<int> orderedCustomers(d_customers.size());
+    vector<int> orderedCustomers(d_env->d_customers.size());
     iota(std::begin(orderedCustomers), std::end(orderedCustomers), 0);
 
     // Sort customers on ascending demand size
     sort(begin(orderedCustomers), end(orderedCustomers),
          [&](int lhs, int rhs)
          {
-             return d_customers[lhs].getDemand() < d_customers[rhs].getDemand();
+             return d_env->d_customers[lhs].getDemand() < d_env->d_customers[rhs].getDemand();
          });
 
     for (int customerNumber: orderedCustomers)
     {
         // Select customer
-        Customer &customer = d_customers[customerNumber];
+        Customer &customer = d_env->d_customers[customerNumber];
 
         // Get ordered list of depots based on distance from customer
         vector<int> const &sortedDepots = getClosestDepots(customerNumber);
@@ -30,7 +30,7 @@ vector<vector<int>> Solution::allocateCustomers()
         // Loop till all demand is fulfilled
         for (int depot: sortedDepots)
         {
-            Depot &realDepot = d_depots[depot];
+            Depot &realDepot = d_env->d_depots[depot];
 
             if (customer.getRemainingDemand() <= 0)
                 break;

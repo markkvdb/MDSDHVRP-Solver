@@ -8,5 +8,8 @@ using namespace std;
 
 void Solution::print()
 {
-    cout << "Printed!\n";
+    // TODO implement total solution cost function
+    cout << 1000 << '\n';
+
+
 }

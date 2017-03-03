@@ -8,8 +8,11 @@
 #include <vector>
 #include "../inc/route.h"
 
+class Env;
+
 class Vehicle {
 
+    Env *d_env;
     int d_id;
     int d_depotID;
     double const d_drivingSpeed;
@@ -22,7 +25,7 @@ class Vehicle {
 
 public:
     Vehicle() = delete;
-    Vehicle(int id, int depotID, double capacity, double travelTime, double drivingSpeed, double cost);
+    Vehicle(Env *env, int id, int depotID, double capacity, double travelTime, double drivingSpeed, double cost);
 
     int getId();
     int getDepotID();

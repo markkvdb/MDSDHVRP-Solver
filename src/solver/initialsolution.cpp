@@ -1,10 +1,10 @@
 //
-// Created by Mark van der Broek on 01/03/2017.
+// Created by Mark van der Broek on 03/03/2017.
 //
 
-#include "solution.ih"
+#include "solver.ih"
 
-void Solution::initialSolution()
+void Solver::initialSolution()
 {
     // Create Depot-Customer allocation
     vector<vector<int>> depotCustomerAllocation = allocateCustomers();

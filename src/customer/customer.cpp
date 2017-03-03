@@ -2,10 +2,11 @@
 // Created by Mark van der Broek on 27/02/2017.
 //
 
-#include "customer.h"
+#include "customer.ih"
 
-Customer::Customer(int id, double demand, double serviceTime)
+Customer::Customer(Env *env, int id, double demand, double serviceTime)
 :
+    d_env(env),
     d_id(id),
     d_demand(demand),
     d_remainingDemand(demand),

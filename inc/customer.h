@@ -8,8 +8,11 @@
 #include <vector>
 #include <fstream>
 
+class Env;
+
 class Customer {
 
+    Env *d_env;
     int d_id;
     const double d_demand;
     double d_remainingDemand;
@@ -17,7 +20,8 @@ class Customer {
 //    std::vector<Route> d_routes;
 
 public:
-    Customer(int id, double demand, double serviceTime);
+    Customer() = delete;
+    Customer(Env *env, int id, double demand, double serviceTime);
 
     int getId() const;
     double getDemand() const;
