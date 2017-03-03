@@ -21,11 +21,16 @@ void Solver::assignRouteToVehicle(int vehicleNumber, int depotNumber,
 
     while (remainingCapacity > 0 && not depotCustomerAllocation.empty())
     {
+        // TODO We don't have unique vehicle numbers yet
+        d_env->d_customers[pickedCustomer].addToVehicle(vehicleNumber);
+
         addCustomer(pickedCustomer, remainingCapacity, customerList, customerDropOff,
                     depotCustomerAllocation);
 
         getClosestCustomer(pickedCustomer, depotCustomerAllocation);
     }
+
+    // TODO Cheapest insertion
 
     cout << "[" << depotNumber << ", " << vehicleNumber << "]: ";
     for (int customer: customerList)

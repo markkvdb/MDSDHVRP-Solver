@@ -20,4 +20,5 @@ void Solver::initialSolution()
             assignRouteToVehicle(vehicleNumber, depotNumber, depotCustomerAllocation[depotNumber]);
         }
     }
+    
 }

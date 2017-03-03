@@ -5,7 +5,6 @@
 #ifndef ORACS_ROUTE_H
 #define ORACS_ROUTE_H
 
-#include "../inc/customer.h"
 #include <vector>
 
 class Env;
@@ -13,21 +12,21 @@ class Env;
 class Route {
     Env *                   d_env;
     int                     d_depotID;
-    std::vector<Customer>   d_route;
+    std::vector<int>        d_route;
     std::vector<double>     d_demandRoute;
 
 public:
     Route() = delete;
     Route(Env *env, int depotID);
-    Route(Env *env, int depotID, std::vector<Customer> route, std::vector<double> demandRoute);
+    Route(Env *env, int depotID, std::vector<int> route, std::vector<double> demandRoute);
 
-    std::vector<Customer>   &getRoute();
+    std::vector<int>        &getRoute();
     std::vector<double>     &getDemandRoute();
     double                  travelDistance();
 
 };
 
-inline std::vector<Customer> &Route::getRoute()
+inline std::vector<int> &Route::getRoute()
 {
     return d_route;
 }
