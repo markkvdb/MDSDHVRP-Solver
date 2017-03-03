@@ -13,9 +13,9 @@
 
 class Solution {
 
-    std::vector<Depot> d_depots;
-    std::vector<Customer> d_customers;
-    std::vector<std::vector<double>> d_distanceMatrix;
+    std::vector<Depot>                  d_depots;
+    std::vector<Customer>               d_customers;
+    std::vector<std::vector<double>>    d_distanceMatrix;
 
 public:
     Solution();

@@ -12,28 +12,29 @@ class Env;
 
 class Vehicle {
 
-    Env *d_env;
-    int d_id;
-    int d_depotID;
-    double const d_drivingSpeed;
-    double const d_cost;
-    double const d_capacity;
-    double const d_travelTime;
-    Route d_route;
+    Env *               d_env;
+    int                 d_id;
+    int                 d_depotID;
+    double const        d_drivingSpeed;
+    double const        d_cost;
+    double const        d_capacity;
+    double const        d_travelTime;
+    Route               d_route;
     // TODO Should the deliveries be stored in the route?
-    std::vector<int> d_deliveries;
+    std::vector<int>    d_deliveries;
 
 public:
     Vehicle() = delete;
     Vehicle(Env *env, int id, int depotID, double capacity, double travelTime, double drivingSpeed, double cost);
 
-    int getId();
-    int getDepotID();
-    double getDrivingSpeed();
-    double getCost();
-    double getCapacity();
+    int     getId();
+    int     getDepotID();
+    double  getDrivingSpeed();
+    double  getCost();
+    double  getCapacity();
     double  getTravelTime();
-    Route &getRoute();
+    Route   &getRoute();
+    double  getDrivingCost();
 
 private:
 
@@ -72,6 +73,11 @@ inline double Vehicle::getTravelTime()
 inline Route &Vehicle::getRoute()
 {
     return d_route;
+}
+
+inline double Vehicle::getDrivingCost()
+{
+    return (d_cost / d_drivingSpeed);
 }
 
 #endif //ORACS_VEHICLE_H

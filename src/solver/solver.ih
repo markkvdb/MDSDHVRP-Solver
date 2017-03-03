@@ -1,5 +1,7 @@
 #include "../../inc/solver.h"
 #include "../../inc/env.h"
+#include <random>
+#include <limits>
 #include <iostream>
 #include <algorithm>
 #include <numeric>

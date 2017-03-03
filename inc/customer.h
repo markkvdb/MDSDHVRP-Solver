@@ -13,21 +13,22 @@ class Env;
 class Customer {
 
     Env *d_env;
-    int d_id;
-    const double d_demand;
-    double d_remainingDemand;
-    const double d_serviceTime;
-//    std::vector<Route> d_routes;
+    int                 d_id;
+    const double        d_demand;
+    double              d_remainingDemand;
+    const double        d_serviceTime;
+    std::vector<int>    d_vehicles;
 
 public:
     Customer() = delete;
     Customer(Env *env, int id, double demand, double serviceTime);
 
-    int getId() const;
-    double getDemand() const;
-    double getServiceTime() const;
-    double getRemainingDemand() const;
-    void changeDemand(double demand);
+    int     getId()                      const;
+    double  getDemand()                  const;
+    double  getServiceTime()             const;
+    double  getRemainingDemand()         const;
+    void    changeDemand(double demand);
+    void    addToVehicle(int vehicle);
 
     friend std::ostream& operator<<(std::ostream &os, Customer const &customer);
 
@@ -56,6 +57,11 @@ inline double Customer::getRemainingDemand() const
 inline void Customer::changeDemand(double demand)
 {
     d_remainingDemand += demand;
+}
+
+inline void Customer::addToVehicle(int vehicle)
+{
+    d_vehicles.push_back(vehicle);
 }
 
 

@@ -12,24 +12,42 @@ class Env;
 
 class Depot {
 
-    Env *d_env;
-    int d_id;
-    std::vector<Vehicle> d_vehicles;
-    double d_leftOverInventory;
+    Env *                   d_env;
+    int                     d_id;
+    std::vector<Vehicle>    d_vehicles;
+    double                  d_leftOverInventory;
 
 public:
     Depot() = delete;
     Depot(Env *env, int id, double leftOverInventory);
     Depot(Env *env, int id, std::vector<Vehicle> &vehicles, double leftOverInventory);
 
-    double getLeftOverInventory();
-    void changeInventory(double amount);
-    void addVehicle(Vehicle vehicle);
+    std::vector<Vehicle> &  getVehicles();
+    Vehicle &               getVehicle(int vehicleNumber);
+    size_t                  getNumberOfVehicles();
+    double                  getLeftOverInventory();
+    void                    changeInventory(double amount);
+    void                    addVehicle(Vehicle vehicle);
 
 private:
 
 
 };
+
+inline std::vector<Vehicle> &Depot::getVehicles()
+{
+    return d_vehicles;
+}
+
+inline Vehicle &Depot::getVehicle(int vehicleNumber)
+{
+    return d_vehicles[vehicleNumber];
+}
+
+inline size_t Depot::getNumberOfVehicles()
+{
+    return d_vehicles.size();
+}
 
 inline void Depot::changeInventory(double amount)
 {

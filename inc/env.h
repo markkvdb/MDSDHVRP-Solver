@@ -15,9 +15,9 @@ class Env {
     typedef std::vector<std::vector<double>> DoubleMatrix;
 
 public:
-    std::vector<Depot> d_depots;
-    std::vector<Customer> d_customers;
-    DoubleMatrix d_distanceMatrix;
+    std::vector<Depot>      d_depots;
+    std::vector<Customer>   d_customers;
+    DoubleMatrix            d_distanceMatrix;
 
     Env();
     Env(Init &init);

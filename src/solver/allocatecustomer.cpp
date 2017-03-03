@@ -23,6 +23,7 @@ vector<vector<int>> Solver::allocateCustomers()
     {
         // Select customer
         Customer &customer = d_env->d_customers[customerNumber];
+        double customerDemand = customer.getDemand();
 
         // Get ordered list of depots based on distance from customer
         vector<int> const &sortedDepots = getClosestDepots(customerNumber);
@@ -32,22 +33,22 @@ vector<vector<int>> Solver::allocateCustomers()
         {
             Depot &realDepot = d_env->d_depots[depot];
 
-            if (customer.getRemainingDemand() <= 0)
+            // Once all demand is fulfilled stop looking for new depots to allocate to.
+            if (customerDemand <= 0)
                 break;
 
             if (realDepot.getLeftOverInventory() > 0)
             {
                 double fulfilledDemand = 0;
 
-                if (realDepot.getLeftOverInventory() < customer.getRemainingDemand())
-                {
+                if (realDepot.getLeftOverInventory() < customerDemand)
                     fulfilledDemand = -realDepot.getLeftOverInventory();
-                } else {
-                    fulfilledDemand = -customer.getRemainingDemand();
-                }
+                else
+                    fulfilledDemand = -customerDemand;
 
+                // Update the inventory of the depot (not of the customer)
                 realDepot.changeInventory(fulfilledDemand);
-                customer.changeDemand(fulfilledDemand);
+                customerDemand += fulfilledDemand;
 
                 depotCustomerAllocation[depot].push_back(customerNumber);
             }

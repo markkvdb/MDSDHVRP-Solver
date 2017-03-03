@@ -21,8 +21,15 @@ public:
     void initialSolution();
 
 private:
-    std::vector<std::vector<int>> allocateCustomers();
-    std::vector<int> getClosestDepots(int customer);
+    std::vector<std::vector<int>>   allocateCustomers();
+    std::vector<int>                getClosestDepots(int customer);
+    std::vector<int>                sortVehicleList(int depotNumber);
+    void                            assignRouteToVehicle(int vehicleNumber, int depotNumber,
+                                                         std::vector<int> &depotCustomerAllocation);
+    void                            addCustomer(int pickedCustomer, double &remainingCapacity,
+                                                std::vector<int> &customerList, std::vector<double> &customerDropOff,
+                                                std::vector<int> &depotCustomerAllocation);
+    void                            getClosestCustomer(int &pickedCustomer, std::vector<int> &depotCustomerAllocation);
 
 };
 

@@ -10,36 +10,36 @@
 
 class Init
 {
-    int d_noOfDepots;
-    int d_noOfVehicleTypes;
-    int d_noOfCustomers;
-    std::vector<std::vector<double>> d_vehicleMatrix;
-    std::vector<std::vector<double>> d_depotMatrix;
-    std::vector<std::vector<double>> d_customerMatrix;
-    std::vector<std::vector<double>> d_distanceMatrix;
+    int                                 d_noOfDepots;
+    int                                 d_noOfVehicleTypes;
+    int                                 d_noOfCustomers;
+    std::vector<std::vector<double>>    d_vehicleMatrix;
+    std::vector<std::vector<double>>    d_depotMatrix;
+    std::vector<std::vector<double>>    d_customerMatrix;
+    std::vector<std::vector<double>>    d_distanceMatrix;
 
 public:
     Init() = delete;
     Init(std::string &file);
 
-    void showVehicleMatrix();
-    void showDepotMatrix();
-    void showCustomerMatrix();
-    void showDistanceMatrix();
-    void show();
+    void                                    showVehicleMatrix();
+    void                                    showDepotMatrix();
+    void                                    showCustomerMatrix();
+    void                                    showDistanceMatrix();
+    void                                    show();
 
-    int getNoOfDepots() const;
-    int getNoOfVehicleTypes() const;
-    int getNoOfCustomers() const;
-    const std::vector<std::vector<double>> &getVehicleMatrix() const;
-    const std::vector<std::vector<double>> &getDepotMatrix() const;
-    const std::vector<std::vector<double>> &getCustomerMatrix() const;
-    const std::vector<std::vector<double>> &getDistanceMatrix() const;
+    int                                     getNoOfDepots()         const;
+    int                                     getNoOfVehicleTypes()   const;
+    int                                     getNoOfCustomers()      const;
+    const std::vector<std::vector<double>>  &getVehicleMatrix()     const;
+    const std::vector<std::vector<double>>  &getDepotMatrix()       const;
+    const std::vector<std::vector<double>>  &getCustomerMatrix()    const;
+    const std::vector<std::vector<double>>  &getDistanceMatrix()    const;
 
 private:
-    void showMatrix(std::vector<std::vector<double>> matrix);
-    void createDistanceMatrix();
-    double distance(double x1, double y1, double x2, double y2);
+    void                                    showMatrix(std::vector<std::vector<double>> matrix);
+    void                                    createDistanceMatrix();
+    double                                  distance(double x1, double y1, double x2, double y2);
 };
 
 inline void Init::show()

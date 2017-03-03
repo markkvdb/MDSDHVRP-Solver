@@ -6,17 +6,18 @@
 
 void Solver::initialSolution()
 {
-    // Create Depot-Customer allocation
+    // Create Depot-Customer allocation (depotCustomerAllocation is a m by something)
     vector<vector<int>> depotCustomerAllocation = allocateCustomers();
 
-    for (int row = 0; row != depotCustomerAllocation.size(); ++row)
+    // For each depot
+    for (int depotNumber = 0; depotNumber != d_env->d_depots.size(); ++depotNumber)
     {
-        cout << "Depot " << row << ": ";
-        for (int col = 0; col != depotCustomerAllocation[row].size(); ++col)
+        // Sorted vehicle list
+        vector<int> sortedVehicleList = sortVehicleList(depotNumber);
+
+        for (int vehicleNumber: sortedVehicleList)
         {
-            cout << depotCustomerAllocation[row][col] << '\t';
+            assignRouteToVehicle(vehicleNumber, depotNumber, depotCustomerAllocation[depotNumber]);
         }
-        cout << '\n';
     }
-    cout << '\n';
 }
