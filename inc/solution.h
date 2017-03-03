@@ -19,27 +19,11 @@ class Solution {
 
 public:
     Solution();
-    Solution(Init &init);
 
-    void addDepot(Depot &depot);
-    void addCustomer(Customer &customer);
-    void initialSolution();
     void print();
 
 private:
-    std::vector<std::vector<int>> allocateCustomers();
-    std::vector<int> getClosestDepots(int customer);
 
 };
-
-inline void Solution::addDepot(Depot &depot)
-{
-    d_depots.push_back(depot);
-}
-
-inline void Solution::addCustomer(Customer &customer)
-{
-    d_customers.push_back(customer);
-}
 
 #endif //ORACS_SOLUTION_H

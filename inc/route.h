@@ -9,17 +9,28 @@
 #include <vector>
 
 class Route {
+    int d_depotID;
     std::vector<Customer> d_route;
-    // TODO Why specify vehicle type and deliver quantity here?
+    std::vector<double> d_demandRoute;
 
 public:
-    Route();
+    Route() = delete;
+    Route(int depotID);
+    Route(int depotID, std::vector<Customer> route, std::vector<double> demandRoute);
+
     std::vector<Customer> &getRoute();
+    std::vector<double> &getDemandRoute();
+    double travelDistance();
 
 };
 
 inline std::vector<Customer> &Route::getRoute()
 {
     return d_route;
+}
+
+inline std::vector<double> &Route::getDemandRoute()
+{
+    return d_demandRoute;
 }
 #endif //ORACS_ROUTE_H

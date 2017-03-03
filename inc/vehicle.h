@@ -11,6 +11,7 @@
 class Vehicle {
 
     int d_id;
+    int d_depotID;
     double const d_drivingSpeed;
     double const d_cost;
     double const d_capacity;
@@ -21,9 +22,10 @@ class Vehicle {
 
 public:
     Vehicle() = delete;
-    Vehicle(int id, double capacity, double travelTime, double drivingSpeed, double cost);
+    Vehicle(int id, int depotID, double capacity, double travelTime, double drivingSpeed, double cost);
 
     int getId();
+    int getDepotID();
     double getDrivingSpeed();
     double getCost();
     double getCapacity();
@@ -37,6 +39,11 @@ private:
 inline int Vehicle::getId()
 {
     return d_id;
+}
+
+inline int Vehicle::getDepotID()
+{
+    return d_depotID;
 }
 
 inline double Vehicle::getDrivingSpeed()
