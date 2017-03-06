@@ -18,7 +18,8 @@ void Solver::assignRouteToVehicle(int vehicleNumber, int depotNumber,
     mt19937 rng(1);
     std::uniform_int_distribution<int> uni(0, depotCustomerAllocation.size());
 
-    int pickedCustomer = depotCustomerAllocation[uni(rng)];
+    int const seedCustomer{depotCustomerAllocation[uni(rng)]};
+    int pickedCustomer = seedCustomer;
 
     while (remainingCapacity > 0 && not depotCustomerAllocation.empty())
     {
@@ -27,7 +28,7 @@ void Solver::assignRouteToVehicle(int vehicleNumber, int depotNumber,
         addCustomer(pickedCustomer, remainingCapacity, customerList, customerDropOff,
                     depotCustomerAllocation, depotCustomerDemand);
 
-        getClosestCustomer(pickedCustomer, depotCustomerAllocation);
+        getClosestCustomer(seedCustomer, pickedCustomer, depotCustomerAllocation);
     }
 
     pair<vector<int>, vector<double>> route = cheapestInsertion(depotNumber, customerList, customerDropOff);

@@ -36,7 +36,8 @@ private:
                                                 std::vector<int> &customerList, std::vector<double> &customerDropOff,
                                                 std::vector<int> &depotCustomerAllocation,
                                                 std::vector<double> &depotCustomerDemand);
-    void                            getClosestCustomer(int &pickedCustomer, std::vector<int> &depotCustomerAllocation);
+    void                            getClosestCustomer(int seedCustomer, int &pickedCustomer,
+                                                       std::vector<int> &depotCustomerAllocation);
     std::pair<std::vector<int>,
             std::vector<double>>    cheapestInsertion(int depotNumber, std::vector<int> &customerList,
                                                        std::vector<double> &customerDropOff);

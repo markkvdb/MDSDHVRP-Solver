@@ -4,7 +4,7 @@
 
 #include "solver.ih"
 
-void Solver::getClosestCustomer(int &pickedCustomer, std::vector<int> &depotCustomerAllocation)
+void Solver::getClosestCustomer(int seedCustomer, int &pickedCustomer, std::vector<int> &depotCustomerAllocation)
 {
     // TODO It can happen that a customer is not completely served, so it will remain in depotCustomerAllocation
     int minCustomer = 0;
@@ -15,10 +15,10 @@ void Solver::getClosestCustomer(int &pickedCustomer, std::vector<int> &depotCust
         if (customer == pickedCustomer)
             continue;
 
-        if (d_env->d_distanceMatrix[pickedCustomer][customer] < minDistance)
+        if (d_env->d_distanceMatrix[seedCustomer][customer] < minDistance)
         {
             minCustomer = customer;
-            minDistance = d_env->d_distanceMatrix[pickedCustomer][customer];
+            minDistance = d_env->d_distanceMatrix[seedCustomer][customer];
         }
     }
 
