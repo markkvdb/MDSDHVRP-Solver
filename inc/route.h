@@ -6,14 +6,19 @@
 #define ORACS_ROUTE_H
 
 #include <vector>
+#include <fstream>
 
 class Env;
 
 class Route {
+
     Env *                   d_env;
     int                     d_depotID;
     std::vector<int>        d_route;
     std::vector<double>     d_demandRoute;
+    double                  d_load;
+    double                  d_length;
+    double                  d_serviceTime;
 
 public:
     Route() = delete;
@@ -22,7 +27,17 @@ public:
 
     std::vector<int>        &getRoute();
     std::vector<double>     &getDemandRoute();
-    double                  travelDistance();
+    double const            getLoad()           const;
+    double const            getDistance()       const;
+    double const            getServiceTime()    const;
+
+    friend std::ostream &operator<<(std::ostream &, Route const &route);
+
+
+private:
+    void updateDistance();
+    void updateServiceTime();
+    void updateLoad();
 
 };
 
@@ -35,4 +50,20 @@ inline std::vector<double> &Route::getDemandRoute()
 {
     return d_demandRoute;
 }
+
+inline double const Route::getLoad() const
+{
+    return d_load;
+}
+
+inline double const Route::getDistance() const
+{
+    return d_length;
+}
+
+inline double const Route::getServiceTime() const
+{
+    return d_serviceTime;
+}
+
 #endif //ORACS_ROUTE_H

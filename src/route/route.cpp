@@ -10,7 +10,11 @@ Route::Route(Env *env, int depotID, std::vector<int> route, std::vector<double> 
     d_depotID(depotID),
     d_route(route),
     d_demandRoute(demandRoute)
-{}
+{
+    updateDistance();
+    updateLoad();
+    updateServiceTime();
+}
 
 Route::Route(Env *env, int depotID)
 :

@@ -4,8 +4,9 @@
 
 #include "solver.ih"
 
-void Solver::addCustomer(int pickedCustomer, double &remainingCapacity, std::vector<int> &customerList,
-                           std::vector<double> &customerDropOff, std::vector<int> &depotCustomerAllocation)
+void Solver::addCustomer(int pickedCustomer, double &remainingCapacity, vector<int> &customerList,
+                         vector<double> &customerDropOff, std::vector<int> &depotCustomerAllocation,
+                         vector<double> &depotCustomerDemand)
 {
 
     // Add customer to the customer list of the vehicle
@@ -13,24 +14,27 @@ void Solver::addCustomer(int pickedCustomer, double &remainingCapacity, std::vec
 
     Customer &customer = d_env->d_customers[pickedCustomer];
 
+    long positionCustomer = find(begin(depotCustomerAllocation), end(depotCustomerAllocation), pickedCustomer) - begin(depotCustomerAllocation);
+
     // Check if the whole demand can be satisfied
-    if (customer.getRemainingDemand() <= remainingCapacity)
+    if (depotCustomerDemand[positionCustomer] <= remainingCapacity)
     {
         // Add whole demand to the drop off and set customer remaining demand to zero
-        customerDropOff.push_back(customer.getRemainingDemand());
-        remainingCapacity -= customer.getRemainingDemand();
-        customer.changeDemand(-customer.getRemainingDemand());
-
+        customerDropOff.push_back(depotCustomerDemand[positionCustomer]);
+        remainingCapacity -= depotCustomerDemand[positionCustomer];
+        customer.changeDemand(-depotCustomerDemand[positionCustomer]);
 
         // Delete customer from the depot customer allocation
-        depotCustomerAllocation.erase(remove(begin(depotCustomerAllocation), end(depotCustomerAllocation), pickedCustomer),
-                                      end(depotCustomerAllocation));
+        depotCustomerAllocation.erase(begin(depotCustomerAllocation) + positionCustomer);
+        depotCustomerDemand.erase(begin(depotCustomerDemand) + positionCustomer);
 
     }
-    else // Not all demand can be fullfilled
+    else // Not all demand can be fulfilled
     {
         customerDropOff.push_back(remainingCapacity);
         customer.changeDemand(-remainingCapacity);
+        depotCustomerDemand[positionCustomer] -= remainingCapacity;
         remainingCapacity = 0;
     }
+
 }

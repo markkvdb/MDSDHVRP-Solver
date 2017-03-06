@@ -25,4 +25,6 @@ int main(int argc, char* argv[])
     // Construct initial solution
     solver.initialSolution();
 
+    solver.print();
+
 }

@@ -7,6 +7,7 @@
 
 #include <vector>
 #include "../inc/route.h"
+#include <fstream>
 
 class Env;
 
@@ -18,56 +19,66 @@ class Vehicle {
     double const        d_drivingSpeed;
     double const        d_cost;
     double const        d_capacity;
-    double const        d_travelTime;
+    double const        d_serviceTime;
     Route               d_route;
-    // TODO Should the deliveries be stored in the route?
-    std::vector<int>    d_deliveries;
 
 public:
     Vehicle() = delete;
-    Vehicle(Env *env, int id, int depotID, double capacity, double travelTime, double drivingSpeed, double cost);
+    Vehicle(Env *env, int id, int depotID, double capacity, double serviceTime, double drivingSpeed, double cost);
 
-    int     getId();
-    int     getDepotID();
-    double  getDrivingSpeed();
-    double  getCost();
-    double  getCapacity();
-    double  getTravelTime();
+    int     getId()             const;
+    int     getDepotID()        const;
+    double  getDrivingSpeed()   const;
+    double  getDrivingCost()    const;
+    double  getCost()           const;
+    double  getCapacity()       const;
+    double  getServiceTime()    const;
     Route   &getRoute();
-    double  getDrivingCost();
+    double  getTotalCost()      const;
+    double  getDrivingTime()    const;
+    double  getRouteDuration()  const;
+
+    void    setRoute(Route route);
+
+    friend std::ostream& operator<<(std::ostream &os, Vehicle const &vehicle);
 
 private:
 
 };
 
-inline int Vehicle::getId()
+inline int Vehicle::getId() const
 {
     return d_id;
 }
 
-inline int Vehicle::getDepotID()
+inline int Vehicle::getDepotID() const
 {
     return d_depotID;
 }
 
-inline double Vehicle::getDrivingSpeed()
+inline double Vehicle::getDrivingSpeed() const
 {
     return d_drivingSpeed;
 }
 
-inline double Vehicle::getCost()
+inline double Vehicle::getDrivingCost() const
+{
+    return d_cost / d_drivingSpeed;
+}
+
+inline double Vehicle::getCost() const
 {
     return d_cost;
 }
 
-inline double Vehicle::getCapacity()
+inline double Vehicle::getCapacity() const
 {
     return d_capacity;
 }
 
-inline double Vehicle::getTravelTime()
+inline double Vehicle::getServiceTime() const
 {
-    return d_travelTime;
+    return d_serviceTime;
 }
 
 inline Route &Vehicle::getRoute()
@@ -75,9 +86,24 @@ inline Route &Vehicle::getRoute()
     return d_route;
 }
 
-inline double Vehicle::getDrivingCost()
+inline double Vehicle::getTotalCost() const
 {
-    return (d_cost / d_drivingSpeed);
+    return d_route.getDistance() * d_cost;
+}
+
+inline double Vehicle::getDrivingTime() const
+{
+    return d_route.getDistance() / d_drivingSpeed;
+}
+
+inline double Vehicle::getRouteDuration() const
+{
+    return getDrivingTime() + d_route.getServiceTime();
+}
+
+inline void Vehicle::setRoute(Route route)
+{
+    d_route = route;
 }
 
 #endif //ORACS_VEHICLE_H

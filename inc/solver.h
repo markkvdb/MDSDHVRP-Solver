@@ -6,6 +6,7 @@
 #define ORACS_SOLVER_H
 
 #include "solution.h"
+#include <utility>
 
 class Env;
 
@@ -19,17 +20,26 @@ public:
     Solver(Env *env);
 
     void initialSolution();
+    void print();
 
 private:
-    std::vector<std::vector<int>>   allocateCustomers();
+    std::pair<
+            std::vector<std::vector<int>>,
+            std::vector<std::vector<double>>>
+                                    allocateCustomers();
     std::vector<int>                getClosestDepots(int customer);
     std::vector<int>                sortVehicleList(int depotNumber);
     void                            assignRouteToVehicle(int vehicleNumber, int depotNumber,
-                                                         std::vector<int> &depotCustomerAllocation);
+                                                         std::vector<int> &depotCustomerAllocation,
+                                                         std::vector<double> &depotCustomerDemand);
     void                            addCustomer(int pickedCustomer, double &remainingCapacity,
                                                 std::vector<int> &customerList, std::vector<double> &customerDropOff,
-                                                std::vector<int> &depotCustomerAllocation);
+                                                std::vector<int> &depotCustomerAllocation,
+                                                std::vector<double> &depotCustomerDemand);
     void                            getClosestCustomer(int &pickedCustomer, std::vector<int> &depotCustomerAllocation);
+    std::pair<std::vector<int>,
+            std::vector<double>>    cheapestInsertion(int depotNumber, std::vector<int> &customerList,
+                                                       std::vector<double> &customerDropOff);
 
 };
 

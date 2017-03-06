@@ -15,7 +15,7 @@ vector<int> Solver::getClosestDepots(int customer)
          [&](int lhs, int rhs)
          {
              return d_env->d_distanceMatrix[customer][lhs + d_env->d_customers.size()]
-                    < d_env->d_distanceMatrix[customer][lhs + d_env->d_customers.size()];
+                    < d_env->d_distanceMatrix[customer][rhs + d_env->d_customers.size()];
          });
 
     return orderedDepots;

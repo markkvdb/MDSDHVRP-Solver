@@ -5,7 +5,7 @@
 #include "solver.ih"
 
 void Solver::assignRouteToVehicle(int vehicleNumber, int depotNumber,
-                                  std::vector<int> &depotCustomerAllocation)
+                                  std::vector<int> &depotCustomerAllocation, std::vector<double> &depotCustomerDemand)
 {
     double remainingCapacity = d_env->d_depots[depotNumber].getVehicle(vehicleNumber).getCapacity();
 
@@ -26,11 +26,14 @@ void Solver::assignRouteToVehicle(int vehicleNumber, int depotNumber,
         d_env->d_customers[pickedCustomer].addToVehicle(vehicleNumber);
 
         addCustomer(pickedCustomer, remainingCapacity, customerList, customerDropOff,
-                    depotCustomerAllocation);
+                    depotCustomerAllocation, depotCustomerDemand);
 
         getClosestCustomer(pickedCustomer, depotCustomerAllocation);
     }
 
     // TODO Cheapest insertion
+    pair<vector<int>, vector<double>> route = cheapestInsertion(depotNumber, customerList, customerDropOff);
 
+    Route routeToAdd{d_env, depotNumber, route.first, route.second};
+    d_env->d_depots[depotNumber].getVehicle(vehicleNumber).setRoute(routeToAdd);
 }

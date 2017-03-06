@@ -7,6 +7,7 @@
 
 #include <vector>
 #include "../inc/vehicle.h"
+#include <fstream>
 
 class Env;
 
@@ -24,10 +25,13 @@ public:
 
     std::vector<Vehicle> &  getVehicles();
     Vehicle &               getVehicle(int vehicleNumber);
+    int                     getID();
     int                     getNumberOfVehicles();
     double                  getLeftOverInventory();
     void                    changeInventory(double amount);
     void                    addVehicle(Vehicle vehicle);
+
+    friend std::ostream& operator<<(std::ostream &os, Depot const &depot);
 
 private:
 
@@ -42,6 +46,11 @@ inline std::vector<Vehicle> &Depot::getVehicles()
 inline Vehicle &Depot::getVehicle(int vehicleNumber)
 {
     return d_vehicles[vehicleNumber];
+}
+
+inline int Depot::getID()
+{
+    return d_id;
 }
 
 inline int Depot::getNumberOfVehicles()

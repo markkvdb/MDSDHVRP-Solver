@@ -4,10 +4,11 @@
 
 #include "solver.ih"
 
-vector<vector<int>> Solver::allocateCustomers()
+pair<vector<vector<int>>, vector<vector<double>>> Solver::allocateCustomers()
 {
     // Create Depot-Customer allocation
     vector<vector<int>> depotCustomerAllocation(d_env->d_depots.size());
+    vector<vector<double>> depotCustomerDemand(d_env->d_depots.size());
 
     vector<int> orderedCustomers(d_env->d_customers.size());
     iota(std::begin(orderedCustomers), std::end(orderedCustomers), 0);
@@ -42,18 +43,19 @@ vector<vector<int>> Solver::allocateCustomers()
                 double fulfilledDemand = 0;
 
                 if (realDepot.getLeftOverInventory() < customerDemand)
-                    fulfilledDemand = -realDepot.getLeftOverInventory();
+                    fulfilledDemand = realDepot.getLeftOverInventory();
                 else
-                    fulfilledDemand = -customerDemand;
+                    fulfilledDemand = customerDemand;
 
                 // Update the inventory of the depot (not of the customer)
-                realDepot.changeInventory(fulfilledDemand);
-                customerDemand += fulfilledDemand;
+                realDepot.changeInventory(-fulfilledDemand);
+                customerDemand -= fulfilledDemand;
 
                 depotCustomerAllocation[depot].push_back(customerNumber);
+                depotCustomerDemand[depot].push_back(fulfilledDemand);
             }
         }
     }
 
-    return depotCustomerAllocation;
+    return make_pair(depotCustomerAllocation, depotCustomerDemand);
 }
