@@ -24,7 +24,7 @@ public:
 
     std::vector<Vehicle> &  getVehicles();
     Vehicle &               getVehicle(int vehicleNumber);
-    size_t                  getNumberOfVehicles();
+    int                     getNumberOfVehicles();
     double                  getLeftOverInventory();
     void                    changeInventory(double amount);
     void                    addVehicle(Vehicle vehicle);
@@ -44,7 +44,7 @@ inline Vehicle &Depot::getVehicle(int vehicleNumber)
     return d_vehicles[vehicleNumber];
 }
 
-inline size_t Depot::getNumberOfVehicles()
+inline int Depot::getNumberOfVehicles()
 {
     return d_vehicles.size();
 }

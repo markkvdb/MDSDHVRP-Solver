@@ -32,5 +32,5 @@ void Solver::assignRouteToVehicle(int vehicleNumber, int depotNumber,
     }
 
     // TODO Cheapest insertion
-    
+
 }
