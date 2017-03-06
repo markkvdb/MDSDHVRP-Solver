@@ -15,7 +15,7 @@ int main(int argc, char* argv[])
 
     std::string fileName{argv[1]};
     Init init{fileName};
-    init.show();
+//    init.show();
 
     // Create environment with all the data
     Env env{init};

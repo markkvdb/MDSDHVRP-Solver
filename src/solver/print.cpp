@@ -6,15 +6,15 @@
 
 void Solver::print()
 {
+    cout << totalCost() << "\n\n";
+
     for (Depot const &depot: d_env->d_depots)
     {
         cout << depot;
     }
-
-    cout << '\n';
-
-    for (Customer const &customer: d_env->d_customers)
-    {
-        cout << customer;
-    }
+//
+//    for (Customer const &customer: d_env->d_customers)
+//    {
+//        cout << customer;
+//    }
 }

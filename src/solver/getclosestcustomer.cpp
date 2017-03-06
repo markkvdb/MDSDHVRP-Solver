@@ -6,7 +6,6 @@
 
 void Solver::getClosestCustomer(int seedCustomer, int &pickedCustomer, std::vector<int> &depotCustomerAllocation)
 {
-    // TODO It can happen that a customer is not completely served, so it will remain in depotCustomerAllocation
     int minCustomer = 0;
     double minDistance = numeric_limits<double>::max();
 
