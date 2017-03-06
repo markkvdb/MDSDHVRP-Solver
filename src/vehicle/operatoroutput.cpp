@@ -6,7 +6,7 @@
 
 ostream& operator<<(ostream &os, Vehicle const &vehicle)
 {
-    os << vehicle.d_id << ' ' << vehicle.d_route.getDistance() << ' ' << vehicle.getTotalCost() << ' '
+    os << vehicle.d_vehicleType << ' ' << vehicle.d_route.getDistance() << ' ' << vehicle.getTotalCost() << ' '
        << vehicle.d_route.getLoad() << ' ' << vehicle.d_route.getServiceTime() << ' ' << vehicle.getDrivingTime()
        << ' ' << vehicle.getRouteDuration() << ' ' << vehicle.d_route;
 

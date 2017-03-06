@@ -12,6 +12,7 @@ Env::Env(Init &init)
     vector<vector<double>> vehicleMatrix    (init.getVehicleMatrix());
     vector<vector<double>> customerMatrix   (init.getCustomerMatrix());
 
+    int vehicleIdx = 0;
     for (int depot = 0; depot != init.getNoOfDepots(); ++depot)
     {
         Depot depotToAdd{this, depot, depotMatrix[depot][3]};
@@ -22,12 +23,14 @@ Env::Env(Init &init)
             for (int noOfVehicles = 0; noOfVehicles != depotMatrix[depot][vehicleType]; ++noOfVehicles)
             {
                 depotToAdd.addVehicle(Vehicle{this,
+                                              vehicleIdx,
                                               static_cast<int>(vehicleMatrix[vehicleType-4][0]),
                                               depot,
                                               vehicleMatrix[vehicleType-4][1],
                                               vehicleMatrix[vehicleType-4][2],
                                               vehicleMatrix[vehicleType-4][3],
                                               vehicleMatrix[vehicleType-4][4]});
+                ++vehicleIdx;
             }
         }
         addDepot(depotToAdd);

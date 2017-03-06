@@ -14,7 +14,8 @@ class Env;
 class Vehicle {
 
     Env *               d_env;
-    int                 d_id;
+    int const           d_id;
+    int const           d_vehicleType;
     int                 d_depotID;
     double const        d_drivingSpeed;
     double const        d_cost;
@@ -24,9 +25,10 @@ class Vehicle {
 
 public:
     Vehicle() = delete;
-    Vehicle(Env *env, int id, int depotID, double capacity, double serviceTime, double drivingSpeed, double cost);
+    Vehicle(Env *env, int id, int vehicleType, int depotID, double capacity, double serviceTime, double drivingSpeed, double cost);
 
-    int     getId()             const;
+    int     getID()             const;
+    int     getVehicleType()    const;
     int     getDepotID()        const;
     double  getDrivingSpeed()   const;
     double  getDrivingCost()    const;
@@ -46,9 +48,14 @@ private:
 
 };
 
-inline int Vehicle::getId() const
+inline int Vehicle::getID() const
 {
     return d_id;
+}
+
+inline int Vehicle::getVehicleType() const
+{
+    return d_vehicleType;
 }
 
 inline int Vehicle::getDepotID() const

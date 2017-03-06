@@ -22,8 +22,7 @@ void Solver::assignRouteToVehicle(int vehicleNumber, int depotNumber,
 
     while (remainingCapacity > 0 && not depotCustomerAllocation.empty())
     {
-        // TODO We don't have unique vehicle numbers yet
-        d_env->d_customers[pickedCustomer].addToVehicle(vehicleNumber);
+        d_env->d_customers[pickedCustomer].addToVehicle(d_env->d_depots[depotNumber].getVehicle(vehicleNumber).getID());
 
         addCustomer(pickedCustomer, remainingCapacity, customerList, customerDropOff,
                     depotCustomerAllocation, depotCustomerDemand);
@@ -31,7 +30,6 @@ void Solver::assignRouteToVehicle(int vehicleNumber, int depotNumber,
         getClosestCustomer(pickedCustomer, depotCustomerAllocation);
     }
 
-    // TODO Cheapest insertion
     pair<vector<int>, vector<double>> route = cheapestInsertion(depotNumber, customerList, customerDropOff);
 
     Route routeToAdd{d_env, depotNumber, route.first, route.second};

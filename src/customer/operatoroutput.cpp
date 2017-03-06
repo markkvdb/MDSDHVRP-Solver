@@ -6,8 +6,11 @@
 
 std::ostream& operator<<(std::ostream &os, Customer const &customer)
 {
-    os << "ID:\t" << customer.d_id << "\nDemand:\t" << customer.d_demand << "\nRemaining demand:\t"
-       << customer.d_remainingDemand << "\nService time:\t" << customer.d_serviceTime << "\n\n";
+    os << customer.d_id << ' ';
+    for (int vehicle: customer.d_vehicles)
+        os << vehicle << ' ';
+
+    os << '\n';
 
     return os;
 }
