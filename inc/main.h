@@ -6,7 +6,12 @@
 #define ORACS_MAIN_H
 
 #include <iostream>
-#include "solution/solution.h"
+#include "env.h"
+#include "solver.h"
+#include "solution.h"
+#include "vehicle.h"
+#include "init.h"
+#include <vector>
 
 using namespace std;
 

@@ -4,15 +4,16 @@
 
 #include "vehicle.ih"
 
-Vehicle::Vehicle(int vehicleType, int capacity, int travelTime)
+Vehicle::Vehicle(Env *env, int id, int vehicleType, int depotID, double capacity, double serviceTime, double drivingSpeed, double cost)
 :
+    d_env(env),
     d_vehicleType(vehicleType),
+    d_drivingSpeed(drivingSpeed),
+    d_depotID(depotID),
+    d_cost(cost),
     d_capacity(capacity),
-    d_travelTime(travelTime),
-    d_route(Route{}),
-    d_deliveries(vector<int>{0})
-{
-    ++noOfVehicles;
-    d_id = noOfVehicles;
-}
+    d_serviceTime(serviceTime),
+    d_route(Route{env, depotID}),
+    d_id(id)
+{}
 
