@@ -11,19 +11,34 @@
 #include "customer.h"
 #include "init.h"
 
+class Env;
+
 class Solution {
 
+    Env *                               d_env;
     std::vector<Depot>                  d_depots;
     std::vector<Customer>               d_customers;
-    std::vector<std::vector<double>>    d_distanceMatrix;
 
 public:
-    Solution();
+    Solution() = delete;
+    Solution(Env *env, std::vector<Depot> depots, std::vector<Customer> customer);
 
-    void print();
+    void                    print();
+    std::vector<Depot> &    getDepots();
+    std::vector<Customer> & getCustomers();
 
 private:
+    double totalCost();
 
 };
 
+inline std::vector<Depot> &Solution::getDepots()
+{
+    return d_depots;
+}
+
+inline std::vector<Customer> &Solution::getCustomers()
+{
+    return d_customers;
+}
 #endif //ORACS_SOLUTION_H
