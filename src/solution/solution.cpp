@@ -9,4 +9,6 @@ Solution::Solution(Env *env, vector<Depot> depots, vector<Customer> customers)
     d_env(env),
     d_depots(depots),
     d_customers(customers)
-{}
+{
+    feasible();
+}

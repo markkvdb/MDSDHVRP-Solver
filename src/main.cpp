@@ -19,6 +19,7 @@ int main(int argc, char* argv[])
 
     // Create environment with all the data
     Env env{init};
+
     // Create empty solution
     Solver solver{&env};
 
@@ -26,6 +27,5 @@ int main(int argc, char* argv[])
     solver.initialSolution();
 
     env.d_currentSolution.print();
-    env.d_bestSolution.print();
 
 }

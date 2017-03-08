@@ -18,6 +18,8 @@ class Solution {
     Env *                   d_env;
     std::vector<Depot>      d_depots;
     std::vector<Customer>   d_customers;
+    bool                    d_feasible;
+    double                  d_penalty;
 
 public:
     Solution(Env *env);
@@ -25,6 +27,7 @@ public:
 
     void                    print();
     double                  totalCost();
+    bool                    feasible();
     std::vector<Depot> &    getDepots();
     std::vector<Customer> & getCustomers();
     void                    addCustomer(Customer customer);

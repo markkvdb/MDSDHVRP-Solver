@@ -23,7 +23,4 @@ void Solver::initialSolution()
                                  depotCustomerDemand[depotNumber]);
         }
     }
-
-    int hoi = 0;
-
 }
