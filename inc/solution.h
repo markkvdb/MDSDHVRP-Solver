@@ -15,20 +15,22 @@ class Env;
 
 class Solution {
 
-    Env *                               d_env;
-    std::vector<Depot>                  d_depots;
-    std::vector<Customer>               d_customers;
+    Env *                   d_env;
+    std::vector<Depot>      d_depots;
+    std::vector<Customer>   d_customers;
 
 public:
-    Solution() = delete;
+    Solution(Env *env);
     Solution(Env *env, std::vector<Depot> depots, std::vector<Customer> customer);
 
     void                    print();
+    double                  totalCost();
     std::vector<Depot> &    getDepots();
     std::vector<Customer> & getCustomers();
+    void                    addCustomer(Customer customer);
+    void                    addDepot(Depot depot);
 
 private:
-    double totalCost();
 
 };
 
@@ -41,4 +43,16 @@ inline std::vector<Customer> &Solution::getCustomers()
 {
     return d_customers;
 }
+
+inline void Solution::addCustomer(Customer customer)
+{
+    d_customers.push_back(customer);
+}
+
+inline void Solution::addDepot(Depot depot)
+{
+    d_depots.push_back(depot);
+}
+
+
 #endif //ORACS_SOLUTION_H

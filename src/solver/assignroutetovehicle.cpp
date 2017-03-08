@@ -7,7 +7,7 @@
 void Solver::assignRouteToVehicle(int vehicleNumber, int depotNumber,
                                   std::vector<int> &depotCustomerAllocation, std::vector<double> &depotCustomerDemand)
 {
-    Depot &depot = d_env->d_depots[depotNumber];
+    Depot &depot = d_env->d_currentSolution.getDepots()[depotNumber];
     Vehicle &vehicle = depot.getVehicle(vehicleNumber);
 
 
@@ -32,7 +32,7 @@ void Solver::assignRouteToVehicle(int vehicleNumber, int depotNumber,
     }
 
     while (remainingCapacity > 0 && not depotCustomerAllocation.empty()) {
-        d_env->d_customers[pickedCustomer].addToVehicle(d_env->d_depots[depotNumber].getVehicle(vehicleNumber).getID());
+        d_env->d_currentSolution.getCustomers()[pickedCustomer].addToVehicle(depot.getVehicle(vehicleNumber).getID());
 
         addCustomer(pickedCustomer, remainingCapacity, customerList, customerDropOff, depotCustomerAllocation,
                     depotCustomerDemand);
@@ -43,5 +43,5 @@ void Solver::assignRouteToVehicle(int vehicleNumber, int depotNumber,
     pair<vector<int>, vector<double>> route = cheapestInsertion(depotNumber, customerList, customerDropOff);
 
     Route routeToAdd{d_env, depotNumber, route.first, route.second};
-    d_env->d_depots[depotNumber].getVehicle(vehicleNumber).setRoute(routeToAdd);
+    depot.getVehicle(vehicleNumber).setRoute(routeToAdd);
 }

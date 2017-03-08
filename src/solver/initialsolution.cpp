@@ -12,7 +12,7 @@ void Solver::initialSolution()
     vector<vector<double>> depotCustomerDemand = depotAllocation.second;
 
     // For each depot
-    for (int depotNumber = 0; depotNumber != d_env->d_depots.size(); ++depotNumber)
+    for (int depotNumber = 0; depotNumber != d_env->d_currentSolution.getDepots().size(); ++depotNumber)
     {
         // Sorted vehicle list
         vector<int> sortedVehicleList = sortVehicleList(depotNumber);
@@ -23,4 +23,7 @@ void Solver::initialSolution()
                                  depotCustomerDemand[depotNumber]);
         }
     }
+
+    int hoi = 0;
+
 }

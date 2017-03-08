@@ -12,7 +12,7 @@ void Solver::addCustomer(int pickedCustomer, double &remainingCapacity, vector<i
     // Add customer to the customer list of the vehicle
     customerList.push_back(pickedCustomer);
 
-    Customer &customer = d_env->d_customers[pickedCustomer];
+    Customer &customer = d_env->d_currentSolution.getCustomers()[pickedCustomer];
 
     long positionCustomer = find(begin(depotCustomerAllocation), end(depotCustomerAllocation), pickedCustomer) - begin(depotCustomerAllocation);
 

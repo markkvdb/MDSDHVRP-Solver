@@ -25,6 +25,7 @@ int main(int argc, char* argv[])
     // Construct initial solution
     solver.initialSolution();
 
-    solver.print();
+    env.d_currentSolution.print();
+    env.d_bestSolution.print();
 
 }
