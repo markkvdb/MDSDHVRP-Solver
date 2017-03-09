@@ -6,7 +6,7 @@
 
 pair<vector<int>, vector<double>> Solver::cheapestInsertion(int depotNumber, vector<int> &customerList, vector<double> &customerDropOff)
 {
-    int const depotIdx = d_env->d_customers.size() + depotNumber;
+    int const depotIdx = d_env->d_currentSolution.getCustomers().size() + depotNumber;
     vector<int> route = {depotIdx, depotIdx};
     vector<double> routeDropOff = {0, 0};
 

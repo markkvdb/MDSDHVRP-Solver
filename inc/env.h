@@ -8,6 +8,7 @@
 #include <vector>
 #include "depot.h"
 #include "customer.h"
+#include "solution.h"
 #include "init.h"
 
 class Env {
@@ -15,15 +16,13 @@ class Env {
     typedef std::vector<std::vector<double>> DoubleMatrix;
 
 public:
-    std::vector<Depot>      d_depots;
-    std::vector<Customer>   d_customers;
+    Solution                d_bestSolution;
+    Solution                d_currentSolution;
+    Solution                d_newSolution;
     DoubleMatrix            d_distanceMatrix;
 
     Env();
     Env(Init &init);
-
-    void addDepot(Depot &depot);
-    void addCustomer(Customer &customer);
 
 };
 

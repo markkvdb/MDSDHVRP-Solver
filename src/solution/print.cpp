@@ -8,8 +8,10 @@ using namespace std;
 
 void Solution::print()
 {
-    // TODO implement total solution cost function
-    cout << 1000 << '\n';
+    cout << totalCost() << "\n\n";
 
-
+    for (Depot const &depot: d_depots)
+    {
+        cout << depot;
+    }
 }

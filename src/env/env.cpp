@@ -5,4 +5,8 @@
 #include "env.h"
 
 Env::Env()
+:
+        d_bestSolution(Solution{this}),
+        d_currentSolution(Solution{this}),
+        d_newSolution(Solution{this})
 {}

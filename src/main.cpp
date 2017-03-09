@@ -2,6 +2,7 @@
 // Created by Mark van der Broek on 27/02/2017.
 //
 
+#include <env.h>
 #include "main.h"
 
 int main(int argc, char* argv[])
@@ -15,16 +16,15 @@ int main(int argc, char* argv[])
 
     std::string fileName{argv[1]};
     Init init{fileName};
-    init.show();
+//    init.show();
 
     // Create environment with all the data
     Env env{init};
+
     // Create empty solution
     Solver solver{&env};
 
     // Construct initial solution
-    solver.initialSolution();
-
-    solver.print();
+    solver.run();
 
 }

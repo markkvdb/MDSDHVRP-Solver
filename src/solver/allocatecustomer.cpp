@@ -7,23 +7,24 @@
 pair<vector<vector<int>>, vector<vector<double>>> Solver::allocateCustomers()
 {
     // Create Depot-Customer allocation
-    vector<vector<int>> depotCustomerAllocation(d_env->d_depots.size());
-    vector<vector<double>> depotCustomerDemand(d_env->d_depots.size());
+    vector<vector<int>> depotCustomerAllocation(d_env->d_currentSolution.getDepots().size());
+    vector<vector<double>> depotCustomerDemand(d_env->d_currentSolution.getDepots().size());
 
-    vector<int> orderedCustomers(d_env->d_customers.size());
+    vector<int> orderedCustomers(d_env->d_currentSolution.getCustomers().size());
     iota(std::begin(orderedCustomers), std::end(orderedCustomers), 0);
 
     // Sort customers on ascending demand size
     sort(begin(orderedCustomers), end(orderedCustomers),
          [&](int lhs, int rhs)
          {
-             return d_env->d_customers[lhs].getDemand() < d_env->d_customers[rhs].getDemand();
+             return d_env->d_currentSolution.getCustomers()[lhs].getDemand() <
+                     d_env->d_currentSolution.getCustomers()[rhs].getDemand();
          });
 
     for (int customerNumber: orderedCustomers)
     {
         // Select customer
-        Customer &customer = d_env->d_customers[customerNumber];
+        Customer &customer = d_env->d_currentSolution.getCustomers()[customerNumber];
         double customerDemand = customer.getDemand();
 
         // Get ordered list of depots based on distance from customer
@@ -32,7 +33,7 @@ pair<vector<vector<int>>, vector<vector<double>>> Solver::allocateCustomers()
         // Loop till all demand is fulfilled
         for (int depot: sortedDepots)
         {
-            Depot &realDepot = d_env->d_depots[depot];
+            Depot &realDepot = d_env->d_currentSolution.getDepots()[depot];
 
             // Once all demand is fulfilled stop looking for new depots to allocate to.
             if (customerDemand <= 0)

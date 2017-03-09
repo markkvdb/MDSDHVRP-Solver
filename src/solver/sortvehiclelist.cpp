@@ -7,7 +7,7 @@
 vector<int> Solver::sortVehicleList(int depotNumber)
 {
     // Get vehicle list
-    vector<Vehicle> &vehicles = d_env->d_depots[depotNumber].getVehicles();
+    vector<Vehicle> &vehicles = d_env->d_currentSolution.getDepots()[depotNumber].getVehicles();
 
     // Create vector with elements 0, 1,..., N (N: Number of vehicles in depot)
     vector<int> orderedVehicles(vehicles.size());

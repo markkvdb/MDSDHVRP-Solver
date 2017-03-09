@@ -14,9 +14,9 @@ class Customer {
 
     Env *d_env;
     int                 d_id;
-    const double        d_demand;
+    double              d_demand;
     double              d_remainingDemand;
-    const double        d_serviceTime;
+    double              d_serviceTime;
     std::vector<int>    d_vehicles;
 
 public:

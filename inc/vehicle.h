@@ -14,13 +14,13 @@ class Env;
 class Vehicle {
 
     Env *               d_env;
-    int const           d_id;
-    int const           d_vehicleType;
+    int                 d_id;
+    int                 d_vehicleType;
     int                 d_depotID;
-    double const        d_drivingSpeed;
-    double const        d_cost;
-    double const        d_capacity;
-    double const        d_serviceTime;
+    double              d_drivingSpeed;
+    double              d_cost;
+    double              d_capacity;
+    double              d_serviceTime;
     Route               d_route;
 
 public:

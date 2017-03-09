@@ -14,12 +14,12 @@ class Solver {
 
     Env *d_env;
 
-
 public:
     Solver() = delete;
     Solver(Env *env);
 
     void initialSolution();
+    void run();
     void print();
 
 private:
@@ -41,6 +41,7 @@ private:
     std::pair<std::vector<int>,
             std::vector<double>>    cheapestInsertion(int depotNumber, std::vector<int> &customerList,
                                                        std::vector<double> &customerDropOff);
+    void                            perturbation(Solution &solution);
 
 };
 

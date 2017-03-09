@@ -9,7 +9,7 @@ void Route::updateServiceTime()
     double sumServiceTimes = 0;
     for (int customerIdx = 1; customerIdx != d_route.size() - 1; ++customerIdx)
     {
-        sumServiceTimes += d_env->d_customers[d_route[customerIdx]].getServiceTime();
+        sumServiceTimes += d_env->d_currentSolution.getCustomers()[d_route[customerIdx]].getServiceTime();
     }
 
     d_serviceTime = sumServiceTimes;
