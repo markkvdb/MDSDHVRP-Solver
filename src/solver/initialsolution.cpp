@@ -23,4 +23,7 @@ void Solver::initialSolution()
                                  depotCustomerDemand[depotNumber]);
         }
     }
+
+    d_env->d_bestSolution = d_env->d_currentSolution;
+    d_env->d_newSolution = d_env->d_currentSolution;
 }
