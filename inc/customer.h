@@ -13,24 +13,25 @@ class Env;
 class Customer {
 
     Env *d_env;
-    int                 d_id;
-    double              d_demand;
-    double              d_remainingDemand;
-    double              d_serviceTime;
-    std::vector<int>    d_vehicles;
+    int                                 d_id;
+    double                              d_demand;
+    double                              d_remainingDemand;
+    double                              d_serviceTime;
+    std::vector<std::pair<int, int>>    d_vehicles;
 
 public:
     Customer() = delete;
     Customer(Env *env, int id, double demand, double serviceTime);
 
-    int     getId()                      const;
-    double  getDemand()                  const;
-    double  getServiceTime()             const;
-    double  getRemainingDemand()         const;
-    void    changeDemand(double demand);
-    void    addToVehicle(int vehicle);
+    int                                 getId()                      const;
+    double                              getDemand()                  const;
+    double                              getServiceTime()             const;
+    double                              getRemainingDemand()         const;
+    std::vector<std::pair<int, int>> &  getVehicles();
+    void                                changeDemand(double demand);
+    void                                addToVehicle(int depotID, int vehicleID);
 
-    friend std::ostream& operator<<(std::ostream &os, Customer const &customer);
+    friend std::ostream&                operator<<(std::ostream &os, Customer const &customer);
 
 };
 
@@ -59,9 +60,14 @@ inline void Customer::changeDemand(double demand)
     d_remainingDemand += demand;
 }
 
-inline void Customer::addToVehicle(int vehicle)
+inline void Customer::addToVehicle(int depotID, int vehicleID)
 {
-    d_vehicles.push_back(vehicle);
+    d_vehicles.push_back(std::make_pair(depotID, vehicleID));
+}
+
+inline std::vector<std::pair<int, int>> &Customer::getVehicles()
+{
+    return d_vehicles;
 }
 
 

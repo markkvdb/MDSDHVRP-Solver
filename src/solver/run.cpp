@@ -8,7 +8,10 @@ void Solver::run()
 {
     initialSolution();
 
-    // perturbation(d_env->d_currentSolution);
+    int q = 7;
 
-    d_env->d_bestSolution.print();
+
+    perturbation(d_env->d_currentSolution, q);
+
+    d_env->d_currentSolution.print();
 }

@@ -189,14 +189,12 @@ this is one place where we can look.)
 
 
 
-solutions: best_feasible, best_solution, s, s_prime
-f(solution) = cost(solution) + penalty(solution)
+`solutions: best_feasible, best_solution, s, s_prime`
+`f(solution) = cost(solution) + penalty(solution)`
 
 cost(solution) = sum(travelCosts)
 penalty(solution) = penalty*travelTimeViolation(solution)
-penalty is a parameter between iota_min and iota_max = iota_min*delta^100 (or delta^10, whatever)
-multiplied by factor delta if solution is infeasible
-
+penalty is a parameter between iota_min and iota_max = iota_min*delta^100 (or delta^10, whatever) multiplied by factor delta if solution is infeasible
 
 
 initialize:

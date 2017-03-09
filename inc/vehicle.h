@@ -14,6 +14,8 @@ class Env;
 class Vehicle {
 
     Env *               d_env;
+
+    // FIXED
     int                 d_id;
     int                 d_vehicleType;
     int                 d_depotID;
@@ -21,30 +23,37 @@ class Vehicle {
     double              d_cost;
     double              d_capacity;
     double              d_serviceTime;
+
     Route               d_route;
 
 public:
     Vehicle() = delete;
     Vehicle(Env *env, int id, int vehicleType, int depotID, double capacity, double serviceTime, double drivingSpeed, double cost);
 
-    int     getID()             const;
-    int     getVehicleType()    const;
-    int     getDepotID()        const;
-    double  getDrivingSpeed()   const;
-    double  getDrivingCost()    const;
-    double  getCost()           const;
-    double  getCapacity()       const;
-    double  getServiceTime()    const;
-    Route   &getRoute();
-    double  getTotalCost()      const;
-    double  getDrivingTime()    const;
-    double  getRouteDuration()  const;
+    int                     getID()             const;
+    int                     getVehicleType()    const;
+    int                     getDepotID()        const;
+    double                  getDrivingSpeed()   const;
+    double                  getDrivingCost()    const;
+    double                  getCost()           const;
+    double                  getCapacity()       const;
+    double                  getServiceTime()    const;
+    Route &                 getRoute();
+    double                  getTotalCost()      const;
+    double                  getDrivingTime()    const;
+    double                  getRouteDuration()  const;
+    double                  getPenaltyTime()    const;
+    double                  getLeftoverCapacity() const;
 
-    void    setRoute(Route route);
+    void                    setRoute(Route route);
+    double                  removeCustomer(int customerID);
+    void                    addCustomer(int customerID);
+    std::pair<int, double>  cheapestInsertion(int customerID) const;
 
-    friend std::ostream& operator<<(std::ostream &os, Vehicle const &vehicle);
+    friend std::ostream&    operator<<(std::ostream &os, Vehicle const &vehicle);
 
 private:
+    double                  insertionCost(int option, int customerID) const;
 
 };
 
@@ -108,9 +117,19 @@ inline double Vehicle::getRouteDuration() const
     return getDrivingTime() + d_route.getServiceTime();
 }
 
-inline void Vehicle::setRoute(Route route)
+inline double Vehicle::getPenaltyTime() const
 {
-    d_route = route;
+    return std::max(0.0, getRouteDuration() - d_serviceTime);
+}
+
+inline double Vehicle::getLeftoverCapacity() const
+{
+    return std::max(0.0, d_capacity - d_route.getLoad());
+}
+
+inline double Vehicle::removeCustomer(int customerID)
+{
+    return d_route.removeCustomer(customerID);
 }
 
 #endif //ORACS_VEHICLE_H

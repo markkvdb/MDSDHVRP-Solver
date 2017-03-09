@@ -14,7 +14,8 @@ void Solver::addCustomer(int pickedCustomer, double &remainingCapacity, vector<i
 
     Customer &customer = d_env->d_currentSolution.getCustomers()[pickedCustomer];
 
-    long positionCustomer = find(begin(depotCustomerAllocation), end(depotCustomerAllocation), pickedCustomer) - begin(depotCustomerAllocation);
+    long positionCustomer = find(begin(depotCustomerAllocation), end(depotCustomerAllocation), pickedCustomer)
+                            - begin(depotCustomerAllocation);
 
     // Check if the whole demand can be satisfied
     if (depotCustomerDemand[positionCustomer] <= remainingCapacity)

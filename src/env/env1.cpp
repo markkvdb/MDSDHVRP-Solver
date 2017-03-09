@@ -9,16 +9,19 @@ Env::Env(Init &init)
         d_distanceMatrix(init.getDistanceMatrix()),
         d_bestSolution(Solution{this}),
         d_currentSolution(Solution{this}),
-        d_newSolution(Solution{this})
+        d_newSolution(Solution{this}),
+        d_rng(0),
+        d_delta(5)
 {
     vector<vector<double>> depotMatrix      (init.getDepotMatrix());
     vector<vector<double>> vehicleMatrix    (init.getVehicleMatrix());
     vector<vector<double>> customerMatrix   (init.getCustomerMatrix());
 
-    int vehicleIdx = 0;
     for (int depot = 0; depot != init.getNoOfDepots(); ++depot)
     {
         Depot depotToAdd{this, depot, depotMatrix[depot][3]};
+        int vehicleIdx = 0;
+
         // Add vehicles to depot.
         for (int vehicleType = 4; vehicleType != depotMatrix[depot].size(); ++vehicleType)
         {

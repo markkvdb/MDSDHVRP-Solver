@@ -41,7 +41,11 @@ private:
     std::pair<std::vector<int>,
             std::vector<double>>    cheapestInsertion(int depotNumber, std::vector<int> &customerList,
                                                        std::vector<double> &customerDropOff);
-    void                            perturbation(Solution &solution);
+    void                            perturbation(Solution &solution, int q);
+    std::vector<int>                randomRemoval(Solution &solution, int q);
+    void                            removeCustomers(Solution &solution, std::vector<int> const &customersToRemove);
+    void                            reinsert(Solution &solution, std::vector<int> &customersToAdd);
+    std::vector<int>                getClosestCustomers(int seedCustomer, int q);
 
 };
 
