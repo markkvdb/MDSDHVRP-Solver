@@ -16,7 +16,7 @@ void Solver::insertCustomer(Solution &solution, int selectedCustomer, int positi
 
     double demand = 0;
     // All demand can be satisfied by vehicle
-    if (customerToAdd.getRemainingDemand() < minConstraint)
+    if (customerToAdd.getRemainingDemand() <= minConstraint)
     {
         demand = customerToAdd.getRemainingDemand();
         customersToAdd.erase(begin(customersToAdd) + positionCustomer);
