@@ -16,6 +16,7 @@ class Depot {
     Env *                   d_env;
     int                     d_id;
     std::vector<Vehicle>    d_vehicles;
+    double                  d_inventory;
     double                  d_leftOverInventory;
 
 public:
@@ -27,8 +28,10 @@ public:
     Vehicle &               getVehicle(int vehicleNumber);
     int                     getID();
     int                     getNumberOfVehicles();
-    double                  getLeftOverInventory();
+    double                  getLeftOverInventory()          const;
+    double                  getInventory()                  const;
     void                    changeInventory(double amount);
+    void                    updateInventory();
     void                    addVehicle(Vehicle vehicle);
 
     friend std::ostream& operator<<(std::ostream &os, Depot const &depot);
@@ -63,7 +66,12 @@ inline void Depot::changeInventory(double amount)
     d_leftOverInventory += amount;
 }
 
-inline double Depot::getLeftOverInventory()
+inline double Depot::getInventory() const
+{
+    return d_inventory;
+}
+
+inline double Depot::getLeftOverInventory() const
 {
     return d_leftOverInventory;
 }

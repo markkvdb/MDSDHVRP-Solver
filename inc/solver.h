@@ -23,6 +23,7 @@ public:
     void print();
 
 private:
+    // Functions for initial solution
     std::pair<
             std::vector<std::vector<int>>,
             std::vector<std::vector<double>>>
@@ -41,11 +42,16 @@ private:
     std::pair<std::vector<int>,
             std::vector<double>>    cheapestInsertion(int depotNumber, std::vector<int> &customerList,
                                                        std::vector<double> &customerDropOff);
+
+    // Functions for perturbation
     void                            perturbation(Solution &solution, int q);
     std::vector<int>                randomRemoval(Solution &solution, int q);
     void                            removeCustomers(Solution &solution, std::vector<int> const &customersToRemove);
     void                            reinsert(Solution &solution, std::vector<int> &customersToAdd);
     std::vector<int>                getClosestCustomers(int seedCustomer, int q);
+    void                            insertCustomer(Solution &solution, int selectedCustomer, int positionCustomer,
+                                                   int depotID, int vehicleID, int routePos,
+                                                   std::vector<int> &customersToAdd);
 
 };
 

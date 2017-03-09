@@ -30,6 +30,7 @@ public:
     std::vector<std::pair<int, int>> &  getVehicles();
     void                                changeDemand(double demand);
     void                                addToVehicle(int depotID, int vehicleID);
+    void                                resetRemainingDemand();
 
     friend std::ostream&                operator<<(std::ostream &os, Customer const &customer);
 

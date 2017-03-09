@@ -11,7 +11,8 @@ Depot::Depot(Env *env, int id, double leftOverInventory)
     d_env(env),
     d_id(id),
     d_vehicles(std::vector<Vehicle>{}),
-    d_leftOverInventory(leftOverInventory)
+    d_leftOverInventory(leftOverInventory),
+    d_inventory(leftOverInventory)
 {}
 
 Depot::Depot(Env *env, int id, std::vector<Vehicle> &vehicles, double leftOverInventory)
@@ -19,5 +20,6 @@ Depot::Depot(Env *env, int id, std::vector<Vehicle> &vehicles, double leftOverIn
     d_env(env),
     d_id(id),
     d_vehicles(vehicles),
-    d_leftOverInventory(leftOverInventory)
+    d_leftOverInventory(leftOverInventory),
+    d_inventory(leftOverInventory)
 {}

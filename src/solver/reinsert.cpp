@@ -47,7 +47,7 @@ void Solver::reinsert(Solution &solution, std::vector<int> &customersToAdd)
             cerr << "No insertion possible \n";
         }
 
-        customersToAdd.erase(begin(customersToAdd) + positionCustomer);
-        //insertCustomer(solution, selectedCustomer, depotID, vehicleID, routePos, customersToAdd);
+
+        insertCustomer(solution, selectedCustomer, positionCustomer, depotID, vehicleID, routePos, customersToAdd);
     }
 }

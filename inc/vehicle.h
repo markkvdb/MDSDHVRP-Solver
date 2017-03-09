@@ -39,6 +39,7 @@ public:
     double                  getCapacity()       const;
     double                  getServiceTime()    const;
     Route &                 getRoute();
+    Route const &           getRoute()          const;
     double                  getTotalCost()      const;
     double                  getDrivingTime()    const;
     double                  getRouteDuration()  const;
@@ -47,7 +48,7 @@ public:
 
     void                    setRoute(Route route);
     double                  removeCustomer(int customerID);
-    void                    addCustomer(int customerID);
+    void                    addCustomer(int customerID, double load, int routePos);
     std::pair<int, double>  cheapestInsertion(int customerID) const;
 
     friend std::ostream&    operator<<(std::ostream &os, Vehicle const &vehicle);
@@ -102,6 +103,11 @@ inline Route &Vehicle::getRoute()
     return d_route;
 }
 
+inline Route const &Vehicle::getRoute() const
+{
+    return d_route;
+}
+
 inline double Vehicle::getTotalCost() const
 {
     return d_route.getDistance() * d_cost;
@@ -130,6 +136,11 @@ inline double Vehicle::getLeftoverCapacity() const
 inline double Vehicle::removeCustomer(int customerID)
 {
     return d_route.removeCustomer(customerID);
+}
+
+inline void Vehicle::addCustomer(int customerID, double load, int routePos)
+{
+    d_route.addCustomer(customerID, load, routePos);
 }
 
 #endif //ORACS_VEHICLE_H
