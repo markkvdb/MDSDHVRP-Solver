@@ -23,7 +23,8 @@ pair<vector<int>, vector<double>> Solver::cheapestInsertion(int depotNumber, vec
             for (int idx = 0; idx != route.size() - 1; ++idx)
             {
                 double totalDistance = d_env->d_distanceMatrix[route[idx]][customer] +
-                                       d_env->d_distanceMatrix[customer][route[idx+1]];
+                                       d_env->d_distanceMatrix[customer][route[idx+1]]-
+                                       d_env->d_distanceMatrix[route[idx]][route[idx+1]];
 
                 if (totalDistance < minimumDistance)
                 {
