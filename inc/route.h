@@ -14,11 +14,11 @@ class Route {
 
     Env *                   d_env;
     int                     d_depotID;
-    std::vector<int>        d_route;
-    std::vector<double>     d_demandRoute;
     double                  d_load;
     double                  d_length;
     double                  d_serviceTime;
+    std::vector<int>        d_route;
+    std::vector<double>     d_demandRoute;
 
 public:
     Route() = delete;
