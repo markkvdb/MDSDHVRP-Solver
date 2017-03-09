@@ -25,11 +25,15 @@ public:
     Route(Env *env, int depotID);
     Route(Env *env, int depotID, std::vector<int> route, std::vector<double> demandRoute);
 
-    std::vector<int>        &getRoute();
-    std::vector<double>     &getDemandRoute();
+    std::vector<int> &      getRoute();
+    std::vector<double> &   getDemandRoute();
+    std::vector<int> const &getRoute()         const;
     double const            getLoad()           const;
     double const            getDistance()       const;
     double const            getServiceTime()    const;
+
+    double                  removeCustomer(int customerID);
+    void                    addCustomer(int customerID, double load, int routePos);
 
     friend std::ostream &operator<<(std::ostream &, Route const &route);
 
@@ -42,6 +46,11 @@ private:
 };
 
 inline std::vector<int> &Route::getRoute()
+{
+    return d_route;
+}
+
+inline std::vector<int> const &Route::getRoute() const
 {
     return d_route;
 }

@@ -8,5 +8,7 @@ Env::Env()
 :
         d_bestSolution(Solution{this}),
         d_currentSolution(Solution{this}),
-        d_newSolution(Solution{this})
+        d_newSolution(Solution{this}),
+        d_rng(0),
+        d_delta(5)
 {}

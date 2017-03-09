@@ -22,17 +22,15 @@ void Solver::assignRouteToVehicle(int vehicleNumber, int depotNumber,
 
     // Check if there are still customers left to assign.
     if (not depotCustomerAllocation.empty()) {
-        // Uncomment this if you don't want fixed seed value and change rng(1) to rng(rd);
-        // random_device rd;
-        mt19937 rng(1);
-        std::uniform_int_distribution<int> uni(0, depotCustomerAllocation.size() - 1);
 
-        seedCustomer = depotCustomerAllocation[uni(rng)];
+        uniform_int_distribution<int> uni(0, depotCustomerAllocation.size() - 1);
+
+        seedCustomer = depotCustomerAllocation[uni(d_env->d_rng)];
         pickedCustomer = seedCustomer;
     }
 
     while (remainingCapacity > 0 && not depotCustomerAllocation.empty()) {
-        d_env->d_currentSolution.getCustomers()[pickedCustomer].addToVehicle(depot.getVehicle(vehicleNumber).getID());
+        d_env->d_currentSolution.getCustomers()[pickedCustomer].addToVehicle(depotNumber, vehicleNumber);
 
         addCustomer(pickedCustomer, remainingCapacity, customerList, customerDropOff, depotCustomerAllocation,
                     depotCustomerDemand);

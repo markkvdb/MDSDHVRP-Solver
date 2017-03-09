@@ -4,7 +4,9 @@
 
 #include "solver.ih"
 
-void Solver::perturbation(Solution &solution)
+void Solver::perturbation(Solution &solution, int q)
 {
+    vector<int> customersToRemove = randomRemoval(solution, q);
 
+    reinsert(solution, customersToRemove);
 }

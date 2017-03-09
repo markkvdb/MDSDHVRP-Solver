@@ -10,16 +10,19 @@
 #include "customer.h"
 #include "solution.h"
 #include "init.h"
+#include <random>
 
 class Env {
 
     typedef std::vector<std::vector<double>> DoubleMatrix;
 
 public:
-    Solution                d_bestSolution;
-    Solution                d_currentSolution;
-    Solution                d_newSolution;
-    DoubleMatrix            d_distanceMatrix;
+    Solution                    d_bestSolution;
+    Solution                    d_currentSolution;
+    Solution                    d_newSolution;
+    DoubleMatrix                d_distanceMatrix;
+    std::default_random_engine  d_rng;
+    double                      d_delta;
 
     Env();
     Env(Init &init);

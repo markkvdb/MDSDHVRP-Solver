@@ -7,8 +7,8 @@
 std::ostream& operator<<(std::ostream &os, Customer const &customer)
 {
     os << customer.d_id << ' ';
-    for (int vehicle: customer.d_vehicles)
-        os << vehicle << ' ';
+    for (auto vehicle: customer.d_vehicles)
+        os << vehicle.first << ' ';
 
     os << '\n';
 
