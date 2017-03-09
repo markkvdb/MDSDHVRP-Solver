@@ -7,7 +7,8 @@
 double Vehicle::insertionCost(int option, int customerID) const
 {
     double extraDistance = d_env->d_distanceMatrix[d_route.getRoute()[option]][customerID] +
-                           d_env->d_distanceMatrix[customerID][d_route.getRoute()[option + 1]];
+                           d_env->d_distanceMatrix[customerID][d_route.getRoute()[option + 1]] -
+                           d_env->d_distanceMatrix[d_route.getRoute()[option]][d_route.getRoute()[option + 1]];
 
     // Add exta time for driving, service time and look if penalty cost is incurred.
     double oldPenaltyTime = max(0.0, getPenaltyTime());
