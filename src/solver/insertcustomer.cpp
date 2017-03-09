@@ -27,5 +27,6 @@ void Solver::insertCustomer(Solution &solution, int selectedCustomer, int positi
     }
     vehicle.addCustomer(selectedCustomer, demand, routePos);
     depot.changeInventory(-demand);
+    customerToAdd.changeDemand(-demand);
     customerToAdd.addToVehicle(depotID, vehicleID);
 }
