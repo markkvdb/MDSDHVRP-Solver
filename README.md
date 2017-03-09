@@ -183,4 +183,6 @@ if insufficient. One problem is that all insertion options may be discarded (a s
 search, now allowing for splits).
 I suggest moving this to the tuning phase (if it turns out that too many splits are generated,
 this is one place where we can look.)
-.
+
+
+### algorithm structure ###
