@@ -19,6 +19,7 @@ public:
     Solver(Env *env);
 
     void initialSolution();
+    void run();
     void print();
 
 private:
@@ -40,7 +41,7 @@ private:
     std::pair<std::vector<int>,
             std::vector<double>>    cheapestInsertion(int depotNumber, std::vector<int> &customerList,
                                                        std::vector<double> &customerDropOff);
-    double                          totalCost() const;
+    void                            perturbation(Solution &solution);
 
 };
 

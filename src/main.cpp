@@ -2,6 +2,7 @@
 // Created by Mark van der Broek on 27/02/2017.
 //
 
+#include <env.h>
 #include "main.h"
 
 int main(int argc, char* argv[])
@@ -24,8 +25,6 @@ int main(int argc, char* argv[])
     Solver solver{&env};
 
     // Construct initial solution
-    solver.initialSolution();
-
-    env.d_currentSolution.print();
+    solver.run();
 
 }
