@@ -186,3 +186,100 @@ this is one place where we can look.)
 
 
 ### algorithm structure ###
+
+
+
+solutions: best_feasible, best_solution, s, s_prime
+f(solution) = cost(solution) + penalty(solution)
+
+cost(solution) = sum(travelCosts)
+penalty(solution) = penalty*travelTimeViolation(solution)
+penalty is a parameter between iota_min and iota_max = iota_min*delta^100 (or delta^10, whatever)
+multiplied by factor delta if solution is infeasible
+
+
+
+initialize:
+penalty = iota_min (global)
+s = initialSolution()
+best_solution = s
+
+if(s is feasible){
+    best_feasible = s
+} else
+{
+    best_feasible = empty (objective value: inf)
+}
+
+T = r*f(s) (0 < r < 1) (Temperature for simulated annealing)
+
+iter == 1
+repeat
+    s_prime = DestroyAndRepair(s)
+
+    if (f(s_prime) < (1 + theta)*f(best_solution))
+    {
+        for (routine in routineList) # routineList has 8 routines
+        {
+            s_prime = routine(s_prime) : best improvement
+
+            if (improvement)
+            {
+                return to first routine (that is, reenter for-loop) #this is rather extensive,
+                # an alternative is to move to the next routine if the current routine does not yield
+                # further improvements
+            }
+
+        }
+    }
+
+    best_solution =  min(s_prime, best_solution) #compare objectives, use same global penalty parameter
+
+    if(s_prime is feasible)
+    {
+        best_feasible = min(s_prime, best_feasible) #compare objectives
+    }
+
+    simulatedAnnealing(s_prime, s) (simulatedAnnealing: see below)
+
+    updatePenalty(s)
+
+    iter++
+until iter == max_iter or comp_time > max_comp_time
+
+
+### updatePenalty(solution) ###
+
+if(solution is not feasible)
+{
+    penalty = min(iota_max, iota * delta)
+}
+else
+{
+    penalty = max(iota_min, iota / delta)
+}
+
+### simulatedAnnealing(s1, s2) ###
+
+if(f(s1) <= f(s2))
+{
+    T = r*f(s1) (0<r<1)
+    return s1
+}
+
+if(f(s1) > f(s2))
+{
+    diff = f(s1) - f(s)
+    generate random variate u~U(0,1)
+    if (u < exp(-diff/T))
+    {
+        return s1 with probability exp(-diff/T)
+        T = max(r*T, T_min) (0 < r <1, T_min is minimum temperature)
+    }
+
+
+}
+
+
+
+
