@@ -270,8 +270,14 @@ if(f(s1) <= f(s2))
 if(f(s1) > f(s2))
 {
     diff = f(s1) - f(s)
-    return s1 with probability exp(-diff/T)
-    T = max(r*T, T_min) (0 < r <1, T_min is minimum temperature)
+    generate random variate u~U(0,1)
+    if (u < exp(-diff/T))
+    {
+        return s1 with probability exp(-diff/T)
+        T = max(r*T, T_min) (0 < r <1, T_min is minimum temperature)
+    }
+
+
 }
 
 
