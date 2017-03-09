@@ -279,5 +279,41 @@ if(f(s1) > f(s2))
 }
 
 
+### 1-insertion intra route ###
+minInsertion = 0
+For each depot
+    For each vehicle
+        For each dummy customer in route
+            For each insertion option in route
+                Compute insertionCosts (distance + feasibility)
+                if (insertionCosts < minInsertion)
+                    minInsertion = insertionCosts
+                    store depot + vehicle + customer + insertion option
+
+Execute best option: (change route + deliveries for (depot,vehicle))
+### end ###
+
+##### 2-opt below is not finished ###
+### 2-opt intra route ###
+bestOption = 0
+For each depot
+    For each vehicle
+        For i = 0 to route.size()
+            c1 = route[i]
+            c2 = route[i + 1]
+            For j = i + 2 to route.size()
+                c3 = route[j]
+                c4 = route[j + 1]
+                saving = distance - distance[c1,c2] - distance[c3,c4] + distance[c1,c3] + distance[c2,c4]
+                if saving < bestOption
+                    bestOption = saving
+                    store i, j
+Execute best option: newRoute = oldRoute[0,i] + revert(oldRoute[i+1,j]) + oldRoute[i+1, route.size()]
+
+
+
+Execute best option
+
+
 
 
