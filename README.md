@@ -114,4 +114,72 @@ For each customer in `customerMatrix`:
 
 ## Perturbation
 
-## Stopping criteria
+Three destroy operators (remove q customers) + 1 repair operator (reinserts customers).
+
+### randomRemoval(solution) ###
+1. Select seed customer from customer list. Store in toBeRemoved.
+2. Find q-1 nearest customers. Store in toBeRemoved.
+3. removeCustomers(solution, toBeRemoved) (see below)
+
+### removeCustomers(solution, toBeRemoved)
+1. For each customer in toBeRemoved:
+    - For each vehicle of customer:
+        - Find place customer in route
+        - Remove customer from route (and dropoff)
+        - Update load, length, serviceTime, route cost
+        - Remove depot+vehicle_id from customer
+2. toBeReinserted = toBeRemoved (for later use)
+2. Return destroyed solution and toBeReinserted
+
+### costRemoval(solution) ###
+1. For customers 1,...,n:
+   - computeRemovalGain(solution, customer) (see below)
+   - store result in vector gains, along with customer_id (gains = [[1,gain_1],...,[n,gain_n]])
+2. Find q largest gains, store corresponding customer_ids in toBeRemoved
+3. removeCustomers(solution, toBeRemoved)
+
+### computeRemovalGain(solution, customer) ###
+1.  For each vehicle of customer, compute vehicleRemovalGain:
+        - Find place in route
+        - Distance gain: Use distanceMatrix (multiply by alpha)
+        - Feasibility gain (only if route is infeasible in the first place):
+            - Find old and new travel duration (travel time + service time)
+            - Use arithmetic.
+        - vehicleRemovalGain = distance gain + feasibility gain
+    - totalRemovalGain = sum(vehicleRemovalGain)
+    - totalRemovalGain = totalRemovalGain * uniform(a, b) (a = 0.8, b = 1.2)(RNG).
+2. return totalRemovalGain
+
+### routeRemoval(solution) ###
+1. Pick random non-empty vehicle.
+2. Find corresponding route
+3. Store at random min(q, route.length()) customers in toBeRemoved
+4. removeCustomers(solution, toBeRemoved)
+
+### reinsert(solution, toBeReinserted) ###
+1. demand = demand(toBeReinserted)
+2. While toBeReinserted is not empty
+    - Select random customer from toBeReinserted.
+    - minInsertion = Infinity
+    - depot = -1, vehicle = -1, idx = -1 (initilize insertion location)
+    - For each vehicle
+        - For each insertion option
+            - Find insertionCost:
+                - Additional travel costs
+                - Infeasibility penalties
+            - If (insertion costs < minInsertion)
+                - minInsertion = insertionCost
+                - update: depot, vehicle, and idx
+    - Insert customer at depot, vehicle, idx:
+    - If (insufficient inventory/capacity)
+        - Allocate as much as possible and split demand
+        - Update demand
+    - If (sufficient inventory and capacity)
+        - Allocate all demand
+        - remove customer from toBeReinserted
+3. Return solution
+Note: we can alternatively check in advance for sufficient inventory/capacity, and discard the insertion option
+if insufficient. One problem is that all insertion options may be discarded (a simple workaround is to repeat the
+search, now allowing for splits).
+I suggest moving this to the tuning phase (if it turns out that too many splits are generated,
+this is one place where we can look.)
