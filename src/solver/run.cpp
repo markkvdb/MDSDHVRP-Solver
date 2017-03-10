@@ -6,8 +6,7 @@
 
 void Solver::run()
 {
-    double &penalty = d_env->d_delta;
-    size_t maxIter  = 10000;
+    size_t maxIter  = 10;
     double theta    = 0.3;
     // TODO add time restrictions on runtime
 
@@ -15,7 +14,7 @@ void Solver::run()
     d_env->d_bestSolution = d_env->d_currentSolution;
 
     // Set q and the iter counter
-    int q = static_cast<int>(floor(0.10 * d_env->d_currentSolution.getCustomers().size()));
+    int q = selectq();
     size_t iter = 0;
 
     if (d_env->d_currentSolution.feasible())
@@ -32,6 +31,7 @@ void Solver::run()
         if (d_env->d_newSolution.totalCost() < d_env->d_bestSolution.totalCost())
         {
             d_env->d_bestSolution = d_env->d_newSolution;
+
             if (d_env->d_newSolution.feasible())
                 d_env->d_bestFeasibleSolution = d_env->d_newSolution;
         }
@@ -41,5 +41,5 @@ void Solver::run()
         ++iter;
     }
 
-    d_env->d_bestSolution.print();
+    d_env->d_bestFeasibleSolution.print();
 }

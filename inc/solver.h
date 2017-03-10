@@ -7,15 +7,14 @@
 
 #include "solution.h"
 #include <utility>
+#include <functional>
 
 class Env;
 
 class Solver {
 
-    typedef void (Solver::*operatorFunction)(Solution &);
-
     Env *d_env;
-    std::vector<operatorFunction> d_localSearchOperators;
+    std::vector<std::function<void(Solution &)>> d_localSearchOperators;
 
 public:
     Solver() = delete;
@@ -59,9 +58,11 @@ private:
     // Functions for local search
     void                            localSearch(Solution &s);
     void                            oneInsertionIntraRoute(Solution &s);
+    void                            twoOptIntraRoute(Solution &s);
 
     // Other functions
     Solution &                      simulatedAnnealing(Solution &sPrime, Solution &s);
+    int                             selectq();
 
 };
 

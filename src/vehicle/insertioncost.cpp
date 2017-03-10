@@ -14,7 +14,7 @@ double Vehicle::insertionCost(int option, int customerID) const
     double oldPenaltyTime = max(0.0, getPenaltyTime());
     double newPenaltyTime = max(0.0, (extraDistance / d_drivingSpeed) +
             d_env->d_currentSolution.getCustomers()[customerID].getServiceTime() + getRouteDuration() - d_serviceTime);
-    double penaltyCost = d_env->d_delta * (newPenaltyTime - oldPenaltyTime);
+    double penaltyCost = d_env->d_penalty * (newPenaltyTime - oldPenaltyTime);
 
     return extraDistance * d_cost + penaltyCost;
 }

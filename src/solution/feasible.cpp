@@ -6,7 +6,6 @@
 
 bool Solution::feasible()
 {
-    d_penalty = 0;
     d_feasible = true;
 
     for (Depot &depot: d_depots)
@@ -16,7 +15,6 @@ bool Solution::feasible()
             if (vehicle.getRoute().getLoad() > vehicle.getCapacity() ||
                     vehicle.getRouteDuration() > vehicle.getServiceTime())
             {
-                d_penalty += vehicle.getRouteDuration() - vehicle.getServiceTime();
                 d_feasible = false;
             }
         }

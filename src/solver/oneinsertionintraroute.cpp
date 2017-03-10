@@ -6,7 +6,6 @@
 
 void Solver::oneInsertionIntraRoute(Solution &s)
 {
+    // TODO
     Solution sBackup = s;
-
-
 }
