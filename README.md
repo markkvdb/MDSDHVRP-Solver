@@ -285,7 +285,9 @@ For each depot
     For each vehicle
         For each dummy customer in route
             For each insertion option in route
-                Compute insertionCosts (distance + feasibility)
+                Compute insertionCosts (distance + feasibility) #feasibility gains only need to be computed if there
+                # is a distance gain. (if distance increases, feasibility costs will increase too, so there is no need
+                # to evaluate these options)
                 if (insertionCosts < minInsertion)
                     minInsertion = insertionCosts
                     store depot + vehicle + customer + insertion option
@@ -305,6 +307,9 @@ For each depot
                 c3 = route[j]
                 c4 = route[j + 1]
                 saving = distance - distance[c1,c2] - distance[c3,c4] + distance[c1,c3] + distance[c2,c4]
+                if saving < 0
+                    compute feasibilityGains
+                    saving = saving + feasibilityGains
                 if saving < bestOption
                     bestOption = saving
                     store i, j
