@@ -12,7 +12,10 @@ class Env;
 
 class Solver {
 
+    typedef void (Solver::*operatorFunction)(Solution &);
+
     Env *d_env;
+    std::vector<operatorFunction> d_localSearchOperators;
 
 public:
     Solver() = delete;
@@ -52,6 +55,13 @@ private:
     void                            insertCustomer(Solution &solution, int selectedCustomer, int positionCustomer,
                                                    int depotID, int vehicleID, int routePos,
                                                    std::vector<int> &customersToAdd);
+
+    // Functions for local search
+    void                            localSearch(Solution &s);
+    void                            oneInsertionIntraRoute(Solution &s);
+
+    // Other functions
+    Solution &                      simulatedAnnealing(Solution &sPrime, Solution &s);
 
 };
 

@@ -2,6 +2,7 @@
 // Created by Mark van der Broek on 08/03/2017.
 //
 
+#include <env.h>
 #include "solution.ih"
 
 double Solution::totalCost()
@@ -11,7 +12,7 @@ double Solution::totalCost()
     {
         for (Vehicle const &vehicle: depot.getVehicles())
         {
-            totalCost += vehicle.getTotalCost();
+            totalCost += vehicle.getTotalCost() + vehicle.getPenaltyTime() * d_env->d_penalty;
         }
     }
 

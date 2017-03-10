@@ -6,12 +6,36 @@
 
 void Solver::run()
 {
+    double &penalty = d_env->d_delta;
+    size_t maxIter  = 10000;
+    double theta    = 0.3;
+    // TODO add time restrictions on runtime
+
     initialSolution();
+    d_env->d_bestSolution = d_env->d_currentSolution;
 
-    d_env->d_currentSolution.print();
-    // Perturbation
-    int q = 7;
-    perturbation(d_env->d_currentSolution, q);
+    // Set q and the iter counter
+    int q = static_cast<int>(floor(0.10 * d_env->d_currentSolution.getCustomers().size()));
+    size_t iter = 0;
 
-    d_env->d_currentSolution.print();
+    if (d_env->d_currentSolution.feasible())
+        d_env->d_bestFeasibleSolution = d_env->d_currentSolution;
+
+    while (iter != maxIter)
+    {
+        d_env->d_newSolution = d_env->d_currentSolution;
+        perturbation(d_env->d_newSolution, q);
+
+        if (d_env->d_newSolution.totalCost() < (1 + theta) * d_env->d_currentSolution.totalCost())
+            localSearch(d_env->d_newSolution);
+
+        if (d_env->d_newSolution.feasible() && (d_env->d_newSolution.totalCost() < d_env->d_bestFeasibleSolution.totalCost()))
+            d_env->d_bestFeasibleSolution = d_env->d_newSolution;
+
+        d_env->d_newSolution = simulatedAnnealing(d_env->d_newSolution, d_env->d_currentSolution);
+        d_env->updatePenalty(d_env->d_currentSolution);
+        ++iter;
+    }
+
+    d_env->d_bestSolution.print();
 }
