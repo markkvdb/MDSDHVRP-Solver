@@ -26,11 +26,15 @@ void Solver::run()
         d_env->d_newSolution = d_env->d_currentSolution;
         perturbation(d_env->d_newSolution, q);
 
-        if (d_env->d_newSolution.totalCost() < (1 + theta) * d_env->d_currentSolution.totalCost())
+        if (d_env->d_newSolution.totalCost() < (1 + theta) * d_env->d_bestSolution.totalCost())
             localSearch(d_env->d_newSolution);
 
-        if (d_env->d_newSolution.feasible() && (d_env->d_newSolution.totalCost() < d_env->d_bestFeasibleSolution.totalCost()))
-            d_env->d_bestFeasibleSolution = d_env->d_newSolution;
+        if (d_env->d_newSolution.totalCost() < d_env->d_bestSolution.totalCost())
+        {
+            d_env->d_bestSolution = d_env->d_newSolution;
+            if (d_env->d_newSolution.feasible())
+                d_env->d_bestFeasibleSolution = d_env->d_newSolution;
+        }
 
         d_env->d_newSolution = simulatedAnnealing(d_env->d_newSolution, d_env->d_currentSolution);
         d_env->updatePenalty(d_env->d_currentSolution);
