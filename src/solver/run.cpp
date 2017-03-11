@@ -6,12 +6,13 @@
 
 void Solver::run()
 {
-    size_t maxIter  = 10000;
+    size_t maxIter  = 1;
     double theta    = 0.3;
     // TODO add time restrictions on runtime
 
     initialSolution();
     d_env->d_bestSolution = d_env->d_currentSolution;
+
     // Set q and the iter counter
     int q = selectq();
     size_t iter = 0;
@@ -21,9 +22,9 @@ void Solver::run()
 
     while (iter != maxIter)
     {
-
         d_env->d_newSolution = d_env->d_currentSolution;
         perturbation(d_env->d_newSolution, q);
+
         if (d_env->d_newSolution.totalCost() < (1 + theta) * d_env->d_bestSolution.totalCost())
             localSearch(d_env->d_newSolution);
 
@@ -38,8 +39,5 @@ void Solver::run()
         d_env->d_currentSolution = simulatedAnnealing(d_env->d_newSolution, d_env->d_currentSolution);
         ++iter;
     }
-
     d_env->d_bestFeasibleSolution.print();
-
-
 }
