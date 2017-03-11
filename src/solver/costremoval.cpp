@@ -15,7 +15,7 @@ vector<int> Solver::costRemoval(Solution &solution, int q)
     for (size_t customerIdx = 0; customerIdx != solution.getCustomers().size(); ++customerIdx)
     {
         gains[customerIdx] = computeRemovalGain(solution, customerIdx);
-        
+
     }
 
     // Sort customers on descending gains

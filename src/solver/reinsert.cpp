@@ -28,6 +28,7 @@ void Solver::reinsert(Solution &solution, std::vector<int> &customersToAdd)
                 if (vehicle.getLeftoverCapacity() <= 0)
                     continue;
 
+
                 // Find cheapest insertion for this vehicle
                 pair<int, double> insertion = vehicle.cheapestInsertion(selectedCustomer);
 

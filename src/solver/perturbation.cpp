@@ -6,7 +6,8 @@
 
 void Solver::perturbation(Solution &solution, int q)
 {
-    vector<int> customersToRemove = costRemoval(solution, q);
+    vector<int> customersToRemove = randomRemoval(solution, q);
 
     reinsert(solution, customersToRemove);
+
 }
