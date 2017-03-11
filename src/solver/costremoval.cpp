@@ -10,7 +10,7 @@ vector<int> Solver::costRemoval(Solution &solution, int q)
     vector<int> orderedCustomers(solution.getCustomers().size());
     iota(begin(orderedCustomers), end(orderedCustomers), 0);
 
-    vector<double> gains(q);
+    vector<double> gains(solution.getCustomers().size());
 
     for (size_t customerIdx = 0; customerIdx != solution.getCustomers().size(); ++customerIdx)
     {
