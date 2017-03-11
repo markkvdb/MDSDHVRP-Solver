@@ -12,10 +12,10 @@ Env::Env(Init &init)
         d_newSolution(Solution{this}),
         d_bestFeasibleSolution(Solution{this}),
         d_rng(0),
-        d_delta(50000),
-        d_penalty(10000),
+        d_delta(1),
+        d_penalty(5000000),
         d_penaltyLower(10000),
-        d_penaltyUpper(50000),
+        d_penaltyUpper(5000000),
         d_temp(100),
         d_r(0.5),
         d_tempMin(10)

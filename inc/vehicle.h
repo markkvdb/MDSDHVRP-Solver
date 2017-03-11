@@ -45,11 +45,14 @@ public:
     double                  getRouteDuration()  const;
     double                  getPenaltyTime()    const;
     double                  getLeftoverCapacity() const;
+    bool                    emptyRoute()        const;
 
     void                    setRoute(Route route);
     double                  removeCustomer(int customerID);
     void                    addCustomer(int customerID, double load, int routePos);
     std::pair<int, double>  cheapestInsertion(int customerID) const;
+    double                  removalGain(int customerID);
+    std::vector<int>        selectCustomersToRemove(int q);
 
     friend std::ostream&    operator<<(std::ostream &os, Vehicle const &vehicle);
 
@@ -141,6 +144,11 @@ inline double Vehicle::removeCustomer(int customerID)
 inline void Vehicle::addCustomer(int customerID, double load, int routePos)
 {
     d_route.addCustomer(customerID, load, routePos);
+}
+
+inline bool Vehicle::emptyRoute() const
+{
+    return (d_route.getRoute().size() == 2);
 }
 
 #endif //ORACS_VEHICLE_H

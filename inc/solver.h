@@ -48,6 +48,10 @@ private:
     // Functions for perturbation
     void                            perturbation(Solution &solution, int q);
     std::vector<int>                randomRemoval(Solution &solution, int q);
+    std::vector<int>                costRemoval(Solution &solution, int q);
+    std::vector<int>                routeRemoval(Solution &solution, int q);
+    double                          computeRemovalGain(Solution &solution, int customerID);
+    std::vector<std::pair<int, int>> getNonEmptyRoutes(Solution &solution);
     void                            removeCustomers(Solution &solution, std::vector<int> const &customersToRemove);
     void                            reinsert(Solution &solution, std::vector<int> &customersToAdd);
     std::vector<int>                getClosestCustomers(int seedCustomer, int q);
