@@ -11,4 +11,6 @@ double Solver::computeRemovalGain(Solution &solution, int customerID)
     {
         sumRemoveGain += solution.getDepots()[place.first].getVehicle(place.second).removalGain(customerID);
     }
+
+    return sumRemoveGain;
 }

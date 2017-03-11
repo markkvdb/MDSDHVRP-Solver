@@ -25,6 +25,7 @@ vector<int> Solver::costRemoval(Solution &solution, int q)
              return gains[lhs] > gains[rhs];
          });
 
+
     vector<int> customersToRemove{begin(orderedCustomers), begin(orderedCustomers) + q};
     removeCustomers(solution, customersToRemove);
 
