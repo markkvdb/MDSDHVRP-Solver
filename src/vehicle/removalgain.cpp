@@ -12,7 +12,7 @@ double Vehicle::removalGain(int customerID)
 
     double minusDistance = d_env->d_distanceMatrix[route[positionCustomer-1]][customerID] +
                            d_env->d_distanceMatrix[customerID][route[positionCustomer+1]] -
-                           d_env->d_distanceMatrix[d_route.getRoute()[positionCustomer - 1]][positionCustomer + 1];
+                           d_env->d_distanceMatrix[route[positionCustomer - 1]][route[positionCustomer + 1]];
 
     double penaltyReduction = 0;
     if (getPenaltyTime() != 0.0)
@@ -22,6 +22,8 @@ double Vehicle::removalGain(int customerID)
                                 (minusDistance / d_drivingSpeed));
         penaltyReduction = d_env->d_penalty * (oldPenalty - newPenalty);
     }
+
+
 
     return penaltyReduction + minusDistance / d_drivingSpeed;
 }
