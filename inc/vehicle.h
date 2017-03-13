@@ -19,6 +19,7 @@ class Vehicle {
 
     // FIXED
     int                 d_id;
+    int                 d_idPos;
     int                 d_vehicleType;
     int                 d_depotID;
     double              d_drivingSpeed;
@@ -30,9 +31,10 @@ class Vehicle {
 
 public:
     Vehicle() = delete;
-    Vehicle(Env *env, int id, int vehicleType, int depotID, int capacity, double serviceTime, double drivingSpeed, double cost);
+    Vehicle(Env *env, int id, int idPos, int vehicleType, int depotID, int capacity, double serviceTime, double drivingSpeed, double cost);
 
     int                     getID()             const;
+    int                     getIDPos()          const;
     int                     getVehicleType()    const;
     int                     getDepotID()        const;
     double                  getDrivingSpeed()   const;
@@ -53,9 +55,16 @@ public:
     void                    setRoute(Route route);
     int                     removeCustomer(int customerID);
     void                    addCustomer(int customerID, int load, int routePos);
+    long                    findCustomer(int customerID) const;
+
     std::pair<int, double>  cheapestInsertion(int customerID) const;
+    std::pair<int, double>  cheapestInsertion(int customerID1, int customerID2) const;
+    std::pair<int, double>  cheapestInsertionWithSplits(int customerID) const;
     double                  removalGain(int customerID);
+
     std::vector<int>        selectCustomersToRemove(int q);
+
+
     double                  twoOptGain(int bIdx, int cIdx);
     void                    twoOpt(int bIdx, int cIdx);
     void                    bestTwoOpt();
@@ -68,12 +77,18 @@ public:
 
 private:
     double                  insertionCost(int option, int customerID) const;
+    double                  insertionCost(int option, int customerID1, int customerID2) const;
 
 };
 
 inline int Vehicle::getID() const
 {
     return d_id;
+}
+
+inline int Vehicle::getIDPos() const
+{
+    return d_idPos;
 }
 
 inline int Vehicle::getVehicleType() const

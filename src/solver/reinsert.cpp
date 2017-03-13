@@ -37,7 +37,7 @@ void Solver::reinsert(Solution &solution, std::vector<int> &customersToAdd)
                 {
                     minInsertion = insertion.second;
                     depotID = depot.getID();
-                    vehicleID = vehicle.getID();
+                    vehicleID = vehicle.getIDPos();
                     routePos = insertion.first;
                 }
             }

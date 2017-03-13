@@ -35,6 +35,7 @@ public:
 
     int                     removeCustomer(int customerID);
     void                    addCustomer(int customerID, int load, int routePos);
+    long                    findCustomer(int customerID) const;
     void                    twoOpt(int bIdx, int cIdx);
     void                    swap(int aIdx, int bIdx);
 
@@ -81,6 +82,11 @@ inline double const Route::getDistance() const
 inline double const Route::getServiceTime() const
 {
     return d_serviceTime;
+}
+
+inline long Route::findCustomer(int customerID) const
+{
+    return (find(begin(d_route), end(d_route), customerID) - begin(d_route));
 }
 
 #endif //ORACS_ROUTE_H

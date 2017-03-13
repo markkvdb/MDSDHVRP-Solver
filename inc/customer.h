@@ -28,6 +28,7 @@ public:
     double                              getServiceTime()             const;
     int                                 getRemainingDemand()         const;
     std::vector<std::pair<int, int>> &  getVehicles();
+    void                                deleteVehicle(int depotID, int vehicleID);
     void                                changeDemand(int demand);
     void                                addToVehicle(int depotID, int vehicleID);
     void                                resetRemainingDemand();

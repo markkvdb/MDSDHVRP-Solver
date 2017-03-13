@@ -12,7 +12,7 @@ vector<pair<int, int>> Solver::getNonEmptyRoutes(Solution &solution)
         for (Vehicle const &vehicle: depot.getVehicles())
         {
             if (not vehicle.emptyRoute())
-                nonEmptyRoutes.push_back(make_pair(depot.getID(), vehicle.getID()));
+                nonEmptyRoutes.push_back(make_pair(depot.getID(), vehicle.getIDPos()));
         }
     }
     return nonEmptyRoutes;
