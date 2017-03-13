@@ -6,5 +6,6 @@
 #include <algorithm>
 #include <numeric>
 #include <iterator>
+#include <set>
 
 using namespace std;

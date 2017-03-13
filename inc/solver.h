@@ -8,6 +8,7 @@
 #include "solution.h"
 #include <utility>
 #include <functional>
+#include <set>
 
 class Env;
 
@@ -72,6 +73,9 @@ private:
     void                            swapStarTwo(Solution &s);
     void                            oneInsertionInterRoute(Solution &s);
 
+    void                            bestSwapStar(Solution &s, int customerID, std::set<int>forbiddenVehicles,
+                                                 std::set<int> forbiddenCustomers);
+    std::pair<std::vector<std::set<int>>, std::vector<std::set<int>>> createForbiddenVehiclesAndCustomers(Solution &s);
 
 
     // Other functions

@@ -51,6 +51,7 @@ public:
     double                  getPenaltyTime()    const;
     int                     getLeftoverCapacity() const;
     bool                    emptyRoute()        const;
+    std::vector<int>        getCustomerList()   const;
 
     void                    setRoute(Route route);
     int                     removeCustomer(int customerID);
@@ -174,6 +175,11 @@ inline void Vehicle::addCustomer(int customerID, int load, int routePos)
 inline bool Vehicle::emptyRoute() const
 {
     return (d_route.getRoute().size() == 2);
+}
+
+inline std::vector<int> Vehicle::getCustomerList() const
+{
+    return d_route.getRoute();
 }
 
 #endif //ORACS_VEHICLE_H
