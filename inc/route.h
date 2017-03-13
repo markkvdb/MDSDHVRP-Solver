@@ -83,10 +83,4 @@ inline double const Route::getServiceTime() const
 {
     return d_serviceTime;
 }
-
-inline long Route::findCustomer(int customerID) const
-{
-    return (find(begin(d_route), end(d_route), customerID) - begin(d_route));
-}
-
 #endif //ORACS_ROUTE_H
