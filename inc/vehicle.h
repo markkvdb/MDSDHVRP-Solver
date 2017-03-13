@@ -43,6 +43,7 @@ public:
     Route &                 getRoute();
     Route const &           getRoute()          const;
     double                  getTotalCost()      const;
+    double                  getTotalCostPlusPenalty() const;
     double                  getDrivingTime()    const;
     double                  getRouteDuration()  const;
     double                  getPenaltyTime()    const;
@@ -55,6 +56,13 @@ public:
     std::pair<int, double>  cheapestInsertion(int customerID) const;
     double                  removalGain(int customerID);
     std::vector<int>        selectCustomersToRemove(int q);
+    double                  twoOptGain(int bIdx, int cIdx);
+    void                    twoOpt(int bIdx, int cIdx);
+    void                    bestTwoOpt();
+    double                  swapGain(int aIdx, int bIdx);
+    void                    swap(int aIdx, int bIdx);
+    void                    bestSwap();
+
 
     friend std::ostream&    operator<<(std::ostream &os, Vehicle const &vehicle);
 

@@ -62,7 +62,14 @@ private:
     // Functions for local search
     void                            localSearch(Solution &s);
     void                            oneInsertionIntraRoute(Solution &s);
+    void                            twoInsertionIntraRoute(Solution &s);
     void                            twoOptIntraRoute(Solution &s);
+    void                            swap(Solution &s);
+    void                            swapStar(Solution &s);
+    void                            routeAddition(Solution &s);
+    void                            swapStarTwo(Solution &s);
+
+
 
     // Other functions
     Solution &                      simulatedAnnealing(Solution &sPrime, Solution &s);

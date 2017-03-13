@@ -1,16 +1,16 @@
 //
-// Created by Mark van der Broek on 10/03/2017.
+// Created by Mark van der Broek on 13/03/2017.
 //
 
 #include "solver.ih"
 
-void Solver::twoOptIntraRoute(Solution &s)
+void Solver::swap(Solution &s)
 {
     for (Depot &depot: s.getDepots())
     {
         for (Vehicle &vehicle: depot.getVehicles())
         {
-            vehicle.bestTwoOpt();
+            vehicle.bestSwap();
         }
     }
 }

@@ -6,7 +6,7 @@
 
 void Solver::run()
 {
-    size_t maxIter  = 1;
+    size_t maxIter  = 1000;
     double theta    = 0.3;
     // TODO add time restrictions on runtime
 

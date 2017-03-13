@@ -12,7 +12,7 @@ double Solution::totalCost()
     {
         for (Vehicle const &vehicle: depot.getVehicles())
         {
-            totalCost += vehicle.getTotalCost() + vehicle.getPenaltyTime() * d_env->d_penalty;
+            totalCost += vehicle.getTotalCostPlusPenalty();
         }
     }
 

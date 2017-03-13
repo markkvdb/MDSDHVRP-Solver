@@ -277,7 +277,7 @@ For each depot
             - c1 = route[i - 1]  
             c2 = route[i]  
             For j = i + 1 to route.size()
-                - c3 = route[j]
+                - c3 = route[j]  
                 c4 = route[j + 1]  
                 saving = distance - distance[c1,c2] - distance[c3,c4] + distance[c1,c3] + distance[c2,c4]  
                 if saving < bestOption
