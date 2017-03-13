@@ -7,5 +7,5 @@
 int Solver::selectq()
 {
     int minimum = min(5, static_cast<int>(d_env->d_currentSolution.getCustomers().size()));
-    return max(minimum, static_cast<int>(floor(0.15 * d_env->d_currentSolution.getCustomers().size())));
+    return max(minimum, static_cast<int>(floor(0.05 * d_env->d_currentSolution.getCustomers().size())));
 }
