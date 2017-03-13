@@ -4,7 +4,7 @@
 
 #include "route.ih"
 
-Route::Route(Env *env, int depotID, std::vector<int> route, std::vector<double> demandRoute)
+Route::Route(Env *env, int depotID, std::vector<int> route, std::vector<int> demandRoute)
 :
     d_env(env),
     d_depotID(depotID),

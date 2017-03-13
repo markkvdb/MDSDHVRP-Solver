@@ -4,11 +4,11 @@
 
 #include "solver.ih"
 
-pair<vector<int>, vector<double>> Solver::cheapestInsertion(int depotNumber, vector<int> &customerList, vector<double> &customerDropOff)
+pair<vector<int>, vector<int>> Solver::cheapestInsertion(int depotNumber, vector<int> &customerList, vector<int> &customerDropOff)
 {
     int const depotIdx = d_env->d_currentSolution.getCustomers().size() + depotNumber;
     vector<int> route = {depotIdx, depotIdx};
-    vector<double> routeDropOff = {0, 0};
+    vector<int> routeDropOff = {0, 0};
 
     while (not customerList.empty())
     {

@@ -4,7 +4,7 @@
 
 #include "customer.ih"
 
-Customer::Customer(Env *env, int id, double demand, double serviceTime)
+Customer::Customer(Env *env, int id, int demand, double serviceTime)
 :
     d_env(env),
     d_id(id),

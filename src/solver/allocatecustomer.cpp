@@ -4,11 +4,11 @@
 
 #include "solver.ih"
 
-pair<vector<vector<int>>, vector<vector<double>>> Solver::allocateCustomers()
+pair<vector<vector<int>>, vector<vector<int>>> Solver::allocateCustomers()
 {
     // Create Depot-Customer allocation
     vector<vector<int>> depotCustomerAllocation(d_env->d_currentSolution.getDepots().size());
-    vector<vector<double>> depotCustomerDemand(d_env->d_currentSolution.getDepots().size());
+    vector<vector<int>> depotCustomerDemand(d_env->d_currentSolution.getDepots().size());
 
     vector<int> orderedCustomers(d_env->d_currentSolution.getCustomers().size());
     iota(std::begin(orderedCustomers), std::end(orderedCustomers), 0);
@@ -25,7 +25,7 @@ pair<vector<vector<int>>, vector<vector<double>>> Solver::allocateCustomers()
     {
         // Select customer
         Customer &customer = d_env->d_currentSolution.getCustomers()[customerNumber];
-        double customerDemand = customer.getDemand();
+        int customerDemand = customer.getDemand();
 
         // Get ordered list of depots based on distance from customer
         vector<int> const &sortedDepots = getClosestDepots(customerNumber);
@@ -41,7 +41,7 @@ pair<vector<vector<int>>, vector<vector<double>>> Solver::allocateCustomers()
 
             if (realDepot.getLeftOverInventory() > 0)
             {
-                double fulfilledDemand = 0;
+                int fulfilledDemand = 0;
 
                 if (realDepot.getLeftOverInventory() < customerDemand)
                     fulfilledDemand = realDepot.getLeftOverInventory();

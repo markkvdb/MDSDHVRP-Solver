@@ -10,12 +10,12 @@ void Vehicle::bestSwap()
     int minBIdx = -1;
     double maxGain = numeric_limits<double>::max();
 
-    if (d_route.getRoute().size() < 4)
+    if (d_route.getRoute().size() < 6)
         return;
 
-    for (int aIdx = 1; aIdx != d_route.getRoute().size() - 2; ++aIdx)
+    for (int aIdx = 1; aIdx != d_route.getRoute().size() - 4; ++aIdx)
     {
-        for (int bIdx = bIdx + 1; bIdx < d_route.getRoute().size() - 1; ++bIdx)
+        for (int bIdx = aIdx + 3; bIdx < d_route.getRoute().size() - 1; ++bIdx)
         {
             double gain = swapGain(aIdx, bIdx);
 

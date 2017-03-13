@@ -4,9 +4,9 @@
 
 #include "solver.ih"
 
-void Solver::addCustomer(int pickedCustomer, double &remainingCapacity, vector<int> &customerList,
-                         vector<double> &customerDropOff, std::vector<int> &depotCustomerAllocation,
-                         vector<double> &depotCustomerDemand)
+void Solver::addCustomer(int pickedCustomer, int &remainingCapacity, vector<int> &customerList,
+                         vector<int> &customerDropOff, std::vector<int> &depotCustomerAllocation,
+                         vector<int> &depotCustomerDemand)
 {
 
     // Add customer to the customer list of the vehicle

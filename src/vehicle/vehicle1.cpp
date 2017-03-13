@@ -4,7 +4,7 @@
 
 #include "vehicle.ih"
 
-Vehicle::Vehicle(Env *env, int id, int vehicleType, int depotID, double capacity, double serviceTime, double drivingSpeed, double cost)
+Vehicle::Vehicle(Env *env, int id, int vehicleType, int depotID, int capacity, double serviceTime, double drivingSpeed, double cost)
 :
     d_env(env),
     d_vehicleType(vehicleType),

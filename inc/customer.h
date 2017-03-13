@@ -14,21 +14,21 @@ class Customer {
 
     Env *d_env;
     int                                 d_id;
-    double                              d_demand;
-    double                              d_remainingDemand;
+    int                                 d_demand;
+    int                                 d_remainingDemand;
     double                              d_serviceTime;
     std::vector<std::pair<int, int>>    d_vehicles;
 
 public:
     Customer() = delete;
-    Customer(Env *env, int id, double demand, double serviceTime);
+    Customer(Env *env, int id, int demand, double serviceTime);
 
     int                                 getId()                      const;
-    double                              getDemand()                  const;
+    int                                 getDemand()                  const;
     double                              getServiceTime()             const;
-    double                              getRemainingDemand()         const;
+    int                                 getRemainingDemand()         const;
     std::vector<std::pair<int, int>> &  getVehicles();
-    void                                changeDemand(double demand);
+    void                                changeDemand(int demand);
     void                                addToVehicle(int depotID, int vehicleID);
     void                                resetRemainingDemand();
 
@@ -41,7 +41,7 @@ inline int Customer::getId() const
     return d_id;
 }
 
-inline double Customer::getDemand() const
+inline int Customer::getDemand() const
 {
     return d_demand;
 }
@@ -51,12 +51,12 @@ inline double Customer::getServiceTime() const
     return d_serviceTime;
 }
 
-inline double Customer::getRemainingDemand() const
+inline int Customer::getRemainingDemand() const
 {
     return d_remainingDemand;
 }
 
-inline void Customer::changeDemand(double demand)
+inline void Customer::changeDemand(int demand)
 {
     d_remainingDemand += demand;
 }

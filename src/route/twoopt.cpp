@@ -7,17 +7,17 @@
 void Route::twoOpt(int bIdx, int cIdx)
 {
     vector<int> newRoute;
-    vector<double> newLoad;
+    vector<int> newLoad;
 
     vector<int> firstPart(begin(d_route), begin(d_route) + bIdx);
     vector<int> secondPart(begin(d_route) + bIdx, begin(d_route) + cIdx + 1);
     reverse(begin(secondPart), end(secondPart));
     vector<int> thirdPart(begin(d_route) + cIdx + 1, end(d_route));
 
-    vector<double> firstPart2{begin(d_demandRoute), begin(d_demandRoute) + bIdx};
-    vector<double> secondPart2{begin(d_demandRoute) + bIdx, begin(d_demandRoute) + cIdx + 1};
+    vector<int> firstPart2{begin(d_demandRoute), begin(d_demandRoute) + bIdx};
+    vector<int> secondPart2{begin(d_demandRoute) + bIdx, begin(d_demandRoute) + cIdx + 1};
     reverse(begin(secondPart2), end(secondPart2));
-    vector<double> thirdPart2{begin(d_demandRoute) + cIdx + 1, end(d_demandRoute)};
+    vector<int> thirdPart2{begin(d_demandRoute) + cIdx + 1, end(d_demandRoute)};
 
     newRoute.insert(end(newRoute), begin(firstPart), end(firstPart));
     newRoute.insert(end(newRoute), begin(secondPart), end(secondPart));

@@ -7,7 +7,7 @@
 void Solver::localSearch(Solution &s)
 {
     oneInsertionIntraRoute(s);
-//    twoOptIntraRoute(s);
+    twoOptIntraRoute(s);
     swap(s);
 //    for (size_t operatorIdx = 0; operatorIdx != d_localSearchOperators.size(); ++operatorIdx) {
 //

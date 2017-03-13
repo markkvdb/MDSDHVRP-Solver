@@ -7,9 +7,9 @@
 void Solver::initialSolution()
 {
     // Create Depot-Customer allocation (depotCustomerAllocation is a m by something)
-    pair<vector<vector<int>>, vector<vector<double>>> depotAllocation = allocateCustomers();
+    pair<vector<vector<int>>, vector<vector<int>>> depotAllocation = allocateCustomers();
     vector<vector<int>> depotCustomerAllocation = depotAllocation.first;
-    vector<vector<double>> depotCustomerDemand = depotAllocation.second;
+    vector<vector<int>> depotCustomerDemand = depotAllocation.second;
 
     // For each depot
     for (int depotNumber = 0; depotNumber != d_env->d_currentSolution.getDepots().size(); ++depotNumber)

@@ -2,13 +2,13 @@
 // Created by Mark van der Broek on 27/02/2017.
 //
 
-#include "solution.h"
+#include "solution.ih"
 
 using namespace std;
 
 void Solution::print()
 {
-    cout << totalCost() << "\n\n";
+    cout << setprecision(2) << fixed << totalCost() << "\n\n";
 
     for (Depot const &depot: d_depots)
     {

@@ -28,22 +28,22 @@ private:
     // Functions for initial solution
     std::pair<
             std::vector<std::vector<int>>,
-            std::vector<std::vector<double>>>
+            std::vector<std::vector<int>>>
                                     allocateCustomers();
     std::vector<int>                getClosestDepots(int customer);
     std::vector<int>                sortVehicleList(int depotNumber);
     void                            assignRouteToVehicle(int vehicleNumber, int depotNumber,
                                                          std::vector<int> &depotCustomerAllocation,
-                                                         std::vector<double> &depotCustomerDemand);
-    void                            addCustomer(int pickedCustomer, double &remainingCapacity,
-                                                std::vector<int> &customerList, std::vector<double> &customerDropOff,
+                                                         std::vector<int> &depotCustomerDemand);
+    void                            addCustomer(int pickedCustomer, int &remainingCapacity,
+                                                std::vector<int> &customerList, std::vector<int> &customerDropOff,
                                                 std::vector<int> &depotCustomerAllocation,
-                                                std::vector<double> &depotCustomerDemand);
+                                                std::vector<int> &depotCustomerDemand);
     void                            getClosestCustomer(int seedCustomer, int &pickedCustomer,
                                                        std::vector<int> &depotCustomerAllocation);
     std::pair<std::vector<int>,
-            std::vector<double>>    cheapestInsertion(int depotNumber, std::vector<int> &customerList,
-                                                       std::vector<double> &customerDropOff);
+            std::vector<int>>       cheapestInsertion(int depotNumber, std::vector<int> &customerList,
+                                                       std::vector<int> &customerDropOff);
 
     // Functions for perturbation
     void                            perturbation(Solution &solution, int q);

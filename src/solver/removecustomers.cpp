@@ -15,7 +15,7 @@ void Solver::removeCustomers(Solution &solution, std::vector<int> const &custome
             int vehicleID = vehicleList[vehicleNumber].second;
 
             // Remove customer from vehicle (and route) and depot.
-            double demand = solution.getDepots()[depotID].getVehicle(vehicleID).removeCustomer(customerNumber);
+            int demand = solution.getDepots()[depotID].getVehicle(vehicleID).removeCustomer(customerNumber);
             solution.getDepots()[depotID].changeInventory(demand);
         }
         solution.getCustomers()[customerNumber].resetRemainingDemand();

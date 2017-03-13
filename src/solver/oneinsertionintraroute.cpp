@@ -11,7 +11,7 @@ void Solver::oneInsertionIntraRoute(Solution &s)
         for (Vehicle &vehicle: depot.getVehicles())
         {
             int minCustomer = -1;
-            double minDemand = -1;
+            int minDemand = -1;
             int minPos = -1;
             double minInsertion = numeric_limits<double>::max();
 
@@ -20,7 +20,7 @@ void Solver::oneInsertionIntraRoute(Solution &s)
                 int customerID = vehicle.getRoute().getRoute()[customerIdx];
                 Vehicle newVehicle = vehicle;
 
-                double customerDemand = newVehicle.removeCustomer(customerID);
+                int customerDemand = newVehicle.removeCustomer(customerID);
                 auto insertion = newVehicle.cheapestInsertion(customerID);
 
                 if (insertion.second < minInsertion)

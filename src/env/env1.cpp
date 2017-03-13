@@ -26,7 +26,7 @@ Env::Env(Init &init)
 
     for (int depot = 0; depot != init.getNoOfDepots(); ++depot)
     {
-        Depot depotToAdd{this, depot, depotMatrix[depot][3]};
+        Depot depotToAdd{this, depot, static_cast<int>(depotMatrix[depot][3])};
         int vehicleIdx = 0;
 
         // Add vehicles to depot.
@@ -38,7 +38,7 @@ Env::Env(Init &init)
                                               vehicleIdx,
                                               static_cast<int>(vehicleMatrix[vehicleType-4][0]),
                                               depot,
-                                              vehicleMatrix[vehicleType-4][1],
+                                              static_cast<int>(vehicleMatrix[vehicleType-4][1]),
                                               vehicleMatrix[vehicleType-4][2],
                                               vehicleMatrix[vehicleType-4][3],
                                               vehicleMatrix[vehicleType-4][4]});
@@ -50,7 +50,8 @@ Env::Env(Init &init)
 
     for (int customer = 0; customer != init.getNoOfCustomers(); ++customer)
     {
-        Customer customerToAdd{this, customer, customerMatrix[customer][3], customerMatrix[customer][4]};
+        Customer customerToAdd{this, customer, static_cast<int>(customerMatrix[customer][3]),
+                               customerMatrix[customer][4]};
         d_currentSolution.addCustomer(customerToAdd);
     }
 }

@@ -6,16 +6,17 @@
 
 double Vehicle::twoOptGain(int bIdx, int cIdx)
 {
-    double gain = d_env->d_distanceMatrix[d_route.getRoute()[bIdx-1]][d_route.getRoute()[cIdx]] +
+    double distanceGain = d_env->d_distanceMatrix[d_route.getRoute()[bIdx-1]][d_route.getRoute()[cIdx]] +
             d_env->d_distanceMatrix[d_route.getRoute()[bIdx]][d_route.getRoute()[cIdx+1]] -
             d_env->d_distanceMatrix[d_route.getRoute()[bIdx-1]][d_route.getRoute()[bIdx]] -
             d_env->d_distanceMatrix[d_route.getRoute()[cIdx]][d_route.getRoute()[cIdx+1]];
 
-    if (gain < 0)
+    double penaltyGain = 0;
+    if (distanceGain < 0)
     {
-        gain -= (getPenaltyTime() - min(0.0, getPenaltyTime() + gain / d_drivingSpeed)) * d_env->d_penalty;
+        penaltyGain = (getPenaltyTime() - max(0.0, getPenaltyTime() + distanceGain / d_drivingSpeed)) * d_env->d_penalty;
     }
 
-    return gain;
+    return distanceGain * d_cost + penaltyGain;
 
 }

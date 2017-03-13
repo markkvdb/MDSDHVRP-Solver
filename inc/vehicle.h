@@ -23,14 +23,14 @@ class Vehicle {
     int                 d_depotID;
     double              d_drivingSpeed;
     double              d_cost;
-    double              d_capacity;
+    int                 d_capacity;
     double              d_serviceTime;
 
     Route               d_route;
 
 public:
     Vehicle() = delete;
-    Vehicle(Env *env, int id, int vehicleType, int depotID, double capacity, double serviceTime, double drivingSpeed, double cost);
+    Vehicle(Env *env, int id, int vehicleType, int depotID, int capacity, double serviceTime, double drivingSpeed, double cost);
 
     int                     getID()             const;
     int                     getVehicleType()    const;
@@ -38,7 +38,7 @@ public:
     double                  getDrivingSpeed()   const;
     double                  getDrivingCost()    const;
     double                  getCost()           const;
-    double                  getCapacity()       const;
+    int                     getCapacity()       const;
     double                  getServiceTime()    const;
     Route &                 getRoute();
     Route const &           getRoute()          const;
@@ -47,12 +47,12 @@ public:
     double                  getDrivingTime()    const;
     double                  getRouteDuration()  const;
     double                  getPenaltyTime()    const;
-    double                  getLeftoverCapacity() const;
+    int                     getLeftoverCapacity() const;
     bool                    emptyRoute()        const;
 
     void                    setRoute(Route route);
-    double                  removeCustomer(int customerID);
-    void                    addCustomer(int customerID, double load, int routePos);
+    int                     removeCustomer(int customerID);
+    void                    addCustomer(int customerID, int load, int routePos);
     std::pair<int, double>  cheapestInsertion(int customerID) const;
     double                  removalGain(int customerID);
     std::vector<int>        selectCustomersToRemove(int q);
@@ -101,7 +101,7 @@ inline double Vehicle::getCost() const
     return d_cost;
 }
 
-inline double Vehicle::getCapacity() const
+inline int Vehicle::getCapacity() const
 {
     return d_capacity;
 }
@@ -141,17 +141,17 @@ inline double Vehicle::getPenaltyTime() const
     return std::max(0.0, getRouteDuration() - d_serviceTime);
 }
 
-inline double Vehicle::getLeftoverCapacity() const
+inline int Vehicle::getLeftoverCapacity() const
 {
-    return std::max(0.0, d_capacity - d_route.getLoad());
+    return std::max(0, d_capacity - d_route.getLoad());
 }
 
-inline double Vehicle::removeCustomer(int customerID)
+inline int Vehicle::removeCustomer(int customerID)
 {
     return d_route.removeCustomer(customerID);
 }
 
-inline void Vehicle::addCustomer(int customerID, double load, int routePos)
+inline void Vehicle::addCustomer(int customerID, int load, int routePos)
 {
     d_route.addCustomer(customerID, load, routePos);
 }

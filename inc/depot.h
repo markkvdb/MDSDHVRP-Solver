@@ -16,21 +16,21 @@ class Depot {
     Env *                   d_env;
     int                     d_id;
     std::vector<Vehicle>    d_vehicles;
-    double                  d_inventory;
-    double                  d_leftOverInventory;
+    int                     d_inventory;
+    int                     d_leftOverInventory;
 
 public:
     Depot() = delete;
-    Depot(Env *env, int id, double leftOverInventory);
-    Depot(Env *env, int id, std::vector<Vehicle> &vehicles, double leftOverInventory);
+    Depot(Env *env, int id, int leftOverInventory);
+    Depot(Env *env, int id, std::vector<Vehicle> &vehicles, int leftOverInventory);
 
     std::vector<Vehicle> &  getVehicles();
     Vehicle &               getVehicle(int vehicleNumber);
     int                     getID();
     int                     getNumberOfVehicles();
-    double                  getLeftOverInventory()          const;
-    double                  getInventory()                  const;
-    void                    changeInventory(double amount);
+    int                     getLeftOverInventory()          const;
+    int                     getInventory()                  const;
+    void                    changeInventory(int amount);
     void                    updateInventory();
     void                    addVehicle(Vehicle vehicle);
 
@@ -61,17 +61,17 @@ inline int Depot::getNumberOfVehicles()
     return d_vehicles.size();
 }
 
-inline void Depot::changeInventory(double amount)
+inline void Depot::changeInventory(int amount)
 {
     d_leftOverInventory += amount;
 }
 
-inline double Depot::getInventory() const
+inline int Depot::getInventory() const
 {
     return d_inventory;
 }
 
-inline double Depot::getLeftOverInventory() const
+inline int Depot::getLeftOverInventory() const
 {
     return d_leftOverInventory;
 }
