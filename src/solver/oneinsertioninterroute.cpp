@@ -54,7 +54,6 @@ void Solver::oneInsertionInterRoute(Solution &s)
                             minInsertion = insert.second;
                         }
                     }
-
                 }
                 depotOut.changeInventory(customerDemand);
             }
@@ -66,7 +65,7 @@ void Solver::oneInsertionInterRoute(Solution &s)
 
     // Customer update
     s.getCustomers()[minCustomer].deleteVehicle(minDepotOut, minVehicleOut);
-
+    s.getDepots()[minDepotOut].getVehicle(minVehicleOut).removeCustomer(minCustomer);
     // Depot update
     s.getDepots()[minDepotOut].changeInventory(minDemand);
     s.getDepots()[minDepotIn].changeInventory(-minDemand);
@@ -82,7 +81,6 @@ void Solver::oneInsertionInterRoute(Solution &s)
         s.getCustomers()[minCustomer].addToVehicle(minDepotIn, minVehicleIn);
 
         // Vehicle update
-        s.getDepots()[minDepotOut].getVehicle(minVehicleOut).removeCustomer(minCustomer);
         s.getDepots()[minDepotIn].getVehicle(minVehicleIn).addCustomer(minCustomer, minDemand, minPos);
     }
 }
