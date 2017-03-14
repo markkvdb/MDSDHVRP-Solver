@@ -71,11 +71,6 @@ inline int Depot::getInventory() const
     return d_inventory;
 }
 
-inline int Depot::getLeftOverInventory() const
-{
-    return d_leftOverInventory;
-}
-
 inline void Depot::addVehicle(Vehicle vehicle)
 {
     d_vehicles.push_back(vehicle);

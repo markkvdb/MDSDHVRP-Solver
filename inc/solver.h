@@ -9,6 +9,7 @@
 #include <utility>
 #include <functional>
 #include <set>
+#include <map>
 
 class Env;
 
@@ -27,21 +28,16 @@ public:
 
 private:
     // Functions for initial solution
-    std::pair<
-            std::vector<std::vector<int>>,
-            std::vector<std::vector<int>>>
-                                    allocateCustomers();
+    std::vector<std::vector<std::pair<int, int>>> allocateCustomers();
     std::vector<int>                getClosestDepots(int customer);
     std::vector<int>                sortVehicleList(int depotNumber);
     void                            assignRouteToVehicle(int vehicleNumber, int depotNumber,
-                                                         std::vector<int> &depotCustomerAllocation,
-                                                         std::vector<int> &depotCustomerDemand);
+                                                         std::vector<std::pair<int, int>> &depotCustomerAllocation);
     void                            addCustomer(int pickedCustomer, int &remainingCapacity,
                                                 std::vector<int> &customerList, std::vector<int> &customerDropOff,
-                                                std::vector<int> &depotCustomerAllocation,
-                                                std::vector<int> &depotCustomerDemand);
+                                                std::vector<std::pair<int, int>> &depotCustomerAllocation);
     void                            getClosestCustomer(int seedCustomer, int &pickedCustomer,
-                                                       std::vector<int> &depotCustomerAllocation);
+                                                       std::vector<std::pair<int, int>> &depotCustomerAllocation);
     std::pair<std::vector<int>,
             std::vector<int>>       cheapestInsertion(int depotNumber, std::vector<int> &customerList,
                                                        std::vector<int> &customerDropOff);
@@ -73,9 +69,11 @@ private:
     void                            swapStarTwo(Solution &s);
     void                            oneInsertionInterRoute(Solution &s);
 
-    void                            bestSwapStar(Solution &s, int customerID, std::set<int>forbiddenVehicles,
-                                                 std::set<int> forbiddenCustomers);
+    auto                            bestSwapStar(Solution &s, int customerIdx, Vehicle &vehicle,
+                                                 std::set<int>forbiddenVehicles, std::set<int> forbiddenCustomers);
     std::pair<std::vector<std::set<int>>, std::vector<std::set<int>>> createForbiddenVehiclesAndCustomers(Solution &s);
+    double                          findSwapStarCost(int customerIdx1, Vehicle &vehicle1,
+                                                     int customerIdx2, Vehicle &vehicle2);
 
 
     // Other functions

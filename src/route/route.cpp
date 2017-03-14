@@ -26,4 +26,8 @@ Route::Route(Env *env, int depotID)
     d_load(0),
     d_length(0),
     d_serviceTime(0)
-{}
+{
+    d_length = 0;
+    d_load = 0;
+    d_load = 0;
+}

@@ -29,7 +29,7 @@ void Solver::run()
 
         if (d_env->d_newSolution.totalCost() < (1 + theta) * d_env->d_bestSolution.totalCost())
         {
-            localSearch(d_env->d_newSolution);
+            //localSearch(d_env->d_newSolution);
             localIter++;
         }
 
@@ -44,6 +44,7 @@ void Solver::run()
         ++iter;
         elapsedSeconds = chrono::duration<double>(chrono::system_clock::now() - start).count();
     }
+
     if (d_env->d_bestFeasibleSolution.feasible())
         d_env->d_bestFeasibleSolution.print();
 

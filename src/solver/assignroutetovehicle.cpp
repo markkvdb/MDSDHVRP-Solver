@@ -5,7 +5,7 @@
 #include "solver.ih"
 
 void Solver::assignRouteToVehicle(int vehicleNumber, int depotNumber,
-                                  std::vector<int> &depotCustomerAllocation, std::vector<int> &depotCustomerDemand)
+                                  std::vector<pair<int, int>> &depotCustomerAllocation)
 {
     Depot &depot = d_env->d_currentSolution.getDepots()[depotNumber];
     Vehicle &vehicle = depot.getVehicle(vehicleNumber);
@@ -23,17 +23,16 @@ void Solver::assignRouteToVehicle(int vehicleNumber, int depotNumber,
     // Check if there are still customers left to assign.
     if (not depotCustomerAllocation.empty()) {
 
-        uniform_int_distribution<int> uni(0, depotCustomerAllocation.size() - 1);
+        uniform_int_distribution<int> uni(0, depotCustomerAllocation.size()-1);
 
-        seedCustomer = depotCustomerAllocation[uni(d_env->d_rng)];
+        seedCustomer = depotCustomerAllocation[uni(d_env->d_rng)].first;
         pickedCustomer = seedCustomer;
     }
 
     while (remainingCapacity > 0 && not depotCustomerAllocation.empty()) {
         d_env->d_currentSolution.getCustomers()[pickedCustomer].addToVehicle(depotNumber, vehicleNumber);
 
-        addCustomer(pickedCustomer, remainingCapacity, customerList, customerDropOff, depotCustomerAllocation,
-                    depotCustomerDemand);
+        addCustomer(pickedCustomer, remainingCapacity, customerList, customerDropOff, depotCustomerAllocation);
 
         getClosestCustomer(seedCustomer, pickedCustomer, depotCustomerAllocation);
     }

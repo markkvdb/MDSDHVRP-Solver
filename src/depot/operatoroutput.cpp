@@ -8,7 +8,7 @@ ostream& operator<<(ostream &os, Depot const &depot)
 {
     for (Vehicle const& vehicle: depot.d_vehicles)
     {
-        os << depot.d_id << ' ' << vehicle << '\n';
+        os << depot.d_id << ' ' << vehicle << "\r\n";
     }
 
     return os;

@@ -8,7 +8,7 @@ using namespace std;
 
 void Solution::print()
 {
-    cout << setprecision(2) << fixed << totalCost() << "\n\n";
+    cout << setprecision(2) << fixed << totalCost() << "\r\n\r\n";
 
     for (Depot const &depot: d_depots)
     {
