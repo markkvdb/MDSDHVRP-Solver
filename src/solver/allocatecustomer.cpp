@@ -68,6 +68,7 @@ vector<vector<pair<int, int>>> Solver::allocateCustomers()
         }
         if (customerDemand > 0)
             cerr << "Not all demand satisfied\n";
+
     }
 
     return depotCustomerAllocations;

@@ -57,7 +57,6 @@ void Solver::twoInsertionIntraRoute(Solution &s)
                 vehicle.removeCustomer(minCustomer2);
                 vehicle.addCustomer(minCustomer1, minDemand1, minPos);
                 vehicle.addCustomer(minCustomer2, minDemand2, minPos+1);
-                int hoi = 1;
             }
         }
     }

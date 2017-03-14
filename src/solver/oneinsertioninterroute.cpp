@@ -15,53 +15,61 @@ void Solver::oneInsertionInterRoute(Solution &s)
     int minPos = -1;
     double minInsertion = numeric_limits<double>::max();
 
-    for (Depot &depot: s.getDepots())
+    for (Depot &depotOut: s.getDepots())
     {
-        for (size_t vehicleIdx = 0; vehicleIdx != depot.getVehicles().size(); ++vehicleIdx)
+        for (int vehicleIdx = 0; vehicleIdx != depotOut.getVehicles().size(); ++vehicleIdx)
         {
-            Vehicle &vehicle = depot.getVehicle(vehicleIdx);
-            int vehicleID = vehicle.getID();
+            Vehicle &vehicleOut = depotOut.getVehicle(vehicleIdx);
+            int vehicleID = vehicleOut.getID();
 
-            for (int customerIdx = 1; customerIdx != vehicle.getRoute().getRoute().size() - 1; ++customerIdx)
+            for (int customerIdx = 1; customerIdx != vehicleOut.getRoute().getRoute().size() - 1; ++customerIdx)
             {
-                int const customerID = vehicle.getRoute().getRoute()[customerIdx];
-                int const customerDemand = vehicle.getRoute().getDemandRoute()[customerIdx];
-                depot.changeInventory(-customerDemand);
+                // Select customer to change
+                int const customerID = vehicleOut.getRoute().getRoute()[customerIdx];
+                int const customerDemand = vehicleOut.getRoute().getDemandRoute()[customerIdx];
+                depotOut.changeInventory(-customerDemand);
 
-                for (Depot &depot2: s.getDepots())
+                for (Depot &depotIn: s.getDepots())
                 {
-                    if (depot2.getLeftOverInventory() < customerDemand)
+                    if (depotIn.getLeftOverInventory() < customerDemand)
                         continue;
 
-                    for (int vehicleIdx2 = 0; vehicleIdx2 != depot2.getVehicles().size(); ++vehicleIdx2)
+                    for (int vehicleIdx2 = 0; vehicleIdx2 != depotIn.getVehicles().size(); ++vehicleIdx2)
                     {
-                        if (depot2.getVehicle(vehicleIdx2).getID() == vehicleID ||
-                                depot2.getVehicle(vehicleIdx2).getLeftoverCapacity() < customerDemand)
+                        if (depotIn.getVehicle(vehicleIdx2).getID() == vehicleID ||
+                                depotIn.getVehicle(vehicleIdx2).getLeftoverCapacity() < customerDemand)
                             continue;
 
-                        auto insert = depot2.getVehicle(vehicleIdx2).cheapestInsertionWithSplits(customerID);
+                        auto insert = depotIn.getVehicle(vehicleIdx2).cheapestInsertionWithSplits(customerID);
 
                         if (insert.second < minInsertion)
                         {
                             minCustomer = customerID;
-                            minDepotIn = depot2.getID();
-                            minDepotOut = depot.getID();
+                            minDepotIn = depotIn.getID();
+                            minDepotOut = depotOut.getID();
                             minVehicleIn = vehicleIdx2;
                             minVehicleOut = vehicleIdx;
-                            minDemand = vehicle.getRoute().getDemandRoute()[customerIdx];
+                            minDemand = customerDemand;
                             minPos = insert.first;
                             minInsertion = insert.second;
                         }
                     }
 
                 }
-                depot.changeInventory(customerDemand);
+                depotOut.changeInventory(customerDemand);
             }
         }
     }
 
     if (minPos == -1)
         return;
+
+    // Customer update
+    s.getCustomers()[minCustomer].deleteVehicle(minDepotOut, minVehicleOut);
+
+    // Depot update
+    s.getDepots()[minDepotOut].changeInventory(minDemand);
+    s.getDepots()[minDepotIn].changeInventory(-minDemand);
 
     // Split customer so added to
     if (minPos == -2)
@@ -71,13 +79,7 @@ void Solver::oneInsertionInterRoute(Solution &s)
     }
     else
     {
-        // Customer update
-        s.getCustomers()[minCustomer].deleteVehicle(minDepotOut, minVehicleOut);
         s.getCustomers()[minCustomer].addToVehicle(minDepotIn, minVehicleIn);
-
-        // Depot update
-        s.getDepots()[minDepotOut].changeInventory(minDemand);
-        s.getDepots()[minDepotIn].changeInventory(-minDemand);
 
         // Vehicle update
         s.getDepots()[minDepotOut].getVehicle(minVehicleOut).removeCustomer(minCustomer);
