@@ -9,7 +9,7 @@ void Solver::run()
     size_t maxIter  = 10000;
     double theta    = 0.2;
     auto start = chrono::system_clock::now();
-    double secondsToRun = 500;
+    double secondsToRun = 10;
     double elapsedSeconds = 0;
     // TODO add time restrictions on runtime
 
@@ -47,5 +47,4 @@ void Solver::run()
     if (d_env->d_bestFeasibleSolution.feasible())
         d_env->d_bestFeasibleSolution.print();
 
-    cout << "\n\nNumber of iterations: " << iter << ' ' << localIter;
 }

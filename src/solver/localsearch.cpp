@@ -12,8 +12,6 @@ void Solver::localSearch(Solution &s)
         d_localSearchOperators[operatorIdx](s);
 
         if (s.totalCost() < oldTotalCost)
-        {
             operatorIdx = 0;
-        }
     }
 }

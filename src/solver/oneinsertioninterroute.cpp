@@ -63,7 +63,7 @@ void Solver::oneInsertionInterRoute(Solution &s)
     if (minPos == -1)
         return;
 
-    // Vehicle update
+    // Split customer so added to
     if (minPos == -2)
     {
         int positionCustomer = s.getDepots()[minDepotIn].getVehicle(minVehicleIn).findCustomer(minCustomer);
