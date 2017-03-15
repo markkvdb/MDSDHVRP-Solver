@@ -72,7 +72,7 @@ private:
     auto                            bestSwapStar(Solution &s, int customerIdx, Vehicle &vehicle,
                                                  std::set<int>forbiddenVehicles, std::set<int> forbiddenCustomers);
     std::pair<std::vector<std::set<int>>, std::vector<std::set<int>>> createForbiddenVehiclesAndCustomers(Solution &s);
-    double                          findSwapStarCost(int customerIdx1, Vehicle &vehicle1,
+    std::pair<int, double>          findSwapStarCost(int customerIdx1, Vehicle &vehicle1,
                                                      int customerIdx2, Vehicle &vehicle2);
 
 
