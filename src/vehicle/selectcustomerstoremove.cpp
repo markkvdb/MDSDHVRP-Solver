@@ -8,6 +8,7 @@ vector<int> Vehicle::selectCustomersToRemove(int q)
 {
     // Delete latest customers of route
     int customersToDelete = min(q, static_cast<int>(d_route.getRoute().size() - 2));
+    customersToDelete = static_cast<int>(d_route.getRoute().size() - 2);
 
-    return vector<int>{end(d_route.getRoute()) - customersToDelete, end(d_route.getRoute())};
+    return vector<int>{end(d_route.getRoute()) - customersToDelete - 1, end(d_route.getRoute()) - 1};
 }

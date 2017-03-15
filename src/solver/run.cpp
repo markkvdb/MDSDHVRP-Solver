@@ -6,10 +6,10 @@
 
 void Solver::run()
 {
-    size_t maxIter  = 100000000;
+    size_t maxIter  = 100000;
     double theta    = 0.05;
     auto start = chrono::system_clock::now();
-    double secondsToRun = 600;
+    double secondsToRun = 10;
     double elapsedSeconds = 0;
     // TODO add time restrictions on runtime
 
