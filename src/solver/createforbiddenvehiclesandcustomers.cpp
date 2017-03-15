@@ -15,8 +15,9 @@ pair<vector<set<int>>, vector<set<int>>> Solver::createForbiddenVehiclesAndCusto
             Vehicle const &vehicle = s.getDepots()[vehiclePair.first].getVehicle(vehiclePair.second);
             forbiddenVehicles[customerIdx].insert(vehicle.getID());
             vector<int> customersToAdd = vehicle.getCustomerList();
-            copy(customersToAdd.begin(), customersToAdd.end(), std::inserter(forbiddenCustomers[customerIdx],
-                                                                             end(forbiddenCustomers[customerIdx])));
+            copy(customersToAdd.begin(), customersToAdd.end(), inserter(forbiddenCustomers[customerIdx],
+                                                                        end(forbiddenCustomers[customerIdx])));
+            int hoi = 1;
         }
     }
 

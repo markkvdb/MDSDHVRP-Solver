@@ -6,10 +6,10 @@
 
 void Solver::run()
 {
-    size_t maxIter  = 10000;
-    double theta    = 0.2;
+    size_t maxIter  = 100000000;
+    double theta    = 0.05;
     auto start = chrono::system_clock::now();
-    double secondsToRun = 10;
+    double secondsToRun = 600;
     double elapsedSeconds = 0;
     // TODO add time restrictions on runtime
 
@@ -29,7 +29,7 @@ void Solver::run()
 
         if (d_env->d_newSolution.totalCost() < (1 + theta) * d_env->d_bestSolution.totalCost())
         {
-            localSearch(d_env->d_newSolution);
+            //localSearch(d_env->d_newSolution);
             localIter++;
         }
 

@@ -10,8 +10,9 @@ pair<int, double> Vehicle::cheapestInsertion(int customerID) const
     double minInsertionCost = numeric_limits<double>::max();
     for (int insertOption = 0; insertOption != d_route.getRoute().size() - 1; ++insertOption)
     {
-        // Extra distance
-        double insertionCostie = insertionCost(insertOption, customerID);
+        // Extra distance with randomness
+        uniform_real_distribution<double> uni(0.8, 1.2);
+        double insertionCostie = uni(d_env->d_rng) * insertionCost(insertOption, customerID);
 
         if (insertionCostie < minInsertionCost)
         {

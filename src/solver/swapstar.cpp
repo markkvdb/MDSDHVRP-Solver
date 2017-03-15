@@ -8,7 +8,7 @@ void Solver::swapStar(Solution &s)
 {
     auto forbiddenPair = createForbiddenVehiclesAndCustomers(s);
 
-    double minCost = numeric_limits<double>::max();
+    double minCost = 0;
     int minCustomer1 = -1;
     int minDepot1 = -1;
     int minVehicle1 = -1;
@@ -56,6 +56,7 @@ void Solver::swapStar(Solution &s)
     Customer &customer1 = s.getCustomers()[minCustomer1];
     Customer &customer2 = s.getCustomers()[minCustomer2];
 
+
     // Depot inventory does not change, right?
     Depot &depot1 = s.getDepots()[minDepot1];
     Depot &depot2 = s.getDepots()[minDepot2];
@@ -64,14 +65,26 @@ void Solver::swapStar(Solution &s)
     Vehicle &vehicle2 = depot2.getVehicle(minVehicle2);
 
     long positionCustomer1 = vehicle1.findCustomer(minCustomer1);
-    long positionCustome2 = vehicle2.findCustomer(minCustomer2);
+    long positionCustomer2 = vehicle2.findCustomer(minCustomer2);
 
     int demand1_2 = minDemand1 - minDemand2;
 
     //Update everything
+    customer1.addToVehicle(minDepot2, minVehicle2);
+    customer2.deleteVehicle(minDepot2, minVehicle2);
+    customer2.addToVehicle(minDepot1, minVehicle1);
 
+    vehicle2.addCustomer(minCustomer1, minDemand2, positionCustomer2);
+    int demandje = vehicle2.removeCustomer(minCustomer2);
 
+    if (demandje != minDemand2)
+        cerr << "Demands are not the same.\n";
 
-
+    vehicle1.getRoute().getDemandRoute()[positionCustomer1] = demand1_2;
+    // Insert before
+    if (minOption == 0)
+        vehicle1.addCustomer(minCustomer2, minDemand2, positionCustomer1);
+    else
+        vehicle1.addCustomer(minCustomer2, minDemand2, positionCustomer1+1);
 
 }

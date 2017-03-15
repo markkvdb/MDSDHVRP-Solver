@@ -10,6 +10,7 @@
 #include <functional>
 #include <set>
 #include <map>
+#include <tuple>
 
 class Env;
 
@@ -69,10 +70,11 @@ private:
     void                            swapStarTwo(Solution &s);
     void                            oneInsertionInterRoute(Solution &s);
 
-    auto                            bestSwapStar(Solution &s, int customerIdx, Vehicle &vehicle,
+    std::tuple<double, int, int, int, int, int, int, int, int, int>
+                                    bestSwapStar(Solution &s, int customerIdx, Vehicle &vehicle,
                                                  std::set<int>forbiddenVehicles, std::set<int> forbiddenCustomers);
     std::pair<std::vector<std::set<int>>, std::vector<std::set<int>>> createForbiddenVehiclesAndCustomers(Solution &s);
-    std::pair<int, double>          findSwapStarCost(int customerIdx1, Vehicle &vehicle1,
+    std::pair<int, double>          findSwapStarCost(Solution &s, int customerIdx1, Vehicle &vehicle1,
                                                      int customerIdx2, Vehicle &vehicle2);
 
 
