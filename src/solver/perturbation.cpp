@@ -6,7 +6,9 @@
 
 void Solver::perturbation(Solution &solution, int q)
 {
-    vector<int> customersToRemove = routeRemoval(solution, q);
+    uniform_int_distribution<int> uni(0, 2);
+
+    vector<int> customersToRemove = d_perturbationOperators[uni(d_env->d_rng)](solution, q);
 
     reinsert(solution, customersToRemove);
 

@@ -18,6 +18,7 @@ class Solver {
 
     Env *d_env;
     std::vector<std::function<void(Solution &)>> d_localSearchOperators;
+    std::vector<std::function<std::vector<int>(Solution &, int)>> d_perturbationOperators;
 
 public:
     Solver() = delete;
