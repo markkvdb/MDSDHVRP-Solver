@@ -6,7 +6,7 @@
 
 void Solver::run()
 {
-    size_t maxIter  = 100000;
+    size_t maxIter  = 1000;
     double theta    = 0.05;
     auto start = chrono::system_clock::now();
     double secondsToRun = 10;
@@ -40,7 +40,7 @@ void Solver::run()
             d_env->d_bestFeasibleSolution = d_env->d_newSolution;
 
         d_env->d_currentSolution = simulatedAnnealing(d_env->d_newSolution, d_env->d_currentSolution);
-
+        d_env->updatePenalty(d_env->d_currentSolution);
         ++iter;
         elapsedSeconds = chrono::duration<double>(chrono::system_clock::now() - start).count();
     }
