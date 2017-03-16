@@ -68,7 +68,6 @@ private:
     void                            routeAddition(Solution &s);
     void                            routeAdditionSingleDepot(Solution &s);
     void                            routeAdditionMultipleDepot(Solution &s);
-    void                            swapStarTwo(Solution &s);
     void                            oneInsertionInterRoute(Solution &s);
 
     std::tuple<double, int, int, int, int, int, int, int, int, int>

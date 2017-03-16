@@ -24,4 +24,5 @@ Solver::Solver(Env *env)
     d_localSearchOperators.push_back(std::bind(&Solver::oneInsertionInterRoute, this, std::placeholders::_1));
     d_localSearchOperators.push_back(std::bind(&Solver::twoInsertionIntraRoute, this, std::placeholders::_1));
     d_localSearchOperators.push_back(std::bind(&Solver::swapStar, this, std::placeholders::_1));
+    d_localSearchOperators.push_back(std::bind(&Solver::routeAddition, this, std::placeholders::_1));
 }
