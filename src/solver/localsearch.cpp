@@ -6,13 +6,13 @@
 
 void Solver::localSearch(Solution &s)
 {
-    for (size_t operatorIdx = 0; operatorIdx != d_localSearchOperators.size(); ++operatorIdx) {
+    for (int operatorIdx = 0; operatorIdx != d_localSearchOperators.size(); ++operatorIdx) {
 
         double oldTotalCost = s.totalCost();
         d_localSearchOperators[operatorIdx](s);
 
         double newCost = s.totalCost();
         if (newCost < oldTotalCost)
-            operatorIdx = 0;
+            operatorIdx = -1;
     }
 }
