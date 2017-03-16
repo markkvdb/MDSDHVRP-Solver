@@ -28,6 +28,7 @@ void Solver::reinsert(Solution &solution, std::vector<int> &customersToAdd)
                 if (vehicle.getLeftoverCapacity() <= 0)
                     continue;
 
+
                 // Find cheapest insertion for this vehicle
                 pair<int, double> insertion = vehicle.cheapestInsertion(selectedCustomer);
 
@@ -36,7 +37,7 @@ void Solver::reinsert(Solution &solution, std::vector<int> &customersToAdd)
                 {
                     minInsertion = insertion.second;
                     depotID = depot.getID();
-                    vehicleID = vehicle.getID();
+                    vehicleID = vehicle.getIDPos();
                     routePos = insertion.first;
                 }
             }
@@ -46,8 +47,9 @@ void Solver::reinsert(Solution &solution, std::vector<int> &customersToAdd)
         {
             cerr << "No insertion possible \n";
         }
-
-
-        insertCustomer(solution, selectedCustomer, positionCustomer, depotID, vehicleID, routePos, customersToAdd);
+        else
+        {
+            insertCustomer(solution, selectedCustomer, positionCustomer, depotID, vehicleID, routePos, customersToAdd);
+        }
     }
 }

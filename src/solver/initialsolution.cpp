@@ -7,9 +7,7 @@
 void Solver::initialSolution()
 {
     // Create Depot-Customer allocation (depotCustomerAllocation is a m by something)
-    pair<vector<vector<int>>, vector<vector<double>>> depotAllocation = allocateCustomers();
-    vector<vector<int>> depotCustomerAllocation = depotAllocation.first;
-    vector<vector<double>> depotCustomerDemand = depotAllocation.second;
+    vector<vector<pair<int, int>>> depotCustomerAllocation = allocateCustomers();
 
     // For each depot
     for (int depotNumber = 0; depotNumber != d_env->d_currentSolution.getDepots().size(); ++depotNumber)
@@ -19,14 +17,9 @@ void Solver::initialSolution()
 
         for (int vehicleNumber: sortedVehicleList)
         {
-            assignRouteToVehicle(vehicleNumber, depotNumber, depotCustomerAllocation[depotNumber],
-                                 depotCustomerDemand[depotNumber]);
+            assignRouteToVehicle(vehicleNumber, depotNumber, depotCustomerAllocation[depotNumber]);
         }
 
         d_env->d_currentSolution.getDepots()[depotNumber].updateInventory();
     }
-
-
-    d_env->d_bestSolution = d_env->d_currentSolution;
-    d_env->d_newSolution = d_env->d_currentSolution;
 }

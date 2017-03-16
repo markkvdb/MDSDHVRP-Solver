@@ -185,109 +185,84 @@ I suggest moving this to the tuning phase (if it turns out that too many splits 
 this is one place where we can look.)
 
 
-### algorithm structure ###
+## Algorithm Structure ##
+
+### Solutions ###
+solutions: `best_feasible`, `best_solution`, `s`, `s_prime`  
+f(solution) = cost(solution) + penalty(solution)
+
+cost(solution) = sum(travelCosts)  
+penalty(solution) = penalty * travelTimeViolation(solution)  
+penalty is a parameter between `iota_min` and `iota_max = iota_min*delta^100` (or delta^10, whatever) multiplied by
+factor delta if solution is infeasible
 
 
+### Initialise
+`penalty = iota_min (global)`  
+`s = initialSolution()`  
+`best_solution = s`  
 
-`solutions: best_feasible, best_solution, s, s_prime`
-`f(solution) = cost(solution) + penalty(solution)`
+if `s` is feasible:  
+- `best_feasible = s`
+ 
+else:
+- `best_feasible` = empty (objective value: inf)
 
-cost(solution) = sum(travelCosts)
-penalty(solution) = penalty*travelTimeViolation(solution)
-penalty is a parameter between iota_min and iota_max = iota_min*delta^100 (or delta^10, whatever) multiplied by factor delta if solution is infeasible
+`T = r*f(s) (0 < r < 1)` (Temperature for simulated annealing)
 
+`iter == 1`  
+repeat:
+-   `s_prime` = DestroyAndRepair(s)  
+    if f(`s_prime`) < (1 + theta)*f(`best_solution`): 
+    - for (routine in routineList):  
+         - `s_prime` = routine(`s_prime`)  
+         if (improvement):
+            - return to first routine (that is, reenter for-loop) #this is rather extensive,  
+            (an alternative is to move to the next routine if the current routine does not yield further improvements)
 
-initialize:
-penalty = iota_min (global)
-s = initialSolution()
-best_solution = s
+    `best_solution` =  min(`s_prime`, `best_solution`) #compare objectives, use same global penalty parameter
 
-if(s is feasible){
-    best_feasible = s
-} else
-{
-    best_feasible = empty (objective value: inf)
-}
+    if `s_prime` is feasible
+    -    `best_feasible` = min(`s_prime`, `best_feasible`) #compare objectives
 
-T = r*f(s) (0 < r < 1) (Temperature for simulated annealing)
-
-iter == 1
-repeat
-    s_prime = DestroyAndRepair(s)
-
-    if (f(s_prime) < (1 + theta)*f(best_solution))
-    {
-        for (routine in routineList) # routineList has 8 routines
-        {
-            s_prime = routine(s_prime) : best improvement
-
-            if (improvement)
-            {
-                return to first routine (that is, reenter for-loop) #this is rather extensive,
-                # an alternative is to move to the next routine if the current routine does not yield
-                # further improvements
-            }
-
-        }
-    }
-
-    best_solution =  min(s_prime, best_solution) #compare objectives, use same global penalty parameter
-
-    if(s_prime is feasible)
-    {
-        best_feasible = min(s_prime, best_feasible) #compare objectives
-    }
-
-    simulatedAnnealing(s_prime, s) (simulatedAnnealing: see below)
-
-    updatePenalty(s)
-
-    iter++
-until iter == max_iter or comp_time > max_comp_time
+    simulatedAnnealing(`s_prime, s`) (simulatedAnnealing: see below)  
+    updatePenalty(`s`)  
+    `iter++`  
+    
+until `iter == max_iter` or comp_time > max_comp_time
 
 
 ### updatePenalty(solution) ###
 
 if(solution is not feasible)
-{
-    penalty = min(iota_max, iota * delta)
-}
+-   penalty = min(iota_max, iota * delta) 
+
 else
-{
-    penalty = max(iota_min, iota / delta)
-}
+- penalty = max(iota_min, iota / delta)
 
 ### simulatedAnnealing(s1, s2) ###
 
-if(f(s1) <= f(s2))
-{
-    T = r*f(s1) (0<r<1)
+if f(s1) <= f(s2):
+-    T = r*f(s1) (0<r<1)  
     return s1
-}
 
-if(f(s1) > f(s2))
-{
-    diff = f(s1) - f(s)
-    generate random variate u~U(0,1)
+else 
+-   diff = f(s1) - f(s)  
+    generate random variate u~U(0,1)  
     if (u < exp(-diff/T))
-    {
-        return s1 with probability exp(-diff/T)
+    -   return s1 with probability exp(-diff/T)  
         T = max(r*T, T_min) (0 < r <1, T_min is minimum temperature)
-    }
-
-
-}
 
 
 ### 1-insertion intra route ###
 minInsertion = 0
 For each depot
-    For each vehicle
-        For each dummy customer in route
-            For each insertion option in route
-                Compute insertionCosts (distance + feasibility)
+-    For each vehicle
+        - For each dummy customer in route
+            - For each insertion option in route
+                - Compute insertionCosts (distance + feasibility)  
                 if (insertionCosts < minInsertion)
-                    minInsertion = insertionCosts
+                    - minInsertion = insertionCosts  
                     store depot + vehicle + customer + insertion option
 
 Execute best option: (change route + deliveries for (depot,vehicle))
@@ -297,22 +272,20 @@ Execute best option: (change route + deliveries for (depot,vehicle))
 ### 2-opt intra route ###
 bestOption = 0
 For each depot
-    For each vehicle
-        For i = 1 to route.size()
-            c1 = route[i - 1]
-            c2 = route[i]
+-    For each vehicle
+     -   For i = 1 to route.size()
+            - c1 = route[i - 1]  
+            c2 = route[i]  
             For j = i + 1 to route.size()
-                c3 = route[j]
-                c4 = route[j + 1]
-                saving = distance - distance[c1,c2] - distance[c3,c4] + distance[c1,c3] + distance[c2,c4]
+                - c3 = route[j]  
+                c4 = route[j + 1]  
+                saving = distance - distance[c1,c2] - distance[c3,c4] + distance[c1,c3] + distance[c2,c4]  
                 if saving < bestOption
-                    bestOption = saving
+                    - bestOption = saving  
                     store i, j
+                    
 Execute best option: newRoute = oldRoute[0,i - 1] + revert(oldRoute[i,j]) + oldRoute[j+1, route.size()], change deliveries analagously
 
-
-
-Execute best option
 
 
 

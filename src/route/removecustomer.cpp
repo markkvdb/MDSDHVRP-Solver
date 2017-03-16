@@ -4,11 +4,11 @@
 
 #include "route.ih"
 
-double Route::removeCustomer(int customerID)
+int Route::removeCustomer(int customerID)
 {
     long positionCustomer = find(begin(d_route), end(d_route), customerID) - begin(d_route);
 
-    double demand = 0;
+    int demand = 0;
     if (positionCustomer != d_route.size())
     {
         d_route.erase(begin(d_route) + positionCustomer);

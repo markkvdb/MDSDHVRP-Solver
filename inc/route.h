@@ -14,26 +14,30 @@ class Route {
 
     Env *                   d_env;
     int                     d_depotID;
-    double                  d_load;
+    int                     d_load;
     double                  d_length;
     double                  d_serviceTime;
     std::vector<int>        d_route;
-    std::vector<double>     d_demandRoute;
+    std::vector<int>        d_demandRoute;
 
 public:
     Route() = delete;
     Route(Env *env, int depotID);
-    Route(Env *env, int depotID, std::vector<int> route, std::vector<double> demandRoute);
+    Route(Env *env, int depotID, std::vector<int> route, std::vector<int> demandRoute);
 
     std::vector<int> &      getRoute();
-    std::vector<double> &   getDemandRoute();
+    std::vector<int>        getRouteCopy();
+    std::vector<int> &      getDemandRoute();
     std::vector<int> const &getRoute()         const;
-    double const            getLoad()           const;
+    int const               getLoad()           const;
     double const            getDistance()       const;
     double const            getServiceTime()    const;
 
-    double                  removeCustomer(int customerID);
-    void                    addCustomer(int customerID, double load, int routePos);
+    int                     removeCustomer(int customerID);
+    void                    addCustomer(int customerID, int load, int routePos);
+    long                    findCustomer(int customerID) const;
+    void                    twoOpt(int bIdx, int cIdx);
+    void                    swap(int aIdx, int bIdx);
 
     friend std::ostream &operator<<(std::ostream &, Route const &route);
 
@@ -50,17 +54,22 @@ inline std::vector<int> &Route::getRoute()
     return d_route;
 }
 
+inline std::vector<int> Route::getRouteCopy()
+{
+    return d_route;
+}
+
 inline std::vector<int> const &Route::getRoute() const
 {
     return d_route;
 }
 
-inline std::vector<double> &Route::getDemandRoute()
+inline std::vector<int> &Route::getDemandRoute()
 {
     return d_demandRoute;
 }
 
-inline double const Route::getLoad() const
+inline int const Route::getLoad() const
 {
     return d_load;
 }
@@ -74,5 +83,4 @@ inline double const Route::getServiceTime() const
 {
     return d_serviceTime;
 }
-
 #endif //ORACS_ROUTE_H

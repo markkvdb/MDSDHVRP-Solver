@@ -6,7 +6,7 @@
 
 void Depot::updateInventory()
 {
-    double totalLoad = 0;
+    int totalLoad = 0;
     for (Vehicle const &vehicle: d_vehicles)
     {
         totalLoad += vehicle.getRoute().getLoad();

@@ -4,20 +4,20 @@
 
 #include "solver.ih"
 
-void Solver::getClosestCustomer(int seedCustomer, int &pickedCustomer, std::vector<int> &depotCustomerAllocation)
+void Solver::getClosestCustomer(int seedCustomer, int &pickedCustomer, vector<pair<int, int>> &depotCustomerAllocation)
 {
-    int minCustomer = 0;
+    int minCustomer = pickedCustomer;
     double minDistance = numeric_limits<double>::max();
 
-    for (int customer: depotCustomerAllocation)
+    for (pair<int, int> customer: depotCustomerAllocation)
     {
-        if (customer == pickedCustomer)
+        if (customer.first == pickedCustomer)
             continue;
 
-        if (d_env->d_distanceMatrix[seedCustomer][customer] < minDistance)
+        if (d_env->d_distanceMatrix[seedCustomer][customer.first] < minDistance)
         {
-            minCustomer = customer;
-            minDistance = d_env->d_distanceMatrix[seedCustomer][customer];
+            minCustomer = customer.first;
+            minDistance = d_env->d_distanceMatrix[seedCustomer][customer.first];
         }
     }
 

@@ -4,7 +4,7 @@
 
 #include "route.ih"
 
-void Route::addCustomer(int customerID, double load, int routePos)
+void Route::addCustomer(int customerID, int load, int routePos)
 {
     d_route.insert(begin(d_route) + routePos, customerID);
     d_demandRoute.insert(begin(d_demandRoute) + routePos, load);

@@ -31,7 +31,7 @@ Init::Init(std::string &file) {
     {
         getline(inputFile, line);
         istringstream vehicle{line};
-        double value;
+        int value;
         while (vehicle >> value)
             d_vehicleMatrix[vehicles].push_back(value);
     }

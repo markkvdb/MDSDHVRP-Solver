@@ -6,7 +6,10 @@
 
 void Solver::perturbation(Solution &solution, int q)
 {
-    vector<int> customersToRemove = randomRemoval(solution, q);
+    discrete_distribution<int> dist{5, 5, 1};
+
+    vector<int> customersToRemove = d_perturbationOperators[dist(d_env->d_rng)](solution, q);
 
     reinsert(solution, customersToRemove);
+
 }

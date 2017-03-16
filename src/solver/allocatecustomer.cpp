@@ -4,17 +4,25 @@
 
 #include "solver.ih"
 
-pair<vector<vector<int>>, vector<vector<double>>> Solver::allocateCustomers()
+vector<vector<pair<int, int>>> Solver::allocateCustomers()
 {
     // Create Depot-Customer allocation
-    vector<vector<int>> depotCustomerAllocation(d_env->d_currentSolution.getDepots().size());
-    vector<vector<double>> depotCustomerDemand(d_env->d_currentSolution.getDepots().size());
+    vector<vector<pair<int, int>>> depotCustomerAllocations(d_env->d_currentSolution.getDepots().size());
+    vector<int> totalVehicleCapacity(d_env->d_currentSolution.getDepots().size());
 
     vector<int> orderedCustomers(d_env->d_currentSolution.getCustomers().size());
-    iota(std::begin(orderedCustomers), std::end(orderedCustomers), 0);
+    iota(begin(orderedCustomers), end(orderedCustomers), 0);
+
+    for (Depot &depot: d_env->d_currentSolution.getDepots())
+    {
+        for (Vehicle &vehicle: depot.getVehicles())
+        {
+            totalVehicleCapacity[depot.getID()] += vehicle.getCapacity();
+        }
+    }
 
     // Sort customers on ascending demand size
-    sort(begin(orderedCustomers), end(orderedCustomers),
+     sort(begin(orderedCustomers), end(orderedCustomers),
          [&](int lhs, int rhs)
          {
              return d_env->d_currentSolution.getCustomers()[lhs].getDemand() <
@@ -25,7 +33,7 @@ pair<vector<vector<int>>, vector<vector<double>>> Solver::allocateCustomers()
     {
         // Select customer
         Customer &customer = d_env->d_currentSolution.getCustomers()[customerNumber];
-        double customerDemand = customer.getDemand();
+        int customerDemand = customer.getDemand();
 
         // Get ordered list of depots based on distance from customer
         vector<int> const &sortedDepots = getClosestDepots(customerNumber);
@@ -39,24 +47,29 @@ pair<vector<vector<int>>, vector<vector<double>>> Solver::allocateCustomers()
             if (customerDemand <= 0)
                 break;
 
-            if (realDepot.getLeftOverInventory() > 0)
-            {
-                double fulfilledDemand = 0;
+            int minConstraints = min(realDepot.getLeftOverInventory(), totalVehicleCapacity[depot]);
 
-                if (realDepot.getLeftOverInventory() < customerDemand)
-                    fulfilledDemand = realDepot.getLeftOverInventory();
+            if (minConstraints > 0)
+            {
+                int fulfilledDemand = 0;
+
+                if (minConstraints < customerDemand)
+                    fulfilledDemand = minConstraints;
                 else
                     fulfilledDemand = customerDemand;
 
                 // Update the inventory of the depot (not of the customer)
                 realDepot.changeInventory(-fulfilledDemand);
+                totalVehicleCapacity[depot] -= fulfilledDemand;
                 customerDemand -= fulfilledDemand;
 
-                depotCustomerAllocation[depot].push_back(customerNumber);
-                depotCustomerDemand[depot].push_back(fulfilledDemand);
+                depotCustomerAllocations[depot].push_back(make_pair(customerNumber, fulfilledDemand));
             }
         }
+        if (customerDemand > 0)
+            cerr << "Not all demand satisfied\n";
+
     }
 
-    return make_pair(depotCustomerAllocation, depotCustomerDemand);
+    return depotCustomerAllocations;
 }

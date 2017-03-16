@@ -6,7 +6,7 @@
 
 using namespace std;
 
-Depot::Depot(Env *env, int id, double leftOverInventory)
+Depot::Depot(Env *env, int id, int leftOverInventory)
 :
     d_env(env),
     d_id(id),
@@ -15,7 +15,7 @@ Depot::Depot(Env *env, int id, double leftOverInventory)
     d_inventory(leftOverInventory)
 {}
 
-Depot::Depot(Env *env, int id, std::vector<Vehicle> &vehicles, double leftOverInventory)
+Depot::Depot(Env *env, int id, std::vector<Vehicle> &vehicles, int leftOverInventory)
 :
     d_env(env),
     d_id(id),

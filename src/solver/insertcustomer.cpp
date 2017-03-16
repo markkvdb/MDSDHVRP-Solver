@@ -10,11 +10,11 @@ void Solver::insertCustomer(Solution &solution, int selectedCustomer, int positi
     Depot &depot = solution.getDepots()[depotID];
     Vehicle &vehicle = depot.getVehicle(vehicleID);
 
-    double minConstraint = min(depot.getLeftOverInventory(), vehicle.getLeftoverCapacity());
+    int minConstraint = min(depot.getLeftOverInventory(), vehicle.getLeftoverCapacity());
 
     Customer &customerToAdd = solution.getCustomers()[selectedCustomer];
 
-    double demand = 0;
+    int demand = 0;
     // All demand can be satisfied by vehicle
     if (customerToAdd.getRemainingDemand() <= minConstraint)
     {
