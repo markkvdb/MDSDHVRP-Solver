@@ -2,7 +2,12 @@
 // Created by Mark van der Broek on 08/03/2017.
 //
 
-#include <env.h>
+/**
+ * @brief Calculates the total cost of the solution.
+ *
+ * @return Total cost of the solution
+ */
+
 #include "solution.ih"
 
 double Solution::totalCost()

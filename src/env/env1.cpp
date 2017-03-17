@@ -2,6 +2,12 @@
 // Created by Mark van der Broek on 03/03/2017.
 //
 
+/**
+ * @brief Constructor
+ *
+ * @param [in] init Init instance with all the data stored for the problem
+ */
+
 #include "env.ih"
 
 Env::Env(Init &init)
@@ -13,9 +19,9 @@ Env::Env(Init &init)
         d_bestFeasibleSolution(Solution{this}),
         d_rng(0),
         d_delta(1),
-        d_penalty(100000000),
-        d_penaltyLower(100000000),
-        d_penaltyUpper(100000000),
+        d_penalty(1000),
+        d_penaltyLower(1000),
+        d_penaltyUpper(10000),
         d_temp(100),
         d_r(0.5),
         d_tempMin(10)

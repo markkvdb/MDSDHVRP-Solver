@@ -1,0 +1,399 @@
+\subsection*{Data structure}
+
+Depot-\/vehicle combination\+:
+\begin{DoxyItemize}
+\item \hyperlink{class_route}{Route}
+\item Deliver quantities
+\item Total deliver quantity
+\item \hyperlink{class_route}{Route} cost
+\item Travel time
+\end{DoxyItemize}
+
+\hyperlink{class_customer}{Customer}\+:
+\begin{DoxyItemize}
+\item Total deliver quantity
+\item List of routes with\+:
+\begin{DoxyItemize}
+\item \hyperlink{class_depot}{Depot}
+\item \hyperlink{class_vehicle}{Vehicle} type
+\item \hyperlink{class_route}{Route} index
+\item Deliver quantity
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+\subsection*{Classes}
+
+\subsubsection*{\hyperlink{class_depot}{Depot}}
+
+Data members\+:
+\begin{DoxyItemize}
+\item List of vehicles
+\item Leftover inventory
+\end{DoxyItemize}
+
+Functions\+:
+
+\subsubsection*{\hyperlink{class_vehicle}{Vehicle}}
+
+Data members\+:
+\begin{DoxyItemize}
+\item Type
+\item \hyperlink{class_route}{Route}
+\item Leftover capacity
+\item Leftover travel time
+\end{DoxyItemize}
+
+Functions\+:
+\begin{DoxyItemize}
+\item \hyperlink{class_route}{Route} cost
+\end{DoxyItemize}
+
+\subsubsection*{\hyperlink{class_route}{Route}}
+
+Data members\+:
+\begin{DoxyItemize}
+\item Ordered list of customers (index)
+\item Delivery quantity
+\item Total delivery quantity
+\item Service time
+\item Travel distance
+\end{DoxyItemize}
+
+Functions\+:
+
+\subsubsection*{\hyperlink{class_customer}{Customer} (T\+O\+DO)}
+
+Data members\+:
+\begin{DoxyItemize}
+\item Demand
+\item Total delivery quantity
+\item \hyperlink{class_depot}{Depot}
+\end{DoxyItemize}
+
+\subsection*{Initialisation}
+
+\subsubsection*{Load data}
+
+Load {\ttfamily m}, the number of depots. Load {\ttfamily K}, the number of vehicles types. Load {\ttfamily n}, the number of customers.
+
+Load distance matrix {\ttfamily distance\+Matrix} into Matrix datatype with dimensions (n + m) x (n + m). Create depot matrix {\ttfamily depot\+Matrix} with dimensions m x (K + 1). Load customer matrix {\ttfamily customer\+Matrix} with dimension n x 2. Load vehicle matrix {\ttfamily vehicle\+Matrix} with dimension K x 4
+
+\subsubsection*{Create empty solution}
+
+For each depot (m depots)\+:
+\begin{DoxyItemize}
+\item Select row from {\ttfamily depot\+Matrix}
+\item Set inventory by calling {\ttfamily Solution\+::add\+Depot(\+I\+\_\+j)}
+\item For each vehicle type\+:
+\begin{DoxyItemize}
+\item Add {\ttfamily n\+\_\+jk} vehicles by calling {\ttfamily Depot\+::add\+Vehicle(k)} function
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+For each customer in {\ttfamily customer\+Matrix}\+:
+\begin{DoxyItemize}
+\item Create customer by calling {\ttfamily Solution\+::add\+Customer(demand, servicetime)}
+\end{DoxyItemize}
+
+\subsubsection*{Construct initial solution}
+
+
+\begin{DoxyEnumerate}
+\item Sort {\ttfamily customer\+Matrix} on ascending demand.
+\item Create {\ttfamily depot\+Customer\+Allocation} (is a {\ttfamily vector$<$vector$<$int$>$$>$}). Create {\ttfamily depot\+Customer\+Demand}.
+\item Loop over {\ttfamily customer\+Matrix}\+:
+\begin{DoxyItemize}
+\item Create {\ttfamily leftover\+Demand = customer.\+get\+Demand()}.
+\item While {\ttfamily leftover\+Demand $>$ 0}
+\begin{DoxyItemize}
+\item Find smallest distance to depots, say {\ttfamily small\+Depot}.
+\item Add customer.
+\end{DoxyItemize}
+\item end
+\end{DoxyItemize}
+\item Loop over depot (m depots)\+:
+\begin{DoxyItemize}
+\item Sort vehicles based on costs.
+\item Create {\ttfamily customer\+List} and {\ttfamily customer\+Drop\+Off}.
+\item Loop over sorted vehicle list\+:
+\begin{DoxyItemize}
+\item Create {\ttfamily leftover\+Capacity = vehicle.\+get\+Capacity()}
+\item while ({\ttfamily leftover\+Capacity $>$ 0}) do
+\begin{DoxyItemize}
+\item Take new customer from {\ttfamily depot\+Customer\+Allocation} (first time random).
+\item Add customer to {\ttfamily customer\+List} and {\ttfamily customer\+Drop\+Off}.
+\item Update {\ttfamily leftover\+Capacity}.
+\item if ({\ttfamily leftover\+Capacity $>$= demand}) then
+\begin{DoxyItemize}
+\item Delete from {\ttfamily depot\+Customer\+Allocation}.
+\end{DoxyItemize}
+\item else update {\ttfamily depot\+Customer\+Demand}.
+\end{DoxyItemize}
+\item end
+\item {\ttfamily route = cheapest\+Insertion(customer\+List)}
+\item {\ttfamily vehicle.\+set\+Route(route, deliver\+Quantities)}
+\item {\ttfamily Customers.\+add\+Route(route, deliver\+Quantities)}
+\end{DoxyItemize}
+\end{DoxyItemize}
+\end{DoxyEnumerate}
+
+\paragraph*{cheapest\+Insertion(customer\+List)}
+
+
+\begin{DoxyEnumerate}
+\item Create {\ttfamily route = \{0, 0\};}
+\item While customer\+List is not empty
+\begin{DoxyItemize}
+\item For each customer in customer\+List
+\begin{DoxyItemize}
+\item For each insertion option (N -\/ 1)\+:
+\begin{DoxyItemize}
+\item Check if minimum
+\end{DoxyItemize}
+\end{DoxyItemize}
+\item Update route by inserting cheapest.
+\item Remove customer from customer\+List.
+\end{DoxyItemize}
+\item Ready to rambo.
+\end{DoxyEnumerate}
+
+\subsection*{Local search techniques}
+
+\subsection*{Perturbation}
+
+Three destroy operators (remove q customers) + 1 repair operator (reinserts customers).
+
+\subsubsection*{random\+Removal(solution)}
+
+
+\begin{DoxyEnumerate}
+\item Select seed customer from customer list. Store in to\+Be\+Removed.
+\item Find q-\/1 nearest customers. Store in to\+Be\+Removed.
+\item remove\+Customers(solution, to\+Be\+Removed) (see below)
+\end{DoxyEnumerate}
+
+\subsubsection*{remove\+Customers(solution, to\+Be\+Removed)}
+
+
+\begin{DoxyEnumerate}
+\item For each customer in to\+Be\+Removed\+:
+\begin{DoxyItemize}
+\item For each vehicle of customer\+:
+\begin{DoxyItemize}
+\item Find place customer in route
+\item Remove customer from route (and dropoff)
+\item Update load, length, service\+Time, route cost
+\item Remove depot+vehicle\+\_\+id from customer
+\end{DoxyItemize}
+\end{DoxyItemize}
+\item to\+Be\+Reinserted = to\+Be\+Removed (for later use)
+\end{DoxyEnumerate}
+\begin{DoxyEnumerate}
+\item Return destroyed solution and to\+Be\+Reinserted
+\end{DoxyEnumerate}
+
+\subsubsection*{cost\+Removal(solution)}
+
+
+\begin{DoxyEnumerate}
+\item For customers 1,...,n\+:
+\begin{DoxyItemize}
+\item compute\+Removal\+Gain(solution, customer) (see below)
+\item store result in vector gains, along with customer\+\_\+id (gains = \mbox{[}\mbox{[}1,gain\+\_\+1\mbox{]},...,\mbox{[}n,gain\+\_\+n\mbox{]}\mbox{]})
+\end{DoxyItemize}
+\item Find q largest gains, store corresponding customer\+\_\+ids in to\+Be\+Removed
+\item remove\+Customers(solution, to\+Be\+Removed)
+\end{DoxyEnumerate}
+
+\subsubsection*{compute\+Removal\+Gain(solution, customer)}
+
+
+\begin{DoxyEnumerate}
+\item For each vehicle of customer, compute vehicle\+Removal\+Gain\+:
+\begin{DoxyItemize}
+\item Find place in route
+\item Distance gain\+: Use distance\+Matrix (multiply by alpha)
+\item Feasibility gain (only if route is infeasible in the first place)\+:
+\begin{DoxyItemize}
+\item Find old and new travel duration (travel time + service time)
+\item Use arithmetic.
+\end{DoxyItemize}
+\item vehicle\+Removal\+Gain = distance gain + feasibility gain
+\end{DoxyItemize}
+\end{DoxyEnumerate}
+
+total\+Removal\+Gain = sum(vehicle\+Removal\+Gain)
+\begin{DoxyItemize}
+\item total\+Removal\+Gain = total\+Removal\+Gain $\ast$ uniform(a, b) (a = 0.\+8, b = 1.\+2)(R\+NG).
+\end{DoxyItemize}
+
+return total\+Removal\+Gain
+
+\subsubsection*{route\+Removal(solution)}
+
+
+\begin{DoxyEnumerate}
+\item Pick random non-\/empty vehicle.
+\item Find corresponding route
+\item Store at random min(q, route.\+length()) customers in to\+Be\+Removed
+\item remove\+Customers(solution, to\+Be\+Removed)
+\end{DoxyEnumerate}
+
+\subsubsection*{reinsert(solution, to\+Be\+Reinserted)}
+
+
+\begin{DoxyEnumerate}
+\item demand = demand(to\+Be\+Reinserted)
+\item While to\+Be\+Reinserted is not empty
+\begin{DoxyItemize}
+\item Select random customer from to\+Be\+Reinserted.
+\item min\+Insertion = Infinity
+\item depot = -\/1, vehicle = -\/1, idx = -\/1 (initilize insertion location)
+\item For each vehicle
+\begin{DoxyItemize}
+\item For each insertion option
+\begin{DoxyItemize}
+\item Find insertion\+Cost\+:
+\begin{DoxyItemize}
+\item Additional travel costs
+\item Infeasibility penalties
+\end{DoxyItemize}
+\item If (insertion costs $<$ min\+Insertion)
+\begin{DoxyItemize}
+\item min\+Insertion = insertion\+Cost
+\item update\+: depot, vehicle, and idx
+\end{DoxyItemize}
+\end{DoxyItemize}
+\end{DoxyItemize}
+\item Insert customer at depot, vehicle, idx\+:
+\item If (insufficient inventory/capacity)
+\begin{DoxyItemize}
+\item Allocate as much as possible and split demand
+\item Update demand
+\end{DoxyItemize}
+\item If (sufficient inventory and capacity)
+\begin{DoxyItemize}
+\item Allocate all demand
+\item remove customer from to\+Be\+Reinserted
+\end{DoxyItemize}
+\end{DoxyItemize}
+\item Return solution Note\+: we can alternatively check in advance for sufficient inventory/capacity, and discard the insertion option if insufficient. One problem is that all insertion options may be discarded (a simple workaround is to repeat the search, now allowing for splits). I suggest moving this to the tuning phase (if it turns out that too many splits are generated, this is one place where we can look.)
+\end{DoxyEnumerate}
+
+\subsection*{Algorithm Structure}
+
+\subsubsection*{Solutions}
+
+solutions\+: {\ttfamily best\+\_\+feasible}, {\ttfamily best\+\_\+solution}, {\ttfamily s}, {\ttfamily s\+\_\+prime} f(solution) = cost(solution) + penalty(solution)
+
+cost(solution) = sum(travel\+Costs) penalty(solution) = penalty $\ast$ travel\+Time\+Violation(solution) penalty is a parameter between {\ttfamily iota\+\_\+min} and {\ttfamily iota\+\_\+max = iota\+\_\+min$\ast$delta$^\wedge$100} (or delta$^\wedge$10, whatever) multiplied by factor delta if solution is infeasible
+
+\subsubsection*{Initialise}
+
+{\ttfamily penalty = iota\+\_\+min (global)} {\ttfamily s = initial\+Solution()} {\ttfamily best\+\_\+solution = s}
+
+if {\ttfamily s} is feasible\+:
+\begin{DoxyItemize}
+\item {\ttfamily best\+\_\+feasible = s}
+\end{DoxyItemize}
+
+else\+:
+\begin{DoxyItemize}
+\item {\ttfamily best\+\_\+feasible} = empty (objective value\+: inf)
+\end{DoxyItemize}
+
+{\ttfamily T = r$\ast$f(s) (0 $<$ r $<$ 1)} (Temperature for simulated annealing)
+
+{\ttfamily iter == 1} repeat\+:
+\begin{DoxyItemize}
+\item {\ttfamily s\+\_\+prime} = Destroy\+And\+Repair(s) if f({\ttfamily s\+\_\+prime}) $<$ (1 + theta)$\ast$f({\ttfamily best\+\_\+solution})\+:
+\begin{DoxyItemize}
+\item for (routine in routine\+List)\+:
+\begin{DoxyItemize}
+\item {\ttfamily s\+\_\+prime} = routine({\ttfamily s\+\_\+prime}) if (improvement)\+:
+\begin{DoxyItemize}
+\item return to first routine (that is, reenter for-\/loop) \#this is rather extensive, (an alternative is to move to the next routine if the current routine does not yield further improvements)
+\end{DoxyItemize}
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+{\ttfamily best\+\_\+solution} = min({\ttfamily s\+\_\+prime}, {\ttfamily best\+\_\+solution}) \#compare objectives, use same global penalty parameter
+
+if {\ttfamily s\+\_\+prime} is feasible
+\begin{DoxyItemize}
+\item {\ttfamily best\+\_\+feasible} = min({\ttfamily s\+\_\+prime}, {\ttfamily best\+\_\+feasible}) \#compare objectives
+\end{DoxyItemize}
+
+simulated\+Annealing({\ttfamily s\+\_\+prime, s}) (simulated\+Annealing\+: see below) update\+Penalty({\ttfamily s}) {\ttfamily iter++}
+\end{DoxyItemize}
+
+until {\ttfamily iter == max\+\_\+iter} or comp\+\_\+time $>$ max\+\_\+comp\+\_\+time
+
+\subsubsection*{update\+Penalty(solution)}
+
+if(solution is not feasible)
+\begin{DoxyItemize}
+\item penalty = min(iota\+\_\+max, iota $\ast$ delta)
+\end{DoxyItemize}
+
+else
+\begin{DoxyItemize}
+\item penalty = max(iota\+\_\+min, iota / delta)
+\end{DoxyItemize}
+
+\subsubsection*{simulated\+Annealing(s1, s2)}
+
+if f(s1) $<$= f(s2)\+:
+\begin{DoxyItemize}
+\item T = r$\ast$f(s1) (0$<$r$<$1) return s1
+\end{DoxyItemize}
+
+else
+\begin{DoxyItemize}
+\item diff = f(s1) -\/ f(s) generate random variate u$\sim$U(0,1) if (u $<$ exp(-\/diff/T))
+\begin{DoxyItemize}
+\item return s1 with probability exp(-\/diff/T) T = max(r$\ast$\+T, T\+\_\+min) (0 $<$ r $<$1, T\+\_\+min is minimum temperature)
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+\subsubsection*{1-\/insertion intra route}
+
+min\+Insertion = 0 For each depot
+\begin{DoxyItemize}
+\item For each vehicle
+\begin{DoxyItemize}
+\item For each dummy customer in route
+\begin{DoxyItemize}
+\item For each insertion option in route
+\begin{DoxyItemize}
+\item Compute insertion\+Costs (distance + feasibility) if (insertion\+Costs $<$ min\+Insertion)
+\begin{DoxyItemize}
+\item min\+Insertion = insertion\+Costs store depot + vehicle + customer + insertion option
+\end{DoxyItemize}
+\end{DoxyItemize}
+\end{DoxyItemize}
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+Execute best option\+: (change route + deliveries for (depot,vehicle)) \subsubsection*{end}
+
+\subsubsection*{2-\/opt intra route}
+
+best\+Option = 0 For each depot
+\begin{DoxyItemize}
+\item For each vehicle
+\begin{DoxyItemize}
+\item For i = 1 to route.\+size()
+\begin{DoxyItemize}
+\item c1 = route\mbox{[}i -\/ 1\mbox{]} c2 = route\mbox{[}i\mbox{]} For j = i + 1 to route.\+size()
+\begin{DoxyItemize}
+\item c3 = route\mbox{[}j\mbox{]} c4 = route\mbox{[}j + 1\mbox{]} saving = distance -\/ distance\mbox{[}c1,c2\mbox{]} -\/ distance\mbox{[}c3,c4\mbox{]} + distance\mbox{[}c1,c3\mbox{]} + distance\mbox{[}c2,c4\mbox{]} if saving $<$ best\+Option
+\begin{DoxyItemize}
+\item best\+Option = saving store i, j
+\end{DoxyItemize}
+\end{DoxyItemize}
+\end{DoxyItemize}
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+Execute best option\+: new\+Route = old\+Route\mbox{[}0,i -\/ 1\mbox{]} + revert(old\+Route\mbox{[}i,j\mbox{]}) + old\+Route\mbox{[}j+1, route.\+size()\mbox{]}, change deliveries analagously 

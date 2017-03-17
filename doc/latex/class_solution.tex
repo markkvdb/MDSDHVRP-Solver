@@ -1,0 +1,85 @@
+\hypertarget{class_solution}{}\section{Solution Class Reference}
+\label{class_solution}\index{Solution@{Solution}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_solution_a3bdbdf455adecf7ab0f71bbce1efad66}{Solution} (\hyperlink{class_env}{Env} $\ast$env)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_solution_ae5ae7771a56ee48728a905cd264730ac}\label{class_solution_ae5ae7771a56ee48728a905cd264730ac}} 
+{\bfseries Solution} (\hyperlink{class_env}{Env} $\ast$env, std\+::vector$<$ \hyperlink{class_depot}{Depot} $>$ depots, std\+::vector$<$ \hyperlink{class_customer}{Customer} $>$ customer)
+\item 
+\mbox{\Hypertarget{class_solution_a22519dee8cecd124e2e112a3a9bc505c}\label{class_solution_a22519dee8cecd124e2e112a3a9bc505c}} 
+void {\bfseries print} ()
+\item 
+double \hyperlink{class_solution_a227aaabdf34fbd2e01283728a5a344fe}{total\+Cost} ()
+\begin{DoxyCompactList}\small\item\em Calculates the total cost of the solution. \end{DoxyCompactList}\item 
+bool \hyperlink{class_solution_a13e4ebdccdbc8c572a82fb21254022d0}{feasible} ()
+\begin{DoxyCompactList}\small\item\em Function to check whether the solution is feasible or not. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_solution_ab950712d080e8fcfda4d7f5b7126f1e6}\label{class_solution_ab950712d080e8fcfda4d7f5b7126f1e6}} 
+std\+::vector$<$ \hyperlink{class_depot}{Depot} $>$ \& {\bfseries get\+Depots} ()
+\item 
+\mbox{\Hypertarget{class_solution_a535607b6b1cfd652f783c18f742be458}\label{class_solution_a535607b6b1cfd652f783c18f742be458}} 
+std\+::vector$<$ \hyperlink{class_customer}{Customer} $>$ \& {\bfseries get\+Customers} ()
+\item 
+\mbox{\Hypertarget{class_solution_a360f5711f6da7daba2d4eff39bfb00fc}\label{class_solution_a360f5711f6da7daba2d4eff39bfb00fc}} 
+void {\bfseries add\+Customer} (\hyperlink{class_customer}{Customer} customer)
+\item 
+\mbox{\Hypertarget{class_solution_af9d6aadb375d6e9ddadc8fcf31a53cf6}\label{class_solution_af9d6aadb375d6e9ddadc8fcf31a53cf6}} 
+void {\bfseries add\+Depot} (\hyperlink{class_depot}{Depot} depot)
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_solution_a3bdbdf455adecf7ab0f71bbce1efad66}\label{class_solution_a3bdbdf455adecf7ab0f71bbce1efad66}} 
+\index{Solution@{Solution}!Solution@{Solution}}
+\index{Solution@{Solution}!Solution@{Solution}}
+\subsubsection{\texorpdfstring{Solution()}{Solution()}}
+{\footnotesize\ttfamily Solution\+::\+Solution (\begin{DoxyParamCaption}\item[{\hyperlink{class_env}{Env} $\ast$}]{env }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em env} & Environment pointer \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_solution_a13e4ebdccdbc8c572a82fb21254022d0}\label{class_solution_a13e4ebdccdbc8c572a82fb21254022d0}} 
+\index{Solution@{Solution}!feasible@{feasible}}
+\index{feasible@{feasible}!Solution@{Solution}}
+\subsubsection{\texorpdfstring{feasible()}{feasible()}}
+{\footnotesize\ttfamily bool Solution\+::feasible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function to check whether the solution is feasible or not. 
+
+\begin{DoxyReturn}{Returns}
+Boolean where true means that the solution is feasible 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_solution_a227aaabdf34fbd2e01283728a5a344fe}\label{class_solution_a227aaabdf34fbd2e01283728a5a344fe}} 
+\index{Solution@{Solution}!total\+Cost@{total\+Cost}}
+\index{total\+Cost@{total\+Cost}!Solution@{Solution}}
+\subsubsection{\texorpdfstring{total\+Cost()}{totalCost()}}
+{\footnotesize\ttfamily double Solution\+::total\+Cost (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Calculates the total cost of the solution. 
+
+\begin{DoxyReturn}{Returns}
+Total cost of the solution 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+inc/solution.\+h\item 
+src/solution/feasible.\+cpp\item 
+src/solution/print.\+cpp\item 
+src/solution/solution1.\+cpp\item 
+src/solution/totalcost.\+cpp\end{DoxyCompactItemize}

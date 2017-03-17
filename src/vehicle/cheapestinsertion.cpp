@@ -4,15 +4,19 @@
 
 #include "vehicle.ih"
 
-pair<int, double> Vehicle::cheapestInsertion(int customerID) const
+pair<int, double> Vehicle::cheapestInsertion(int customerID, bool random) const
 {
     int position = -1;
     double minInsertionCost = numeric_limits<double>::max();
     for (int insertOption = 0; insertOption != d_route.getRoute().size() - 1; ++insertOption)
     {
         // Extra distance with randomness
-        uniform_real_distribution<double> uni(0.8, 1.2);
-        double insertionCostie = uni(d_env->d_rng) * insertionCost(insertOption, customerID);
+        double insertionCostie = insertionCost(insertOption, customerID);
+        if (random)
+        {
+            uniform_real_distribution<double> uni(0.8, 1.2);
+            insertionCostie *= uni(d_env->d_rng);
+        }
 
         if (insertionCostie < minInsertionCost)
         {

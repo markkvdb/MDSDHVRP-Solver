@@ -2,6 +2,13 @@
 // Created by Mark van der Broek on 13/03/2017.
 //
 
+/**
+ * @brief Swap two customers in the route.
+ *
+ * @param [in] aIdx  Position of the first customer in the route
+ * @param [in] bIdx  Position of the second customer in the route
+ */
+
 #include "route.ih"
 
 void Route::swap(int aIdx, int bIdx)

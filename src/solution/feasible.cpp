@@ -2,6 +2,12 @@
 // Created by Mark van der Broek on 08/03/2017.
 //
 
+/**
+ * @brief Function to check whether the solution is feasible or not.
+ *
+ * @return Boolean where true means that the solution is feasible
+ */
+
 #include "solution.ih"
 
 bool Solution::feasible()

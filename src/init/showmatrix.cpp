@@ -2,6 +2,12 @@
 // Created by Mark van der Broek on 01/03/2017.
 //
 
+/**
+ * @brief Output the matrix given as an argument. Write it to std::cout.
+ *
+ * @param [in] matrix   Matrix to output
+ */
+
 #include "../../inc/init.h"
 
 using namespace std;

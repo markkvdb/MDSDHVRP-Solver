@@ -11,8 +11,17 @@ void Solver::localSearch(Solution &s)
         double oldTotalCost = s.totalCost();
         d_localSearchOperators[operatorIdx](s);
 
+
         double newCost = s.totalCost();
-        if (newCost < oldTotalCost)
+
+        if (newCost > oldTotalCost) {
+            cerr << "Local search deteriorated the solution, operatorIdx: " << operatorIdx << "\n";
+            cerr << "Old cost: " << oldTotalCost << ". New cost: " << newCost << "\n";
+        }
+
+        if (newCost < oldTotalCost) {
             operatorIdx = -1;
+        }
+
     }
 }

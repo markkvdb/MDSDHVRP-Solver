@@ -2,6 +2,10 @@
 // Created by Mark van der Broek on 06/03/2017.
 //
 
+/**
+ * @brief Update the total service time of the route.
+ */
+
 #include "route.ih"
 
 void Route::updateServiceTime()
