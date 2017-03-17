@@ -13,7 +13,7 @@ void Solver::oneInsertionInterRoute(Solution &s)
     int minVehicleOut = -1;
     int minDemand = -1;
     int minPos = -1;
-    double minInsertion = numeric_limits<double>::max();
+    double minInsertion = 0;
 
     for (Depot &depotOut: s.getDepots())
     {
