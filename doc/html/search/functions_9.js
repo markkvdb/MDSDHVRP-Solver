@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['updateinventory',['updateInventory',['../class_depot.html#aad95f075e3df31cfcb7951d4572265f3',1,'Depot']]],
-  ['updatepenalty',['updatePenalty',['../class_env.html#a05decf6ad0f2370b38fd8c403777a9ca',1,'Env']]]
+  ['oneinsertioninterroute',['oneInsertionInterRoute',['../class_solver.html#a9e3d5af3cb04785f221a5f7887bd083e',1,'Solver']]],
+  ['oneinsertionintraroute',['oneInsertionIntraRoute',['../class_solver.html#a1856ef1df8590c2a76d8f71f707ba39f',1,'Solver']]]
 ];

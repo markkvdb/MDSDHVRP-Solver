@@ -2,6 +2,10 @@
 // Created by Mark van der Broek on 03/03/2017.
 //
 
+/**
+ * @brief Create initial solution based on cheapest insertion.
+ */
+
 #include "solver.ih"
 
 void Solver::initialSolution()

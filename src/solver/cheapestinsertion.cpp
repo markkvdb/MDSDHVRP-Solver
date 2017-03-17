@@ -2,6 +2,17 @@
 // Created by Mark van der Broek on 06/03/2017.
 //
 
+/**
+ * @brief Find the optimal route for customerList, by using the cheapest insertion algorithm.
+ *
+ * @param [in] depotNumber      Depot ID for the selected vehicle
+ * @param [in] customerList     Vector of customers to add to the route
+ * @param [in] customerDropOff  Vector of the customer drop off to add to the route
+ *
+ * @return Pair of vectors where the first vector consists of the optimal route and the second vector the
+ *         corresponding drop offs.
+ */
+
 #include "solver.ih"
 
 pair<vector<int>, vector<int>> Solver::cheapestInsertion(int depotNumber, vector<int> &customerList, vector<int> &customerDropOff)

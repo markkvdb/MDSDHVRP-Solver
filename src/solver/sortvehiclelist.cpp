@@ -2,6 +2,12 @@
 // Created by Mark van der Broek on 03/03/2017.
 //
 
+/**
+ * @brief Sort vehicle list based on costs.
+ *
+ * @return Sorted vector with the vehicle IDs within the depots
+ */
+
 #include "solver.ih"
 
 vector<int> Solver::sortVehicleList(int depotNumber)

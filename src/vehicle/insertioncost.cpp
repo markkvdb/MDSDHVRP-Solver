@@ -2,6 +2,13 @@
 // Created by Mark van der Broek on 09/03/2017.
 //
 
+/**
+ * Find the cost of insertion of customer in a particular place in the route.
+ * @param [in] option       Place in the route to consider
+ * @param [in] customerID  ID of the customer
+ * @return Cost of insertion
+ */
+
 #include "vehicle.ih"
 
 double Vehicle::insertionCost(int option, int customerID) const

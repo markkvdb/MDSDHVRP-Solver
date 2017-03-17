@@ -2,6 +2,12 @@
 // Created by Mark van der Broek on 03/03/2017.
 //
 
+/**
+ * @brief Constructor. Adds the perturbation and local search operators to the lists.
+ *
+ * @param [in] env  Environment pointer
+ */
+
 #include "solver.ih"
 
 Solver::Solver(Env *env)

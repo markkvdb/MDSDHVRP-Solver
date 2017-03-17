@@ -1,5 +1,9 @@
 \hypertarget{class_route}{}\section{Route Class Reference}
 \label{class_route}\index{Route@{Route}}
+
+
+{\ttfamily \#include $<$route.\+h$>$}
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -7,26 +11,19 @@
 \begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
 \hyperlink{class_route_a95a55c89846e5e183b1749a8507275d5}{Route} (\hyperlink{class_env}{Env} $\ast$env, int depot\+ID, std\+::vector$<$ int $>$ route, std\+::vector$<$ int $>$ demand\+Route)
 \begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_route_a9a12c02d891924f0050d3d6bc7af1e18}\label{class_route_a9a12c02d891924f0050d3d6bc7af1e18}} 
-std\+::vector$<$ int $>$ \& {\bfseries get\+Route} ()
+std\+::vector$<$ int $>$ \& \hyperlink{class_route_a9a12c02d891924f0050d3d6bc7af1e18}{get\+Route} ()
 \item 
-\mbox{\Hypertarget{class_route_adbff1ea9d40933cbb79886efd758ef0c}\label{class_route_adbff1ea9d40933cbb79886efd758ef0c}} 
-std\+::vector$<$ int $>$ {\bfseries get\+Route\+Copy} ()
+std\+::vector$<$ int $>$ \hyperlink{class_route_adbff1ea9d40933cbb79886efd758ef0c}{get\+Route\+Copy} ()
 \item 
-\mbox{\Hypertarget{class_route_a3c342e45335d32de6f7019e4cc8ff5ca}\label{class_route_a3c342e45335d32de6f7019e4cc8ff5ca}} 
-std\+::vector$<$ int $>$ \& {\bfseries get\+Demand\+Route} ()
+std\+::vector$<$ int $>$ \& \hyperlink{class_route_a3c342e45335d32de6f7019e4cc8ff5ca}{get\+Demand\+Route} ()
 \item 
-\mbox{\Hypertarget{class_route_a151bbafcfc1afd47bda7c2b6c6567c1e}\label{class_route_a151bbafcfc1afd47bda7c2b6c6567c1e}} 
-std\+::vector$<$ int $>$ const  \& {\bfseries get\+Route} () const
+std\+::vector$<$ int $>$ const  \& \hyperlink{class_route_a151bbafcfc1afd47bda7c2b6c6567c1e}{get\+Route} () const
 \item 
-\mbox{\Hypertarget{class_route_abdde0209de6671eac1fabd237804ff19}\label{class_route_abdde0209de6671eac1fabd237804ff19}} 
-int const {\bfseries get\+Load} () const
+int const \hyperlink{class_route_abdde0209de6671eac1fabd237804ff19}{get\+Load} () const
 \item 
-\mbox{\Hypertarget{class_route_a5326c0234e1ed102bf9f8cf8236de8bd}\label{class_route_a5326c0234e1ed102bf9f8cf8236de8bd}} 
-double const {\bfseries get\+Distance} () const
+double const \hyperlink{class_route_a5326c0234e1ed102bf9f8cf8236de8bd}{get\+Distance} () const
 \item 
-\mbox{\Hypertarget{class_route_ae30f973f4cb746802cf54d9f1827445f}\label{class_route_ae30f973f4cb746802cf54d9f1827445f}} 
-double const {\bfseries get\+Service\+Time} () const
+double const \hyperlink{class_route_ae30f973f4cb746802cf54d9f1827445f}{get\+Service\+Time} () const
 \item 
 int \hyperlink{class_route_a3e52680923dc08fe57d7a622cf8ad17b}{remove\+Customer} (int customer\+ID)
 \begin{DoxyCompactList}\small\item\em Removes customer from the route corresponding to the vehicle. \end{DoxyCompactList}\item 
@@ -38,12 +35,48 @@ void \hyperlink{class_route_a7e21fdad3d0539f54a1cefa7b046ab49}{two\+Opt} (int b\
 \begin{DoxyCompactList}\small\item\em Apply two opt operator to the route. Switch to arcs of the route. \end{DoxyCompactList}\item 
 void \hyperlink{class_route_a463c649701eb3ed5c659f5e920460335}{swap} (int a\+Idx, int b\+Idx)
 \begin{DoxyCompactList}\small\item\em Swap two customers in the route. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_route_ae6800543f5a50db543e1315e6a5468cd}\label{class_route_ae6800543f5a50db543e1315e6a5468cd}} 
+void \hyperlink{class_route_ae6800543f5a50db543e1315e6a5468cd}{update\+Distance} ()
+\begin{DoxyCompactList}\small\item\em Update the distance of the route. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_route_a8054b36d0db39ba9321d30ed2410e138}\label{class_route_a8054b36d0db39ba9321d30ed2410e138}} 
+void \hyperlink{class_route_a8054b36d0db39ba9321d30ed2410e138}{update\+Service\+Time} ()
+\begin{DoxyCompactList}\small\item\em Update the total service time of the route. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_route_a3f6ad4d322826950910265ea7b6c29c6}\label{class_route_a3f6ad4d322826950910265ea7b6c29c6}} 
+void \hyperlink{class_route_a3f6ad4d322826950910265ea7b6c29c6}{update\+Load} ()
+\begin{DoxyCompactList}\small\item\em Update the load of the route. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_env}{Env} $\ast$ \hyperlink{class_route_a864524c91fba2fc3ad77f72758e15463}{d\+\_\+env}
+\item 
+int \hyperlink{class_route_afb10c7df94462df3425c5fe19148124d}{d\+\_\+depot\+ID}
+\item 
+int \hyperlink{class_route_a718e90948453ba308e72da01c38023e6}{d\+\_\+load}
+\item 
+double \hyperlink{class_route_a229ec36dcf99986891d1b306f82e457f}{d\+\_\+length}
+\item 
+double \hyperlink{class_route_a4c644f09b64e56e5d523e3177639b7fe}{d\+\_\+service\+Time}
+\item 
+std\+::vector$<$ int $>$ \hyperlink{class_route_ab18028e7736ff42aab699f254e7feda1}{d\+\_\+route}
+\item 
+std\+::vector$<$ int $>$ \hyperlink{class_route_a1c4627e94479ee1f587999c4e33e85e8}{d\+\_\+demand\+Route}
+\end{DoxyCompactItemize}
 \subsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{class_route_a7a3934c69f6ee79cb2cd22502a7f4868}\label{class_route_a7a3934c69f6ee79cb2cd22502a7f4868}} 
 std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&, \hyperlink{class_route}{Route} const \&route)
 \end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{class_route}{Route} is a class that holds a route. 
+
+Definition at line 16 of file route.\+h.
+
 
 
 \subsection{Constructor \& Destructor Documentation}
@@ -64,6 +97,10 @@ Constructor.
 \mbox{\tt in}  & {\em depot\+ID} & ID of the depot \\
 \hline
 \end{DoxyParams}
+
+
+Definition at line 14 of file route1.\+cpp.
+
 \mbox{\Hypertarget{class_route_a95a55c89846e5e183b1749a8507275d5}\label{class_route_a95a55c89846e5e183b1749a8507275d5}} 
 \index{Route@{Route}!Route@{Route}}
 \index{Route@{Route}!Route@{Route}}
@@ -87,6 +124,10 @@ Constructor.
 \end{DoxyParams}
 
 
+Definition at line 16 of file route.\+cpp.
+
+
+
 \subsection{Member Function Documentation}
 \mbox{\Hypertarget{class_route_a21490cdf3853d449a2608432596ff622}\label{class_route_a21490cdf3853d449a2608432596ff622}} 
 \index{Route@{Route}!add\+Customer@{add\+Customer}}
@@ -107,6 +148,10 @@ Add customer to the route. Update the d\+\_\+route member and the d\+\_\+demand\
 \mbox{\tt in}  & {\em route\+Pos} & The position to insert the customer into. \\
 \hline
 \end{DoxyParams}
+
+
+Definition at line 15 of file addcustomer.\+cpp.
+
 \mbox{\Hypertarget{class_route_ae8402085cd8be017e3ac15fd8b3a05fd}\label{class_route_ae8402085cd8be017e3ac15fd8b3a05fd}} 
 \index{Route@{Route}!find\+Customer@{find\+Customer}}
 \index{find\+Customer@{find\+Customer}!Route@{Route}}
@@ -122,6 +167,101 @@ Find the customer in the route.
 \mbox{\tt in}  & {\em customer\+ID} & The ID of the customer \\
 \hline
 \end{DoxyParams}
+
+
+Definition at line 13 of file findcustomer.\+cpp.
+
+\mbox{\Hypertarget{class_route_a3c342e45335d32de6f7019e4cc8ff5ca}\label{class_route_a3c342e45335d32de6f7019e4cc8ff5ca}} 
+\index{Route@{Route}!get\+Demand\+Route@{get\+Demand\+Route}}
+\index{get\+Demand\+Route@{get\+Demand\+Route}!Route@{Route}}
+\subsubsection{\texorpdfstring{get\+Demand\+Route()}{getDemandRoute()}}
+{\footnotesize\ttfamily std\+::vector$<$ int $>$ \& Route\+::get\+Demand\+Route (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get the demands of the route. \begin{DoxyReturn}{Returns}
+Vector of ints containing the demands of the customers to traverse 
+\end{DoxyReturn}
+
+
+Definition at line 86 of file route.\+h.
+
+\mbox{\Hypertarget{class_route_a5326c0234e1ed102bf9f8cf8236de8bd}\label{class_route_a5326c0234e1ed102bf9f8cf8236de8bd}} 
+\index{Route@{Route}!get\+Distance@{get\+Distance}}
+\index{get\+Distance@{get\+Distance}!Route@{Route}}
+\subsubsection{\texorpdfstring{get\+Distance()}{getDistance()}}
+{\footnotesize\ttfamily double const Route\+::get\+Distance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get the total distance travelled by the route. \begin{DoxyReturn}{Returns}
+Total distance of the route 
+\end{DoxyReturn}
+
+
+Definition at line 104 of file route.\+h.
+
+\mbox{\Hypertarget{class_route_abdde0209de6671eac1fabd237804ff19}\label{class_route_abdde0209de6671eac1fabd237804ff19}} 
+\index{Route@{Route}!get\+Load@{get\+Load}}
+\index{get\+Load@{get\+Load}!Route@{Route}}
+\subsubsection{\texorpdfstring{get\+Load()}{getLoad()}}
+{\footnotesize\ttfamily int const Route\+::get\+Load (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get the total load of the route. \begin{DoxyReturn}{Returns}
+Load of the route 
+\end{DoxyReturn}
+
+
+Definition at line 95 of file route.\+h.
+
+\mbox{\Hypertarget{class_route_a9a12c02d891924f0050d3d6bc7af1e18}\label{class_route_a9a12c02d891924f0050d3d6bc7af1e18}} 
+\index{Route@{Route}!get\+Route@{get\+Route}}
+\index{get\+Route@{get\+Route}!Route@{Route}}
+\subsubsection{\texorpdfstring{get\+Route()}{getRoute()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::vector$<$ int $>$ \& Route\+::get\+Route (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get the actual route. \begin{DoxyReturn}{Returns}
+Vector of ints containing the I\+Ds of the customers to traverse 
+\end{DoxyReturn}
+
+
+Definition at line 59 of file route.\+h.
+
+\mbox{\Hypertarget{class_route_a151bbafcfc1afd47bda7c2b6c6567c1e}\label{class_route_a151bbafcfc1afd47bda7c2b6c6567c1e}} 
+\index{Route@{Route}!get\+Route@{get\+Route}}
+\index{get\+Route@{get\+Route}!Route@{Route}}
+\subsubsection{\texorpdfstring{get\+Route()}{getRoute()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::vector$<$ int $>$ const  \& Route\+::get\+Route (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get the actual route (consts). \begin{DoxyReturn}{Returns}
+Vector of ints containing the I\+Ds of the customers to traverse (const) 
+\end{DoxyReturn}
+
+
+Definition at line 77 of file route.\+h.
+
+\mbox{\Hypertarget{class_route_adbff1ea9d40933cbb79886efd758ef0c}\label{class_route_adbff1ea9d40933cbb79886efd758ef0c}} 
+\index{Route@{Route}!get\+Route\+Copy@{get\+Route\+Copy}}
+\index{get\+Route\+Copy@{get\+Route\+Copy}!Route@{Route}}
+\subsubsection{\texorpdfstring{get\+Route\+Copy()}{getRouteCopy()}}
+{\footnotesize\ttfamily std\+::vector$<$ int $>$ Route\+::get\+Route\+Copy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get the actual route as a copy. \begin{DoxyReturn}{Returns}
+Vector of ints containing the I\+Ds of the customers to traverse 
+\end{DoxyReturn}
+
+
+Definition at line 68 of file route.\+h.
+
+\mbox{\Hypertarget{class_route_ae30f973f4cb746802cf54d9f1827445f}\label{class_route_ae30f973f4cb746802cf54d9f1827445f}} 
+\index{Route@{Route}!get\+Service\+Time@{get\+Service\+Time}}
+\index{get\+Service\+Time@{get\+Service\+Time}!Route@{Route}}
+\subsubsection{\texorpdfstring{get\+Service\+Time()}{getServiceTime()}}
+{\footnotesize\ttfamily double const Route\+::get\+Service\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get the total service time of the route \begin{DoxyReturn}{Returns}
+Total service time of the route 
+\end{DoxyReturn}
+
+
+Definition at line 113 of file route.\+h.
+
 \mbox{\Hypertarget{class_route_a3e52680923dc08fe57d7a622cf8ad17b}\label{class_route_a3e52680923dc08fe57d7a622cf8ad17b}} 
 \index{Route@{Route}!remove\+Customer@{remove\+Customer}}
 \index{remove\+Customer@{remove\+Customer}!Route@{Route}}
@@ -137,6 +277,10 @@ Removes customer from the route corresponding to the vehicle.
 \mbox{\tt in}  & {\em customer\+ID} & ID of the customer \\
 \hline
 \end{DoxyParams}
+
+
+Definition at line 13 of file removecustomer.\+cpp.
+
 \mbox{\Hypertarget{class_route_a463c649701eb3ed5c659f5e920460335}\label{class_route_a463c649701eb3ed5c659f5e920460335}} 
 \index{Route@{Route}!swap@{swap}}
 \index{swap@{swap}!Route@{Route}}
@@ -154,6 +298,10 @@ Swap two customers in the route.
 \mbox{\tt in}  & {\em b\+Idx} & Position of the second customer in the route \\
 \hline
 \end{DoxyParams}
+
+
+Definition at line 14 of file swap.\+cpp.
+
 \mbox{\Hypertarget{class_route_a7e21fdad3d0539f54a1cefa7b046ab49}\label{class_route_a7e21fdad3d0539f54a1cefa7b046ab49}} 
 \index{Route@{Route}!two\+Opt@{two\+Opt}}
 \index{two\+Opt@{two\+Opt}!Route@{Route}}
@@ -171,6 +319,83 @@ Apply two opt operator to the route. Switch to arcs of the route.
 \mbox{\tt in}  & {\em b\+Idx} & Postion of the second customer to swap \\
 \hline
 \end{DoxyParams}
+
+
+Definition at line 14 of file twoopt.\+cpp.
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_route_a1c4627e94479ee1f587999c4e33e85e8}\label{class_route_a1c4627e94479ee1f587999c4e33e85e8}} 
+\index{Route@{Route}!d\+\_\+demand\+Route@{d\+\_\+demand\+Route}}
+\index{d\+\_\+demand\+Route@{d\+\_\+demand\+Route}!Route@{Route}}
+\subsubsection{\texorpdfstring{d\+\_\+demand\+Route}{d\_demandRoute}}
+{\footnotesize\ttfamily std\+::vector$<$int$>$ Route\+::d\+\_\+demand\+Route\hspace{0.3cm}{\ttfamily [private]}}
+
+Vector of ints containing the demands corresponds to the route 
+
+Definition at line 24 of file route.\+h.
+
+\mbox{\Hypertarget{class_route_afb10c7df94462df3425c5fe19148124d}\label{class_route_afb10c7df94462df3425c5fe19148124d}} 
+\index{Route@{Route}!d\+\_\+depot\+ID@{d\+\_\+depot\+ID}}
+\index{d\+\_\+depot\+ID@{d\+\_\+depot\+ID}!Route@{Route}}
+\subsubsection{\texorpdfstring{d\+\_\+depot\+ID}{d\_depotID}}
+{\footnotesize\ttfamily int Route\+::d\+\_\+depot\+ID\hspace{0.3cm}{\ttfamily [private]}}
+
+ID of the depot where the route belongs to 
+
+Definition at line 19 of file route.\+h.
+
+\mbox{\Hypertarget{class_route_a864524c91fba2fc3ad77f72758e15463}\label{class_route_a864524c91fba2fc3ad77f72758e15463}} 
+\index{Route@{Route}!d\+\_\+env@{d\+\_\+env}}
+\index{d\+\_\+env@{d\+\_\+env}!Route@{Route}}
+\subsubsection{\texorpdfstring{d\+\_\+env}{d\_env}}
+{\footnotesize\ttfamily \hyperlink{class_env}{Env}$\ast$ Route\+::d\+\_\+env\hspace{0.3cm}{\ttfamily [private]}}
+
+Environment pointer 
+
+Definition at line 18 of file route.\+h.
+
+\mbox{\Hypertarget{class_route_a229ec36dcf99986891d1b306f82e457f}\label{class_route_a229ec36dcf99986891d1b306f82e457f}} 
+\index{Route@{Route}!d\+\_\+length@{d\+\_\+length}}
+\index{d\+\_\+length@{d\+\_\+length}!Route@{Route}}
+\subsubsection{\texorpdfstring{d\+\_\+length}{d\_length}}
+{\footnotesize\ttfamily double Route\+::d\+\_\+length\hspace{0.3cm}{\ttfamily [private]}}
+
+Total length of the route 
+
+Definition at line 21 of file route.\+h.
+
+\mbox{\Hypertarget{class_route_a718e90948453ba308e72da01c38023e6}\label{class_route_a718e90948453ba308e72da01c38023e6}} 
+\index{Route@{Route}!d\+\_\+load@{d\+\_\+load}}
+\index{d\+\_\+load@{d\+\_\+load}!Route@{Route}}
+\subsubsection{\texorpdfstring{d\+\_\+load}{d\_load}}
+{\footnotesize\ttfamily int Route\+::d\+\_\+load\hspace{0.3cm}{\ttfamily [private]}}
+
+Total load of the route 
+
+Definition at line 20 of file route.\+h.
+
+\mbox{\Hypertarget{class_route_ab18028e7736ff42aab699f254e7feda1}\label{class_route_ab18028e7736ff42aab699f254e7feda1}} 
+\index{Route@{Route}!d\+\_\+route@{d\+\_\+route}}
+\index{d\+\_\+route@{d\+\_\+route}!Route@{Route}}
+\subsubsection{\texorpdfstring{d\+\_\+route}{d\_route}}
+{\footnotesize\ttfamily std\+::vector$<$int$>$ Route\+::d\+\_\+route\hspace{0.3cm}{\ttfamily [private]}}
+
+Vector of ints containing the ID of the customers in the route 
+
+Definition at line 23 of file route.\+h.
+
+\mbox{\Hypertarget{class_route_a4c644f09b64e56e5d523e3177639b7fe}\label{class_route_a4c644f09b64e56e5d523e3177639b7fe}} 
+\index{Route@{Route}!d\+\_\+service\+Time@{d\+\_\+service\+Time}}
+\index{d\+\_\+service\+Time@{d\+\_\+service\+Time}!Route@{Route}}
+\subsubsection{\texorpdfstring{d\+\_\+service\+Time}{d\_serviceTime}}
+{\footnotesize\ttfamily double Route\+::d\+\_\+service\+Time\hspace{0.3cm}{\ttfamily [private]}}
+
+Total service time of the route. (Customers + distance) 
+
+Definition at line 22 of file route.\+h.
+
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

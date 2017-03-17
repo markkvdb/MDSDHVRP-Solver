@@ -2,6 +2,15 @@
 // Created by Mark van der Broek on 09/03/2017.
 //
 
+/**
+ * @brief Sort the customers based on the distance to the seed customers and return the q closest.
+ *
+ * @param [in] seedCustomer The seed customer ID
+ * @param [in] q            The number of customers to select
+ *
+ * @return Vector containing the q closest customer based on the distance to the seed customer
+ */
+
 #include "solver.ih"
 
 vector<int> Solver::getClosestCustomers(int seedCustomer, int q)

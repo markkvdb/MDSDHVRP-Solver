@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['feasible',['feasible',['../class_solution.html#a13e4ebdccdbc8c572a82fb21254022d0',1,'Solution']]],
-  ['findcustomer',['findCustomer',['../class_route.html#ae8402085cd8be017e3ac15fd8b3a05fd',1,'Route']]]
+  ['emptyroute',['emptyRoute',['../class_vehicle.html#ac6bd9e1d4e12dae417a39f2b2f0095cc',1,'Vehicle']]],
+  ['env',['Env',['../class_env.html#a60054c2be7d109a6d1b740af6896198b',1,'Env::Env()'],['../class_env.html#abef807205f56ffe87706b5413c0de75f',1,'Env::Env(Init &amp;init)']]]
 ];

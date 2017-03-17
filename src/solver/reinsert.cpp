@@ -2,6 +2,14 @@
 // Created by Mark van der Broek on 09/03/2017.
 //
 
+/**
+ * @brief The reinsert operator. Reinserts the given customers back in the solution with (random) cheapest insertion.
+ *
+ * @param [in] solution         Solution
+ * @param [in] customersToAdd   Vector of customers IDs to reinsert in the solution
+ * @param [in] random           Bool where true indicates insertion cost multiplied by random factor
+ */
+
 #include "solver.ih"
 
 void Solver::reinsert(Solution &solution, std::vector<int> &customersToAdd, bool random)

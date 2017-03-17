@@ -2,6 +2,12 @@
 // Created by Mark van der Broek on 13/03/2017.
 //
 
+/**
+ * @brief Local search operator swap star which swaps to customers in two different routes and creates a split.
+ *
+ * @param [in] s    Solution
+ */
+
 #include "solver.ih"
 
 void Solver::swapStar(Solution &s)

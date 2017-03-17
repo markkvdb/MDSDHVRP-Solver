@@ -2,6 +2,16 @@
 // Created by Mark van der Broek on 11/03/2017.
 //
 
+/**
+ * @brief Perturbation operator to remove customers from the solution. Remove q customers from the solution where
+ *        the gain of removing them is the highest.
+ *
+ * @param [in] solution Solution to remove the customers from
+ * @param [in] q        Number of customers to delete
+ *
+ * @return Vector of customer IDs to remove
+ */
+
 #include "solver.ih"
 
 vector<int> Solver::costRemoval(Solution &solution, int q)

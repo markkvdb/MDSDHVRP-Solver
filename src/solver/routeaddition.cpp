@@ -2,6 +2,13 @@
 // Created by Mark van der Broek on 16/03/2017.
 //
 
+/**
+ * @brief Local search operator to select splitted customer and adds it back to the solution as a whole.
+ * /todo Insert the whole customer back again.
+ *
+ * @param [in] s    Solution
+ */
+
 #include "solver.ih"
 
 void Solver::routeAddition(Solution &s)

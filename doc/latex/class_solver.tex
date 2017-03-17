@@ -1,20 +1,780 @@
 \hypertarget{class_solver}{}\section{Solver Class Reference}
 \label{class_solver}\index{Solver@{Solver}}
+
+
+{\ttfamily \#include $<$solver.\+h$>$}
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_solver_a05ec0ef6028f51c1eba417b41a14c2ea}\label{class_solver_a05ec0ef6028f51c1eba417b41a14c2ea}} 
-{\bfseries Solver} (\hyperlink{class_env}{Env} $\ast$env)
-\item 
+\hyperlink{class_solver_a05ec0ef6028f51c1eba417b41a14c2ea}{Solver} (\hyperlink{class_env}{Env} $\ast$env)
+\begin{DoxyCompactList}\small\item\em Constructor. Adds the perturbation and local search operators to the lists. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_solver_a4b0fc2950022b5e5166b6d3f0564696f}\label{class_solver_a4b0fc2950022b5e5166b6d3f0564696f}} 
-void {\bfseries initial\+Solution} ()
-\item 
+void \hyperlink{class_solver_a4b0fc2950022b5e5166b6d3f0564696f}{initial\+Solution} ()
+\begin{DoxyCompactList}\small\item\em Create initial solution based on cheapest insertion. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_solver_a1f31e2d38dacd7e828c1bf428eb2ed96}\label{class_solver_a1f31e2d38dacd7e828c1bf428eb2ed96}} 
-void {\bfseries run} ()
-\item 
+void \hyperlink{class_solver_a1f31e2d38dacd7e828c1bf428eb2ed96}{run} ()
+\begin{DoxyCompactList}\small\item\em General algorithm. Select this function to run the algorithm. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_solver_a39ebda60ffaadddc1c4f85bd6cf9209c}\label{class_solver_a39ebda60ffaadddc1c4f85bd6cf9209c}} 
 void {\bfseries print} ()
 \end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ std\+::vector$<$ std\+::pair$<$ int, int $>$ $>$ $>$ \hyperlink{class_solver_a1f49b9d9d07845d5c5a95df4d2856668}{allocate\+Customers} ()
+\begin{DoxyCompactList}\small\item\em Create customer-\/depot allocation based on the distance to the depots. Splits are allowed. \end{DoxyCompactList}\item 
+std\+::vector$<$ int $>$ \hyperlink{class_solver_aca1e06acbaf749168eb58749aaaa1128}{get\+Closest\+Depots} (int customer)
+\begin{DoxyCompactList}\small\item\em Find the ordered list of depots based on the distance to the customer. \end{DoxyCompactList}\item 
+std\+::vector$<$ int $>$ \hyperlink{class_solver_abe099021d3e1329c3f185ed60271164e}{sort\+Vehicle\+List} (int depot\+Number)
+\begin{DoxyCompactList}\small\item\em Sort vehicle list based on costs. \end{DoxyCompactList}\item 
+void \hyperlink{class_solver_a26c3510331183d3be6470dcb773a9db7}{assign\+Route\+To\+Vehicle} (int vehicle\+Number, int depot\+Number, std\+::vector$<$ std\+::pair$<$ int, int $>$$>$ \&depot\+Customer\+Allocation)
+\begin{DoxyCompactList}\small\item\em Assign a route to the selected vehicle. Loop over the available customers until the vehicle is full. Not looking at the driving time of the vehicle. \end{DoxyCompactList}\item 
+void \hyperlink{class_solver_a943fbc40cc9d9ede517db697f5f971e9}{add\+Customer} (int picked\+Customer, int \&remaining\+Capacity, std\+::vector$<$ int $>$ \&customer\+List, std\+::vector$<$ int $>$ \&customer\+Drop\+Off, std\+::vector$<$ std\+::pair$<$ int, int $>$$>$ \&depot\+Customer\+Allocation)
+\begin{DoxyCompactList}\small\item\em Add customer to the vehicle and update the customer list and drop offs. \end{DoxyCompactList}\item 
+void \hyperlink{class_solver_aa00079f9f5ce6d19af4ecff16d8764ad}{get\+Closest\+Customer} (int seed\+Customer, int \&picked\+Customer, std\+::vector$<$ std\+::pair$<$ int, int $>$$>$ \&depot\+Customer\+Allocation)
+\begin{DoxyCompactList}\small\item\em Finds the closest customer to the seed customer in the depot customer allocation list. \end{DoxyCompactList}\item 
+std\+::pair$<$ std\+::vector$<$ int $>$, std\+::vector$<$ int $>$ $>$ \hyperlink{class_solver_a47e3f4f776b1a27071b0e7a3648de839}{cheapest\+Insertion} (int depot\+Number, std\+::vector$<$ int $>$ \&customer\+List, std\+::vector$<$ int $>$ \&customer\+Drop\+Off)
+\begin{DoxyCompactList}\small\item\em Find the optimal route for customer\+List, by using the cheapest insertion algorithm. \end{DoxyCompactList}\item 
+void \hyperlink{class_solver_ac4c890c0725d91f8936201bfb57f924c}{perturbation} (\hyperlink{class_solution}{Solution} \&solution, int q)
+\begin{DoxyCompactList}\small\item\em Perturbation mechanism. First select a random remove operator to delete q customers and add the q customers back in the solution using the reinsert operator. \end{DoxyCompactList}\item 
+std\+::vector$<$ int $>$ \hyperlink{class_solver_aac5e62758bb4cd6f35fec178ab7aafd3}{random\+Removal} (\hyperlink{class_solution}{Solution} \&solution, int q)
+\begin{DoxyCompactList}\small\item\em Remove operator of the perturbation mechanism. Randomly selects q customers and deletes these customers from its routes. \end{DoxyCompactList}\item 
+std\+::vector$<$ int $>$ \hyperlink{class_solver_a97a087718f18b4c16da0cc67dab4e01a}{cost\+Removal} (\hyperlink{class_solution}{Solution} \&solution, int q)
+\begin{DoxyCompactList}\small\item\em Perturbation operator to remove customers from the solution. Remove q customers from the solution where the gain of removing them is the highest. \end{DoxyCompactList}\item 
+std\+::vector$<$ int $>$ \hyperlink{class_solver_a2f3a938ddd565bc92c2f27bed4749b8b}{route\+Removal} (\hyperlink{class_solution}{Solution} \&solution, int q)
+\begin{DoxyCompactList}\small\item\em Remove operator of the perturbation mechanism. Randomly select a random route and delete q or if the number of customers in the list is smaller than q customers from the selected route. \end{DoxyCompactList}\item 
+double \hyperlink{class_solver_af46ba742e7c2c7752d4189522ba13f04}{compute\+Removal\+Gain} (\hyperlink{class_solution}{Solution} \&solution, int customer\+ID)
+\begin{DoxyCompactList}\small\item\em Compute the gain of removing the customer from all its routes. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::pair$<$ int, int $>$ $>$ \hyperlink{class_solver_a766b8061001fee9f4f9e86440aa5f307}{get\+Non\+Empty\+Routes} (\hyperlink{class_solution}{Solution} \&solution)
+\begin{DoxyCompactList}\small\item\em Find the list of non empty routes. \end{DoxyCompactList}\item 
+void \hyperlink{class_solver_a3ae8eae22345198c4b36c9ce4857f40b}{remove\+Customers} (\hyperlink{class_solution}{Solution} \&solution, std\+::vector$<$ int $>$ const \&customers\+To\+Remove)
+\begin{DoxyCompactList}\small\item\em Delete the selected customers from the solution. The customers are deleted from all its routes. \end{DoxyCompactList}\item 
+void \hyperlink{class_solver_a86aab9a760c785feaf0dd65951b50895}{reinsert} (\hyperlink{class_solution}{Solution} \&solution, std\+::vector$<$ int $>$ \&customers\+To\+Add, bool random)
+\begin{DoxyCompactList}\small\item\em The reinsert operator. Reinserts the given customers back in the solution with (random) cheapest insertion. \end{DoxyCompactList}\item 
+std\+::vector$<$ int $>$ \hyperlink{class_solver_a888052066d83addb6b81a8891d7de961}{get\+Closest\+Customers} (int seed\+Customer, int q)
+\begin{DoxyCompactList}\small\item\em Sort the customers based on the distance to the seed customers and return the q closest. \end{DoxyCompactList}\item 
+void \hyperlink{class_solver_ad57e0ae1fd285942fc7cc5a38fac1a07}{insert\+Customer} (\hyperlink{class_solution}{Solution} \&solution, int selected\+Customer, int position\+Customer, int depot\+ID, int vehicle\+ID, int route\+Pos, std\+::vector$<$ int $>$ \&customers\+To\+Add)
+\begin{DoxyCompactList}\small\item\em Insert customer in the selected route. \end{DoxyCompactList}\item 
+void \hyperlink{class_solver_a6879ef613e34893b535ff3554324fca9}{local\+Search} (\hyperlink{class_solution}{Solution} \&s)
+\begin{DoxyCompactList}\small\item\em Local search mechanism for applying the local search operators. \end{DoxyCompactList}\item 
+void \hyperlink{class_solver_a1856ef1df8590c2a76d8f71f707ba39f}{one\+Insertion\+Intra\+Route} (\hyperlink{class_solution}{Solution} \&s)
+\begin{DoxyCompactList}\small\item\em One insertion intra route operator. Pick a customer and place it in the best position in his route. \end{DoxyCompactList}\item 
+void \hyperlink{class_solver_a12e5223233047d7f4b1a9db554f5cea3}{two\+Insertion\+Intra\+Route} (\hyperlink{class_solution}{Solution} \&s)
+\item 
+void \hyperlink{class_solver_aa3cd5b7d58611e9bf621cb861e371780}{two\+Opt\+Intra\+Route} (\hyperlink{class_solution}{Solution} \&s)
+\begin{DoxyCompactList}\small\item\em Local search operator which switches two arcs within a route. \end{DoxyCompactList}\item 
+void \hyperlink{class_solver_a9d960b7d4c3b329c430f4f3553bedb31}{swap} (\hyperlink{class_solution}{Solution} \&s)
+\item 
+void \hyperlink{class_solver_ab29d1f5b4e31eed975185d77312392a3}{swap\+Star} (\hyperlink{class_solution}{Solution} \&s)
+\begin{DoxyCompactList}\small\item\em Local search operator swap star which swaps to customers in two different routes and creates a split. \end{DoxyCompactList}\item 
+void \hyperlink{class_solver_a89f48fca861b21e0927d41afcd7ccbc4}{route\+Addition} (\hyperlink{class_solution}{Solution} \&s)
+\begin{DoxyCompactList}\small\item\em Local search operator to select splitted customer and adds it back to the solution as a whole. /todo Insert the whole customer back again. \end{DoxyCompactList}\item 
+void \hyperlink{class_solver_a9e3d5af3cb04785f221a5f7887bd083e}{one\+Insertion\+Inter\+Route} (\hyperlink{class_solution}{Solution} \&s)
+\begin{DoxyCompactList}\small\item\em One insertion inter route operator. Pick a customer to remove and add it another route with the lowest cost. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_solver_a69e35e88d269d1280641449e7745063e}\label{class_solver_a69e35e88d269d1280641449e7745063e}} 
+std\+::tuple$<$ double, int, int, int, int, int, int, int, int, int $>$ {\bfseries best\+Swap\+Star} (\hyperlink{class_solution}{Solution} \&s, int customer\+Idx, \hyperlink{class_vehicle}{Vehicle} \&vehicle, std\+::set$<$ int $>$forbidden\+Vehicles, std\+::set$<$ int $>$ forbidden\+Customers)
+\item 
+std\+::pair$<$ std\+::vector$<$ std\+::set$<$ int $>$ $>$, std\+::vector$<$ std\+::set$<$ int $>$ $>$ $>$ \hyperlink{class_solver_a23f11241b0d39543ce71ddcff65aa1cd}{create\+Forbidden\+Vehicles\+And\+Customers} (\hyperlink{class_solution}{Solution} \&s)
+\begin{DoxyCompactList}\small\item\em Create the list of forbidden vehicles and customers. A forbidden vehicle for a customer is defined as the list of vehicles where it\textquotesingle{}s in. The forbidden customers are the customers situated in one of these vehicles. \end{DoxyCompactList}\item 
+std\+::pair$<$ int, double $>$ \hyperlink{class_solver_a8eb89af6db4d6b846667740878a36af8}{find\+Swap\+Star\+Cost} (\hyperlink{class_solution}{Solution} \&s, int customer\+Idx1, \hyperlink{class_vehicle}{Vehicle} \&vehicle1, int customer\+Idx2, \hyperlink{class_vehicle}{Vehicle} \&vehicle2)
+\begin{DoxyCompactList}\small\item\em Find the cost of applying the swapstar operator to customer1 and customer 2. \end{DoxyCompactList}\item 
+\hyperlink{class_solution}{Solution} \& \hyperlink{class_solver_a7e155d2e2ce6b7f4b30d563741eca7cd}{simulated\+Annealing} (\hyperlink{class_solution}{Solution} \&s\+Prime, \hyperlink{class_solution}{Solution} \&s)
+\begin{DoxyCompactList}\small\item\em Simulated annealing procedure to select new current solution. \end{DoxyCompactList}\item 
+int \hyperlink{class_solver_a30596315142e384f8616f8a1915c21aa}{selectq} ()
+\begin{DoxyCompactList}\small\item\em Select the number of customers to be perturbed in the perturbation phase. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_env}{Env} $\ast$ \hyperlink{class_solver_a00149486de31a8a01a5eb732a8ef0dae}{d\+\_\+env}
+\item 
+std\+::vector$<$ std\+::function$<$ void(\hyperlink{class_solution}{Solution} \&)$>$ $>$ \hyperlink{class_solver_ae7a9ecebd1a5c4048c8d74f4176700b9}{d\+\_\+local\+Search\+Operators}
+\item 
+\mbox{\Hypertarget{class_solver_a3dc9e044184f8159a310b18f8a0abe57}\label{class_solver_a3dc9e044184f8159a310b18f8a0abe57}} 
+std\+::vector$<$ std\+::function$<$ std\+::vector$<$ int $>$\hyperlink{class_solution}{Solution} \&, int)$>$ $>$ \hyperlink{class_solver_a3dc9e044184f8159a310b18f8a0abe57}{d\+\_\+perturbation\+Operators}
+\begin{DoxyCompactList}\small\item\em Vector of all perturbation operators. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{class_solver}{Solver} class is where the actual work happens. Here the solutions in the environment instance are altered by using our algorithm using the large neighbourhood search. 
+
+Definition at line 21 of file solver.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_solver_a05ec0ef6028f51c1eba417b41a14c2ea}\label{class_solver_a05ec0ef6028f51c1eba417b41a14c2ea}} 
+\index{Solver@{Solver}!Solver@{Solver}}
+\index{Solver@{Solver}!Solver@{Solver}}
+\subsubsection{\texorpdfstring{Solver()}{Solver()}}
+{\footnotesize\ttfamily Solver\+::\+Solver (\begin{DoxyParamCaption}\item[{\hyperlink{class_env}{Env} $\ast$}]{env }\end{DoxyParamCaption})}
+
+
+
+Constructor. Adds the perturbation and local search operators to the lists. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em env} & Environment pointer \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 13 of file solver.\+cpp.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_solver_a943fbc40cc9d9ede517db697f5f971e9}\label{class_solver_a943fbc40cc9d9ede517db697f5f971e9}} 
+\index{Solver@{Solver}!add\+Customer@{add\+Customer}}
+\index{add\+Customer@{add\+Customer}!Solver@{Solver}}
+\subsubsection{\texorpdfstring{add\+Customer()}{addCustomer()}}
+{\footnotesize\ttfamily void Solver\+::add\+Customer (\begin{DoxyParamCaption}\item[{int}]{picked\+Customer,  }\item[{int \&}]{remaining\+Capacity,  }\item[{std\+::vector$<$ int $>$ \&}]{customer\+List,  }\item[{std\+::vector$<$ int $>$ \&}]{customer\+Drop\+Off,  }\item[{std\+::vector$<$ std\+::pair$<$ int, int $>$$>$ \&}]{depot\+Customer\+Allocation }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Add customer to the vehicle and update the customer list and drop offs. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em picked\+Customer} & ID of the picked customer to add to the vehicle \\
+\hline
+\mbox{\tt in}  & {\em remaining\+Capacity} & Remaining capacity of the selected vehicle \\
+\hline
+\mbox{\tt out}  & {\em customer\+List} & List of customers for vehicle to travel to \\
+\hline
+\mbox{\tt out}  & {\em customer\+Drop\+Off} & List of drop offs for each customer in customer\+List \\
+\hline
+\mbox{\tt out}  & {\em depot\+Customer\+Allocation} & List of depot customer allocations \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 17 of file addcustomer.\+cpp.
+
+\mbox{\Hypertarget{class_solver_a1f49b9d9d07845d5c5a95df4d2856668}\label{class_solver_a1f49b9d9d07845d5c5a95df4d2856668}} 
+\index{Solver@{Solver}!allocate\+Customers@{allocate\+Customers}}
+\index{allocate\+Customers@{allocate\+Customers}!Solver@{Solver}}
+\subsubsection{\texorpdfstring{allocate\+Customers()}{allocateCustomers()}}
+{\footnotesize\ttfamily vector$<$ vector$<$ pair$<$ int, int $>$ $>$ $>$ Solver\+::allocate\+Customers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Create customer-\/depot allocation based on the distance to the depots. Splits are allowed. 
+
+\begin{DoxyReturn}{Returns}
+Matrix of pairs. The rows correspond to the depots. Each pair consist of a customer ID, and the load to be dropped off in that depot. 
+\end{DoxyReturn}
+
+
+Definition at line 14 of file allocatecustomer.\+cpp.
+
+\mbox{\Hypertarget{class_solver_a26c3510331183d3be6470dcb773a9db7}\label{class_solver_a26c3510331183d3be6470dcb773a9db7}} 
+\index{Solver@{Solver}!assign\+Route\+To\+Vehicle@{assign\+Route\+To\+Vehicle}}
+\index{assign\+Route\+To\+Vehicle@{assign\+Route\+To\+Vehicle}!Solver@{Solver}}
+\subsubsection{\texorpdfstring{assign\+Route\+To\+Vehicle()}{assignRouteToVehicle()}}
+{\footnotesize\ttfamily void Solver\+::assign\+Route\+To\+Vehicle (\begin{DoxyParamCaption}\item[{int}]{vehicle\+Number,  }\item[{int}]{depot\+Number,  }\item[{std\+::vector$<$ std\+::pair$<$ int, int $>$$>$ \&}]{depot\+Customer\+Allocation }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Assign a route to the selected vehicle. Loop over the available customers until the vehicle is full. Not looking at the driving time of the vehicle. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em vehicle\+Number} & The position of the vehicle in the selected depot \\
+\hline
+\mbox{\tt in}  & {\em depot\+Number} & The position of the depot in the depot list \\
+\hline
+\mbox{\tt in}  & {\em depot\+Customer\+Allocation} & Matrix with the depot-\/customer allocation \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 16 of file assignroutetovehicle.\+cpp.
+
+\mbox{\Hypertarget{class_solver_a47e3f4f776b1a27071b0e7a3648de839}\label{class_solver_a47e3f4f776b1a27071b0e7a3648de839}} 
+\index{Solver@{Solver}!cheapest\+Insertion@{cheapest\+Insertion}}
+\index{cheapest\+Insertion@{cheapest\+Insertion}!Solver@{Solver}}
+\subsubsection{\texorpdfstring{cheapest\+Insertion()}{cheapestInsertion()}}
+{\footnotesize\ttfamily pair$<$ vector$<$ int $>$, vector$<$ int $>$ $>$ Solver\+::cheapest\+Insertion (\begin{DoxyParamCaption}\item[{int}]{depot\+Number,  }\item[{std\+::vector$<$ int $>$ \&}]{customer\+List,  }\item[{std\+::vector$<$ int $>$ \&}]{customer\+Drop\+Off }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Find the optimal route for customer\+List, by using the cheapest insertion algorithm. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em depot\+Number} & \hyperlink{class_depot}{Depot} ID for the selected vehicle \\
+\hline
+\mbox{\tt in}  & {\em customer\+List} & Vector of customers to add to the route \\
+\hline
+\mbox{\tt in}  & {\em customer\+Drop\+Off} & Vector of the customer drop off to add to the route\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pair of vectors where the first vector consists of the optimal route and the second vector the corresponding drop offs. 
+\end{DoxyReturn}
+
+
+Definition at line 18 of file cheapestinsertion.\+cpp.
+
+\mbox{\Hypertarget{class_solver_af46ba742e7c2c7752d4189522ba13f04}\label{class_solver_af46ba742e7c2c7752d4189522ba13f04}} 
+\index{Solver@{Solver}!compute\+Removal\+Gain@{compute\+Removal\+Gain}}
+\index{compute\+Removal\+Gain@{compute\+Removal\+Gain}!Solver@{Solver}}
+\subsubsection{\texorpdfstring{compute\+Removal\+Gain()}{computeRemovalGain()}}
+{\footnotesize\ttfamily double Solver\+::compute\+Removal\+Gain (\begin{DoxyParamCaption}\item[{\hyperlink{class_solution}{Solution} \&}]{solution,  }\item[{int}]{customer\+ID }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Compute the gain of removing the customer from all its routes. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em solution} & \hyperlink{class_solution}{Solution} to delete the customer from \\
+\hline
+\mbox{\tt in}  & {\em customer\+ID} & ID of the customer to remove\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Total gain of removing customer 
+\end{DoxyReturn}
+
+
+Definition at line 16 of file computeremovalgain.\+cpp.
+
+\mbox{\Hypertarget{class_solver_a97a087718f18b4c16da0cc67dab4e01a}\label{class_solver_a97a087718f18b4c16da0cc67dab4e01a}} 
+\index{Solver@{Solver}!cost\+Removal@{cost\+Removal}}
+\index{cost\+Removal@{cost\+Removal}!Solver@{Solver}}
+\subsubsection{\texorpdfstring{cost\+Removal()}{costRemoval()}}
+{\footnotesize\ttfamily vector$<$ int $>$ Solver\+::cost\+Removal (\begin{DoxyParamCaption}\item[{\hyperlink{class_solution}{Solution} \&}]{solution,  }\item[{int}]{q }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Perturbation operator to remove customers from the solution. Remove q customers from the solution where the gain of removing them is the highest. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em solution} & \hyperlink{class_solution}{Solution} to remove the customers from \\
+\hline
+\mbox{\tt in}  & {\em q} & Number of customers to delete\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vector of customer I\+Ds to remove 
+\end{DoxyReturn}
+
+
+Definition at line 17 of file costremoval.\+cpp.
+
+\mbox{\Hypertarget{class_solver_a23f11241b0d39543ce71ddcff65aa1cd}\label{class_solver_a23f11241b0d39543ce71ddcff65aa1cd}} 
+\index{Solver@{Solver}!create\+Forbidden\+Vehicles\+And\+Customers@{create\+Forbidden\+Vehicles\+And\+Customers}}
+\index{create\+Forbidden\+Vehicles\+And\+Customers@{create\+Forbidden\+Vehicles\+And\+Customers}!Solver@{Solver}}
+\subsubsection{\texorpdfstring{create\+Forbidden\+Vehicles\+And\+Customers()}{createForbiddenVehiclesAndCustomers()}}
+{\footnotesize\ttfamily pair$<$ vector$<$ set$<$ int $>$ $>$, vector$<$ set$<$ int $>$ $>$ $>$ Solver\+::create\+Forbidden\+Vehicles\+And\+Customers (\begin{DoxyParamCaption}\item[{\hyperlink{class_solution}{Solution} \&}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Create the list of forbidden vehicles and customers. A forbidden vehicle for a customer is defined as the list of vehicles where it\textquotesingle{}s in. The forbidden customers are the customers situated in one of these vehicles. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em s} & \hyperlink{class_solution}{Solution}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pair of vectors that consists of sets. Each set is a set of forbidden vehicles and customers. 
+\end{DoxyReturn}
+
+
+Definition at line 17 of file createforbiddenvehiclesandcustomers.\+cpp.
+
+\mbox{\Hypertarget{class_solver_a8eb89af6db4d6b846667740878a36af8}\label{class_solver_a8eb89af6db4d6b846667740878a36af8}} 
+\index{Solver@{Solver}!find\+Swap\+Star\+Cost@{find\+Swap\+Star\+Cost}}
+\index{find\+Swap\+Star\+Cost@{find\+Swap\+Star\+Cost}!Solver@{Solver}}
+\subsubsection{\texorpdfstring{find\+Swap\+Star\+Cost()}{findSwapStarCost()}}
+{\footnotesize\ttfamily pair$<$ int, double $>$ Solver\+::find\+Swap\+Star\+Cost (\begin{DoxyParamCaption}\item[{\hyperlink{class_solution}{Solution} \&}]{s,  }\item[{int}]{customer\+Idx1,  }\item[{\hyperlink{class_vehicle}{Vehicle} \&}]{vehicle1,  }\item[{int}]{customer\+Idx2,  }\item[{\hyperlink{class_vehicle}{Vehicle} \&}]{vehicle2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Find the cost of applying the swapstar operator to customer1 and customer 2. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em s} & \hyperlink{class_solution}{Solution} \\
+\hline
+\mbox{\tt in}  & {\em customer\+Idx1} & The position of the first customer in the its vehicle \\
+\hline
+\mbox{\tt in}  & {\em vehicle1} & The vehicle of the first customer \\
+\hline
+\mbox{\tt in}  & {\em customer\+Idx2} & The position of the second customer in the its vehicle \\
+\hline
+\mbox{\tt in}  & {\em vehicle2} & The vehicle of the second customer\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pair where the first elements is a dummy where 0 indicates insertion before the first customer, and 1 indicates after the first customer. The second elements indicates the cost of this insertion. 
+\end{DoxyReturn}
+
+
+Definition at line 22 of file findswapstarcost.\+cpp.
+
+\mbox{\Hypertarget{class_solver_aa00079f9f5ce6d19af4ecff16d8764ad}\label{class_solver_aa00079f9f5ce6d19af4ecff16d8764ad}} 
+\index{Solver@{Solver}!get\+Closest\+Customer@{get\+Closest\+Customer}}
+\index{get\+Closest\+Customer@{get\+Closest\+Customer}!Solver@{Solver}}
+\subsubsection{\texorpdfstring{get\+Closest\+Customer()}{getClosestCustomer()}}
+{\footnotesize\ttfamily void Solver\+::get\+Closest\+Customer (\begin{DoxyParamCaption}\item[{int}]{seed\+Customer,  }\item[{int \&}]{picked\+Customer,  }\item[{std\+::vector$<$ std\+::pair$<$ int, int $>$$>$ \&}]{depot\+Customer\+Allocation }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Finds the closest customer to the seed customer in the depot customer allocation list. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em seed\+Customer} & The seed customer \\
+\hline
+\mbox{\tt out}  & {\em picked\+Customer} & The closest customer to the seed customer of the remaining customers \\
+\hline
+\mbox{\tt in}  & {\em depot\+Customer\+Allocation} & The leftover depot customer allocation list \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 15 of file getclosestcustomer.\+cpp.
+
+\mbox{\Hypertarget{class_solver_a888052066d83addb6b81a8891d7de961}\label{class_solver_a888052066d83addb6b81a8891d7de961}} 
+\index{Solver@{Solver}!get\+Closest\+Customers@{get\+Closest\+Customers}}
+\index{get\+Closest\+Customers@{get\+Closest\+Customers}!Solver@{Solver}}
+\subsubsection{\texorpdfstring{get\+Closest\+Customers()}{getClosestCustomers()}}
+{\footnotesize\ttfamily vector$<$ int $>$ Solver\+::get\+Closest\+Customers (\begin{DoxyParamCaption}\item[{int}]{seed\+Customer,  }\item[{int}]{q }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Sort the customers based on the distance to the seed customers and return the q closest. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em seed\+Customer} & The seed customer ID \\
+\hline
+\mbox{\tt in}  & {\em q} & The number of customers to select\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vector containing the q closest customer based on the distance to the seed customer 
+\end{DoxyReturn}
+
+
+Definition at line 16 of file getclosestcustomers.\+cpp.
+
+\mbox{\Hypertarget{class_solver_aca1e06acbaf749168eb58749aaaa1128}\label{class_solver_aca1e06acbaf749168eb58749aaaa1128}} 
+\index{Solver@{Solver}!get\+Closest\+Depots@{get\+Closest\+Depots}}
+\index{get\+Closest\+Depots@{get\+Closest\+Depots}!Solver@{Solver}}
+\subsubsection{\texorpdfstring{get\+Closest\+Depots()}{getClosestDepots()}}
+{\footnotesize\ttfamily vector$<$ int $>$ Solver\+::get\+Closest\+Depots (\begin{DoxyParamCaption}\item[{int}]{customer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Find the ordered list of depots based on the distance to the customer. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em customer} & \hyperlink{class_customer}{Customer} ID\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vector of ordered depot I\+Ds based on the distance to the given customer 
+\end{DoxyReturn}
+
+
+Definition at line 17 of file getclosestdepots.\+cpp.
+
+\mbox{\Hypertarget{class_solver_a766b8061001fee9f4f9e86440aa5f307}\label{class_solver_a766b8061001fee9f4f9e86440aa5f307}} 
+\index{Solver@{Solver}!get\+Non\+Empty\+Routes@{get\+Non\+Empty\+Routes}}
+\index{get\+Non\+Empty\+Routes@{get\+Non\+Empty\+Routes}!Solver@{Solver}}
+\subsubsection{\texorpdfstring{get\+Non\+Empty\+Routes()}{getNonEmptyRoutes()}}
+{\footnotesize\ttfamily vector$<$ pair$<$ int, int $>$ $>$ Solver\+::get\+Non\+Empty\+Routes (\begin{DoxyParamCaption}\item[{\hyperlink{class_solution}{Solution} \&}]{solution }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Find the list of non empty routes. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em solution} & \hyperlink{class_solution}{Solution}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vector of pairs with non empty routes where the first element corresponds to depot ID of the corresponding route, and the second element corresponds to the vehicle ID of the route. 
+\end{DoxyReturn}
+
+
+Definition at line 16 of file getnonemptyroutes.\+cpp.
+
+\mbox{\Hypertarget{class_solver_ad57e0ae1fd285942fc7cc5a38fac1a07}\label{class_solver_ad57e0ae1fd285942fc7cc5a38fac1a07}} 
+\index{Solver@{Solver}!insert\+Customer@{insert\+Customer}}
+\index{insert\+Customer@{insert\+Customer}!Solver@{Solver}}
+\subsubsection{\texorpdfstring{insert\+Customer()}{insertCustomer()}}
+{\footnotesize\ttfamily void Solver\+::insert\+Customer (\begin{DoxyParamCaption}\item[{\hyperlink{class_solution}{Solution} \&}]{solution,  }\item[{int}]{selected\+Customer,  }\item[{int}]{position\+Customer,  }\item[{int}]{depot\+ID,  }\item[{int}]{vehicle\+ID,  }\item[{int}]{route\+Pos,  }\item[{std\+::vector$<$ int $>$ \&}]{customers\+To\+Add }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Insert customer in the selected route. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em solution} & \hyperlink{class_solution}{Solution} \\
+\hline
+\mbox{\tt in}  & {\em selected\+Customer} & \hyperlink{class_customer}{Customer} to insert \\
+\hline
+\mbox{\tt in}  & {\em position\+Customer} & Position of the customer in the customers\+To\+Add vector \\
+\hline
+\mbox{\tt in}  & {\em depot\+ID} & ID of the depot \\
+\hline
+\mbox{\tt in}  & {\em vehicle\+ID} & ID of the vehicle \\
+\hline
+\mbox{\tt in}  & {\em route\+Pos} & Position in the route to insert the customer in \\
+\hline
+\mbox{\tt in}  & {\em customers\+To\+Add} & Vector of customers still to be inserted \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 19 of file insertcustomer.\+cpp.
+
+\mbox{\Hypertarget{class_solver_a6879ef613e34893b535ff3554324fca9}\label{class_solver_a6879ef613e34893b535ff3554324fca9}} 
+\index{Solver@{Solver}!local\+Search@{local\+Search}}
+\index{local\+Search@{local\+Search}!Solver@{Solver}}
+\subsubsection{\texorpdfstring{local\+Search()}{localSearch()}}
+{\footnotesize\ttfamily void Solver\+::local\+Search (\begin{DoxyParamCaption}\item[{\hyperlink{class_solution}{Solution} \&}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Local search mechanism for applying the local search operators. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em s} & \hyperlink{class_solution}{Solution} \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 13 of file localsearch.\+cpp.
+
+\mbox{\Hypertarget{class_solver_a9e3d5af3cb04785f221a5f7887bd083e}\label{class_solver_a9e3d5af3cb04785f221a5f7887bd083e}} 
+\index{Solver@{Solver}!one\+Insertion\+Inter\+Route@{one\+Insertion\+Inter\+Route}}
+\index{one\+Insertion\+Inter\+Route@{one\+Insertion\+Inter\+Route}!Solver@{Solver}}
+\subsubsection{\texorpdfstring{one\+Insertion\+Inter\+Route()}{oneInsertionInterRoute()}}
+{\footnotesize\ttfamily void Solver\+::one\+Insertion\+Inter\+Route (\begin{DoxyParamCaption}\item[{\hyperlink{class_solution}{Solution} \&}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+One insertion inter route operator. Pick a customer to remove and add it another route with the lowest cost. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em s} & \hyperlink{class_solution}{Solution} \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 13 of file oneinsertioninterroute.\+cpp.
+
+\mbox{\Hypertarget{class_solver_a1856ef1df8590c2a76d8f71f707ba39f}\label{class_solver_a1856ef1df8590c2a76d8f71f707ba39f}} 
+\index{Solver@{Solver}!one\+Insertion\+Intra\+Route@{one\+Insertion\+Intra\+Route}}
+\index{one\+Insertion\+Intra\+Route@{one\+Insertion\+Intra\+Route}!Solver@{Solver}}
+\subsubsection{\texorpdfstring{one\+Insertion\+Intra\+Route()}{oneInsertionIntraRoute()}}
+{\footnotesize\ttfamily void Solver\+::one\+Insertion\+Intra\+Route (\begin{DoxyParamCaption}\item[{\hyperlink{class_solution}{Solution} \&}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+One insertion intra route operator. Pick a customer and place it in the best position in his route. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em s} & \hyperlink{class_solution}{Solution} \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 13 of file oneinsertionintraroute.\+cpp.
+
+\mbox{\Hypertarget{class_solver_ac4c890c0725d91f8936201bfb57f924c}\label{class_solver_ac4c890c0725d91f8936201bfb57f924c}} 
+\index{Solver@{Solver}!perturbation@{perturbation}}
+\index{perturbation@{perturbation}!Solver@{Solver}}
+\subsubsection{\texorpdfstring{perturbation()}{perturbation()}}
+{\footnotesize\ttfamily void Solver\+::perturbation (\begin{DoxyParamCaption}\item[{\hyperlink{class_solution}{Solution} \&}]{solution,  }\item[{int}]{q }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Perturbation mechanism. First select a random remove operator to delete q customers and add the q customers back in the solution using the reinsert operator. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em solution} & \hyperlink{class_solution}{Solution} \\
+\hline
+\mbox{\tt in}  & {\em q} & Number of customers to perturb \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 15 of file perturbation.\+cpp.
+
+\mbox{\Hypertarget{class_solver_aac5e62758bb4cd6f35fec178ab7aafd3}\label{class_solver_aac5e62758bb4cd6f35fec178ab7aafd3}} 
+\index{Solver@{Solver}!random\+Removal@{random\+Removal}}
+\index{random\+Removal@{random\+Removal}!Solver@{Solver}}
+\subsubsection{\texorpdfstring{random\+Removal()}{randomRemoval()}}
+{\footnotesize\ttfamily vector$<$ int $>$ Solver\+::random\+Removal (\begin{DoxyParamCaption}\item[{\hyperlink{class_solution}{Solution} \&}]{solution,  }\item[{int}]{q }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Remove operator of the perturbation mechanism. Randomly selects q customers and deletes these customers from its routes. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em solution} & \hyperlink{class_solution}{Solution} \\
+\hline
+\mbox{\tt in}  & {\em q} & Number of customers to remove \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 15 of file randomremoval.\+cpp.
+
+\mbox{\Hypertarget{class_solver_a86aab9a760c785feaf0dd65951b50895}\label{class_solver_a86aab9a760c785feaf0dd65951b50895}} 
+\index{Solver@{Solver}!reinsert@{reinsert}}
+\index{reinsert@{reinsert}!Solver@{Solver}}
+\subsubsection{\texorpdfstring{reinsert()}{reinsert()}}
+{\footnotesize\ttfamily void Solver\+::reinsert (\begin{DoxyParamCaption}\item[{\hyperlink{class_solution}{Solution} \&}]{solution,  }\item[{std\+::vector$<$ int $>$ \&}]{customers\+To\+Add,  }\item[{bool}]{random }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The reinsert operator. Reinserts the given customers back in the solution with (random) cheapest insertion. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em solution} & \hyperlink{class_solution}{Solution} \\
+\hline
+\mbox{\tt in}  & {\em customers\+To\+Add} & Vector of customers I\+Ds to reinsert in the solution \\
+\hline
+\mbox{\tt in}  & {\em random} & Bool where true indicates insertion cost multiplied by random factor \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 15 of file reinsert.\+cpp.
+
+\mbox{\Hypertarget{class_solver_a3ae8eae22345198c4b36c9ce4857f40b}\label{class_solver_a3ae8eae22345198c4b36c9ce4857f40b}} 
+\index{Solver@{Solver}!remove\+Customers@{remove\+Customers}}
+\index{remove\+Customers@{remove\+Customers}!Solver@{Solver}}
+\subsubsection{\texorpdfstring{remove\+Customers()}{removeCustomers()}}
+{\footnotesize\ttfamily void Solver\+::remove\+Customers (\begin{DoxyParamCaption}\item[{\hyperlink{class_solution}{Solution} \&}]{solution,  }\item[{std\+::vector$<$ int $>$ const \&}]{customers\+To\+Remove }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Delete the selected customers from the solution. The customers are deleted from all its routes. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em solution} & \hyperlink{class_solution}{Solution} \\
+\hline
+\mbox{\tt in}  & {\em customers\+To\+Remove} & Vector of customer I\+Ds to remove from the solution \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 14 of file removecustomers.\+cpp.
+
+\mbox{\Hypertarget{class_solver_a89f48fca861b21e0927d41afcd7ccbc4}\label{class_solver_a89f48fca861b21e0927d41afcd7ccbc4}} 
+\index{Solver@{Solver}!route\+Addition@{route\+Addition}}
+\index{route\+Addition@{route\+Addition}!Solver@{Solver}}
+\subsubsection{\texorpdfstring{route\+Addition()}{routeAddition()}}
+{\footnotesize\ttfamily void Solver\+::route\+Addition (\begin{DoxyParamCaption}\item[{\hyperlink{class_solution}{Solution} \&}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Local search operator to select splitted customer and adds it back to the solution as a whole. /todo Insert the whole customer back again. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em s} & \hyperlink{class_solution}{Solution} \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 14 of file routeaddition.\+cpp.
+
+\mbox{\Hypertarget{class_solver_a2f3a938ddd565bc92c2f27bed4749b8b}\label{class_solver_a2f3a938ddd565bc92c2f27bed4749b8b}} 
+\index{Solver@{Solver}!route\+Removal@{route\+Removal}}
+\index{route\+Removal@{route\+Removal}!Solver@{Solver}}
+\subsubsection{\texorpdfstring{route\+Removal()}{routeRemoval()}}
+{\footnotesize\ttfamily vector$<$ int $>$ Solver\+::route\+Removal (\begin{DoxyParamCaption}\item[{\hyperlink{class_solution}{Solution} \&}]{solution,  }\item[{int}]{q }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Remove operator of the perturbation mechanism. Randomly select a random route and delete q or if the number of customers in the list is smaller than q customers from the selected route. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em solution} & \hyperlink{class_solution}{Solution} \\
+\hline
+\mbox{\tt in}  & {\em q} & Number of customers to remove \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 15 of file routeremoval.\+cpp.
+
+\mbox{\Hypertarget{class_solver_a30596315142e384f8616f8a1915c21aa}\label{class_solver_a30596315142e384f8616f8a1915c21aa}} 
+\index{Solver@{Solver}!selectq@{selectq}}
+\index{selectq@{selectq}!Solver@{Solver}}
+\subsubsection{\texorpdfstring{selectq()}{selectq()}}
+{\footnotesize\ttfamily int Solver\+::selectq (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Select the number of customers to be perturbed in the perturbation phase. 
+
+\begin{DoxyReturn}{Returns}
+Number of customers to be perturbed 
+\end{DoxyReturn}
+
+
+Definition at line 13 of file selectq.\+cpp.
+
+\mbox{\Hypertarget{class_solver_a7e155d2e2ce6b7f4b30d563741eca7cd}\label{class_solver_a7e155d2e2ce6b7f4b30d563741eca7cd}} 
+\index{Solver@{Solver}!simulated\+Annealing@{simulated\+Annealing}}
+\index{simulated\+Annealing@{simulated\+Annealing}!Solver@{Solver}}
+\subsubsection{\texorpdfstring{simulated\+Annealing()}{simulatedAnnealing()}}
+{\footnotesize\ttfamily \hyperlink{class_solution}{Solution} \& Solver\+::simulated\+Annealing (\begin{DoxyParamCaption}\item[{\hyperlink{class_solution}{Solution} \&}]{s\+Prime,  }\item[{\hyperlink{class_solution}{Solution} \&}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Simulated annealing procedure to select new current solution. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em s\+Prime} & New current solution \\
+\hline
+\mbox{\tt in}  & {\em s} & Old current solution\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{class_solution}{Solution} to assign as new old current solution 
+\end{DoxyReturn}
+
+
+Definition at line 16 of file simulatedannealing.\+cpp.
+
+\mbox{\Hypertarget{class_solver_abe099021d3e1329c3f185ed60271164e}\label{class_solver_abe099021d3e1329c3f185ed60271164e}} 
+\index{Solver@{Solver}!sort\+Vehicle\+List@{sort\+Vehicle\+List}}
+\index{sort\+Vehicle\+List@{sort\+Vehicle\+List}!Solver@{Solver}}
+\subsubsection{\texorpdfstring{sort\+Vehicle\+List()}{sortVehicleList()}}
+{\footnotesize\ttfamily vector$<$ int $>$ Solver\+::sort\+Vehicle\+List (\begin{DoxyParamCaption}\item[{int}]{depot\+Number }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Sort vehicle list based on costs. 
+
+\begin{DoxyReturn}{Returns}
+Sorted vector with the vehicle I\+Ds within the depots 
+\end{DoxyReturn}
+
+
+Definition at line 13 of file sortvehiclelist.\+cpp.
+
+\mbox{\Hypertarget{class_solver_a9d960b7d4c3b329c430f4f3553bedb31}\label{class_solver_a9d960b7d4c3b329c430f4f3553bedb31}} 
+\index{Solver@{Solver}!swap@{swap}}
+\index{swap@{swap}!Solver@{Solver}}
+\subsubsection{\texorpdfstring{swap()}{swap()}}
+{\footnotesize\ttfamily void Solver\+::swap (\begin{DoxyParamCaption}\item[{\hyperlink{class_solution}{Solution} \&}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Local search operator which swaps the best two customers within a route.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em s} & \hyperlink{class_solution}{Solution} \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 13 of file swap.\+cpp.
+
+\mbox{\Hypertarget{class_solver_ab29d1f5b4e31eed975185d77312392a3}\label{class_solver_ab29d1f5b4e31eed975185d77312392a3}} 
+\index{Solver@{Solver}!swap\+Star@{swap\+Star}}
+\index{swap\+Star@{swap\+Star}!Solver@{Solver}}
+\subsubsection{\texorpdfstring{swap\+Star()}{swapStar()}}
+{\footnotesize\ttfamily void Solver\+::swap\+Star (\begin{DoxyParamCaption}\item[{\hyperlink{class_solution}{Solution} \&}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Local search operator swap star which swaps to customers in two different routes and creates a split. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em s} & \hyperlink{class_solution}{Solution} \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 13 of file swapstar.\+cpp.
+
+\mbox{\Hypertarget{class_solver_a12e5223233047d7f4b1a9db554f5cea3}\label{class_solver_a12e5223233047d7f4b1a9db554f5cea3}} 
+\index{Solver@{Solver}!two\+Insertion\+Intra\+Route@{two\+Insertion\+Intra\+Route}}
+\index{two\+Insertion\+Intra\+Route@{two\+Insertion\+Intra\+Route}!Solver@{Solver}}
+\subsubsection{\texorpdfstring{two\+Insertion\+Intra\+Route()}{twoInsertionIntraRoute()}}
+{\footnotesize\ttfamily void Solver\+::two\+Insertion\+Intra\+Route (\begin{DoxyParamCaption}\item[{\hyperlink{class_solution}{Solution} \&}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+Local search operator which moves two consecutive customers within a route.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em s} & \hyperlink{class_solution}{Solution} \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 13 of file twoinsertionintraroute.\+cpp.
+
+\mbox{\Hypertarget{class_solver_aa3cd5b7d58611e9bf621cb861e371780}\label{class_solver_aa3cd5b7d58611e9bf621cb861e371780}} 
+\index{Solver@{Solver}!two\+Opt\+Intra\+Route@{two\+Opt\+Intra\+Route}}
+\index{two\+Opt\+Intra\+Route@{two\+Opt\+Intra\+Route}!Solver@{Solver}}
+\subsubsection{\texorpdfstring{two\+Opt\+Intra\+Route()}{twoOptIntraRoute()}}
+{\footnotesize\ttfamily void Solver\+::two\+Opt\+Intra\+Route (\begin{DoxyParamCaption}\item[{\hyperlink{class_solution}{Solution} \&}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Local search operator which switches two arcs within a route. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em s} & \hyperlink{class_solution}{Solution} \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 13 of file twooptintraroute.\+cpp.
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_solver_a00149486de31a8a01a5eb732a8ef0dae}\label{class_solver_a00149486de31a8a01a5eb732a8ef0dae}} 
+\index{Solver@{Solver}!d\+\_\+env@{d\+\_\+env}}
+\index{d\+\_\+env@{d\+\_\+env}!Solver@{Solver}}
+\subsubsection{\texorpdfstring{d\+\_\+env}{d\_env}}
+{\footnotesize\ttfamily \hyperlink{class_env}{Env}$\ast$ Solver\+::d\+\_\+env\hspace{0.3cm}{\ttfamily [private]}}
+
+Environment pointer 
+
+Definition at line 23 of file solver.\+h.
+
+\mbox{\Hypertarget{class_solver_ae7a9ecebd1a5c4048c8d74f4176700b9}\label{class_solver_ae7a9ecebd1a5c4048c8d74f4176700b9}} 
+\index{Solver@{Solver}!d\+\_\+local\+Search\+Operators@{d\+\_\+local\+Search\+Operators}}
+\index{d\+\_\+local\+Search\+Operators@{d\+\_\+local\+Search\+Operators}!Solver@{Solver}}
+\subsubsection{\texorpdfstring{d\+\_\+local\+Search\+Operators}{d\_localSearchOperators}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::function$<$void(\hyperlink{class_solution}{Solution} \&)$>$ $>$ Solver\+::d\+\_\+local\+Search\+Operators\hspace{0.3cm}{\ttfamily [private]}}
+
+Vector of all local search operators 
+
+Definition at line 24 of file solver.\+h.
+
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

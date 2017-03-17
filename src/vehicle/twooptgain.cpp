@@ -2,6 +2,14 @@
 // Created by Mark van der Broek on 12/03/2017.
 //
 
+/**
+ * Calculate the gain of two-opt on two customers.
+ * @param [in] bIdx Position of the first customer within the route of the vehicle.
+ * @param [in] cIdx Position of the second customer within the route of the vehicle.
+ * @return Cost of two-opt on the two customers
+ */
+
+
 #include "vehicle.ih"
 
 double Vehicle::twoOptGain(int bIdx, int cIdx)

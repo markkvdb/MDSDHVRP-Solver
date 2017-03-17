@@ -62,12 +62,15 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="#friends">Friends</a> &#124;
 <a href="class_depot-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Depot Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="depot_8h_source.html">depot.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -77,34 +80,40 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a105364e1e00f7d359538838b2c1e81f6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_depot.html#a105364e1e00f7d359538838b2c1e81f6">Depot</a> (<a class="el" href="class_env.html">Env</a> *env, int id, std::vector&lt; <a class="el" href="class_vehicle.html">Vehicle</a> &gt; &amp;vehicles, int leftOverInventory)</td></tr>
 <tr class="memdesc:a105364e1e00f7d359538838b2c1e81f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#a105364e1e00f7d359538838b2c1e81f6">More...</a><br /></td></tr>
 <tr class="separator:a105364e1e00f7d359538838b2c1e81f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ebccd66bec499d9dc7411dc78efc348"><td class="memItemLeft" align="right" valign="top"><a id="a7ebccd66bec499d9dc7411dc78efc348"></a>
-std::vector&lt; <a class="el" href="class_vehicle.html">Vehicle</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getVehicles</b> ()</td></tr>
+<tr class="memitem:a7ebccd66bec499d9dc7411dc78efc348"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_vehicle.html">Vehicle</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_depot.html#a7ebccd66bec499d9dc7411dc78efc348">getVehicles</a> ()</td></tr>
 <tr class="separator:a7ebccd66bec499d9dc7411dc78efc348"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afd012e808f49e162b9713b75fd43c604"><td class="memItemLeft" align="right" valign="top"><a id="afd012e808f49e162b9713b75fd43c604"></a>
-<a class="el" href="class_vehicle.html">Vehicle</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getVehicle</b> (int vehicleNumber)</td></tr>
+<tr class="memitem:afd012e808f49e162b9713b75fd43c604"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_vehicle.html">Vehicle</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_depot.html#afd012e808f49e162b9713b75fd43c604">getVehicle</a> (int vehicleNumber)</td></tr>
 <tr class="separator:afd012e808f49e162b9713b75fd43c604"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4c45e9fa5fca7ad3db018f20ae80d774"><td class="memItemLeft" align="right" valign="top"><a id="a4c45e9fa5fca7ad3db018f20ae80d774"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getID</b> ()</td></tr>
+<tr class="memitem:a4c45e9fa5fca7ad3db018f20ae80d774"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_depot.html#a4c45e9fa5fca7ad3db018f20ae80d774">getID</a> ()</td></tr>
 <tr class="separator:a4c45e9fa5fca7ad3db018f20ae80d774"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa8fa0abff367255b9d908c4e8fb93227"><td class="memItemLeft" align="right" valign="top"><a id="aa8fa0abff367255b9d908c4e8fb93227"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getNumberOfVehicles</b> ()</td></tr>
+<tr class="memitem:aa8fa0abff367255b9d908c4e8fb93227"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_depot.html#aa8fa0abff367255b9d908c4e8fb93227">getNumberOfVehicles</a> ()</td></tr>
 <tr class="separator:aa8fa0abff367255b9d908c4e8fb93227"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a443f83f05f5b5f939f5f7d67a615239a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_depot.html#a443f83f05f5b5f939f5f7d67a615239a">getLeftOverInventory</a> () const</td></tr>
 <tr class="memdesc:a443f83f05f5b5f939f5f7d67a615239a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the total leftover capacity of the depot by taking the minimum of the leftover inventory and the total leftover capacity of its vehicles.  <a href="#a443f83f05f5b5f939f5f7d67a615239a">More...</a><br /></td></tr>
 <tr class="separator:a443f83f05f5b5f939f5f7d67a615239a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab8d9a6cba5eb3aa4d860e13435dd64df"><td class="memItemLeft" align="right" valign="top"><a id="ab8d9a6cba5eb3aa4d860e13435dd64df"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getInventory</b> () const</td></tr>
+<tr class="memitem:ab8d9a6cba5eb3aa4d860e13435dd64df"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_depot.html#ab8d9a6cba5eb3aa4d860e13435dd64df">getInventory</a> () const</td></tr>
 <tr class="separator:ab8d9a6cba5eb3aa4d860e13435dd64df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a91c675fef3c934b87f387050c43f2087"><td class="memItemLeft" align="right" valign="top"><a id="a91c675fef3c934b87f387050c43f2087"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>changeInventory</b> (int amount)</td></tr>
+<tr class="memitem:a91c675fef3c934b87f387050c43f2087"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_depot.html#a91c675fef3c934b87f387050c43f2087">changeInventory</a> (int amount)</td></tr>
 <tr class="separator:a91c675fef3c934b87f387050c43f2087"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aad95f075e3df31cfcb7951d4572265f3"><td class="memItemLeft" align="right" valign="top"><a id="aad95f075e3df31cfcb7951d4572265f3"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_depot.html#aad95f075e3df31cfcb7951d4572265f3">updateInventory</a> ()</td></tr>
 <tr class="memdesc:aad95f075e3df31cfcb7951d4572265f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update leftover inventory by substracting the total load of all vehicles from the total inventory. <br /></td></tr>
 <tr class="separator:aad95f075e3df31cfcb7951d4572265f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a68e6c378cf4527839c67e8e417560744"><td class="memItemLeft" align="right" valign="top"><a id="a68e6c378cf4527839c67e8e417560744"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>addVehicle</b> (<a class="el" href="class_vehicle.html">Vehicle</a> vehicle)</td></tr>
+<tr class="memitem:a68e6c378cf4527839c67e8e417560744"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_depot.html#a68e6c378cf4527839c67e8e417560744">addVehicle</a> (<a class="el" href="class_vehicle.html">Vehicle</a> vehicle)</td></tr>
 <tr class="separator:a68e6c378cf4527839c67e8e417560744"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a182a0a8e85a7cee44aaa9c1895a8d05a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_env.html">Env</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_depot.html#a182a0a8e85a7cee44aaa9c1895a8d05a">d_env</a></td></tr>
+<tr class="separator:a182a0a8e85a7cee44aaa9c1895a8d05a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a1a1a9e2d0952f6446247f706fcaa97"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_depot.html#a1a1a1a9e2d0952f6446247f706fcaa97">d_id</a></td></tr>
+<tr class="separator:a1a1a1a9e2d0952f6446247f706fcaa97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3037941bb91b32aed2a37bf39cda0917"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_vehicle.html">Vehicle</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_depot.html#a3037941bb91b32aed2a37bf39cda0917">d_vehicles</a></td></tr>
+<tr class="separator:a3037941bb91b32aed2a37bf39cda0917"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf5df9f1ee607052c50fc2f56d167609"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_depot.html#acf5df9f1ee607052c50fc2f56d167609">d_inventory</a></td></tr>
+<tr class="separator:acf5df9f1ee607052c50fc2f56d167609"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af81ace5d9d43b962c966f397b527ee48"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_depot.html#af81ace5d9d43b962c966f397b527ee48">d_leftOverInventory</a></td></tr>
+<tr class="separator:af81ace5d9d43b962c966f397b527ee48"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
@@ -112,7 +121,11 @@ Friends</h2></td></tr>
 std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;&lt;</b> (std::ostream &amp;os, <a class="el" href="class_depot.html">Depot</a> const &amp;depot)</td></tr>
 <tr class="separator:a2b64a812d30d31b49205413ae80a159a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p><a class="el" href="class_depot.html">Depot</a> is a class which holds a vehicle list and has a limited inventory. </p>
+
+<p class="definition">Definition at line <a class="el" href="depot_8h_source.html#l00017">17</a> of file <a class="el" href="depot_8h_source.html">depot.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ae5be13d5305f06443d8941be30ca5e71"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae5be13d5305f06443d8941be30ca5e71">&#9670;&nbsp;</a></span>Depot() <span class="overload">[1/2]</span></h2>
 
@@ -154,6 +167,8 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operato
   </table>
   </dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="depot_8cpp_source.html#l00015">15</a> of file <a class="el" href="depot_8cpp_source.html">depot.cpp</a>.</p>
 
 </div>
 </div>
@@ -206,9 +221,135 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operato
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="depot1_8cpp_source.html#l00016">16</a> of file <a class="el" href="depot1_8cpp_source.html">depot1.cpp</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a68e6c378cf4527839c67e8e417560744"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68e6c378cf4527839c67e8e417560744">&#9670;&nbsp;</a></span>addVehicle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Depot::addVehicle </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_vehicle.html">Vehicle</a>&#160;</td>
+          <td class="paramname"><em>vehicle</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Add vehicle to the depot. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vehicle</td><td><a class="el" href="class_vehicle.html">Vehicle</a> to be added </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="depot_8h_source.html#l00102">102</a> of file <a class="el" href="depot_8h_source.html">depot.h</a>.</p>
+
+</div>
+</div>
+<a id="a91c675fef3c934b87f387050c43f2087"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91c675fef3c934b87f387050c43f2087">&#9670;&nbsp;</a></span>changeInventory()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Depot::changeInventory </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>amount</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Change the left over inventory of the depot. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">amount</td><td>Amount the change the inventory with </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="depot_8h_source.html#l00084">84</a> of file <a class="el" href="depot_8h_source.html">depot.h</a>.</p>
+
+</div>
+</div>
+<a id="a4c45e9fa5fca7ad3db018f20ae80d774"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c45e9fa5fca7ad3db018f20ae80d774">&#9670;&nbsp;</a></span>getID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Depot::getID </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Get ID of the depot. </p><dl class="section return"><dt>Returns</dt><dd>ID of the depot </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="depot_8h_source.html#l00066">66</a> of file <a class="el" href="depot_8h_source.html">depot.h</a>.</p>
+
+</div>
+</div>
+<a id="ab8d9a6cba5eb3aa4d860e13435dd64df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8d9a6cba5eb3aa4d860e13435dd64df">&#9670;&nbsp;</a></span>getInventory()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Depot::getInventory </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Get the total inventory of the depot. </p><dl class="section return"><dt>Returns</dt><dd>Total inventory of the depot </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="depot_8h_source.html#l00093">93</a> of file <a class="el" href="depot_8h_source.html">depot.h</a>.</p>
+
+</div>
+</div>
 <a id="a443f83f05f5b5f939f5f7d67a615239a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a443f83f05f5b5f939f5f7d67a615239a">&#9670;&nbsp;</a></span>getLeftOverInventory()</h2>
 
@@ -227,14 +368,233 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operato
 <p>Get the total leftover capacity of the depot by taking the minimum of the leftover inventory and the total leftover capacity of its vehicles. </p>
 <dl class="section return"><dt>Returns</dt><dd>The total leftover inventory of the vehicle </dd></dl>
 
+<p class="definition">Definition at line <a class="el" href="getleftovercapacity_8cpp_source.html#l00014">14</a> of file <a class="el" href="getleftovercapacity_8cpp_source.html">getleftovercapacity.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aa8fa0abff367255b9d908c4e8fb93227"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8fa0abff367255b9d908c4e8fb93227">&#9670;&nbsp;</a></span>getNumberOfVehicles()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Depot::getNumberOfVehicles </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Get number of vehicles within the depot. </p><dl class="section return"><dt>Returns</dt><dd>Number of vehicles within the depot </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="depot_8h_source.html#l00075">75</a> of file <a class="el" href="depot_8h_source.html">depot.h</a>.</p>
+
+</div>
+</div>
+<a id="afd012e808f49e162b9713b75fd43c604"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd012e808f49e162b9713b75fd43c604">&#9670;&nbsp;</a></span>getVehicle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_vehicle.html">Vehicle</a> &amp; Depot::getVehicle </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>vehicleNumber</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Get the vehicle with position vehicleNumber. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vehicleNumber</td><td>Position of the vehicle within the vehicle vector </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_vehicle.html">Vehicle</a> to be selected </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="depot_8h_source.html#l00057">57</a> of file <a class="el" href="depot_8h_source.html">depot.h</a>.</p>
+
+</div>
+</div>
+<a id="a7ebccd66bec499d9dc7411dc78efc348"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ebccd66bec499d9dc7411dc78efc348">&#9670;&nbsp;</a></span>getVehicles()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="class_vehicle.html">Vehicle</a> &gt; &amp; Depot::getVehicles </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Get the list of vehicles. </p><dl class="section return"><dt>Returns</dt><dd>Vector of vehicles </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="depot_8h_source.html#l00047">47</a> of file <a class="el" href="depot_8h_source.html">depot.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a182a0a8e85a7cee44aaa9c1895a8d05a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a182a0a8e85a7cee44aaa9c1895a8d05a">&#9670;&nbsp;</a></span>d_env</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_env.html">Env</a>* Depot::d_env</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Environment pointer </p>
+
+<p class="definition">Definition at line <a class="el" href="depot_8h_source.html#l00019">19</a> of file <a class="el" href="depot_8h_source.html">depot.h</a>.</p>
+
+</div>
+</div>
+<a id="a1a1a1a9e2d0952f6446247f706fcaa97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a1a1a9e2d0952f6446247f706fcaa97">&#9670;&nbsp;</a></span>d_id</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Depot::d_id</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>ID of the depot </p>
+
+<p class="definition">Definition at line <a class="el" href="depot_8h_source.html#l00020">20</a> of file <a class="el" href="depot_8h_source.html">depot.h</a>.</p>
+
+</div>
+</div>
+<a id="acf5df9f1ee607052c50fc2f56d167609"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf5df9f1ee607052c50fc2f56d167609">&#9670;&nbsp;</a></span>d_inventory</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Depot::d_inventory</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Total inventoryof the depot </p>
+
+<p class="definition">Definition at line <a class="el" href="depot_8h_source.html#l00022">22</a> of file <a class="el" href="depot_8h_source.html">depot.h</a>.</p>
+
+</div>
+</div>
+<a id="af81ace5d9d43b962c966f397b527ee48"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af81ace5d9d43b962c966f397b527ee48">&#9670;&nbsp;</a></span>d_leftOverInventory</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Depot::d_leftOverInventory</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Leftover inventory of the depot </p>
+
+<p class="definition">Definition at line <a class="el" href="depot_8h_source.html#l00023">23</a> of file <a class="el" href="depot_8h_source.html">depot.h</a>.</p>
+
+</div>
+</div>
+<a id="a3037941bb91b32aed2a37bf39cda0917"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3037941bb91b32aed2a37bf39cda0917">&#9670;&nbsp;</a></span>d_vehicles</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="class_vehicle.html">Vehicle</a>&gt; Depot::d_vehicles</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Vector of vehicles of the depot </p>
+
+<p class="definition">Definition at line <a class="el" href="depot_8h_source.html#l00021">21</a> of file <a class="el" href="depot_8h_source.html">depot.h</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>inc/<a class="el" href="depot_8h_source.html">depot.h</a></li>
-<li>src/depot/depot.cpp</li>
-<li>src/depot/depot1.cpp</li>
-<li>src/depot/getleftovercapacity.cpp</li>
-<li>src/depot/updateinventory.cpp</li>
+<li>src/depot/<a class="el" href="depot_8cpp_source.html">depot.cpp</a></li>
+<li>src/depot/<a class="el" href="depot1_8cpp_source.html">depot1.cpp</a></li>
+<li>src/depot/<a class="el" href="getleftovercapacity_8cpp_source.html">getleftovercapacity.cpp</a></li>
+<li>src/depot/<a class="el" href="updateinventory_8cpp_source.html">updateinventory.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

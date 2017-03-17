@@ -14,10 +14,15 @@
 
 class Env;
 
+/**
+ * The Solver class is where the actual work happens. Here the solutions in the environment instance are altered
+ * by using our algorithm using the large neighbourhood search.
+ */
 class Solver {
 
-    Env *d_env;
-    std::vector<std::function<void(Solution &)>> d_localSearchOperators;
+    Env *d_env; /*!< Environment pointer */
+    std::vector<std::function<void(Solution &)>> d_localSearchOperators; /*!< Vector of all local search operators */
+    /// Vector of all perturbation operators
     std::vector<std::function<std::vector<int>(Solution &, int)>> d_perturbationOperators;
 
 public:

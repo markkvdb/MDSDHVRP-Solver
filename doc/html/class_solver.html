@@ -62,63 +62,1560 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_solver-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Solver Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="solver_8h_source.html">solver.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a05ec0ef6028f51c1eba417b41a14c2ea"><td class="memItemLeft" align="right" valign="top"><a id="a05ec0ef6028f51c1eba417b41a14c2ea"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Solver</b> (<a class="el" href="class_env.html">Env</a> *env)</td></tr>
+<tr class="memitem:a05ec0ef6028f51c1eba417b41a14c2ea"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_solver.html#a05ec0ef6028f51c1eba417b41a14c2ea">Solver</a> (<a class="el" href="class_env.html">Env</a> *env)</td></tr>
+<tr class="memdesc:a05ec0ef6028f51c1eba417b41a14c2ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor. Adds the perturbation and local search operators to the lists.  <a href="#a05ec0ef6028f51c1eba417b41a14c2ea">More...</a><br /></td></tr>
 <tr class="separator:a05ec0ef6028f51c1eba417b41a14c2ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4b0fc2950022b5e5166b6d3f0564696f"><td class="memItemLeft" align="right" valign="top"><a id="a4b0fc2950022b5e5166b6d3f0564696f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>initialSolution</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_solver.html#a4b0fc2950022b5e5166b6d3f0564696f">initialSolution</a> ()</td></tr>
+<tr class="memdesc:a4b0fc2950022b5e5166b6d3f0564696f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create initial solution based on cheapest insertion. <br /></td></tr>
 <tr class="separator:a4b0fc2950022b5e5166b6d3f0564696f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1f31e2d38dacd7e828c1bf428eb2ed96"><td class="memItemLeft" align="right" valign="top"><a id="a1f31e2d38dacd7e828c1bf428eb2ed96"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>run</b> ()</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_solver.html#a1f31e2d38dacd7e828c1bf428eb2ed96">run</a> ()</td></tr>
+<tr class="memdesc:a1f31e2d38dacd7e828c1bf428eb2ed96"><td class="mdescLeft">&#160;</td><td class="mdescRight">General algorithm. Select this function to run the algorithm. <br /></td></tr>
 <tr class="separator:a1f31e2d38dacd7e828c1bf428eb2ed96"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a39ebda60ffaadddc1c4f85bd6cf9209c"><td class="memItemLeft" align="right" valign="top"><a id="a39ebda60ffaadddc1c4f85bd6cf9209c"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>print</b> ()</td></tr>
 <tr class="separator:a39ebda60ffaadddc1c4f85bd6cf9209c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a1f49b9d9d07845d5c5a95df4d2856668"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector&lt; std::pair&lt; int, int &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_solver.html#a1f49b9d9d07845d5c5a95df4d2856668">allocateCustomers</a> ()</td></tr>
+<tr class="memdesc:a1f49b9d9d07845d5c5a95df4d2856668"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create customer-depot allocation based on the distance to the depots. Splits are allowed.  <a href="#a1f49b9d9d07845d5c5a95df4d2856668">More...</a><br /></td></tr>
+<tr class="separator:a1f49b9d9d07845d5c5a95df4d2856668"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca1e06acbaf749168eb58749aaaa1128"><td class="memItemLeft" align="right" valign="top">std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_solver.html#aca1e06acbaf749168eb58749aaaa1128">getClosestDepots</a> (int customer)</td></tr>
+<tr class="memdesc:aca1e06acbaf749168eb58749aaaa1128"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the ordered list of depots based on the distance to the customer.  <a href="#aca1e06acbaf749168eb58749aaaa1128">More...</a><br /></td></tr>
+<tr class="separator:aca1e06acbaf749168eb58749aaaa1128"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe099021d3e1329c3f185ed60271164e"><td class="memItemLeft" align="right" valign="top">std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_solver.html#abe099021d3e1329c3f185ed60271164e">sortVehicleList</a> (int depotNumber)</td></tr>
+<tr class="memdesc:abe099021d3e1329c3f185ed60271164e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sort vehicle list based on costs.  <a href="#abe099021d3e1329c3f185ed60271164e">More...</a><br /></td></tr>
+<tr class="separator:abe099021d3e1329c3f185ed60271164e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26c3510331183d3be6470dcb773a9db7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_solver.html#a26c3510331183d3be6470dcb773a9db7">assignRouteToVehicle</a> (int vehicleNumber, int depotNumber, std::vector&lt; std::pair&lt; int, int &gt;&gt; &amp;depotCustomerAllocation)</td></tr>
+<tr class="memdesc:a26c3510331183d3be6470dcb773a9db7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assign a route to the selected vehicle. Loop over the available customers until the vehicle is full. Not looking at the driving time of the vehicle.  <a href="#a26c3510331183d3be6470dcb773a9db7">More...</a><br /></td></tr>
+<tr class="separator:a26c3510331183d3be6470dcb773a9db7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a943fbc40cc9d9ede517db697f5f971e9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_solver.html#a943fbc40cc9d9ede517db697f5f971e9">addCustomer</a> (int pickedCustomer, int &amp;remainingCapacity, std::vector&lt; int &gt; &amp;customerList, std::vector&lt; int &gt; &amp;customerDropOff, std::vector&lt; std::pair&lt; int, int &gt;&gt; &amp;depotCustomerAllocation)</td></tr>
+<tr class="memdesc:a943fbc40cc9d9ede517db697f5f971e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add customer to the vehicle and update the customer list and drop offs.  <a href="#a943fbc40cc9d9ede517db697f5f971e9">More...</a><br /></td></tr>
+<tr class="separator:a943fbc40cc9d9ede517db697f5f971e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa00079f9f5ce6d19af4ecff16d8764ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_solver.html#aa00079f9f5ce6d19af4ecff16d8764ad">getClosestCustomer</a> (int seedCustomer, int &amp;pickedCustomer, std::vector&lt; std::pair&lt; int, int &gt;&gt; &amp;depotCustomerAllocation)</td></tr>
+<tr class="memdesc:aa00079f9f5ce6d19af4ecff16d8764ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the closest customer to the seed customer in the depot customer allocation list.  <a href="#aa00079f9f5ce6d19af4ecff16d8764ad">More...</a><br /></td></tr>
+<tr class="separator:aa00079f9f5ce6d19af4ecff16d8764ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47e3f4f776b1a27071b0e7a3648de839"><td class="memItemLeft" align="right" valign="top">std::pair&lt; std::vector&lt; int &gt;, std::vector&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_solver.html#a47e3f4f776b1a27071b0e7a3648de839">cheapestInsertion</a> (int depotNumber, std::vector&lt; int &gt; &amp;customerList, std::vector&lt; int &gt; &amp;customerDropOff)</td></tr>
+<tr class="memdesc:a47e3f4f776b1a27071b0e7a3648de839"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the optimal route for customerList, by using the cheapest insertion algorithm.  <a href="#a47e3f4f776b1a27071b0e7a3648de839">More...</a><br /></td></tr>
+<tr class="separator:a47e3f4f776b1a27071b0e7a3648de839"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4c890c0725d91f8936201bfb57f924c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_solver.html#ac4c890c0725d91f8936201bfb57f924c">perturbation</a> (<a class="el" href="class_solution.html">Solution</a> &amp;solution, int q)</td></tr>
+<tr class="memdesc:ac4c890c0725d91f8936201bfb57f924c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perturbation mechanism. First select a random remove operator to delete q customers and add the q customers back in the solution using the reinsert operator.  <a href="#ac4c890c0725d91f8936201bfb57f924c">More...</a><br /></td></tr>
+<tr class="separator:ac4c890c0725d91f8936201bfb57f924c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac5e62758bb4cd6f35fec178ab7aafd3"><td class="memItemLeft" align="right" valign="top">std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_solver.html#aac5e62758bb4cd6f35fec178ab7aafd3">randomRemoval</a> (<a class="el" href="class_solution.html">Solution</a> &amp;solution, int q)</td></tr>
+<tr class="memdesc:aac5e62758bb4cd6f35fec178ab7aafd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove operator of the perturbation mechanism. Randomly selects q customers and deletes these customers from its routes.  <a href="#aac5e62758bb4cd6f35fec178ab7aafd3">More...</a><br /></td></tr>
+<tr class="separator:aac5e62758bb4cd6f35fec178ab7aafd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97a087718f18b4c16da0cc67dab4e01a"><td class="memItemLeft" align="right" valign="top">std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_solver.html#a97a087718f18b4c16da0cc67dab4e01a">costRemoval</a> (<a class="el" href="class_solution.html">Solution</a> &amp;solution, int q)</td></tr>
+<tr class="memdesc:a97a087718f18b4c16da0cc67dab4e01a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perturbation operator to remove customers from the solution. Remove q customers from the solution where the gain of removing them is the highest.  <a href="#a97a087718f18b4c16da0cc67dab4e01a">More...</a><br /></td></tr>
+<tr class="separator:a97a087718f18b4c16da0cc67dab4e01a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f3a938ddd565bc92c2f27bed4749b8b"><td class="memItemLeft" align="right" valign="top">std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_solver.html#a2f3a938ddd565bc92c2f27bed4749b8b">routeRemoval</a> (<a class="el" href="class_solution.html">Solution</a> &amp;solution, int q)</td></tr>
+<tr class="memdesc:a2f3a938ddd565bc92c2f27bed4749b8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove operator of the perturbation mechanism. Randomly select a random route and delete q or if the number of customers in the list is smaller than q customers from the selected route.  <a href="#a2f3a938ddd565bc92c2f27bed4749b8b">More...</a><br /></td></tr>
+<tr class="separator:a2f3a938ddd565bc92c2f27bed4749b8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af46ba742e7c2c7752d4189522ba13f04"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_solver.html#af46ba742e7c2c7752d4189522ba13f04">computeRemovalGain</a> (<a class="el" href="class_solution.html">Solution</a> &amp;solution, int customerID)</td></tr>
+<tr class="memdesc:af46ba742e7c2c7752d4189522ba13f04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the gain of removing the customer from all its routes.  <a href="#af46ba742e7c2c7752d4189522ba13f04">More...</a><br /></td></tr>
+<tr class="separator:af46ba742e7c2c7752d4189522ba13f04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a766b8061001fee9f4f9e86440aa5f307"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::pair&lt; int, int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_solver.html#a766b8061001fee9f4f9e86440aa5f307">getNonEmptyRoutes</a> (<a class="el" href="class_solution.html">Solution</a> &amp;solution)</td></tr>
+<tr class="memdesc:a766b8061001fee9f4f9e86440aa5f307"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the list of non empty routes.  <a href="#a766b8061001fee9f4f9e86440aa5f307">More...</a><br /></td></tr>
+<tr class="separator:a766b8061001fee9f4f9e86440aa5f307"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ae8eae22345198c4b36c9ce4857f40b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_solver.html#a3ae8eae22345198c4b36c9ce4857f40b">removeCustomers</a> (<a class="el" href="class_solution.html">Solution</a> &amp;solution, std::vector&lt; int &gt; const &amp;customersToRemove)</td></tr>
+<tr class="memdesc:a3ae8eae22345198c4b36c9ce4857f40b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete the selected customers from the solution. The customers are deleted from all its routes.  <a href="#a3ae8eae22345198c4b36c9ce4857f40b">More...</a><br /></td></tr>
+<tr class="separator:a3ae8eae22345198c4b36c9ce4857f40b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86aab9a760c785feaf0dd65951b50895"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_solver.html#a86aab9a760c785feaf0dd65951b50895">reinsert</a> (<a class="el" href="class_solution.html">Solution</a> &amp;solution, std::vector&lt; int &gt; &amp;customersToAdd, bool random)</td></tr>
+<tr class="memdesc:a86aab9a760c785feaf0dd65951b50895"><td class="mdescLeft">&#160;</td><td class="mdescRight">The reinsert operator. Reinserts the given customers back in the solution with (random) cheapest insertion.  <a href="#a86aab9a760c785feaf0dd65951b50895">More...</a><br /></td></tr>
+<tr class="separator:a86aab9a760c785feaf0dd65951b50895"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a888052066d83addb6b81a8891d7de961"><td class="memItemLeft" align="right" valign="top">std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_solver.html#a888052066d83addb6b81a8891d7de961">getClosestCustomers</a> (int seedCustomer, int q)</td></tr>
+<tr class="memdesc:a888052066d83addb6b81a8891d7de961"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sort the customers based on the distance to the seed customers and return the q closest.  <a href="#a888052066d83addb6b81a8891d7de961">More...</a><br /></td></tr>
+<tr class="separator:a888052066d83addb6b81a8891d7de961"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad57e0ae1fd285942fc7cc5a38fac1a07"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_solver.html#ad57e0ae1fd285942fc7cc5a38fac1a07">insertCustomer</a> (<a class="el" href="class_solution.html">Solution</a> &amp;solution, int selectedCustomer, int positionCustomer, int depotID, int vehicleID, int routePos, std::vector&lt; int &gt; &amp;customersToAdd)</td></tr>
+<tr class="memdesc:ad57e0ae1fd285942fc7cc5a38fac1a07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Insert customer in the selected route.  <a href="#ad57e0ae1fd285942fc7cc5a38fac1a07">More...</a><br /></td></tr>
+<tr class="separator:ad57e0ae1fd285942fc7cc5a38fac1a07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6879ef613e34893b535ff3554324fca9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_solver.html#a6879ef613e34893b535ff3554324fca9">localSearch</a> (<a class="el" href="class_solution.html">Solution</a> &amp;s)</td></tr>
+<tr class="memdesc:a6879ef613e34893b535ff3554324fca9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Local search mechanism for applying the local search operators.  <a href="#a6879ef613e34893b535ff3554324fca9">More...</a><br /></td></tr>
+<tr class="separator:a6879ef613e34893b535ff3554324fca9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1856ef1df8590c2a76d8f71f707ba39f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_solver.html#a1856ef1df8590c2a76d8f71f707ba39f">oneInsertionIntraRoute</a> (<a class="el" href="class_solution.html">Solution</a> &amp;s)</td></tr>
+<tr class="memdesc:a1856ef1df8590c2a76d8f71f707ba39f"><td class="mdescLeft">&#160;</td><td class="mdescRight">One insertion intra route operator. Pick a customer and place it in the best position in his route.  <a href="#a1856ef1df8590c2a76d8f71f707ba39f">More...</a><br /></td></tr>
+<tr class="separator:a1856ef1df8590c2a76d8f71f707ba39f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12e5223233047d7f4b1a9db554f5cea3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_solver.html#a12e5223233047d7f4b1a9db554f5cea3">twoInsertionIntraRoute</a> (<a class="el" href="class_solution.html">Solution</a> &amp;s)</td></tr>
+<tr class="separator:a12e5223233047d7f4b1a9db554f5cea3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3cd5b7d58611e9bf621cb861e371780"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_solver.html#aa3cd5b7d58611e9bf621cb861e371780">twoOptIntraRoute</a> (<a class="el" href="class_solution.html">Solution</a> &amp;s)</td></tr>
+<tr class="memdesc:aa3cd5b7d58611e9bf621cb861e371780"><td class="mdescLeft">&#160;</td><td class="mdescRight">Local search operator which switches two arcs within a route.  <a href="#aa3cd5b7d58611e9bf621cb861e371780">More...</a><br /></td></tr>
+<tr class="separator:aa3cd5b7d58611e9bf621cb861e371780"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d960b7d4c3b329c430f4f3553bedb31"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_solver.html#a9d960b7d4c3b329c430f4f3553bedb31">swap</a> (<a class="el" href="class_solution.html">Solution</a> &amp;s)</td></tr>
+<tr class="separator:a9d960b7d4c3b329c430f4f3553bedb31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab29d1f5b4e31eed975185d77312392a3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_solver.html#ab29d1f5b4e31eed975185d77312392a3">swapStar</a> (<a class="el" href="class_solution.html">Solution</a> &amp;s)</td></tr>
+<tr class="memdesc:ab29d1f5b4e31eed975185d77312392a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Local search operator swap star which swaps to customers in two different routes and creates a split.  <a href="#ab29d1f5b4e31eed975185d77312392a3">More...</a><br /></td></tr>
+<tr class="separator:ab29d1f5b4e31eed975185d77312392a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89f48fca861b21e0927d41afcd7ccbc4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_solver.html#a89f48fca861b21e0927d41afcd7ccbc4">routeAddition</a> (<a class="el" href="class_solution.html">Solution</a> &amp;s)</td></tr>
+<tr class="memdesc:a89f48fca861b21e0927d41afcd7ccbc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Local search operator to select splitted customer and adds it back to the solution as a whole. /todo Insert the whole customer back again.  <a href="#a89f48fca861b21e0927d41afcd7ccbc4">More...</a><br /></td></tr>
+<tr class="separator:a89f48fca861b21e0927d41afcd7ccbc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e3d5af3cb04785f221a5f7887bd083e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_solver.html#a9e3d5af3cb04785f221a5f7887bd083e">oneInsertionInterRoute</a> (<a class="el" href="class_solution.html">Solution</a> &amp;s)</td></tr>
+<tr class="memdesc:a9e3d5af3cb04785f221a5f7887bd083e"><td class="mdescLeft">&#160;</td><td class="mdescRight">One insertion inter route operator. Pick a customer to remove and add it another route with the lowest cost.  <a href="#a9e3d5af3cb04785f221a5f7887bd083e">More...</a><br /></td></tr>
+<tr class="separator:a9e3d5af3cb04785f221a5f7887bd083e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69e35e88d269d1280641449e7745063e"><td class="memItemLeft" align="right" valign="top"><a id="a69e35e88d269d1280641449e7745063e"></a>
+std::tuple&lt; double, int, int, int, int, int, int, int, int, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>bestSwapStar</b> (<a class="el" href="class_solution.html">Solution</a> &amp;s, int customerIdx, <a class="el" href="class_vehicle.html">Vehicle</a> &amp;vehicle, std::set&lt; int &gt;forbiddenVehicles, std::set&lt; int &gt; forbiddenCustomers)</td></tr>
+<tr class="separator:a69e35e88d269d1280641449e7745063e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23f11241b0d39543ce71ddcff65aa1cd"><td class="memItemLeft" align="right" valign="top">std::pair&lt; std::vector&lt; std::set&lt; int &gt; &gt;, std::vector&lt; std::set&lt; int &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_solver.html#a23f11241b0d39543ce71ddcff65aa1cd">createForbiddenVehiclesAndCustomers</a> (<a class="el" href="class_solution.html">Solution</a> &amp;s)</td></tr>
+<tr class="memdesc:a23f11241b0d39543ce71ddcff65aa1cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create the list of forbidden vehicles and customers. A forbidden vehicle for a customer is defined as the list of vehicles where it's in. The forbidden customers are the customers situated in one of these vehicles.  <a href="#a23f11241b0d39543ce71ddcff65aa1cd">More...</a><br /></td></tr>
+<tr class="separator:a23f11241b0d39543ce71ddcff65aa1cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8eb89af6db4d6b846667740878a36af8"><td class="memItemLeft" align="right" valign="top">std::pair&lt; int, double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_solver.html#a8eb89af6db4d6b846667740878a36af8">findSwapStarCost</a> (<a class="el" href="class_solution.html">Solution</a> &amp;s, int customerIdx1, <a class="el" href="class_vehicle.html">Vehicle</a> &amp;vehicle1, int customerIdx2, <a class="el" href="class_vehicle.html">Vehicle</a> &amp;vehicle2)</td></tr>
+<tr class="memdesc:a8eb89af6db4d6b846667740878a36af8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the cost of applying the swapstar operator to customer1 and customer 2.  <a href="#a8eb89af6db4d6b846667740878a36af8">More...</a><br /></td></tr>
+<tr class="separator:a8eb89af6db4d6b846667740878a36af8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e155d2e2ce6b7f4b30d563741eca7cd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_solution.html">Solution</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_solver.html#a7e155d2e2ce6b7f4b30d563741eca7cd">simulatedAnnealing</a> (<a class="el" href="class_solution.html">Solution</a> &amp;sPrime, <a class="el" href="class_solution.html">Solution</a> &amp;s)</td></tr>
+<tr class="memdesc:a7e155d2e2ce6b7f4b30d563741eca7cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simulated annealing procedure to select new current solution.  <a href="#a7e155d2e2ce6b7f4b30d563741eca7cd">More...</a><br /></td></tr>
+<tr class="separator:a7e155d2e2ce6b7f4b30d563741eca7cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30596315142e384f8616f8a1915c21aa"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_solver.html#a30596315142e384f8616f8a1915c21aa">selectq</a> ()</td></tr>
+<tr class="memdesc:a30596315142e384f8616f8a1915c21aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Select the number of customers to be perturbed in the perturbation phase.  <a href="#a30596315142e384f8616f8a1915c21aa">More...</a><br /></td></tr>
+<tr class="separator:a30596315142e384f8616f8a1915c21aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a00149486de31a8a01a5eb732a8ef0dae"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_env.html">Env</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_solver.html#a00149486de31a8a01a5eb732a8ef0dae">d_env</a></td></tr>
+<tr class="separator:a00149486de31a8a01a5eb732a8ef0dae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7a9ecebd1a5c4048c8d74f4176700b9"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::function&lt; void(<a class="el" href="class_solution.html">Solution</a> &amp;)&gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_solver.html#ae7a9ecebd1a5c4048c8d74f4176700b9">d_localSearchOperators</a></td></tr>
+<tr class="separator:ae7a9ecebd1a5c4048c8d74f4176700b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3dc9e044184f8159a310b18f8a0abe57"><td class="memItemLeft" align="right" valign="top"><a id="a3dc9e044184f8159a310b18f8a0abe57"></a>
+std::vector&lt; std::function&lt; std::vector&lt; int &gt;<a class="el" href="class_solution.html">Solution</a> &amp;, int)&gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_solver.html#a3dc9e044184f8159a310b18f8a0abe57">d_perturbationOperators</a></td></tr>
+<tr class="memdesc:a3dc9e044184f8159a310b18f8a0abe57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector of all perturbation operators. <br /></td></tr>
+<tr class="separator:a3dc9e044184f8159a310b18f8a0abe57"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>The <a class="el" href="class_solver.html">Solver</a> class is where the actual work happens. Here the solutions in the environment instance are altered by using our algorithm using the large neighbourhood search. </p>
+
+<p class="definition">Definition at line <a class="el" href="solver_8h_source.html#l00021">21</a> of file <a class="el" href="solver_8h_source.html">solver.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a05ec0ef6028f51c1eba417b41a14c2ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05ec0ef6028f51c1eba417b41a14c2ea">&#9670;&nbsp;</a></span>Solver()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Solver::Solver </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_env.html">Env</a> *&#160;</td>
+          <td class="paramname"><em>env</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor. Adds the perturbation and local search operators to the lists. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">env</td><td>Environment pointer </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="solver_8cpp_source.html#l00013">13</a> of file <a class="el" href="solver_8cpp_source.html">solver.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a943fbc40cc9d9ede517db697f5f971e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a943fbc40cc9d9ede517db697f5f971e9">&#9670;&nbsp;</a></span>addCustomer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Solver::addCustomer </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>pickedCustomer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int &amp;&#160;</td>
+          <td class="paramname"><em>remainingCapacity</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>customerList</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>customerDropOff</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; std::pair&lt; int, int &gt;&gt; &amp;&#160;</td>
+          <td class="paramname"><em>depotCustomerAllocation</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Add customer to the vehicle and update the customer list and drop offs. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">pickedCustomer</td><td>ID of the picked customer to add to the vehicle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">remainingCapacity</td><td>Remaining capacity of the selected vehicle </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">customerList</td><td>List of customers for vehicle to travel to </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">customerDropOff</td><td>List of drop offs for each customer in customerList </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">depotCustomerAllocation</td><td>List of depot customer allocations </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="solver_2addcustomer_8cpp_source.html#l00017">17</a> of file <a class="el" href="solver_2addcustomer_8cpp_source.html">addcustomer.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a1f49b9d9d07845d5c5a95df4d2856668"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f49b9d9d07845d5c5a95df4d2856668">&#9670;&nbsp;</a></span>allocateCustomers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt; vector&lt; pair&lt; int, int &gt; &gt; &gt; Solver::allocateCustomers </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Create customer-depot allocation based on the distance to the depots. Splits are allowed. </p>
+<dl class="section return"><dt>Returns</dt><dd>Matrix of pairs. The rows correspond to the depots. Each pair consist of a customer ID, and the load to be dropped off in that depot. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="allocatecustomer_8cpp_source.html#l00014">14</a> of file <a class="el" href="allocatecustomer_8cpp_source.html">allocatecustomer.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a26c3510331183d3be6470dcb773a9db7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26c3510331183d3be6470dcb773a9db7">&#9670;&nbsp;</a></span>assignRouteToVehicle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Solver::assignRouteToVehicle </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>vehicleNumber</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>depotNumber</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; std::pair&lt; int, int &gt;&gt; &amp;&#160;</td>
+          <td class="paramname"><em>depotCustomerAllocation</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Assign a route to the selected vehicle. Loop over the available customers until the vehicle is full. Not looking at the driving time of the vehicle. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">vehicleNumber</td><td>The position of the vehicle in the selected depot </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">depotNumber</td><td>The position of the depot in the depot list </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">depotCustomerAllocation</td><td>Matrix with the depot-customer allocation </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="assignroutetovehicle_8cpp_source.html#l00016">16</a> of file <a class="el" href="assignroutetovehicle_8cpp_source.html">assignroutetovehicle.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a47e3f4f776b1a27071b0e7a3648de839"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47e3f4f776b1a27071b0e7a3648de839">&#9670;&nbsp;</a></span>cheapestInsertion()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">pair&lt; vector&lt; int &gt;, vector&lt; int &gt; &gt; Solver::cheapestInsertion </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>depotNumber</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>customerList</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>customerDropOff</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Find the optimal route for customerList, by using the cheapest insertion algorithm. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">depotNumber</td><td><a class="el" href="class_depot.html">Depot</a> ID for the selected vehicle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">customerList</td><td>Vector of customers to add to the route </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">customerDropOff</td><td>Vector of the customer drop off to add to the route</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Pair of vectors where the first vector consists of the optimal route and the second vector the corresponding drop offs. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="solver_2cheapestinsertion_8cpp_source.html#l00018">18</a> of file <a class="el" href="solver_2cheapestinsertion_8cpp_source.html">cheapestinsertion.cpp</a>.</p>
+
+</div>
+</div>
+<a id="af46ba742e7c2c7752d4189522ba13f04"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af46ba742e7c2c7752d4189522ba13f04">&#9670;&nbsp;</a></span>computeRemovalGain()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Solver::computeRemovalGain </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_solution.html">Solution</a> &amp;&#160;</td>
+          <td class="paramname"><em>solution</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>customerID</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Compute the gain of removing the customer from all its routes. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">solution</td><td><a class="el" href="class_solution.html">Solution</a> to delete the customer from </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">customerID</td><td>ID of the customer to remove</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Total gain of removing customer </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="computeremovalgain_8cpp_source.html#l00016">16</a> of file <a class="el" href="computeremovalgain_8cpp_source.html">computeremovalgain.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a97a087718f18b4c16da0cc67dab4e01a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97a087718f18b4c16da0cc67dab4e01a">&#9670;&nbsp;</a></span>costRemoval()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt; int &gt; Solver::costRemoval </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_solution.html">Solution</a> &amp;&#160;</td>
+          <td class="paramname"><em>solution</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>q</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Perturbation operator to remove customers from the solution. Remove q customers from the solution where the gain of removing them is the highest. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">solution</td><td><a class="el" href="class_solution.html">Solution</a> to remove the customers from </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">q</td><td>Number of customers to delete</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Vector of customer IDs to remove </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="costremoval_8cpp_source.html#l00017">17</a> of file <a class="el" href="costremoval_8cpp_source.html">costremoval.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a23f11241b0d39543ce71ddcff65aa1cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23f11241b0d39543ce71ddcff65aa1cd">&#9670;&nbsp;</a></span>createForbiddenVehiclesAndCustomers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">pair&lt; vector&lt; set&lt; int &gt; &gt;, vector&lt; set&lt; int &gt; &gt; &gt; Solver::createForbiddenVehiclesAndCustomers </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_solution.html">Solution</a> &amp;&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Create the list of forbidden vehicles and customers. A forbidden vehicle for a customer is defined as the list of vehicles where it's in. The forbidden customers are the customers situated in one of these vehicles. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">s</td><td><a class="el" href="class_solution.html">Solution</a></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Pair of vectors that consists of sets. Each set is a set of forbidden vehicles and customers. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="createforbiddenvehiclesandcustomers_8cpp_source.html#l00017">17</a> of file <a class="el" href="createforbiddenvehiclesandcustomers_8cpp_source.html">createforbiddenvehiclesandcustomers.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a8eb89af6db4d6b846667740878a36af8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8eb89af6db4d6b846667740878a36af8">&#9670;&nbsp;</a></span>findSwapStarCost()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">pair&lt; int, double &gt; Solver::findSwapStarCost </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_solution.html">Solution</a> &amp;&#160;</td>
+          <td class="paramname"><em>s</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>customerIdx1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_vehicle.html">Vehicle</a> &amp;&#160;</td>
+          <td class="paramname"><em>vehicle1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>customerIdx2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_vehicle.html">Vehicle</a> &amp;&#160;</td>
+          <td class="paramname"><em>vehicle2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Find the cost of applying the swapstar operator to customer1 and customer 2. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">s</td><td><a class="el" href="class_solution.html">Solution</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">customerIdx1</td><td>The position of the first customer in the its vehicle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">vehicle1</td><td>The vehicle of the first customer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">customerIdx2</td><td>The position of the second customer in the its vehicle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">vehicle2</td><td>The vehicle of the second customer</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Pair where the first elements is a dummy where 0 indicates insertion before the first customer, and 1 indicates after the first customer. The second elements indicates the cost of this insertion. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="findswapstarcost_8cpp_source.html#l00022">22</a> of file <a class="el" href="findswapstarcost_8cpp_source.html">findswapstarcost.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aa00079f9f5ce6d19af4ecff16d8764ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa00079f9f5ce6d19af4ecff16d8764ad">&#9670;&nbsp;</a></span>getClosestCustomer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Solver::getClosestCustomer </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>seedCustomer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int &amp;&#160;</td>
+          <td class="paramname"><em>pickedCustomer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; std::pair&lt; int, int &gt;&gt; &amp;&#160;</td>
+          <td class="paramname"><em>depotCustomerAllocation</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Finds the closest customer to the seed customer in the depot customer allocation list. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">seedCustomer</td><td>The seed customer </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">pickedCustomer</td><td>The closest customer to the seed customer of the remaining customers </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">depotCustomerAllocation</td><td>The leftover depot customer allocation list </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="getclosestcustomer_8cpp_source.html#l00015">15</a> of file <a class="el" href="getclosestcustomer_8cpp_source.html">getclosestcustomer.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a888052066d83addb6b81a8891d7de961"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a888052066d83addb6b81a8891d7de961">&#9670;&nbsp;</a></span>getClosestCustomers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt; int &gt; Solver::getClosestCustomers </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>seedCustomer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>q</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sort the customers based on the distance to the seed customers and return the q closest. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">seedCustomer</td><td>The seed customer ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">q</td><td>The number of customers to select</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Vector containing the q closest customer based on the distance to the seed customer </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="getclosestcustomers_8cpp_source.html#l00016">16</a> of file <a class="el" href="getclosestcustomers_8cpp_source.html">getclosestcustomers.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aca1e06acbaf749168eb58749aaaa1128"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca1e06acbaf749168eb58749aaaa1128">&#9670;&nbsp;</a></span>getClosestDepots()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt; int &gt; Solver::getClosestDepots </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>customer</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Find the ordered list of depots based on the distance to the customer. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">customer</td><td><a class="el" href="class_customer.html">Customer</a> ID</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Vector of ordered depot IDs based on the distance to the given customer </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="getclosestdepots_8cpp_source.html#l00017">17</a> of file <a class="el" href="getclosestdepots_8cpp_source.html">getclosestdepots.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a766b8061001fee9f4f9e86440aa5f307"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a766b8061001fee9f4f9e86440aa5f307">&#9670;&nbsp;</a></span>getNonEmptyRoutes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt; pair&lt; int, int &gt; &gt; Solver::getNonEmptyRoutes </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_solution.html">Solution</a> &amp;&#160;</td>
+          <td class="paramname"><em>solution</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Find the list of non empty routes. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">solution</td><td><a class="el" href="class_solution.html">Solution</a></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Vector of pairs with non empty routes where the first element corresponds to depot ID of the corresponding route, and the second element corresponds to the vehicle ID of the route. </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="getnonemptyroutes_8cpp_source.html#l00016">16</a> of file <a class="el" href="getnonemptyroutes_8cpp_source.html">getnonemptyroutes.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ad57e0ae1fd285942fc7cc5a38fac1a07"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad57e0ae1fd285942fc7cc5a38fac1a07">&#9670;&nbsp;</a></span>insertCustomer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Solver::insertCustomer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_solution.html">Solution</a> &amp;&#160;</td>
+          <td class="paramname"><em>solution</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>selectedCustomer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>positionCustomer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>depotID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>vehicleID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>routePos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>customersToAdd</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Insert customer in the selected route. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">solution</td><td><a class="el" href="class_solution.html">Solution</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">selectedCustomer</td><td><a class="el" href="class_customer.html">Customer</a> to insert </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">positionCustomer</td><td>Position of the customer in the customersToAdd vector </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">depotID</td><td>ID of the depot </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">vehicleID</td><td>ID of the vehicle </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">routePos</td><td>Position in the route to insert the customer in </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">customersToAdd</td><td>Vector of customers still to be inserted </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="insertcustomer_8cpp_source.html#l00019">19</a> of file <a class="el" href="insertcustomer_8cpp_source.html">insertcustomer.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a6879ef613e34893b535ff3554324fca9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6879ef613e34893b535ff3554324fca9">&#9670;&nbsp;</a></span>localSearch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Solver::localSearch </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_solution.html">Solution</a> &amp;&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Local search mechanism for applying the local search operators. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">s</td><td><a class="el" href="class_solution.html">Solution</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="localsearch_8cpp_source.html#l00013">13</a> of file <a class="el" href="localsearch_8cpp_source.html">localsearch.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a9e3d5af3cb04785f221a5f7887bd083e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e3d5af3cb04785f221a5f7887bd083e">&#9670;&nbsp;</a></span>oneInsertionInterRoute()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Solver::oneInsertionInterRoute </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_solution.html">Solution</a> &amp;&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>One insertion inter route operator. Pick a customer to remove and add it another route with the lowest cost. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">s</td><td><a class="el" href="class_solution.html">Solution</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="oneinsertioninterroute_8cpp_source.html#l00013">13</a> of file <a class="el" href="oneinsertioninterroute_8cpp_source.html">oneinsertioninterroute.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a1856ef1df8590c2a76d8f71f707ba39f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1856ef1df8590c2a76d8f71f707ba39f">&#9670;&nbsp;</a></span>oneInsertionIntraRoute()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Solver::oneInsertionIntraRoute </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_solution.html">Solution</a> &amp;&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>One insertion intra route operator. Pick a customer and place it in the best position in his route. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">s</td><td><a class="el" href="class_solution.html">Solution</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="oneinsertionintraroute_8cpp_source.html#l00013">13</a> of file <a class="el" href="oneinsertionintraroute_8cpp_source.html">oneinsertionintraroute.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ac4c890c0725d91f8936201bfb57f924c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4c890c0725d91f8936201bfb57f924c">&#9670;&nbsp;</a></span>perturbation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Solver::perturbation </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_solution.html">Solution</a> &amp;&#160;</td>
+          <td class="paramname"><em>solution</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>q</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Perturbation mechanism. First select a random remove operator to delete q customers and add the q customers back in the solution using the reinsert operator. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">solution</td><td><a class="el" href="class_solution.html">Solution</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">q</td><td>Number of customers to perturb </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="perturbation_8cpp_source.html#l00015">15</a> of file <a class="el" href="perturbation_8cpp_source.html">perturbation.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aac5e62758bb4cd6f35fec178ab7aafd3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac5e62758bb4cd6f35fec178ab7aafd3">&#9670;&nbsp;</a></span>randomRemoval()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt; int &gt; Solver::randomRemoval </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_solution.html">Solution</a> &amp;&#160;</td>
+          <td class="paramname"><em>solution</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>q</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Remove operator of the perturbation mechanism. Randomly selects q customers and deletes these customers from its routes. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">solution</td><td><a class="el" href="class_solution.html">Solution</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">q</td><td>Number of customers to remove </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="randomremoval_8cpp_source.html#l00015">15</a> of file <a class="el" href="randomremoval_8cpp_source.html">randomremoval.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a86aab9a760c785feaf0dd65951b50895"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86aab9a760c785feaf0dd65951b50895">&#9670;&nbsp;</a></span>reinsert()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Solver::reinsert </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_solution.html">Solution</a> &amp;&#160;</td>
+          <td class="paramname"><em>solution</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; int &gt; &amp;&#160;</td>
+          <td class="paramname"><em>customersToAdd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>random</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The reinsert operator. Reinserts the given customers back in the solution with (random) cheapest insertion. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">solution</td><td><a class="el" href="class_solution.html">Solution</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">customersToAdd</td><td>Vector of customers IDs to reinsert in the solution </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">random</td><td>Bool where true indicates insertion cost multiplied by random factor </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="reinsert_8cpp_source.html#l00015">15</a> of file <a class="el" href="reinsert_8cpp_source.html">reinsert.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a3ae8eae22345198c4b36c9ce4857f40b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ae8eae22345198c4b36c9ce4857f40b">&#9670;&nbsp;</a></span>removeCustomers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Solver::removeCustomers </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_solution.html">Solution</a> &amp;&#160;</td>
+          <td class="paramname"><em>solution</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; int &gt; const &amp;&#160;</td>
+          <td class="paramname"><em>customersToRemove</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Delete the selected customers from the solution. The customers are deleted from all its routes. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">solution</td><td><a class="el" href="class_solution.html">Solution</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">customersToRemove</td><td>Vector of customer IDs to remove from the solution </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="removecustomers_8cpp_source.html#l00014">14</a> of file <a class="el" href="removecustomers_8cpp_source.html">removecustomers.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a89f48fca861b21e0927d41afcd7ccbc4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89f48fca861b21e0927d41afcd7ccbc4">&#9670;&nbsp;</a></span>routeAddition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Solver::routeAddition </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_solution.html">Solution</a> &amp;&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Local search operator to select splitted customer and adds it back to the solution as a whole. /todo Insert the whole customer back again. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">s</td><td><a class="el" href="class_solution.html">Solution</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="routeaddition_8cpp_source.html#l00014">14</a> of file <a class="el" href="routeaddition_8cpp_source.html">routeaddition.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a2f3a938ddd565bc92c2f27bed4749b8b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f3a938ddd565bc92c2f27bed4749b8b">&#9670;&nbsp;</a></span>routeRemoval()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt; int &gt; Solver::routeRemoval </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_solution.html">Solution</a> &amp;&#160;</td>
+          <td class="paramname"><em>solution</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>q</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Remove operator of the perturbation mechanism. Randomly select a random route and delete q or if the number of customers in the list is smaller than q customers from the selected route. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">solution</td><td><a class="el" href="class_solution.html">Solution</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">q</td><td>Number of customers to remove </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="routeremoval_8cpp_source.html#l00015">15</a> of file <a class="el" href="routeremoval_8cpp_source.html">routeremoval.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a30596315142e384f8616f8a1915c21aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30596315142e384f8616f8a1915c21aa">&#9670;&nbsp;</a></span>selectq()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Solver::selectq </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Select the number of customers to be perturbed in the perturbation phase. </p>
+<dl class="section return"><dt>Returns</dt><dd>Number of customers to be perturbed </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="selectq_8cpp_source.html#l00013">13</a> of file <a class="el" href="selectq_8cpp_source.html">selectq.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a7e155d2e2ce6b7f4b30d563741eca7cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e155d2e2ce6b7f4b30d563741eca7cd">&#9670;&nbsp;</a></span>simulatedAnnealing()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_solution.html">Solution</a> &amp; Solver::simulatedAnnealing </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_solution.html">Solution</a> &amp;&#160;</td>
+          <td class="paramname"><em>sPrime</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_solution.html">Solution</a> &amp;&#160;</td>
+          <td class="paramname"><em>s</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Simulated annealing procedure to select new current solution. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">sPrime</td><td>New current solution </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">s</td><td>Old current solution</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="class_solution.html">Solution</a> to assign as new old current solution </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="simulatedannealing_8cpp_source.html#l00016">16</a> of file <a class="el" href="simulatedannealing_8cpp_source.html">simulatedannealing.cpp</a>.</p>
+
+</div>
+</div>
+<a id="abe099021d3e1329c3f185ed60271164e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe099021d3e1329c3f185ed60271164e">&#9670;&nbsp;</a></span>sortVehicleList()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt; int &gt; Solver::sortVehicleList </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>depotNumber</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sort vehicle list based on costs. </p>
+<dl class="section return"><dt>Returns</dt><dd>Sorted vector with the vehicle IDs within the depots </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="sortvehiclelist_8cpp_source.html#l00013">13</a> of file <a class="el" href="sortvehiclelist_8cpp_source.html">sortvehiclelist.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a9d960b7d4c3b329c430f4f3553bedb31"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d960b7d4c3b329c430f4f3553bedb31">&#9670;&nbsp;</a></span>swap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Solver::swap </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_solution.html">Solution</a> &amp;&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Local search operator which swaps the best two customers within a route.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">s</td><td><a class="el" href="class_solution.html">Solution</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="solver_2swap_8cpp_source.html#l00013">13</a> of file <a class="el" href="solver_2swap_8cpp_source.html">swap.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ab29d1f5b4e31eed975185d77312392a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab29d1f5b4e31eed975185d77312392a3">&#9670;&nbsp;</a></span>swapStar()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Solver::swapStar </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_solution.html">Solution</a> &amp;&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Local search operator swap star which swaps to customers in two different routes and creates a split. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">s</td><td><a class="el" href="class_solution.html">Solution</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="swapstar_8cpp_source.html#l00013">13</a> of file <a class="el" href="swapstar_8cpp_source.html">swapstar.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a12e5223233047d7f4b1a9db554f5cea3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12e5223233047d7f4b1a9db554f5cea3">&#9670;&nbsp;</a></span>twoInsertionIntraRoute()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Solver::twoInsertionIntraRoute </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_solution.html">Solution</a> &amp;&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Local search operator which moves two consecutive customers within a route.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">s</td><td><a class="el" href="class_solution.html">Solution</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="twoinsertionintraroute_8cpp_source.html#l00013">13</a> of file <a class="el" href="twoinsertionintraroute_8cpp_source.html">twoinsertionintraroute.cpp</a>.</p>
+
+</div>
+</div>
+<a id="aa3cd5b7d58611e9bf621cb861e371780"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3cd5b7d58611e9bf621cb861e371780">&#9670;&nbsp;</a></span>twoOptIntraRoute()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Solver::twoOptIntraRoute </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_solution.html">Solution</a> &amp;&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Local search operator which switches two arcs within a route. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">s</td><td><a class="el" href="class_solution.html">Solution</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="twooptintraroute_8cpp_source.html#l00013">13</a> of file <a class="el" href="twooptintraroute_8cpp_source.html">twooptintraroute.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a00149486de31a8a01a5eb732a8ef0dae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00149486de31a8a01a5eb732a8ef0dae">&#9670;&nbsp;</a></span>d_env</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_env.html">Env</a>* Solver::d_env</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Environment pointer </p>
+
+<p class="definition">Definition at line <a class="el" href="solver_8h_source.html#l00023">23</a> of file <a class="el" href="solver_8h_source.html">solver.h</a>.</p>
+
+</div>
+</div>
+<a id="ae7a9ecebd1a5c4048c8d74f4176700b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7a9ecebd1a5c4048c8d74f4176700b9">&#9670;&nbsp;</a></span>d_localSearchOperators</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::function&lt;void(<a class="el" href="class_solution.html">Solution</a> &amp;)&gt; &gt; Solver::d_localSearchOperators</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Vector of all local search operators </p>
+
+<p class="definition">Definition at line <a class="el" href="solver_8h_source.html#l00024">24</a> of file <a class="el" href="solver_8h_source.html">solver.h</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>inc/<a class="el" href="solver_8h_source.html">solver.h</a></li>
-<li>src/solver/addcustomer.cpp</li>
-<li>src/solver/allocatecustomer.cpp</li>
-<li>src/solver/assignroutetovehicle.cpp</li>
-<li>src/solver/bestswapstar.cpp</li>
-<li>src/solver/cheapestinsertion.cpp</li>
-<li>src/solver/computeremovalgain.cpp</li>
-<li>src/solver/costremoval.cpp</li>
-<li>src/solver/createforbiddenvehiclesandcustomers.cpp</li>
-<li>src/solver/findswapstarcost.cpp</li>
-<li>src/solver/getclosestcustomer.cpp</li>
-<li>src/solver/getclosestcustomers.cpp</li>
-<li>src/solver/getclosestdepots.cpp</li>
-<li>src/solver/getnonemptyroutes.cpp</li>
-<li>src/solver/initialsolution.cpp</li>
-<li>src/solver/insertcustomer.cpp</li>
-<li>src/solver/localsearch.cpp</li>
-<li>src/solver/oneinsertioninterroute.cpp</li>
-<li>src/solver/oneinsertionintraroute.cpp</li>
-<li>src/solver/perturbation.cpp</li>
-<li>src/solver/print.cpp</li>
-<li>src/solver/randomremoval.cpp</li>
-<li>src/solver/reinsert.cpp</li>
-<li>src/solver/removecustomers.cpp</li>
-<li>src/solver/routeaddition.cpp</li>
-<li>src/solver/routeremoval.cpp</li>
-<li>src/solver/run.cpp</li>
-<li>src/solver/selectq.cpp</li>
-<li>src/solver/simulatedannealing.cpp</li>
-<li>src/solver/solver.cpp</li>
-<li>src/solver/sortvehiclelist.cpp</li>
-<li>src/solver/swap.cpp</li>
-<li>src/solver/swapstar.cpp</li>
-<li>src/solver/twoinsertionintraroute.cpp</li>
-<li>src/solver/twooptintraroute.cpp</li>
+<li>src/solver/<a class="el" href="solver_2addcustomer_8cpp_source.html">addcustomer.cpp</a></li>
+<li>src/solver/<a class="el" href="allocatecustomer_8cpp_source.html">allocatecustomer.cpp</a></li>
+<li>src/solver/<a class="el" href="assignroutetovehicle_8cpp_source.html">assignroutetovehicle.cpp</a></li>
+<li>src/solver/<a class="el" href="bestswapstar_8cpp_source.html">bestswapstar.cpp</a></li>
+<li>src/solver/<a class="el" href="solver_2cheapestinsertion_8cpp_source.html">cheapestinsertion.cpp</a></li>
+<li>src/solver/<a class="el" href="computeremovalgain_8cpp_source.html">computeremovalgain.cpp</a></li>
+<li>src/solver/<a class="el" href="costremoval_8cpp_source.html">costremoval.cpp</a></li>
+<li>src/solver/<a class="el" href="createforbiddenvehiclesandcustomers_8cpp_source.html">createforbiddenvehiclesandcustomers.cpp</a></li>
+<li>src/solver/<a class="el" href="findswapstarcost_8cpp_source.html">findswapstarcost.cpp</a></li>
+<li>src/solver/<a class="el" href="getclosestcustomer_8cpp_source.html">getclosestcustomer.cpp</a></li>
+<li>src/solver/<a class="el" href="getclosestcustomers_8cpp_source.html">getclosestcustomers.cpp</a></li>
+<li>src/solver/<a class="el" href="getclosestdepots_8cpp_source.html">getclosestdepots.cpp</a></li>
+<li>src/solver/<a class="el" href="getnonemptyroutes_8cpp_source.html">getnonemptyroutes.cpp</a></li>
+<li>src/solver/<a class="el" href="initialsolution_8cpp_source.html">initialsolution.cpp</a></li>
+<li>src/solver/<a class="el" href="insertcustomer_8cpp_source.html">insertcustomer.cpp</a></li>
+<li>src/solver/<a class="el" href="localsearch_8cpp_source.html">localsearch.cpp</a></li>
+<li>src/solver/<a class="el" href="oneinsertioninterroute_8cpp_source.html">oneinsertioninterroute.cpp</a></li>
+<li>src/solver/<a class="el" href="oneinsertionintraroute_8cpp_source.html">oneinsertionintraroute.cpp</a></li>
+<li>src/solver/<a class="el" href="perturbation_8cpp_source.html">perturbation.cpp</a></li>
+<li>src/solver/<a class="el" href="solver_2print_8cpp_source.html">print.cpp</a></li>
+<li>src/solver/<a class="el" href="randomremoval_8cpp_source.html">randomremoval.cpp</a></li>
+<li>src/solver/<a class="el" href="reinsert_8cpp_source.html">reinsert.cpp</a></li>
+<li>src/solver/<a class="el" href="removecustomers_8cpp_source.html">removecustomers.cpp</a></li>
+<li>src/solver/<a class="el" href="routeaddition_8cpp_source.html">routeaddition.cpp</a></li>
+<li>src/solver/<a class="el" href="routeremoval_8cpp_source.html">routeremoval.cpp</a></li>
+<li>src/solver/<a class="el" href="run_8cpp_source.html">run.cpp</a></li>
+<li>src/solver/<a class="el" href="selectq_8cpp_source.html">selectq.cpp</a></li>
+<li>src/solver/<a class="el" href="simulatedannealing_8cpp_source.html">simulatedannealing.cpp</a></li>
+<li>src/solver/<a class="el" href="solver_8cpp_source.html">solver.cpp</a></li>
+<li>src/solver/<a class="el" href="sortvehiclelist_8cpp_source.html">sortvehiclelist.cpp</a></li>
+<li>src/solver/<a class="el" href="solver_2swap_8cpp_source.html">swap.cpp</a></li>
+<li>src/solver/<a class="el" href="swapstar_8cpp_source.html">swapstar.cpp</a></li>
+<li>src/solver/<a class="el" href="twoinsertionintraroute_8cpp_source.html">twoinsertionintraroute.cpp</a></li>
+<li>src/solver/<a class="el" href="twooptintraroute_8cpp_source.html">twooptintraroute.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['oracs',['ORACS',['../md__r_e_a_d_m_e.html',1,'']]],
-  ['operator_3c_3c',['operator&lt;&lt;',['../class_customer.html#a3d7eef7f15d078958c6bbd64019e20fa',1,'Customer']]]
+  ['init',['Init',['../class_init.html',1,'']]],
+  ['initialsolution',['initialSolution',['../class_solver.html#a4b0fc2950022b5e5166b6d3f0564696f',1,'Solver']]],
+  ['insertcustomer',['insertCustomer',['../class_solver.html#ad57e0ae1fd285942fc7cc5a38fac1a07',1,'Solver']]],
+  ['insertioncost',['insertionCost',['../class_vehicle.html#a611644994428f25ca7c1e83d47dc1626',1,'Vehicle::insertionCost(int option, int customerID) const'],['../class_vehicle.html#a8823f29268056ded45bac81098b7d58e',1,'Vehicle::insertionCost(int option, int customerID1, int customerID2) const']]]
 ];

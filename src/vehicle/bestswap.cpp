@@ -2,6 +2,11 @@
 // Created by Mark van der Broek on 13/03/2017.
 //
 
+/**
+ * @brief Find the best swap move. A swap is defined as a change of position for two customers within the vehicle's
+ *        route.
+ */
+
 #include "vehicle.ih"
 
 void Vehicle::bestSwap()

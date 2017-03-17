@@ -2,6 +2,15 @@
 // Created by Mark van der Broek on 10/03/2017.
 //
 
+/**
+ * @brief Simulated annealing procedure to select new current solution.
+ *
+ * @param [in] sPrime   New current solution
+ * @param [in] s        Old current solution
+ *
+ * @return Solution to assign as new old current solution
+ */
+
 #include "solver.ih"
 
 Solution &Solver::simulatedAnnealing(Solution &sPrime, Solution &s)

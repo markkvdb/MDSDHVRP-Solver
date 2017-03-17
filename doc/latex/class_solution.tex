@@ -1,5 +1,9 @@
 \hypertarget{class_solution}{}\section{Solution Class Reference}
 \label{class_solution}\index{Solution@{Solution}}
+
+
+{\ttfamily \#include $<$solution.\+h$>$}
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -15,18 +19,34 @@ double \hyperlink{class_solution_a227aaabdf34fbd2e01283728a5a344fe}{total\+Cost}
 \begin{DoxyCompactList}\small\item\em Calculates the total cost of the solution. \end{DoxyCompactList}\item 
 bool \hyperlink{class_solution_a13e4ebdccdbc8c572a82fb21254022d0}{feasible} ()
 \begin{DoxyCompactList}\small\item\em Function to check whether the solution is feasible or not. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_solution_ab950712d080e8fcfda4d7f5b7126f1e6}\label{class_solution_ab950712d080e8fcfda4d7f5b7126f1e6}} 
-std\+::vector$<$ \hyperlink{class_depot}{Depot} $>$ \& {\bfseries get\+Depots} ()
+std\+::vector$<$ \hyperlink{class_depot}{Depot} $>$ \& \hyperlink{class_solution_ab950712d080e8fcfda4d7f5b7126f1e6}{get\+Depots} ()
 \item 
-\mbox{\Hypertarget{class_solution_a535607b6b1cfd652f783c18f742be458}\label{class_solution_a535607b6b1cfd652f783c18f742be458}} 
-std\+::vector$<$ \hyperlink{class_customer}{Customer} $>$ \& {\bfseries get\+Customers} ()
+std\+::vector$<$ \hyperlink{class_customer}{Customer} $>$ \& \hyperlink{class_solution_a535607b6b1cfd652f783c18f742be458}{get\+Customers} ()
 \item 
-\mbox{\Hypertarget{class_solution_a360f5711f6da7daba2d4eff39bfb00fc}\label{class_solution_a360f5711f6da7daba2d4eff39bfb00fc}} 
-void {\bfseries add\+Customer} (\hyperlink{class_customer}{Customer} customer)
+void \hyperlink{class_solution_a360f5711f6da7daba2d4eff39bfb00fc}{add\+Customer} (\hyperlink{class_customer}{Customer} customer)
 \item 
-\mbox{\Hypertarget{class_solution_af9d6aadb375d6e9ddadc8fcf31a53cf6}\label{class_solution_af9d6aadb375d6e9ddadc8fcf31a53cf6}} 
-void {\bfseries add\+Depot} (\hyperlink{class_depot}{Depot} depot)
+void \hyperlink{class_solution_af9d6aadb375d6e9ddadc8fcf31a53cf6}{add\+Depot} (\hyperlink{class_depot}{Depot} depot)
 \end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_env}{Env} $\ast$ \hyperlink{class_solution_a9d210c71836c3d0195c14322d1a59ed8}{d\+\_\+env}
+\item 
+std\+::vector$<$ \hyperlink{class_depot}{Depot} $>$ \hyperlink{class_solution_a78d6e40ffd00ad0ab0d811ba1cdff377}{d\+\_\+depots}
+\item 
+std\+::vector$<$ \hyperlink{class_customer}{Customer} $>$ \hyperlink{class_solution_aa639f6f348d3e2014491d62eeccd1d2a}{d\+\_\+customers}
+\item 
+bool \hyperlink{class_solution_a195ca2bc3ad2abee9346ddb40bd324c1}{d\+\_\+feasible}
+\item 
+double \hyperlink{class_solution_a553459be3bb9cb467c4482eb9c260815}{d\+\_\+penalty}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{class_solution}{Solution} class holds the actual solution. This consist of the data structure as designed, so a vector of depots and a vector customers. 
+
+Definition at line 20 of file solution.\+h.
+
 
 
 \subsection{Constructor \& Destructor Documentation}
@@ -47,7 +67,41 @@ Constructor.
 \end{DoxyParams}
 
 
+Definition at line 13 of file solution1.\+cpp.
+
+
+
 \subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_solution_a360f5711f6da7daba2d4eff39bfb00fc}\label{class_solution_a360f5711f6da7daba2d4eff39bfb00fc}} 
+\index{Solution@{Solution}!add\+Customer@{add\+Customer}}
+\index{add\+Customer@{add\+Customer}!Solution@{Solution}}
+\subsubsection{\texorpdfstring{add\+Customer()}{addCustomer()}}
+{\footnotesize\ttfamily void Solution\+::add\+Customer (\begin{DoxyParamCaption}\item[{\hyperlink{class_customer}{Customer}}]{customer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Adds customer to the solution. 
+\begin{DoxyParams}{Parameters}
+{\em customer} & \hyperlink{class_customer}{Customer} to add \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 66 of file solution.\+h.
+
+\mbox{\Hypertarget{class_solution_af9d6aadb375d6e9ddadc8fcf31a53cf6}\label{class_solution_af9d6aadb375d6e9ddadc8fcf31a53cf6}} 
+\index{Solution@{Solution}!add\+Depot@{add\+Depot}}
+\index{add\+Depot@{add\+Depot}!Solution@{Solution}}
+\subsubsection{\texorpdfstring{add\+Depot()}{addDepot()}}
+{\footnotesize\ttfamily void Solution\+::add\+Depot (\begin{DoxyParamCaption}\item[{\hyperlink{class_depot}{Depot}}]{depot }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Adds depot to the solution. 
+\begin{DoxyParams}{Parameters}
+{\em depot} & \hyperlink{class_depot}{Depot} to add \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 75 of file solution.\+h.
+
 \mbox{\Hypertarget{class_solution_a13e4ebdccdbc8c572a82fb21254022d0}\label{class_solution_a13e4ebdccdbc8c572a82fb21254022d0}} 
 \index{Solution@{Solution}!feasible@{feasible}}
 \index{feasible@{feasible}!Solution@{Solution}}
@@ -61,6 +115,36 @@ Function to check whether the solution is feasible or not.
 \begin{DoxyReturn}{Returns}
 Boolean where true means that the solution is feasible 
 \end{DoxyReturn}
+
+
+Definition at line 13 of file feasible.\+cpp.
+
+\mbox{\Hypertarget{class_solution_a535607b6b1cfd652f783c18f742be458}\label{class_solution_a535607b6b1cfd652f783c18f742be458}} 
+\index{Solution@{Solution}!get\+Customers@{get\+Customers}}
+\index{get\+Customers@{get\+Customers}!Solution@{Solution}}
+\subsubsection{\texorpdfstring{get\+Customers()}{getCustomers()}}
+{\footnotesize\ttfamily std\+::vector$<$ \hyperlink{class_customer}{Customer} $>$ \& Solution\+::get\+Customers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get the vector of customers. \begin{DoxyReturn}{Returns}
+Vector of Customers 
+\end{DoxyReturn}
+
+
+Definition at line 57 of file solution.\+h.
+
+\mbox{\Hypertarget{class_solution_ab950712d080e8fcfda4d7f5b7126f1e6}\label{class_solution_ab950712d080e8fcfda4d7f5b7126f1e6}} 
+\index{Solution@{Solution}!get\+Depots@{get\+Depots}}
+\index{get\+Depots@{get\+Depots}!Solution@{Solution}}
+\subsubsection{\texorpdfstring{get\+Depots()}{getDepots()}}
+{\footnotesize\ttfamily std\+::vector$<$ \hyperlink{class_depot}{Depot} $>$ \& Solution\+::get\+Depots (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Gets the vector of depots. \begin{DoxyReturn}{Returns}
+Vector of depots 
+\end{DoxyReturn}
+
+
+Definition at line 48 of file solution.\+h.
+
 \mbox{\Hypertarget{class_solution_a227aaabdf34fbd2e01283728a5a344fe}\label{class_solution_a227aaabdf34fbd2e01283728a5a344fe}} 
 \index{Solution@{Solution}!total\+Cost@{total\+Cost}}
 \index{total\+Cost@{total\+Cost}!Solution@{Solution}}
@@ -74,6 +158,63 @@ Calculates the total cost of the solution.
 \begin{DoxyReturn}{Returns}
 Total cost of the solution 
 \end{DoxyReturn}
+
+
+Definition at line 13 of file totalcost.\+cpp.
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_solution_aa639f6f348d3e2014491d62eeccd1d2a}\label{class_solution_aa639f6f348d3e2014491d62eeccd1d2a}} 
+\index{Solution@{Solution}!d\+\_\+customers@{d\+\_\+customers}}
+\index{d\+\_\+customers@{d\+\_\+customers}!Solution@{Solution}}
+\subsubsection{\texorpdfstring{d\+\_\+customers}{d\_customers}}
+{\footnotesize\ttfamily std\+::vector$<$\hyperlink{class_customer}{Customer}$>$ Solution\+::d\+\_\+customers\hspace{0.3cm}{\ttfamily [private]}}
+
+Vector of customers of the solution 
+
+Definition at line 24 of file solution.\+h.
+
+\mbox{\Hypertarget{class_solution_a78d6e40ffd00ad0ab0d811ba1cdff377}\label{class_solution_a78d6e40ffd00ad0ab0d811ba1cdff377}} 
+\index{Solution@{Solution}!d\+\_\+depots@{d\+\_\+depots}}
+\index{d\+\_\+depots@{d\+\_\+depots}!Solution@{Solution}}
+\subsubsection{\texorpdfstring{d\+\_\+depots}{d\_depots}}
+{\footnotesize\ttfamily std\+::vector$<$\hyperlink{class_depot}{Depot}$>$ Solution\+::d\+\_\+depots\hspace{0.3cm}{\ttfamily [private]}}
+
+Vector of depots of the solution 
+
+Definition at line 23 of file solution.\+h.
+
+\mbox{\Hypertarget{class_solution_a9d210c71836c3d0195c14322d1a59ed8}\label{class_solution_a9d210c71836c3d0195c14322d1a59ed8}} 
+\index{Solution@{Solution}!d\+\_\+env@{d\+\_\+env}}
+\index{d\+\_\+env@{d\+\_\+env}!Solution@{Solution}}
+\subsubsection{\texorpdfstring{d\+\_\+env}{d\_env}}
+{\footnotesize\ttfamily \hyperlink{class_env}{Env}$\ast$ Solution\+::d\+\_\+env\hspace{0.3cm}{\ttfamily [private]}}
+
+Environment pointer 
+
+Definition at line 22 of file solution.\+h.
+
+\mbox{\Hypertarget{class_solution_a195ca2bc3ad2abee9346ddb40bd324c1}\label{class_solution_a195ca2bc3ad2abee9346ddb40bd324c1}} 
+\index{Solution@{Solution}!d\+\_\+feasible@{d\+\_\+feasible}}
+\index{d\+\_\+feasible@{d\+\_\+feasible}!Solution@{Solution}}
+\subsubsection{\texorpdfstring{d\+\_\+feasible}{d\_feasible}}
+{\footnotesize\ttfamily bool Solution\+::d\+\_\+feasible\hspace{0.3cm}{\ttfamily [private]}}
+
+Indicates whether the solution is feasible or not 
+
+Definition at line 25 of file solution.\+h.
+
+\mbox{\Hypertarget{class_solution_a553459be3bb9cb467c4482eb9c260815}\label{class_solution_a553459be3bb9cb467c4482eb9c260815}} 
+\index{Solution@{Solution}!d\+\_\+penalty@{d\+\_\+penalty}}
+\index{d\+\_\+penalty@{d\+\_\+penalty}!Solution@{Solution}}
+\subsubsection{\texorpdfstring{d\+\_\+penalty}{d\_penalty}}
+{\footnotesize\ttfamily double Solution\+::d\+\_\+penalty\hspace{0.3cm}{\ttfamily [private]}}
+
+The total penalty cost of the solution 
+
+Definition at line 26 of file solution.\+h.
+
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

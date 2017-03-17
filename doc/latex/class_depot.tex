@@ -1,5 +1,9 @@
 \hypertarget{class_depot}{}\section{Depot Class Reference}
 \label{class_depot}\index{Depot@{Depot}}
+
+
+{\ttfamily \#include $<$depot.\+h$>$}
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -7,31 +11,37 @@
 \begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
 \hyperlink{class_depot_a105364e1e00f7d359538838b2c1e81f6}{Depot} (\hyperlink{class_env}{Env} $\ast$env, int id, std\+::vector$<$ \hyperlink{class_vehicle}{Vehicle} $>$ \&vehicles, int left\+Over\+Inventory)
 \begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_depot_a7ebccd66bec499d9dc7411dc78efc348}\label{class_depot_a7ebccd66bec499d9dc7411dc78efc348}} 
-std\+::vector$<$ \hyperlink{class_vehicle}{Vehicle} $>$ \& {\bfseries get\+Vehicles} ()
+std\+::vector$<$ \hyperlink{class_vehicle}{Vehicle} $>$ \& \hyperlink{class_depot_a7ebccd66bec499d9dc7411dc78efc348}{get\+Vehicles} ()
 \item 
-\mbox{\Hypertarget{class_depot_afd012e808f49e162b9713b75fd43c604}\label{class_depot_afd012e808f49e162b9713b75fd43c604}} 
-\hyperlink{class_vehicle}{Vehicle} \& {\bfseries get\+Vehicle} (int vehicle\+Number)
+\hyperlink{class_vehicle}{Vehicle} \& \hyperlink{class_depot_afd012e808f49e162b9713b75fd43c604}{get\+Vehicle} (int vehicle\+Number)
 \item 
-\mbox{\Hypertarget{class_depot_a4c45e9fa5fca7ad3db018f20ae80d774}\label{class_depot_a4c45e9fa5fca7ad3db018f20ae80d774}} 
-int {\bfseries get\+ID} ()
+int \hyperlink{class_depot_a4c45e9fa5fca7ad3db018f20ae80d774}{get\+ID} ()
 \item 
-\mbox{\Hypertarget{class_depot_aa8fa0abff367255b9d908c4e8fb93227}\label{class_depot_aa8fa0abff367255b9d908c4e8fb93227}} 
-int {\bfseries get\+Number\+Of\+Vehicles} ()
+int \hyperlink{class_depot_aa8fa0abff367255b9d908c4e8fb93227}{get\+Number\+Of\+Vehicles} ()
 \item 
 int \hyperlink{class_depot_a443f83f05f5b5f939f5f7d67a615239a}{get\+Left\+Over\+Inventory} () const
 \begin{DoxyCompactList}\small\item\em Get the total leftover capacity of the depot by taking the minimum of the leftover inventory and the total leftover capacity of its vehicles. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_depot_ab8d9a6cba5eb3aa4d860e13435dd64df}\label{class_depot_ab8d9a6cba5eb3aa4d860e13435dd64df}} 
-int {\bfseries get\+Inventory} () const
+int \hyperlink{class_depot_ab8d9a6cba5eb3aa4d860e13435dd64df}{get\+Inventory} () const
 \item 
-\mbox{\Hypertarget{class_depot_a91c675fef3c934b87f387050c43f2087}\label{class_depot_a91c675fef3c934b87f387050c43f2087}} 
-void {\bfseries change\+Inventory} (int amount)
+void \hyperlink{class_depot_a91c675fef3c934b87f387050c43f2087}{change\+Inventory} (int amount)
 \item 
 \mbox{\Hypertarget{class_depot_aad95f075e3df31cfcb7951d4572265f3}\label{class_depot_aad95f075e3df31cfcb7951d4572265f3}} 
 void \hyperlink{class_depot_aad95f075e3df31cfcb7951d4572265f3}{update\+Inventory} ()
 \begin{DoxyCompactList}\small\item\em Update leftover inventory by substracting the total load of all vehicles from the total inventory. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_depot_a68e6c378cf4527839c67e8e417560744}\label{class_depot_a68e6c378cf4527839c67e8e417560744}} 
-void {\bfseries add\+Vehicle} (\hyperlink{class_vehicle}{Vehicle} vehicle)
+void \hyperlink{class_depot_a68e6c378cf4527839c67e8e417560744}{add\+Vehicle} (\hyperlink{class_vehicle}{Vehicle} vehicle)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_env}{Env} $\ast$ \hyperlink{class_depot_a182a0a8e85a7cee44aaa9c1895a8d05a}{d\+\_\+env}
+\item 
+int \hyperlink{class_depot_a1a1a1a9e2d0952f6446247f706fcaa97}{d\+\_\+id}
+\item 
+std\+::vector$<$ \hyperlink{class_vehicle}{Vehicle} $>$ \hyperlink{class_depot_a3037941bb91b32aed2a37bf39cda0917}{d\+\_\+vehicles}
+\item 
+int \hyperlink{class_depot_acf5df9f1ee607052c50fc2f56d167609}{d\+\_\+inventory}
+\item 
+int \hyperlink{class_depot_af81ace5d9d43b962c966f397b527ee48}{d\+\_\+left\+Over\+Inventory}
 \end{DoxyCompactItemize}
 \subsection*{Friends}
 \begin{DoxyCompactItemize}
@@ -39,6 +49,13 @@ void {\bfseries add\+Vehicle} (\hyperlink{class_vehicle}{Vehicle} vehicle)
 \mbox{\Hypertarget{class_depot_a2b64a812d30d31b49205413ae80a159a}\label{class_depot_a2b64a812d30d31b49205413ae80a159a}} 
 std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&os, \hyperlink{class_depot}{Depot} const \&depot)
 \end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{class_depot}{Depot} is a class which holds a vehicle list and has a limited inventory. 
+
+Definition at line 17 of file depot.\+h.
+
 
 
 \subsection{Constructor \& Destructor Documentation}
@@ -61,6 +78,10 @@ Constructor.
 \mbox{\tt in}  & {\em left\+Over\+Capacity} & The leftover capacity of the depot \\
 \hline
 \end{DoxyParams}
+
+
+Definition at line 15 of file depot.\+cpp.
+
 \mbox{\Hypertarget{class_depot_a105364e1e00f7d359538838b2c1e81f6}\label{class_depot_a105364e1e00f7d359538838b2c1e81f6}} 
 \index{Depot@{Depot}!Depot@{Depot}}
 \index{Depot@{Depot}!Depot@{Depot}}
@@ -84,7 +105,67 @@ Constructor.
 \end{DoxyParams}
 
 
+Definition at line 16 of file depot1.\+cpp.
+
+
+
 \subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_depot_a68e6c378cf4527839c67e8e417560744}\label{class_depot_a68e6c378cf4527839c67e8e417560744}} 
+\index{Depot@{Depot}!add\+Vehicle@{add\+Vehicle}}
+\index{add\+Vehicle@{add\+Vehicle}!Depot@{Depot}}
+\subsubsection{\texorpdfstring{add\+Vehicle()}{addVehicle()}}
+{\footnotesize\ttfamily void Depot\+::add\+Vehicle (\begin{DoxyParamCaption}\item[{\hyperlink{class_vehicle}{Vehicle}}]{vehicle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Add vehicle to the depot. 
+\begin{DoxyParams}{Parameters}
+{\em vehicle} & \hyperlink{class_vehicle}{Vehicle} to be added \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 102 of file depot.\+h.
+
+\mbox{\Hypertarget{class_depot_a91c675fef3c934b87f387050c43f2087}\label{class_depot_a91c675fef3c934b87f387050c43f2087}} 
+\index{Depot@{Depot}!change\+Inventory@{change\+Inventory}}
+\index{change\+Inventory@{change\+Inventory}!Depot@{Depot}}
+\subsubsection{\texorpdfstring{change\+Inventory()}{changeInventory()}}
+{\footnotesize\ttfamily void Depot\+::change\+Inventory (\begin{DoxyParamCaption}\item[{int}]{amount }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Change the left over inventory of the depot. 
+\begin{DoxyParams}{Parameters}
+{\em amount} & Amount the change the inventory with \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 84 of file depot.\+h.
+
+\mbox{\Hypertarget{class_depot_a4c45e9fa5fca7ad3db018f20ae80d774}\label{class_depot_a4c45e9fa5fca7ad3db018f20ae80d774}} 
+\index{Depot@{Depot}!get\+ID@{get\+ID}}
+\index{get\+ID@{get\+ID}!Depot@{Depot}}
+\subsubsection{\texorpdfstring{get\+I\+D()}{getID()}}
+{\footnotesize\ttfamily int Depot\+::get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get ID of the depot. \begin{DoxyReturn}{Returns}
+ID of the depot 
+\end{DoxyReturn}
+
+
+Definition at line 66 of file depot.\+h.
+
+\mbox{\Hypertarget{class_depot_ab8d9a6cba5eb3aa4d860e13435dd64df}\label{class_depot_ab8d9a6cba5eb3aa4d860e13435dd64df}} 
+\index{Depot@{Depot}!get\+Inventory@{get\+Inventory}}
+\index{get\+Inventory@{get\+Inventory}!Depot@{Depot}}
+\subsubsection{\texorpdfstring{get\+Inventory()}{getInventory()}}
+{\footnotesize\ttfamily int Depot\+::get\+Inventory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get the total inventory of the depot. \begin{DoxyReturn}{Returns}
+Total inventory of the depot 
+\end{DoxyReturn}
+
+
+Definition at line 93 of file depot.\+h.
+
 \mbox{\Hypertarget{class_depot_a443f83f05f5b5f939f5f7d67a615239a}\label{class_depot_a443f83f05f5b5f939f5f7d67a615239a}} 
 \index{Depot@{Depot}!get\+Left\+Over\+Inventory@{get\+Left\+Over\+Inventory}}
 \index{get\+Left\+Over\+Inventory@{get\+Left\+Over\+Inventory}!Depot@{Depot}}
@@ -98,6 +179,107 @@ Get the total leftover capacity of the depot by taking the minimum of the leftov
 \begin{DoxyReturn}{Returns}
 The total leftover inventory of the vehicle 
 \end{DoxyReturn}
+
+
+Definition at line 14 of file getleftovercapacity.\+cpp.
+
+\mbox{\Hypertarget{class_depot_aa8fa0abff367255b9d908c4e8fb93227}\label{class_depot_aa8fa0abff367255b9d908c4e8fb93227}} 
+\index{Depot@{Depot}!get\+Number\+Of\+Vehicles@{get\+Number\+Of\+Vehicles}}
+\index{get\+Number\+Of\+Vehicles@{get\+Number\+Of\+Vehicles}!Depot@{Depot}}
+\subsubsection{\texorpdfstring{get\+Number\+Of\+Vehicles()}{getNumberOfVehicles()}}
+{\footnotesize\ttfamily int Depot\+::get\+Number\+Of\+Vehicles (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get number of vehicles within the depot. \begin{DoxyReturn}{Returns}
+Number of vehicles within the depot 
+\end{DoxyReturn}
+
+
+Definition at line 75 of file depot.\+h.
+
+\mbox{\Hypertarget{class_depot_afd012e808f49e162b9713b75fd43c604}\label{class_depot_afd012e808f49e162b9713b75fd43c604}} 
+\index{Depot@{Depot}!get\+Vehicle@{get\+Vehicle}}
+\index{get\+Vehicle@{get\+Vehicle}!Depot@{Depot}}
+\subsubsection{\texorpdfstring{get\+Vehicle()}{getVehicle()}}
+{\footnotesize\ttfamily \hyperlink{class_vehicle}{Vehicle} \& Depot\+::get\+Vehicle (\begin{DoxyParamCaption}\item[{int}]{vehicle\+Number }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get the vehicle with position vehicle\+Number. 
+\begin{DoxyParams}{Parameters}
+{\em vehicle\+Number} & Position of the vehicle within the vehicle vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{class_vehicle}{Vehicle} to be selected 
+\end{DoxyReturn}
+
+
+Definition at line 57 of file depot.\+h.
+
+\mbox{\Hypertarget{class_depot_a7ebccd66bec499d9dc7411dc78efc348}\label{class_depot_a7ebccd66bec499d9dc7411dc78efc348}} 
+\index{Depot@{Depot}!get\+Vehicles@{get\+Vehicles}}
+\index{get\+Vehicles@{get\+Vehicles}!Depot@{Depot}}
+\subsubsection{\texorpdfstring{get\+Vehicles()}{getVehicles()}}
+{\footnotesize\ttfamily std\+::vector$<$ \hyperlink{class_vehicle}{Vehicle} $>$ \& Depot\+::get\+Vehicles (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get the list of vehicles. \begin{DoxyReturn}{Returns}
+Vector of vehicles 
+\end{DoxyReturn}
+
+
+Definition at line 47 of file depot.\+h.
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_depot_a182a0a8e85a7cee44aaa9c1895a8d05a}\label{class_depot_a182a0a8e85a7cee44aaa9c1895a8d05a}} 
+\index{Depot@{Depot}!d\+\_\+env@{d\+\_\+env}}
+\index{d\+\_\+env@{d\+\_\+env}!Depot@{Depot}}
+\subsubsection{\texorpdfstring{d\+\_\+env}{d\_env}}
+{\footnotesize\ttfamily \hyperlink{class_env}{Env}$\ast$ Depot\+::d\+\_\+env\hspace{0.3cm}{\ttfamily [private]}}
+
+Environment pointer 
+
+Definition at line 19 of file depot.\+h.
+
+\mbox{\Hypertarget{class_depot_a1a1a1a9e2d0952f6446247f706fcaa97}\label{class_depot_a1a1a1a9e2d0952f6446247f706fcaa97}} 
+\index{Depot@{Depot}!d\+\_\+id@{d\+\_\+id}}
+\index{d\+\_\+id@{d\+\_\+id}!Depot@{Depot}}
+\subsubsection{\texorpdfstring{d\+\_\+id}{d\_id}}
+{\footnotesize\ttfamily int Depot\+::d\+\_\+id\hspace{0.3cm}{\ttfamily [private]}}
+
+ID of the depot 
+
+Definition at line 20 of file depot.\+h.
+
+\mbox{\Hypertarget{class_depot_acf5df9f1ee607052c50fc2f56d167609}\label{class_depot_acf5df9f1ee607052c50fc2f56d167609}} 
+\index{Depot@{Depot}!d\+\_\+inventory@{d\+\_\+inventory}}
+\index{d\+\_\+inventory@{d\+\_\+inventory}!Depot@{Depot}}
+\subsubsection{\texorpdfstring{d\+\_\+inventory}{d\_inventory}}
+{\footnotesize\ttfamily int Depot\+::d\+\_\+inventory\hspace{0.3cm}{\ttfamily [private]}}
+
+Total inventoryof the depot 
+
+Definition at line 22 of file depot.\+h.
+
+\mbox{\Hypertarget{class_depot_af81ace5d9d43b962c966f397b527ee48}\label{class_depot_af81ace5d9d43b962c966f397b527ee48}} 
+\index{Depot@{Depot}!d\+\_\+left\+Over\+Inventory@{d\+\_\+left\+Over\+Inventory}}
+\index{d\+\_\+left\+Over\+Inventory@{d\+\_\+left\+Over\+Inventory}!Depot@{Depot}}
+\subsubsection{\texorpdfstring{d\+\_\+left\+Over\+Inventory}{d\_leftOverInventory}}
+{\footnotesize\ttfamily int Depot\+::d\+\_\+left\+Over\+Inventory\hspace{0.3cm}{\ttfamily [private]}}
+
+Leftover inventory of the depot 
+
+Definition at line 23 of file depot.\+h.
+
+\mbox{\Hypertarget{class_depot_a3037941bb91b32aed2a37bf39cda0917}\label{class_depot_a3037941bb91b32aed2a37bf39cda0917}} 
+\index{Depot@{Depot}!d\+\_\+vehicles@{d\+\_\+vehicles}}
+\index{d\+\_\+vehicles@{d\+\_\+vehicles}!Depot@{Depot}}
+\subsubsection{\texorpdfstring{d\+\_\+vehicles}{d\_vehicles}}
+{\footnotesize\ttfamily std\+::vector$<$\hyperlink{class_vehicle}{Vehicle}$>$ Depot\+::d\+\_\+vehicles\hspace{0.3cm}{\ttfamily [private]}}
+
+Vector of vehicles of the depot 
+
+Definition at line 21 of file depot.\+h.
+
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

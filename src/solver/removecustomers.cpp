@@ -2,6 +2,13 @@
 // Created by Mark van der Broek on 09/03/2017.
 //
 
+/**
+ * @brief Delete the selected customers from the solution. The customers are deleted from all its routes.
+ *
+ * @param [in] solution             Solution
+ * @param [in] customersToRemove    Vector of customer IDs to remove from the solution
+ */
+
 #include "solver.ih"
 
 void Solver::removeCustomers(Solution &solution, std::vector<int> const &customersToRemove)

@@ -2,6 +2,16 @@
 // Created by Mark van der Broek on 03/03/2017.
 //
 
+/**
+ * @brief Add customer to the vehicle and update the customer list and drop offs.
+ *
+ * @param [in] pickedCustomer           ID of the picked customer to add to the vehicle
+ * @param [in] remainingCapacity        Remaining capacity of the selected vehicle
+ * @param [out] customerList            List of customers for vehicle to travel to
+ * @param [out] customerDropOff         List of drop offs for each customer in customerList
+ * @param [out] depotCustomerAllocation List of depot customer allocations
+ */
+
 #include "solver.ih"
 
 void Solver::addCustomer(int pickedCustomer, int &remainingCapacity, vector<int> &customerList,

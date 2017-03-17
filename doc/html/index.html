@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ORACS: Main Page</title>
+<title>ORACS: ORACS</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -61,10 +61,313 @@ $(function() {
 
 <div class="header">
   <div class="headertitle">
-<div class="title">ORACS Documentation</div>  </div>
+<div class="title">ORACS </div>  </div>
 </div><!--header-->
 <div class="contents">
-</div><!-- contents -->
+<div class="textblock"><h2>Data structure</h2>
+<p>Depot-vehicle combination:</p><ul>
+<li><a class="el" href="class_route.html">Route</a></li>
+<li>Deliver quantities</li>
+<li>Total deliver quantity</li>
+<li><a class="el" href="class_route.html">Route</a> cost</li>
+<li>Travel time</li>
+</ul>
+<p><a class="el" href="class_customer.html">Customer</a>:</p><ul>
+<li>Total deliver quantity</li>
+<li>List of routes with:<ul>
+<li><a class="el" href="class_depot.html">Depot</a></li>
+<li><a class="el" href="class_vehicle.html">Vehicle</a> type</li>
+<li><a class="el" href="class_route.html">Route</a> index</li>
+<li>Deliver quantity</li>
+</ul>
+</li>
+</ul>
+<h2>Classes</h2>
+<h3><a class="el" href="class_depot.html">Depot</a></h3>
+<p>Data members:</p><ul>
+<li>List of vehicles</li>
+<li>Leftover inventory</li>
+</ul>
+<p>Functions:</p>
+<h3><a class="el" href="class_vehicle.html">Vehicle</a></h3>
+<p>Data members:</p><ul>
+<li>Type</li>
+<li><a class="el" href="class_route.html">Route</a></li>
+<li>Leftover capacity</li>
+<li>Leftover travel time</li>
+</ul>
+<p>Functions:</p><ul>
+<li><a class="el" href="class_route.html">Route</a> cost</li>
+</ul>
+<h3><a class="el" href="class_route.html">Route</a></h3>
+<p>Data members:</p><ul>
+<li>Ordered list of customers (index)</li>
+<li>Delivery quantity</li>
+<li>Total delivery quantity</li>
+<li>Service time</li>
+<li>Travel distance</li>
+</ul>
+<p>Functions:</p>
+<h3><a class="el" href="class_customer.html">Customer</a> (TODO)</h3>
+<p>Data members:</p><ul>
+<li>Demand</li>
+<li>Total delivery quantity</li>
+<li><a class="el" href="class_depot.html">Depot</a></li>
+</ul>
+<h2>Initialisation</h2>
+<h3>Load data</h3>
+<p>Load <code>m</code>, the number of depots. Load <code>K</code>, the number of vehicles types. Load <code>n</code>, the number of customers.</p>
+<p>Load distance matrix <code>distanceMatrix</code> into Matrix datatype with dimensions (n + m) x (n + m). Create depot matrix <code>depotMatrix</code> with dimensions m x (K + 1). Load customer matrix <code>customerMatrix</code> with dimension n x 2. Load vehicle matrix <code>vehicleMatrix</code> with dimension K x 4</p>
+<h3>Create empty solution</h3>
+<p>For each depot (m depots):</p><ul>
+<li>Select row from <code>depotMatrix</code></li>
+<li>Set inventory by calling <code>Solution::addDepot(I_j)</code></li>
+<li>For each vehicle type:<ul>
+<li>Add <code>n_jk</code> vehicles by calling <code>Depot::addVehicle(k)</code> function</li>
+</ul>
+</li>
+</ul>
+<p>For each customer in <code>customerMatrix</code>:</p><ul>
+<li>Create customer by calling <code>Solution::addCustomer(demand, servicetime)</code></li>
+</ul>
+<h3>Construct initial solution</h3>
+<ol type="1">
+<li>Sort <code>customerMatrix</code> on ascending demand.</li>
+<li>Create <code>depotCustomerAllocation</code> (is a <code>vector&lt;vector&lt;int&gt;&gt;</code>). Create <code>depotCustomerDemand</code>.</li>
+<li>Loop over <code>customerMatrix</code>:<ul>
+<li>Create <code>leftoverDemand = customer.getDemand()</code>.</li>
+<li>While <code>leftoverDemand &gt; 0</code><ul>
+<li>Find smallest distance to depots, say <code>smallDepot</code>.</li>
+<li>Add customer.</li>
+</ul>
+</li>
+<li>end</li>
+</ul>
+</li>
+<li>Loop over depot (m depots):<ul>
+<li>Sort vehicles based on costs.</li>
+<li>Create <code>customerList</code> and <code>customerDropOff</code>.</li>
+<li>Loop over sorted vehicle list:<ul>
+<li>Create <code>leftoverCapacity = vehicle.getCapacity()</code></li>
+<li>while (<code>leftoverCapacity &gt; 0</code>) do<ul>
+<li>Take new customer from <code>depotCustomerAllocation</code> (first time random).</li>
+<li>Add customer to <code>customerList</code> and <code>customerDropOff</code>.</li>
+<li>Update <code>leftoverCapacity</code>.</li>
+<li>if (<code>leftoverCapacity &gt;= demand</code>) then<ul>
+<li>Delete from <code>depotCustomerAllocation</code>.</li>
+</ul>
+</li>
+<li>else update <code>depotCustomerDemand</code>.</li>
+</ul>
+</li>
+<li>end</li>
+<li><code>route = cheapestInsertion(customerList)</code></li>
+<li><code>vehicle.setRoute(route, deliverQuantities)</code></li>
+<li><code>Customers.addRoute(route, deliverQuantities)</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h4>cheapestInsertion(customerList)</h4>
+<ol type="1">
+<li>Create <code>route = {0, 0};</code></li>
+<li>While customerList is not empty<ul>
+<li>For each customer in customerList<ul>
+<li>For each insertion option (N - 1):<ul>
+<li>Check if minimum</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Update route by inserting cheapest.</li>
+<li>Remove customer from customerList.</li>
+</ul>
+</li>
+<li>Ready to rambo.</li>
+</ol>
+<h2>Local search techniques</h2>
+<h2>Perturbation</h2>
+<p>Three destroy operators (remove q customers) + 1 repair operator (reinserts customers).</p>
+<h3>randomRemoval(solution)</h3>
+<ol type="1">
+<li>Select seed customer from customer list. Store in toBeRemoved.</li>
+<li>Find q-1 nearest customers. Store in toBeRemoved.</li>
+<li>removeCustomers(solution, toBeRemoved) (see below)</li>
+</ol>
+<h3>removeCustomers(solution, toBeRemoved)</h3>
+<ol type="1">
+<li>For each customer in toBeRemoved:<ul>
+<li>For each vehicle of customer:<ul>
+<li>Find place customer in route</li>
+<li>Remove customer from route (and dropoff)</li>
+<li>Update load, length, serviceTime, route cost</li>
+<li>Remove depot+vehicle_id from customer</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>toBeReinserted = toBeRemoved (for later use)</li>
+</ol>
+<ol type="1">
+<li>Return destroyed solution and toBeReinserted</li>
+</ol>
+<h3>costRemoval(solution)</h3>
+<ol type="1">
+<li>For customers 1,...,n:<ul>
+<li>computeRemovalGain(solution, customer) (see below)</li>
+<li>store result in vector gains, along with customer_id (gains = [[1,gain_1],...,[n,gain_n]])</li>
+</ul>
+</li>
+<li>Find q largest gains, store corresponding customer_ids in toBeRemoved</li>
+<li>removeCustomers(solution, toBeRemoved)</li>
+</ol>
+<h3>computeRemovalGain(solution, customer)</h3>
+<ol type="1">
+<li>For each vehicle of customer, compute vehicleRemovalGain:<ul>
+<li>Find place in route</li>
+<li>Distance gain: Use distanceMatrix (multiply by alpha)</li>
+<li>Feasibility gain (only if route is infeasible in the first place):<ul>
+<li>Find old and new travel duration (travel time + service time)</li>
+<li>Use arithmetic.</li>
+</ul>
+</li>
+<li>vehicleRemovalGain = distance gain + feasibility gain</li>
+</ul>
+</li>
+</ol>
+<p>totalRemovalGain = sum(vehicleRemovalGain)</p><ul>
+<li>totalRemovalGain = totalRemovalGain * uniform(a, b) (a = 0.8, b = 1.2)(RNG).</li>
+</ul>
+<p>return totalRemovalGain</p>
+<h3>routeRemoval(solution)</h3>
+<ol type="1">
+<li>Pick random non-empty vehicle.</li>
+<li>Find corresponding route</li>
+<li>Store at random min(q, route.length()) customers in toBeRemoved</li>
+<li>removeCustomers(solution, toBeRemoved)</li>
+</ol>
+<h3>reinsert(solution, toBeReinserted)</h3>
+<ol type="1">
+<li>demand = demand(toBeReinserted)</li>
+<li>While toBeReinserted is not empty<ul>
+<li>Select random customer from toBeReinserted.</li>
+<li>minInsertion = Infinity</li>
+<li>depot = -1, vehicle = -1, idx = -1 (initilize insertion location)</li>
+<li>For each vehicle<ul>
+<li>For each insertion option<ul>
+<li>Find insertionCost:<ul>
+<li>Additional travel costs</li>
+<li>Infeasibility penalties</li>
+</ul>
+</li>
+<li>If (insertion costs &lt; minInsertion)<ul>
+<li>minInsertion = insertionCost</li>
+<li>update: depot, vehicle, and idx</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Insert customer at depot, vehicle, idx:</li>
+<li>If (insufficient inventory/capacity)<ul>
+<li>Allocate as much as possible and split demand</li>
+<li>Update demand</li>
+</ul>
+</li>
+<li>If (sufficient inventory and capacity)<ul>
+<li>Allocate all demand</li>
+<li>remove customer from toBeReinserted</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Return solution Note: we can alternatively check in advance for sufficient inventory/capacity, and discard the insertion option if insufficient. One problem is that all insertion options may be discarded (a simple workaround is to repeat the search, now allowing for splits). I suggest moving this to the tuning phase (if it turns out that too many splits are generated, this is one place where we can look.)</li>
+</ol>
+<h2>Algorithm Structure</h2>
+<h3>Solutions</h3>
+<p>solutions: <code>best_feasible</code>, <code>best_solution</code>, <code>s</code>, <code>s_prime</code> f(solution) = cost(solution) + penalty(solution)</p>
+<p>cost(solution) = sum(travelCosts) penalty(solution) = penalty * travelTimeViolation(solution) penalty is a parameter between <code>iota_min</code> and <code>iota_max = iota_min*delta^100</code> (or delta^10, whatever) multiplied by factor delta if solution is infeasible</p>
+<h3>Initialise</h3>
+<p><code>penalty = iota_min (global)</code> <code>s = initialSolution()</code> <code>best_solution = s</code></p>
+<p>if <code>s</code> is feasible:</p><ul>
+<li><code>best_feasible = s</code></li>
+</ul>
+<p>else:</p><ul>
+<li><code>best_feasible</code> = empty (objective value: inf)</li>
+</ul>
+<p><code>T = r*f(s) (0 &lt; r &lt; 1)</code> (Temperature for simulated annealing)</p>
+<p><code>iter == 1</code> repeat:</p><ul>
+<li><p class="startli"><code>s_prime</code> = DestroyAndRepair(s) if f(<code>s_prime</code>) &lt; (1 + theta)*f(<code>best_solution</code>):</p><ul>
+<li>for (routine in routineList):<ul>
+<li><code>s_prime</code> = routine(<code>s_prime</code>) if (improvement):<ul>
+<li>return to first routine (that is, reenter for-loop) #this is rather extensive, (an alternative is to move to the next routine if the current routine does not yield further improvements)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="startli"><code>best_solution</code> = min(<code>s_prime</code>, <code>best_solution</code>) #compare objectives, use same global penalty parameter</p>
+<p class="startli">if <code>s_prime</code> is feasible</p><ul>
+<li><code>best_feasible</code> = min(<code>s_prime</code>, <code>best_feasible</code>) #compare objectives</li>
+</ul>
+<p class="startli">simulatedAnnealing(<code>s_prime, s</code>) (simulatedAnnealing: see below) updatePenalty(<code>s</code>) <code>iter++</code></p>
+</li>
+</ul>
+<p>until <code>iter == max_iter</code> or comp_time &gt; max_comp_time</p>
+<h3>updatePenalty(solution)</h3>
+<p>if(solution is not feasible)</p><ul>
+<li>penalty = min(iota_max, iota * delta)</li>
+</ul>
+<p>else</p><ul>
+<li>penalty = max(iota_min, iota / delta)</li>
+</ul>
+<h3>simulatedAnnealing(s1, s2)</h3>
+<p>if f(s1) &lt;= f(s2):</p><ul>
+<li>T = r*f(s1) (0&lt;r&lt;1) return s1</li>
+</ul>
+<p>else</p><ul>
+<li>diff = f(s1) - f(s) generate random variate u~U(0,1) if (u &lt; exp(-diff/T))<ul>
+<li>return s1 with probability exp(-diff/T) T = max(r*T, T_min) (0 &lt; r &lt;1, T_min is minimum temperature)</li>
+</ul>
+</li>
+</ul>
+<h3>1-insertion intra route</h3>
+<p>minInsertion = 0 For each depot</p><ul>
+<li>For each vehicle<ul>
+<li>For each dummy customer in route<ul>
+<li>For each insertion option in route<ul>
+<li>Compute insertionCosts (distance + feasibility) if (insertionCosts &lt; minInsertion)<ul>
+<li>minInsertion = insertionCosts store depot + vehicle + customer + insertion option</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Execute best option: (change route + deliveries for (depot,vehicle)) </p><h3>end</h3>
+<h3>2-opt intra route</h3>
+<p>bestOption = 0 For each depot</p><ul>
+<li>For each vehicle<ul>
+<li>For i = 1 to route.size()<ul>
+<li>c1 = route[i - 1] c2 = route[i] For j = i + 1 to route.size()<ul>
+<li>c3 = route[j] c4 = route[j + 1] saving = distance - distance[c1,c2] - distance[c3,c4] + distance[c1,c3] + distance[c2,c4] if saving &lt; bestOption<ul>
+<li>bestOption = saving store i, j</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Execute best option: newRoute = oldRoute[0,i - 1] + revert(oldRoute[i,j]) + oldRoute[j+1, route.size()], change deliveries analagously </p>
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

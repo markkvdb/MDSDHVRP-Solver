@@ -2,6 +2,14 @@
 // Created by Mark van der Broek on 09/03/2017.
 //
 
+/**
+ * @brief Remove operator of the perturbation mechanism. Randomly selects q customers and deletes these customers from
+ *        its routes.
+ *
+ * @param [in] solution Solution
+ * @param [in] q        Number of customers to remove
+ */
+
 #include "solver.ih"
 
 vector<int> Solver::randomRemoval(Solution &solution, int q)

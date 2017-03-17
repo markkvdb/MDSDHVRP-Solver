@@ -1,9 +1,6 @@
 var searchData=
 [
-  ['showcustomermatrix',['showCustomerMatrix',['../class_init.html#a977b73b6cde475c66a77da062a4fb847',1,'Init']]],
-  ['showdepotmatrix',['showDepotMatrix',['../class_init.html#ae48e74d855e16384caf464dd27f6edee',1,'Init']]],
-  ['showdistancematrix',['showDistanceMatrix',['../class_init.html#a6a0c2ee0902aba32df707db9bce7d1d5',1,'Init']]],
-  ['showvehiclematrix',['showVehicleMatrix',['../class_init.html#ac21ef408e896d9eceee8455fe51845b0',1,'Init']]],
-  ['solution',['Solution',['../class_solution.html#a3bdbdf455adecf7ab0f71bbce1efad66',1,'Solution']]],
-  ['swap',['swap',['../class_route.html#a463c649701eb3ed5c659f5e920460335',1,'Route']]]
+  ['initialsolution',['initialSolution',['../class_solver.html#a4b0fc2950022b5e5166b6d3f0564696f',1,'Solver']]],
+  ['insertcustomer',['insertCustomer',['../class_solver.html#ad57e0ae1fd285942fc7cc5a38fac1a07',1,'Solver']]],
+  ['insertioncost',['insertionCost',['../class_vehicle.html#a611644994428f25ca7c1e83d47dc1626',1,'Vehicle::insertionCost(int option, int customerID) const'],['../class_vehicle.html#a8823f29268056ded45bac81098b7d58e',1,'Vehicle::insertionCost(int option, int customerID1, int customerID2) const']]]
 ];
