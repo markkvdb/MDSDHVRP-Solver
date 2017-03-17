@@ -2,6 +2,10 @@
 // Created by Mark van der Broek on 27/02/2017.
 //
 
+/**
+ * @brief Print the solution in the required output format.
+ */
+
 #include "solution.ih"
 
 using namespace std;

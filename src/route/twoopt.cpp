@@ -2,6 +2,13 @@
 // Created by Mark van der Broek on 12/03/2017.
 //
 
+/**
+ * @brief Apply two opt operator to the route. Switch to arcs of the route.
+ *
+ * @param [in] aIdx Position of the first customer to swap
+ * @param [in] bIdx Postion of the second customer to swap
+ */
+
 #include "route.ih"
 
 void Route::twoOpt(int bIdx, int cIdx)

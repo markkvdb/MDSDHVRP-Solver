@@ -2,6 +2,10 @@
 // Created by Mark van der Broek on 01/03/2017.
 //
 
+/**
+ * @brief Create distance matrix based on the coordinates of all locations.
+ */
+
 #include "init.ih"
 
 void Init::createDistanceMatrix()

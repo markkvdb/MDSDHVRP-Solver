@@ -2,6 +2,12 @@
 // Created by Mark van der Broek on 03/03/2017.
 //
 
+/**
+ * @brief Constructor
+ *
+ * @param [in] init Init instance with all the data stored for the problem
+ */
+
 #include "env.ih"
 
 Env::Env(Init &init)

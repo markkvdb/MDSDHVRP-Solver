@@ -2,6 +2,12 @@
 // Created by Mark van der Broek on 09/03/2017.
 //
 
+/**
+ * @brief Removes customer from the route corresponding to the vehicle.
+ *
+ * @param [in] customerID   ID of the customer
+ */
+
 #include "route.ih"
 
 int Route::removeCustomer(int customerID)

@@ -2,6 +2,13 @@
 // Created by Mark van der Broek on 13/03/2017.
 //
 
+/**
+ * @brief Delete vehicle from the vehicle list of the customer.
+ *
+ * @param [in] depotID      Depot ID
+ * @param [in] vehicleID    Vehicle ID in the depot
+ */
+
 #include "customer.ih"
 
 void Customer::deleteVehicle(int depotID, int vehicleID)

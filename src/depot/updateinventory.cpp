@@ -2,6 +2,10 @@
 // Created by Mark van der Broek on 09/03/2017.
 //
 
+/**
+ * @brief Update leftover inventory by substracting the total load of all vehicles from the total inventory.
+ */
+
 #include "depot.ih"
 
 void Depot::updateInventory()
