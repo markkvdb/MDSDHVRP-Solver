@@ -52,7 +52,7 @@ private:
     double                          computeRemovalGain(Solution &solution, int customerID);
     std::vector<std::pair<int, int>> getNonEmptyRoutes(Solution &solution);
     void                            removeCustomers(Solution &solution, std::vector<int> const &customersToRemove);
-    void                            reinsert(Solution &solution, std::vector<int> &customersToAdd);
+    void                            reinsert(Solution &solution, std::vector<int> &customersToAdd, bool random);
     std::vector<int>                getClosestCustomers(int seedCustomer, int q);
     void                            insertCustomer(Solution &solution, int selectedCustomer, int positionCustomer,
                                                    int depotID, int vehicleID, int routePos,
@@ -66,8 +66,6 @@ private:
     void                            swap(Solution &s);
     void                            swapStar(Solution &s);
     void                            routeAddition(Solution &s);
-    void                            routeAdditionSingleDepot(Solution &s);
-    void                            routeAdditionMultipleDepot(Solution &s);
     void                            oneInsertionInterRoute(Solution &s);
 
     std::tuple<double, int, int, int, int, int, int, int, int, int>

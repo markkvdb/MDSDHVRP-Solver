@@ -21,7 +21,7 @@ void Solver::oneInsertionIntraRoute(Solution &s)
                 Vehicle newVehicle = vehicle;
 
                 int customerDemand = newVehicle.removeCustomer(customerID);
-                auto insertion = newVehicle.cheapestInsertion(customerID);
+                auto insertion = newVehicle.cheapestInsertion(customerID, false);
 
                 if (insertion.second < minInsertion)
                 {

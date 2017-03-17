@@ -10,5 +10,5 @@ void Solver::perturbation(Solution &solution, int q)
 
     vector<int> customersToRemove = d_perturbationOperators[dist(d_env->d_rng)](solution, q);
 
-    reinsert(solution, customersToRemove);
+    reinsert(solution, customersToRemove, true);
 }

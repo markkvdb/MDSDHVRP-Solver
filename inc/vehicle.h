@@ -58,7 +58,7 @@ public:
     void                    addCustomer(int customerID, int load, int routePos);
     long                    findCustomer(int customerID) const;
 
-    std::pair<int, double>  cheapestInsertion(int customerID) const;
+    std::pair<int, double>  cheapestInsertion(int customerID, bool random) const;
     std::pair<int, double>  cheapestInsertion(int customerID1, int customerID2) const;
     std::pair<int, double>  cheapestInsertionWithSplits(int customerID) const;
     double                  removalGain(int customerID);

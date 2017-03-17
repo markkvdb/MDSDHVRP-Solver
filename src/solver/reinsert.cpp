@@ -4,7 +4,7 @@
 
 #include "solver.ih"
 
-void Solver::reinsert(Solution &solution, std::vector<int> &customersToAdd)
+void Solver::reinsert(Solution &solution, std::vector<int> &customersToAdd, bool random)
 {
     while (not customersToAdd.empty())
     {
@@ -30,7 +30,7 @@ void Solver::reinsert(Solution &solution, std::vector<int> &customersToAdd)
 
 
                 // Find cheapest insertion for this vehicle
-                pair<int, double> insertion = vehicle.cheapestInsertion(selectedCustomer);
+                pair<int, double> insertion = vehicle.cheapestInsertion(selectedCustomer, random);
 
                 //
                 if (insertion.second < minInsertion)
