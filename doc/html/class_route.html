@@ -62,6 +62,8 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="#friends">Friends</a> &#124;
 <a href="class_route-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -113,6 +115,45 @@ double const&#160;</td><td class="memItemRight" valign="bottom"><b>getServiceTim
 <tr class="memitem:a463c649701eb3ed5c659f5e920460335"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_route.html#a463c649701eb3ed5c659f5e920460335">swap</a> (int aIdx, int bIdx)</td></tr>
 <tr class="memdesc:a463c649701eb3ed5c659f5e920460335"><td class="mdescLeft">&#160;</td><td class="mdescRight">Swap two customers in the route.  <a href="#a463c649701eb3ed5c659f5e920460335">More...</a><br /></td></tr>
 <tr class="separator:a463c649701eb3ed5c659f5e920460335"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:ae6800543f5a50db543e1315e6a5468cd"><td class="memItemLeft" align="right" valign="top"><a id="ae6800543f5a50db543e1315e6a5468cd"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_route.html#ae6800543f5a50db543e1315e6a5468cd">updateDistance</a> ()</td></tr>
+<tr class="memdesc:ae6800543f5a50db543e1315e6a5468cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the distance of the route. <br /></td></tr>
+<tr class="separator:ae6800543f5a50db543e1315e6a5468cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8054b36d0db39ba9321d30ed2410e138"><td class="memItemLeft" align="right" valign="top"><a id="a8054b36d0db39ba9321d30ed2410e138"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_route.html#a8054b36d0db39ba9321d30ed2410e138">updateServiceTime</a> ()</td></tr>
+<tr class="memdesc:a8054b36d0db39ba9321d30ed2410e138"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the total service time of the route. <br /></td></tr>
+<tr class="separator:a8054b36d0db39ba9321d30ed2410e138"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f6ad4d322826950910265ea7b6c29c6"><td class="memItemLeft" align="right" valign="top"><a id="a3f6ad4d322826950910265ea7b6c29c6"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_route.html#a3f6ad4d322826950910265ea7b6c29c6">updateLoad</a> ()</td></tr>
+<tr class="memdesc:a3f6ad4d322826950910265ea7b6c29c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the load of the route. <br /></td></tr>
+<tr class="separator:a3f6ad4d322826950910265ea7b6c29c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a864524c91fba2fc3ad77f72758e15463"><td class="memItemLeft" align="right" valign="top"><a id="a864524c91fba2fc3ad77f72758e15463"></a>
+<a class="el" href="class_env.html">Env</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>d_env</b></td></tr>
+<tr class="separator:a864524c91fba2fc3ad77f72758e15463"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb10c7df94462df3425c5fe19148124d"><td class="memItemLeft" align="right" valign="top"><a id="afb10c7df94462df3425c5fe19148124d"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>d_depotID</b></td></tr>
+<tr class="separator:afb10c7df94462df3425c5fe19148124d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a718e90948453ba308e72da01c38023e6"><td class="memItemLeft" align="right" valign="top"><a id="a718e90948453ba308e72da01c38023e6"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>d_load</b></td></tr>
+<tr class="separator:a718e90948453ba308e72da01c38023e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a229ec36dcf99986891d1b306f82e457f"><td class="memItemLeft" align="right" valign="top"><a id="a229ec36dcf99986891d1b306f82e457f"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>d_length</b></td></tr>
+<tr class="separator:a229ec36dcf99986891d1b306f82e457f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c644f09b64e56e5d523e3177639b7fe"><td class="memItemLeft" align="right" valign="top"><a id="a4c644f09b64e56e5d523e3177639b7fe"></a>
+double&#160;</td><td class="memItemRight" valign="bottom"><b>d_serviceTime</b></td></tr>
+<tr class="separator:a4c644f09b64e56e5d523e3177639b7fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab18028e7736ff42aab699f254e7feda1"><td class="memItemLeft" align="right" valign="top"><a id="ab18028e7736ff42aab699f254e7feda1"></a>
+std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>d_route</b></td></tr>
+<tr class="separator:ab18028e7736ff42aab699f254e7feda1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c4627e94479ee1f587999c4e33e85e8"><td class="memItemLeft" align="right" valign="top"><a id="a1c4627e94479ee1f587999c4e33e85e8"></a>
+std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>d_demandRoute</b></td></tr>
+<tr class="separator:a1c4627e94479ee1f587999c4e33e85e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>

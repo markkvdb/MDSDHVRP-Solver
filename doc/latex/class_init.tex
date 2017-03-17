@@ -42,12 +42,78 @@ const std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \& {\bfseries get\+Custom
 \mbox{\Hypertarget{class_init_a023ffffca04fa97b54a847cb02b5d0c1}\label{class_init_a023ffffca04fa97b54a847cb02b5d0c1}} 
 const std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \& {\bfseries get\+Distance\+Matrix} () const
 \end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_init_ae6dd32b7bce12fb337831ec10f9c83df}\label{class_init_ae6dd32b7bce12fb337831ec10f9c83df}} 
+void {\bfseries show\+Matrix} (std\+::vector$<$ std\+::vector$<$ double $>$$>$ matrix)
+\item 
+\mbox{\Hypertarget{class_init_ae4c5ffd68c39718f4918dda08166eedf}\label{class_init_ae4c5ffd68c39718f4918dda08166eedf}} 
+void \hyperlink{class_init_ae4c5ffd68c39718f4918dda08166eedf}{create\+Distance\+Matrix} ()
+\begin{DoxyCompactList}\small\item\em Create distance matrix based on the coordinates of all locations. \end{DoxyCompactList}\item 
+double \hyperlink{class_init_a99ac0859d92852b421f4fc13973d9a70}{distance} (double x1, double y1, double x2, double y2)
+\begin{DoxyCompactList}\small\item\em Return distance of two (x,y) coordinates. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_init_a44d05451df796d69ecc558837ecb7105}\label{class_init_a44d05451df796d69ecc558837ecb7105}} 
+int {\bfseries d\+\_\+no\+Of\+Depots}
+\item 
+\mbox{\Hypertarget{class_init_a636841b2dccedbe95e966d59452c4585}\label{class_init_a636841b2dccedbe95e966d59452c4585}} 
+int {\bfseries d\+\_\+no\+Of\+Vehicle\+Types}
+\item 
+\mbox{\Hypertarget{class_init_ab31f6ee0c02edc45d78d0e90a89ba45a}\label{class_init_ab31f6ee0c02edc45d78d0e90a89ba45a}} 
+int {\bfseries d\+\_\+no\+Of\+Customers}
+\item 
+\mbox{\Hypertarget{class_init_a3d56c67f9c6ba79f0fc2252bbc964345}\label{class_init_a3d56c67f9c6ba79f0fc2252bbc964345}} 
+std\+::vector$<$ std\+::vector$<$ double $>$ $>$ {\bfseries d\+\_\+vehicle\+Matrix}
+\item 
+\mbox{\Hypertarget{class_init_a3472bd129b55c09b49cfcccae49b7d6b}\label{class_init_a3472bd129b55c09b49cfcccae49b7d6b}} 
+std\+::vector$<$ std\+::vector$<$ double $>$ $>$ {\bfseries d\+\_\+depot\+Matrix}
+\item 
+\mbox{\Hypertarget{class_init_a17dd120f45612ac00015ab0650025afc}\label{class_init_a17dd120f45612ac00015ab0650025afc}} 
+std\+::vector$<$ std\+::vector$<$ double $>$ $>$ {\bfseries d\+\_\+customer\+Matrix}
+\item 
+\mbox{\Hypertarget{class_init_a602b213bdcdaecbaa1ebfb134930ad33}\label{class_init_a602b213bdcdaecbaa1ebfb134930ad33}} 
+std\+::vector$<$ std\+::vector$<$ double $>$ $>$ {\bfseries d\+\_\+distance\+Matrix}
+\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
 
 
 Definition at line 11 of file init.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_init_a99ac0859d92852b421f4fc13973d9a70}\label{class_init_a99ac0859d92852b421f4fc13973d9a70}} 
+\index{Init@{Init}!distance@{distance}}
+\index{distance@{distance}!Init@{Init}}
+\subsubsection{\texorpdfstring{distance()}{distance()}}
+{\footnotesize\ttfamily double Init\+::distance (\begin{DoxyParamCaption}\item[{double}]{x1,  }\item[{double}]{y1,  }\item[{double}]{x2,  }\item[{double}]{y2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Return distance of two (x,y) coordinates. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em x1} & x coordinate of the first point \\
+\hline
+\mbox{\tt in}  & {\em y1} & y coordinate of the first point \\
+\hline
+\mbox{\tt in}  & {\em x2} & x coordinate of the second point \\
+\hline
+\mbox{\tt in}  & {\em y2} & y coordinate of the second point\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The distance between the two points 
+\end{DoxyReturn}
+
+
+Definition at line 18 of file distance.\+cpp.
 
 
 

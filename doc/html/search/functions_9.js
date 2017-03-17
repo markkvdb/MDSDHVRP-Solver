@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['updateinventory',['updateInventory',['../class_depot.html#aad95f075e3df31cfcb7951d4572265f3',1,'Depot']]],
-  ['updatepenalty',['updatePenalty',['../class_env.html#a05decf6ad0f2370b38fd8c403777a9ca',1,'Env']]]
+  ['perturbation',['perturbation',['../class_solver.html#ac4c890c0725d91f8936201bfb57f924c',1,'Solver']]]
 ];

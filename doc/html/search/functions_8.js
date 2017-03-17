@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['totalcost',['totalCost',['../class_solution.html#a227aaabdf34fbd2e01283728a5a344fe',1,'Solution']]],
-  ['twoopt',['twoOpt',['../class_route.html#a7e21fdad3d0539f54a1cefa7b046ab49',1,'Route']]]
+  ['oneinsertioninterroute',['oneInsertionInterRoute',['../class_solver.html#a9e3d5af3cb04785f221a5f7887bd083e',1,'Solver']]],
+  ['oneinsertionintraroute',['oneInsertionIntraRoute',['../class_solver.html#a1856ef1df8590c2a76d8f71f707ba39f',1,'Solver']]]
 ];

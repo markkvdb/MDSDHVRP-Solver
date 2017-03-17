@@ -38,6 +38,42 @@ void \hyperlink{class_route_a7e21fdad3d0539f54a1cefa7b046ab49}{two\+Opt} (int b\
 \begin{DoxyCompactList}\small\item\em Apply two opt operator to the route. Switch to arcs of the route. \end{DoxyCompactList}\item 
 void \hyperlink{class_route_a463c649701eb3ed5c659f5e920460335}{swap} (int a\+Idx, int b\+Idx)
 \begin{DoxyCompactList}\small\item\em Swap two customers in the route. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_route_ae6800543f5a50db543e1315e6a5468cd}\label{class_route_ae6800543f5a50db543e1315e6a5468cd}} 
+void \hyperlink{class_route_ae6800543f5a50db543e1315e6a5468cd}{update\+Distance} ()
+\begin{DoxyCompactList}\small\item\em Update the distance of the route. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_route_a8054b36d0db39ba9321d30ed2410e138}\label{class_route_a8054b36d0db39ba9321d30ed2410e138}} 
+void \hyperlink{class_route_a8054b36d0db39ba9321d30ed2410e138}{update\+Service\+Time} ()
+\begin{DoxyCompactList}\small\item\em Update the total service time of the route. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_route_a3f6ad4d322826950910265ea7b6c29c6}\label{class_route_a3f6ad4d322826950910265ea7b6c29c6}} 
+void \hyperlink{class_route_a3f6ad4d322826950910265ea7b6c29c6}{update\+Load} ()
+\begin{DoxyCompactList}\small\item\em Update the load of the route. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_route_a864524c91fba2fc3ad77f72758e15463}\label{class_route_a864524c91fba2fc3ad77f72758e15463}} 
+\hyperlink{class_env}{Env} $\ast$ {\bfseries d\+\_\+env}
+\item 
+\mbox{\Hypertarget{class_route_afb10c7df94462df3425c5fe19148124d}\label{class_route_afb10c7df94462df3425c5fe19148124d}} 
+int {\bfseries d\+\_\+depot\+ID}
+\item 
+\mbox{\Hypertarget{class_route_a718e90948453ba308e72da01c38023e6}\label{class_route_a718e90948453ba308e72da01c38023e6}} 
+int {\bfseries d\+\_\+load}
+\item 
+\mbox{\Hypertarget{class_route_a229ec36dcf99986891d1b306f82e457f}\label{class_route_a229ec36dcf99986891d1b306f82e457f}} 
+double {\bfseries d\+\_\+length}
+\item 
+\mbox{\Hypertarget{class_route_a4c644f09b64e56e5d523e3177639b7fe}\label{class_route_a4c644f09b64e56e5d523e3177639b7fe}} 
+double {\bfseries d\+\_\+service\+Time}
+\item 
+\mbox{\Hypertarget{class_route_ab18028e7736ff42aab699f254e7feda1}\label{class_route_ab18028e7736ff42aab699f254e7feda1}} 
+std\+::vector$<$ int $>$ {\bfseries d\+\_\+route}
+\item 
+\mbox{\Hypertarget{class_route_a1c4627e94479ee1f587999c4e33e85e8}\label{class_route_a1c4627e94479ee1f587999c4e33e85e8}} 
+std\+::vector$<$ int $>$ {\bfseries d\+\_\+demand\+Route}
+\end{DoxyCompactItemize}
 \subsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 

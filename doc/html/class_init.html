@@ -62,6 +62,8 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_init-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Init Class Reference</div>  </div>
@@ -113,11 +115,111 @@ const std::vector&lt; std::vector&lt; double &gt; &gt; &amp;&#160;</td><td class
 <tr class="memitem:a023ffffca04fa97b54a847cb02b5d0c1"><td class="memItemLeft" align="right" valign="top"><a id="a023ffffca04fa97b54a847cb02b5d0c1"></a>
 const std::vector&lt; std::vector&lt; double &gt; &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getDistanceMatrix</b> () const</td></tr>
 <tr class="separator:a023ffffca04fa97b54a847cb02b5d0c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:ae6dd32b7bce12fb337831ec10f9c83df"><td class="memItemLeft" align="right" valign="top"><a id="ae6dd32b7bce12fb337831ec10f9c83df"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>showMatrix</b> (std::vector&lt; std::vector&lt; double &gt;&gt; matrix)</td></tr>
+<tr class="separator:ae6dd32b7bce12fb337831ec10f9c83df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4c5ffd68c39718f4918dda08166eedf"><td class="memItemLeft" align="right" valign="top"><a id="ae4c5ffd68c39718f4918dda08166eedf"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_init.html#ae4c5ffd68c39718f4918dda08166eedf">createDistanceMatrix</a> ()</td></tr>
+<tr class="memdesc:ae4c5ffd68c39718f4918dda08166eedf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create distance matrix based on the coordinates of all locations. <br /></td></tr>
+<tr class="separator:ae4c5ffd68c39718f4918dda08166eedf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99ac0859d92852b421f4fc13973d9a70"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_init.html#a99ac0859d92852b421f4fc13973d9a70">distance</a> (double x1, double y1, double x2, double y2)</td></tr>
+<tr class="memdesc:a99ac0859d92852b421f4fc13973d9a70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return distance of two (x,y) coordinates.  <a href="#a99ac0859d92852b421f4fc13973d9a70">More...</a><br /></td></tr>
+<tr class="separator:a99ac0859d92852b421f4fc13973d9a70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a44d05451df796d69ecc558837ecb7105"><td class="memItemLeft" align="right" valign="top"><a id="a44d05451df796d69ecc558837ecb7105"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>d_noOfDepots</b></td></tr>
+<tr class="separator:a44d05451df796d69ecc558837ecb7105"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a636841b2dccedbe95e966d59452c4585"><td class="memItemLeft" align="right" valign="top"><a id="a636841b2dccedbe95e966d59452c4585"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>d_noOfVehicleTypes</b></td></tr>
+<tr class="separator:a636841b2dccedbe95e966d59452c4585"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab31f6ee0c02edc45d78d0e90a89ba45a"><td class="memItemLeft" align="right" valign="top"><a id="ab31f6ee0c02edc45d78d0e90a89ba45a"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>d_noOfCustomers</b></td></tr>
+<tr class="separator:ab31f6ee0c02edc45d78d0e90a89ba45a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d56c67f9c6ba79f0fc2252bbc964345"><td class="memItemLeft" align="right" valign="top"><a id="a3d56c67f9c6ba79f0fc2252bbc964345"></a>
+std::vector&lt; std::vector&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>d_vehicleMatrix</b></td></tr>
+<tr class="separator:a3d56c67f9c6ba79f0fc2252bbc964345"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3472bd129b55c09b49cfcccae49b7d6b"><td class="memItemLeft" align="right" valign="top"><a id="a3472bd129b55c09b49cfcccae49b7d6b"></a>
+std::vector&lt; std::vector&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>d_depotMatrix</b></td></tr>
+<tr class="separator:a3472bd129b55c09b49cfcccae49b7d6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17dd120f45612ac00015ab0650025afc"><td class="memItemLeft" align="right" valign="top"><a id="a17dd120f45612ac00015ab0650025afc"></a>
+std::vector&lt; std::vector&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>d_customerMatrix</b></td></tr>
+<tr class="separator:a17dd120f45612ac00015ab0650025afc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a602b213bdcdaecbaa1ebfb134930ad33"><td class="memItemLeft" align="right" valign="top"><a id="a602b213bdcdaecbaa1ebfb134930ad33"></a>
+std::vector&lt; std::vector&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>d_distanceMatrix</b></td></tr>
+<tr class="separator:a602b213bdcdaecbaa1ebfb134930ad33"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
 <p class="definition">Definition at line <a class="el" href="init_8h_source.html#l00011">11</a> of file <a class="el" href="init_8h_source.html">init.h</a>.</p>
-</div><hr/>The documentation for this class was generated from the following files:<ul>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a99ac0859d92852b421f4fc13973d9a70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99ac0859d92852b421f4fc13973d9a70">&#9670;&nbsp;</a></span>distance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Init::distance </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>x1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>y1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>x2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>y2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Return distance of two (x,y) coordinates. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">x1</td><td>x coordinate of the first point </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">y1</td><td>y coordinate of the first point </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">x2</td><td>x coordinate of the second point </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">y2</td><td>y coordinate of the second point</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The distance between the two points </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="distance_8cpp_source.html#l00018">18</a> of file <a class="el" href="distance_8cpp_source.html">distance.cpp</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>inc/<a class="el" href="init_8h_source.html">init.h</a></li>
 <li>src/init/<a class="el" href="createdistancematrix_8cpp_source.html">createdistancematrix.cpp</a></li>
 <li>src/init/<a class="el" href="distance_8cpp_source.html">distance.cpp</a></li>
