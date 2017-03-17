@@ -2,6 +2,12 @@
 // Created by Mark van der Broek on 10/03/2017.
 //
 
+/**
+ * @brief One insertion intra route operator. Pick a customer and place it in the best position in his route.
+ *
+ * @param [in] s    Solution
+ */
+
 #include "solver.ih"
 
 void Solver::oneInsertionIntraRoute(Solution &s)

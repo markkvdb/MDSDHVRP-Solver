@@ -2,6 +2,10 @@
 // Created by Mark van der Broek on 09/03/2017.
 //
 
+/**
+ * @brief General algorithm. Select this function to run the algorithm.
+ */
+
 #include "solver.ih"
 
 void Solver::run()

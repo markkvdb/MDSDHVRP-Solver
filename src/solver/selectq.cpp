@@ -2,6 +2,12 @@
 // Created by Mark van der Broek on 10/03/2017.
 //
 
+/**
+ * @brief Select the number of customers to be perturbed in the perturbation phase.
+ *
+ * @return Number of customers to be perturbed
+ */
+
 #include "solver.ih"
 
 int Solver::selectq()

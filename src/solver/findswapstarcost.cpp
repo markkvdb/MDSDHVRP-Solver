@@ -2,6 +2,19 @@
 // Created by Mark van der Broek on 14/03/2017.
 //
 
+/**
+ * @brief Find the cost of applying the swapstar operator to customer1 and customer 2.
+ *
+ * @param [in] s    Solution
+ * @param [in] customerIdx1 The position of the first customer in the its vehicle
+ * @param [in] vehicle1     The vehicle of the first customer
+ * @param [in] customerIdx2 The position of the second customer in the its vehicle
+ * @param [in] vehicle2     The vehicle of the second customer
+ *
+ * @return Pair where the first elements is a dummy where 0 indicates insertion before the first customer, and 1
+ *         indicates after the first customer. The second elements indicates the cost of this insertion.
+ */
+
 #include "solver.ih"
 
 // Returns option where 0 indicates insertion before, and 1 indicates an insertion after.

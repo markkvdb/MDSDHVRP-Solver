@@ -2,6 +2,13 @@
 // Created by Mark van der Broek on 03/03/2017.
 //
 
+/**
+ * @brief Create customer-depot allocation based on the distance to the depots. Splits are allowed.
+ *
+ * @return  Matrix of pairs. The rows correspond to the depots. Each pair consist of a customer ID, and the load
+ *          to be dropped off in that depot.
+ */
+
 #include "solver.ih"
 
 vector<vector<pair<int, int>>> Solver::allocateCustomers()

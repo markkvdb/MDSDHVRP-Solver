@@ -2,6 +2,14 @@
 // Created by Mark van der Broek on 03/03/2017.
 //
 
+/**
+ * @brief Find the ordered list of depots based on the distance to the customer.
+ *
+ * @param [in] customer Customer ID
+ *
+ * @return Vector of ordered depot IDs based on the distance to the given customer
+ */
+
 #include "solver.ih"
 
 // TODO Maybe this is unnecessary if splitting doesn't happen often.

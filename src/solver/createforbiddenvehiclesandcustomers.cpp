@@ -2,6 +2,16 @@
 // Created by Mark van der Broek on 13/03/2017.
 //
 
+/**
+ * @brief Create the list of forbidden vehicles and customers. A forbidden vehicle for a customer is defined as
+ *        the list of vehicles where it's in. The forbidden customers are the customers situated in one of these
+ *        vehicles.
+ *
+ * @param [in] s    Solution
+ *
+ * @return Pair of vectors that consists of sets. Each set is a set of forbidden vehicles and customers.
+ */
+
 #include "solver.ih"
 
 pair<vector<set<int>>, vector<set<int>>> Solver::createForbiddenVehiclesAndCustomers(Solution &s)

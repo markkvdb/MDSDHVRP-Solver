@@ -2,6 +2,15 @@
 // Created by Mark van der Broek on 03/03/2017.
 //
 
+/**
+ * @brief Assign a route to the selected vehicle. Loop over the available customers until the vehicle is full.
+ *        Not looking at the driving time of the vehicle.
+ *
+ * @param [in] vehicleNumber            The position of the vehicle in the selected depot
+ * @param [in] depotNumber              The position of the depot in the depot list
+ * @param [in] depotCustomerAllocation  Matrix with the depot-customer allocation
+ */
+
 #include "solver.ih"
 
 void Solver::assignRouteToVehicle(int vehicleNumber, int depotNumber,

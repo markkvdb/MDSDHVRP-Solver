@@ -2,6 +2,12 @@
 // Created by Mark van der Broek on 10/03/2017.
 //
 
+/**
+ * @brief Local search mechanism for applying the local search operators.
+ *
+ * @param [in] s    Solution
+ */
+
 #include "solver.ih"
 
 void Solver::localSearch(Solution &s)

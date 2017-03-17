@@ -3,18 +3,46 @@
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_solver_a05ec0ef6028f51c1eba417b41a14c2ea}\label{class_solver_a05ec0ef6028f51c1eba417b41a14c2ea}} 
-{\bfseries Solver} (\hyperlink{class_env}{Env} $\ast$env)
-\item 
+\hyperlink{class_solver_a05ec0ef6028f51c1eba417b41a14c2ea}{Solver} (\hyperlink{class_env}{Env} $\ast$env)
+\begin{DoxyCompactList}\small\item\em Constructor. Adds the perturbation and local search operators to the lists. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_solver_a4b0fc2950022b5e5166b6d3f0564696f}\label{class_solver_a4b0fc2950022b5e5166b6d3f0564696f}} 
-void {\bfseries initial\+Solution} ()
-\item 
+void \hyperlink{class_solver_a4b0fc2950022b5e5166b6d3f0564696f}{initial\+Solution} ()
+\begin{DoxyCompactList}\small\item\em Create initial solution based on cheapest insertion. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_solver_a1f31e2d38dacd7e828c1bf428eb2ed96}\label{class_solver_a1f31e2d38dacd7e828c1bf428eb2ed96}} 
-void {\bfseries run} ()
-\item 
+void \hyperlink{class_solver_a1f31e2d38dacd7e828c1bf428eb2ed96}{run} ()
+\begin{DoxyCompactList}\small\item\em General algorithm. Select this function to run the algorithm. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_solver_a39ebda60ffaadddc1c4f85bd6cf9209c}\label{class_solver_a39ebda60ffaadddc1c4f85bd6cf9209c}} 
 void {\bfseries print} ()
 \end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 17 of file solver.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_solver_a05ec0ef6028f51c1eba417b41a14c2ea}\label{class_solver_a05ec0ef6028f51c1eba417b41a14c2ea}} 
+\index{Solver@{Solver}!Solver@{Solver}}
+\index{Solver@{Solver}!Solver@{Solver}}
+\subsubsection{\texorpdfstring{Solver()}{Solver()}}
+{\footnotesize\ttfamily Solver\+::\+Solver (\begin{DoxyParamCaption}\item[{\hyperlink{class_env}{Env} $\ast$}]{env }\end{DoxyParamCaption})}
+
+
+
+Constructor. Adds the perturbation and local search operators to the lists. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em env} & Environment pointer \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 13 of file solver.\+cpp.
+
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
