@@ -1,0 +1,188 @@
+\hypertarget{class_route}{}\section{Route Class Reference}
+\label{class_route}\index{Route@{Route}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_route_a7b0add29f3255cd109649ca25db20d8d}{Route} (\hyperlink{class_env}{Env} $\ast$env, int depot\+ID)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\hyperlink{class_route_a95a55c89846e5e183b1749a8507275d5}{Route} (\hyperlink{class_env}{Env} $\ast$env, int depot\+ID, std\+::vector$<$ int $>$ route, std\+::vector$<$ int $>$ demand\+Route)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_route_a9a12c02d891924f0050d3d6bc7af1e18}\label{class_route_a9a12c02d891924f0050d3d6bc7af1e18}} 
+std\+::vector$<$ int $>$ \& {\bfseries get\+Route} ()
+\item 
+\mbox{\Hypertarget{class_route_adbff1ea9d40933cbb79886efd758ef0c}\label{class_route_adbff1ea9d40933cbb79886efd758ef0c}} 
+std\+::vector$<$ int $>$ {\bfseries get\+Route\+Copy} ()
+\item 
+\mbox{\Hypertarget{class_route_a3c342e45335d32de6f7019e4cc8ff5ca}\label{class_route_a3c342e45335d32de6f7019e4cc8ff5ca}} 
+std\+::vector$<$ int $>$ \& {\bfseries get\+Demand\+Route} ()
+\item 
+\mbox{\Hypertarget{class_route_a151bbafcfc1afd47bda7c2b6c6567c1e}\label{class_route_a151bbafcfc1afd47bda7c2b6c6567c1e}} 
+std\+::vector$<$ int $>$ const  \& {\bfseries get\+Route} () const
+\item 
+\mbox{\Hypertarget{class_route_abdde0209de6671eac1fabd237804ff19}\label{class_route_abdde0209de6671eac1fabd237804ff19}} 
+int const {\bfseries get\+Load} () const
+\item 
+\mbox{\Hypertarget{class_route_a5326c0234e1ed102bf9f8cf8236de8bd}\label{class_route_a5326c0234e1ed102bf9f8cf8236de8bd}} 
+double const {\bfseries get\+Distance} () const
+\item 
+\mbox{\Hypertarget{class_route_ae30f973f4cb746802cf54d9f1827445f}\label{class_route_ae30f973f4cb746802cf54d9f1827445f}} 
+double const {\bfseries get\+Service\+Time} () const
+\item 
+int \hyperlink{class_route_a3e52680923dc08fe57d7a622cf8ad17b}{remove\+Customer} (int customer\+ID)
+\begin{DoxyCompactList}\small\item\em Removes customer from the route corresponding to the vehicle. \end{DoxyCompactList}\item 
+void \hyperlink{class_route_a21490cdf3853d449a2608432596ff622}{add\+Customer} (int customer\+ID, int load, int route\+Pos)
+\begin{DoxyCompactList}\small\item\em Add customer to the route. Update the d\+\_\+route member and the d\+\_\+demand\+Route member. \end{DoxyCompactList}\item 
+long \hyperlink{class_route_ae8402085cd8be017e3ac15fd8b3a05fd}{find\+Customer} (int customer\+ID) const
+\begin{DoxyCompactList}\small\item\em Find the customer in the route. \end{DoxyCompactList}\item 
+void \hyperlink{class_route_a7e21fdad3d0539f54a1cefa7b046ab49}{two\+Opt} (int b\+Idx, int c\+Idx)
+\begin{DoxyCompactList}\small\item\em Apply two opt operator to the route. Switch to arcs of the route. \end{DoxyCompactList}\item 
+void \hyperlink{class_route_a463c649701eb3ed5c659f5e920460335}{swap} (int a\+Idx, int b\+Idx)
+\begin{DoxyCompactList}\small\item\em Swap two customers in the route. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_route_a7a3934c69f6ee79cb2cd22502a7f4868}\label{class_route_a7a3934c69f6ee79cb2cd22502a7f4868}} 
+std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&, \hyperlink{class_route}{Route} const \&route)
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_route_a7b0add29f3255cd109649ca25db20d8d}\label{class_route_a7b0add29f3255cd109649ca25db20d8d}} 
+\index{Route@{Route}!Route@{Route}}
+\index{Route@{Route}!Route@{Route}}
+\subsubsection{\texorpdfstring{Route()}{Route()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Route\+::\+Route (\begin{DoxyParamCaption}\item[{\hyperlink{class_env}{Env} $\ast$}]{env,  }\item[{int}]{depot\+ID }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em env} & Environment pointer \\
+\hline
+\mbox{\tt in}  & {\em depot\+ID} & ID of the depot \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_route_a95a55c89846e5e183b1749a8507275d5}\label{class_route_a95a55c89846e5e183b1749a8507275d5}} 
+\index{Route@{Route}!Route@{Route}}
+\index{Route@{Route}!Route@{Route}}
+\subsubsection{\texorpdfstring{Route()}{Route()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Route\+::\+Route (\begin{DoxyParamCaption}\item[{\hyperlink{class_env}{Env} $\ast$}]{env,  }\item[{int}]{depot\+ID,  }\item[{std\+::vector$<$ int $>$}]{route,  }\item[{std\+::vector$<$ int $>$}]{demand\+Route }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em env} & Environment pointer \\
+\hline
+\mbox{\tt in}  & {\em depot\+ID} & ID of the depot \\
+\hline
+\mbox{\tt in}  & {\em route} & Vector of customers I\+Ds to add \\
+\hline
+\mbox{\tt in}  & {\em demand\+Route} & Vector of demands of the customers to add \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_route_a21490cdf3853d449a2608432596ff622}\label{class_route_a21490cdf3853d449a2608432596ff622}} 
+\index{Route@{Route}!add\+Customer@{add\+Customer}}
+\index{add\+Customer@{add\+Customer}!Route@{Route}}
+\subsubsection{\texorpdfstring{add\+Customer()}{addCustomer()}}
+{\footnotesize\ttfamily void Route\+::add\+Customer (\begin{DoxyParamCaption}\item[{int}]{customer\+ID,  }\item[{int}]{load,  }\item[{int}]{route\+Pos }\end{DoxyParamCaption})}
+
+
+
+Add customer to the route. Update the d\+\_\+route member and the d\+\_\+demand\+Route member. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em customer\+ID} & ID of the customer \\
+\hline
+\mbox{\tt in}  & {\em load} & Total demand of the customer \\
+\hline
+\mbox{\tt in}  & {\em route\+Pos} & The position to insert the customer into. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_route_ae8402085cd8be017e3ac15fd8b3a05fd}\label{class_route_ae8402085cd8be017e3ac15fd8b3a05fd}} 
+\index{Route@{Route}!find\+Customer@{find\+Customer}}
+\index{find\+Customer@{find\+Customer}!Route@{Route}}
+\subsubsection{\texorpdfstring{find\+Customer()}{findCustomer()}}
+{\footnotesize\ttfamily long Route\+::find\+Customer (\begin{DoxyParamCaption}\item[{int}]{customer\+ID }\end{DoxyParamCaption}) const}
+
+
+
+Find the customer in the route. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em customer\+ID} & The ID of the customer \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_route_a3e52680923dc08fe57d7a622cf8ad17b}\label{class_route_a3e52680923dc08fe57d7a622cf8ad17b}} 
+\index{Route@{Route}!remove\+Customer@{remove\+Customer}}
+\index{remove\+Customer@{remove\+Customer}!Route@{Route}}
+\subsubsection{\texorpdfstring{remove\+Customer()}{removeCustomer()}}
+{\footnotesize\ttfamily int Route\+::remove\+Customer (\begin{DoxyParamCaption}\item[{int}]{customer\+ID }\end{DoxyParamCaption})}
+
+
+
+Removes customer from the route corresponding to the vehicle. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em customer\+ID} & ID of the customer \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_route_a463c649701eb3ed5c659f5e920460335}\label{class_route_a463c649701eb3ed5c659f5e920460335}} 
+\index{Route@{Route}!swap@{swap}}
+\index{swap@{swap}!Route@{Route}}
+\subsubsection{\texorpdfstring{swap()}{swap()}}
+{\footnotesize\ttfamily void Route\+::swap (\begin{DoxyParamCaption}\item[{int}]{a\+Idx,  }\item[{int}]{b\+Idx }\end{DoxyParamCaption})}
+
+
+
+Swap two customers in the route. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em a\+Idx} & Position of the first customer in the route \\
+\hline
+\mbox{\tt in}  & {\em b\+Idx} & Position of the second customer in the route \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_route_a7e21fdad3d0539f54a1cefa7b046ab49}\label{class_route_a7e21fdad3d0539f54a1cefa7b046ab49}} 
+\index{Route@{Route}!two\+Opt@{two\+Opt}}
+\index{two\+Opt@{two\+Opt}!Route@{Route}}
+\subsubsection{\texorpdfstring{two\+Opt()}{twoOpt()}}
+{\footnotesize\ttfamily void Route\+::two\+Opt (\begin{DoxyParamCaption}\item[{int}]{b\+Idx,  }\item[{int}]{c\+Idx }\end{DoxyParamCaption})}
+
+
+
+Apply two opt operator to the route. Switch to arcs of the route. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em a\+Idx} & Position of the first customer to swap \\
+\hline
+\mbox{\tt in}  & {\em b\+Idx} & Postion of the second customer to swap \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+inc/route.\+h\item 
+src/route/addcustomer.\+cpp\item 
+src/route/findcustomer.\+cpp\item 
+src/route/removecustomer.\+cpp\item 
+src/route/route.\+cpp\item 
+src/route/route1.\+cpp\item 
+src/route/swap.\+cpp\item 
+src/route/twoopt.\+cpp\item 
+src/route/updatedistance.\+cpp\item 
+src/route/updateload.\+cpp\item 
+src/route/updateservicetime.\+cpp\end{DoxyCompactItemize}

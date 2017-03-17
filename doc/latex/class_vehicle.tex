@@ -1,0 +1,138 @@
+\hypertarget{class_vehicle}{}\section{Vehicle Class Reference}
+\label{class_vehicle}\index{Vehicle@{Vehicle}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_vehicle_a5d6fef3888569a2f29ecb0027529592e}\label{class_vehicle_a5d6fef3888569a2f29ecb0027529592e}} 
+{\bfseries Vehicle} (\hyperlink{class_env}{Env} $\ast$env, int id, int id\+Pos, int vehicle\+Type, int depot\+ID, int capacity, double service\+Time, double driving\+Speed, double cost)
+\item 
+\mbox{\Hypertarget{class_vehicle_acea04d455b93f807dabbe850799636c4}\label{class_vehicle_acea04d455b93f807dabbe850799636c4}} 
+int {\bfseries get\+ID} () const
+\item 
+\mbox{\Hypertarget{class_vehicle_a3c0ba62b556694de7519910ff7c222b0}\label{class_vehicle_a3c0ba62b556694de7519910ff7c222b0}} 
+int {\bfseries get\+I\+D\+Pos} () const
+\item 
+\mbox{\Hypertarget{class_vehicle_a6d561e79b80d8335c2b1d61b0a00ab55}\label{class_vehicle_a6d561e79b80d8335c2b1d61b0a00ab55}} 
+int {\bfseries get\+Vehicle\+Type} () const
+\item 
+\mbox{\Hypertarget{class_vehicle_a0952f9b75d0ff8df66e33e60521e0dc0}\label{class_vehicle_a0952f9b75d0ff8df66e33e60521e0dc0}} 
+int {\bfseries get\+Depot\+ID} () const
+\item 
+\mbox{\Hypertarget{class_vehicle_ac42193823beeb27ad51a8d78a541f970}\label{class_vehicle_ac42193823beeb27ad51a8d78a541f970}} 
+double {\bfseries get\+Driving\+Speed} () const
+\item 
+\mbox{\Hypertarget{class_vehicle_af242c980b1bfbc56d27ae4184c0f32c9}\label{class_vehicle_af242c980b1bfbc56d27ae4184c0f32c9}} 
+double {\bfseries get\+Driving\+Cost} () const
+\item 
+\mbox{\Hypertarget{class_vehicle_a095c19748573c646c3eaf12581e4d969}\label{class_vehicle_a095c19748573c646c3eaf12581e4d969}} 
+double {\bfseries get\+Cost} () const
+\item 
+\mbox{\Hypertarget{class_vehicle_ac1c0f2280c871eabc659e83e4d18252f}\label{class_vehicle_ac1c0f2280c871eabc659e83e4d18252f}} 
+int {\bfseries get\+Capacity} () const
+\item 
+\mbox{\Hypertarget{class_vehicle_ac3f306380304c8f87e741f96ee35c563}\label{class_vehicle_ac3f306380304c8f87e741f96ee35c563}} 
+double {\bfseries get\+Service\+Time} () const
+\item 
+\mbox{\Hypertarget{class_vehicle_a53ff209740804a59014c90eff4a4a386}\label{class_vehicle_a53ff209740804a59014c90eff4a4a386}} 
+\hyperlink{class_route}{Route} \& {\bfseries get\+Route} ()
+\item 
+\mbox{\Hypertarget{class_vehicle_a0c5a76433d16b806fe5abdcfc8ffeb22}\label{class_vehicle_a0c5a76433d16b806fe5abdcfc8ffeb22}} 
+\hyperlink{class_route}{Route} const  \& {\bfseries get\+Route} () const
+\item 
+\mbox{\Hypertarget{class_vehicle_a83d25c44fc48f4affd6d83bab54f98f0}\label{class_vehicle_a83d25c44fc48f4affd6d83bab54f98f0}} 
+double {\bfseries get\+Total\+Cost} () const
+\item 
+\mbox{\Hypertarget{class_vehicle_a57dd3fc27076f460d4cac3b750aeb011}\label{class_vehicle_a57dd3fc27076f460d4cac3b750aeb011}} 
+double {\bfseries get\+Total\+Cost\+Plus\+Penalty} () const
+\item 
+\mbox{\Hypertarget{class_vehicle_a6bda1a96e5899e343ca77250bd981ce2}\label{class_vehicle_a6bda1a96e5899e343ca77250bd981ce2}} 
+double {\bfseries get\+Driving\+Time} () const
+\item 
+\mbox{\Hypertarget{class_vehicle_a5b63ad191aa37fb3e66cec0c9b0b3b0f}\label{class_vehicle_a5b63ad191aa37fb3e66cec0c9b0b3b0f}} 
+double {\bfseries get\+Route\+Duration} () const
+\item 
+\mbox{\Hypertarget{class_vehicle_aa0406e5066d59ee8921e6f8871cbecd7}\label{class_vehicle_aa0406e5066d59ee8921e6f8871cbecd7}} 
+double {\bfseries get\+Penalty\+Time} () const
+\item 
+\mbox{\Hypertarget{class_vehicle_afd53834ae8fc6fea1a972a864b939a36}\label{class_vehicle_afd53834ae8fc6fea1a972a864b939a36}} 
+int {\bfseries get\+Leftover\+Capacity} () const
+\item 
+\mbox{\Hypertarget{class_vehicle_ac6bd9e1d4e12dae417a39f2b2f0095cc}\label{class_vehicle_ac6bd9e1d4e12dae417a39f2b2f0095cc}} 
+bool {\bfseries empty\+Route} () const
+\item 
+\mbox{\Hypertarget{class_vehicle_a57563afe2a3e1c6da5823a0a9a9f45dd}\label{class_vehicle_a57563afe2a3e1c6da5823a0a9a9f45dd}} 
+std\+::vector$<$ int $>$ {\bfseries get\+Customer\+List} () const
+\item 
+\mbox{\Hypertarget{class_vehicle_adc355690a822465f0ef1f715a2e4d7f4}\label{class_vehicle_adc355690a822465f0ef1f715a2e4d7f4}} 
+void {\bfseries set\+Route} (\hyperlink{class_route}{Route} route)
+\item 
+\mbox{\Hypertarget{class_vehicle_a6e9fa8957af9cec9ce1c43d6876aef1f}\label{class_vehicle_a6e9fa8957af9cec9ce1c43d6876aef1f}} 
+int {\bfseries remove\+Customer} (int customer\+ID)
+\item 
+\mbox{\Hypertarget{class_vehicle_a0bf2a5756305d6a25ec42859ebd0446e}\label{class_vehicle_a0bf2a5756305d6a25ec42859ebd0446e}} 
+void {\bfseries add\+Customer} (int customer\+ID, int load, int route\+Pos)
+\item 
+\mbox{\Hypertarget{class_vehicle_a6e8bb4ad5126e5b7ed6894a11400449e}\label{class_vehicle_a6e8bb4ad5126e5b7ed6894a11400449e}} 
+long {\bfseries find\+Customer} (int customer\+ID) const
+\item 
+\mbox{\Hypertarget{class_vehicle_adb33f8fb253b1a07bc95222bbbe6c043}\label{class_vehicle_adb33f8fb253b1a07bc95222bbbe6c043}} 
+std\+::pair$<$ int, double $>$ {\bfseries cheapest\+Insertion} (int customer\+ID, bool random) const
+\item 
+\mbox{\Hypertarget{class_vehicle_abf82bff362dc1de38abed9ea458a273d}\label{class_vehicle_abf82bff362dc1de38abed9ea458a273d}} 
+std\+::pair$<$ int, double $>$ {\bfseries cheapest\+Insertion} (int customer\+I\+D1, int customer\+I\+D2) const
+\item 
+\mbox{\Hypertarget{class_vehicle_aac0bd58150982e96f5ef36638a4c6ec4}\label{class_vehicle_aac0bd58150982e96f5ef36638a4c6ec4}} 
+std\+::pair$<$ int, double $>$ {\bfseries cheapest\+Insertion\+With\+Splits} (int customer\+ID) const
+\item 
+\mbox{\Hypertarget{class_vehicle_a87f565121f05f568af1b59b3506cb59a}\label{class_vehicle_a87f565121f05f568af1b59b3506cb59a}} 
+double {\bfseries removal\+Gain} (int customer\+ID)
+\item 
+\mbox{\Hypertarget{class_vehicle_aed568174291108fd205254033927bbfd}\label{class_vehicle_aed568174291108fd205254033927bbfd}} 
+std\+::vector$<$ int $>$ {\bfseries select\+Customers\+To\+Remove} (int q)
+\item 
+\mbox{\Hypertarget{class_vehicle_a7f113f2b4cc5a27a5aba32c38ef12237}\label{class_vehicle_a7f113f2b4cc5a27a5aba32c38ef12237}} 
+double {\bfseries two\+Opt\+Gain} (int b\+Idx, int c\+Idx)
+\item 
+\mbox{\Hypertarget{class_vehicle_a31a85934417d72f5719b06ff1992a9d6}\label{class_vehicle_a31a85934417d72f5719b06ff1992a9d6}} 
+void {\bfseries two\+Opt} (int b\+Idx, int c\+Idx)
+\item 
+\mbox{\Hypertarget{class_vehicle_a07a9db33e4e1c2022eaa1031776b82a7}\label{class_vehicle_a07a9db33e4e1c2022eaa1031776b82a7}} 
+void {\bfseries best\+Two\+Opt} ()
+\item 
+\mbox{\Hypertarget{class_vehicle_a738c59dd2399d2bc1198db5e44be3db9}\label{class_vehicle_a738c59dd2399d2bc1198db5e44be3db9}} 
+double {\bfseries swap\+Gain} (int a\+Idx, int b\+Idx)
+\item 
+\mbox{\Hypertarget{class_vehicle_a5ba7b2efd185ad5b567146c5249a3465}\label{class_vehicle_a5ba7b2efd185ad5b567146c5249a3465}} 
+void {\bfseries swap} (int a\+Idx, int b\+Idx)
+\item 
+\mbox{\Hypertarget{class_vehicle_ae3da9e9bc42637d5f8d2beac2cf93ef3}\label{class_vehicle_ae3da9e9bc42637d5f8d2beac2cf93ef3}} 
+void {\bfseries best\+Swap} ()
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_vehicle_a03fb689e9f7599db1bb3e86d7b587998}\label{class_vehicle_a03fb689e9f7599db1bb3e86d7b587998}} 
+std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&os, \hyperlink{class_vehicle}{Vehicle} const \&vehicle)
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+inc/vehicle.\+h\item 
+src/vehicle/bestswap.\+cpp\item 
+src/vehicle/besttwoopt.\+cpp\item 
+src/vehicle/cheapestinsertion.\+cpp\item 
+src/vehicle/cheapestinsertion2.\+cpp\item 
+src/vehicle/cheapestinsertionwithsplits.\+cpp\item 
+src/vehicle/findcustomer.\+cpp\item 
+src/vehicle/gettotalcostandpenalty.\+cpp\item 
+src/vehicle/insertioncost.\+cpp\item 
+src/vehicle/insertioncost2.\+cpp\item 
+src/vehicle/removalgain.\+cpp\item 
+src/vehicle/selectcustomerstoremove.\+cpp\item 
+src/vehicle/setroute.\+cpp\item 
+src/vehicle/swap.\+cpp\item 
+src/vehicle/swapgain.\+cpp\item 
+src/vehicle/twoopt.\+cpp\item 
+src/vehicle/twooptgain.\+cpp\item 
+src/vehicle/vehicle1.\+cpp\end{DoxyCompactItemize}
