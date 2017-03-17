@@ -69,6 +69,8 @@ $(function() {
 <div class="title">Solver Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="solver_8h_source.html">solver.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -180,19 +182,19 @@ std::tuple&lt; double, int, int, int, int, int, int, int, int, int &gt;&#160;</t
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a00149486de31a8a01a5eb732a8ef0dae"><td class="memItemLeft" align="right" valign="top"><a id="a00149486de31a8a01a5eb732a8ef0dae"></a>
-<a class="el" href="class_env.html">Env</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>d_env</b></td></tr>
+<tr class="memitem:a00149486de31a8a01a5eb732a8ef0dae"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_env.html">Env</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_solver.html#a00149486de31a8a01a5eb732a8ef0dae">d_env</a></td></tr>
 <tr class="separator:a00149486de31a8a01a5eb732a8ef0dae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae7a9ecebd1a5c4048c8d74f4176700b9"><td class="memItemLeft" align="right" valign="top"><a id="ae7a9ecebd1a5c4048c8d74f4176700b9"></a>
-std::vector&lt; std::function&lt; void(<a class="el" href="class_solution.html">Solution</a> &amp;)&gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>d_localSearchOperators</b></td></tr>
+<tr class="memitem:ae7a9ecebd1a5c4048c8d74f4176700b9"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::function&lt; void(<a class="el" href="class_solution.html">Solution</a> &amp;)&gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_solver.html#ae7a9ecebd1a5c4048c8d74f4176700b9">d_localSearchOperators</a></td></tr>
 <tr class="separator:ae7a9ecebd1a5c4048c8d74f4176700b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3dc9e044184f8159a310b18f8a0abe57"><td class="memItemLeft" align="right" valign="top"><a id="a3dc9e044184f8159a310b18f8a0abe57"></a>
-std::vector&lt; std::function&lt; std::vector&lt; int &gt;<a class="el" href="class_solution.html">Solution</a> &amp;, int)&gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>d_perturbationOperators</b></td></tr>
+std::vector&lt; std::function&lt; std::vector&lt; int &gt;<a class="el" href="class_solution.html">Solution</a> &amp;, int)&gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_solver.html#a3dc9e044184f8159a310b18f8a0abe57">d_perturbationOperators</a></td></tr>
+<tr class="memdesc:a3dc9e044184f8159a310b18f8a0abe57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector of all perturbation operators. <br /></td></tr>
 <tr class="separator:a3dc9e044184f8159a310b18f8a0abe57"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="solver_8h_source.html#l00017">17</a> of file <a class="el" href="solver_8h_source.html">solver.h</a>.</p>
+<div class="textblock"><p>The <a class="el" href="class_solver.html">Solver</a> class is where the actual work happens. Here the solutions in the environment instance are altered by using our algorithm using the large neighbourhood search. </p>
+
+<p class="definition">Definition at line <a class="el" href="solver_8h_source.html#l00021">21</a> of file <a class="el" href="solver_8h_source.html">solver.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a05ec0ef6028f51c1eba417b41a14c2ea"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a05ec0ef6028f51c1eba417b41a14c2ea">&#9670;&nbsp;</a></span>Solver()</h2>
@@ -1524,6 +1526,57 @@ std::vector&lt; std::function&lt; std::vector&lt; int &gt;<a class="el" href="cl
 </dl>
 
 <p class="definition">Definition at line <a class="el" href="twooptintraroute_8cpp_source.html#l00013">13</a> of file <a class="el" href="twooptintraroute_8cpp_source.html">twooptintraroute.cpp</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a00149486de31a8a01a5eb732a8ef0dae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00149486de31a8a01a5eb732a8ef0dae">&#9670;&nbsp;</a></span>d_env</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_env.html">Env</a>* Solver::d_env</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Environment pointer </p>
+
+<p class="definition">Definition at line <a class="el" href="solver_8h_source.html#l00023">23</a> of file <a class="el" href="solver_8h_source.html">solver.h</a>.</p>
+
+</div>
+</div>
+<a id="ae7a9ecebd1a5c4048c8d74f4176700b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7a9ecebd1a5c4048c8d74f4176700b9">&#9670;&nbsp;</a></span>d_localSearchOperators</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::function&lt;void(<a class="el" href="class_solution.html">Solution</a> &amp;)&gt; &gt; Solver::d_localSearchOperators</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Vector of all local search operators </p>
+
+<p class="definition">Definition at line <a class="el" href="solver_8h_source.html#l00024">24</a> of file <a class="el" href="solver_8h_source.html">solver.h</a>.</p>
 
 </div>
 </div>

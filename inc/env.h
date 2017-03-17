@@ -12,28 +12,32 @@
 #include "init.h"
 #include <random>
 
+/**
+ * Env is a class that holds all the global data for the algorithm.
+ *
+ */
 class Env {
 
     typedef std::vector<std::vector<double>> DoubleMatrix;
 
 public:
-    Solution                    d_bestSolution;
-    Solution                    d_currentSolution;
-    Solution                    d_newSolution;
-    Solution                    d_bestFeasibleSolution;
+    Solution                    d_bestSolution; /*!< The best (infeasible) solution */
+    Solution                    d_currentSolution; /*!< The current solution  */
+    Solution                    d_newSolution; /*!< The new solution */
+    Solution                    d_bestFeasibleSolution; /*!< The best feasible solution */
 
-    DoubleMatrix                d_distanceMatrix;
+    DoubleMatrix                d_distanceMatrix; /*!< Distance matrix for all instances */
 
-    std::default_random_engine  d_rng;
+    std::default_random_engine  d_rng; /*!< Random number engine */
 
-    double                      d_delta;
-    double                      d_penalty;
-    double                      d_penaltyUpper;
-    double                      d_penaltyLower;
+    double                      d_delta; /*!< Parameter to multiply the penalty with */
+    double                      d_penalty; /*!< Parameter for determining the penalty cost */
+    double                      d_penaltyUpper; /*!< Upper bound of the d_penalty parameter */
+    double                      d_penaltyLower; /*!< Lower bound of the d_penalty parameter */
 
-    double                      d_temp;
-    double                      d_r;
-    double                      d_tempMin;
+    double                      d_temp; /*!< Temperature used for simulated annealing */
+    double                      d_r; /*!< Parameter of the simulated annealing */
+    double                      d_tempMin; /*!< Minimum temperature of the simulated annealing */
 
     Env();
     Env(Init &init);

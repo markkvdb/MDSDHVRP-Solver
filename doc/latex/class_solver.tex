@@ -1,5 +1,9 @@
 \hypertarget{class_solver}{}\section{Solver Class Reference}
 \label{class_solver}\index{Solver@{Solver}}
+
+
+{\ttfamily \#include $<$solver.\+h$>$}
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -81,21 +85,19 @@ int \hyperlink{class_solver_a30596315142e384f8616f8a1915c21aa}{selectq} ()
 \subsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_solver_a00149486de31a8a01a5eb732a8ef0dae}\label{class_solver_a00149486de31a8a01a5eb732a8ef0dae}} 
-\hyperlink{class_env}{Env} $\ast$ {\bfseries d\+\_\+env}
+\hyperlink{class_env}{Env} $\ast$ \hyperlink{class_solver_a00149486de31a8a01a5eb732a8ef0dae}{d\+\_\+env}
 \item 
-\mbox{\Hypertarget{class_solver_ae7a9ecebd1a5c4048c8d74f4176700b9}\label{class_solver_ae7a9ecebd1a5c4048c8d74f4176700b9}} 
-std\+::vector$<$ std\+::function$<$ void(\hyperlink{class_solution}{Solution} \&)$>$ $>$ {\bfseries d\+\_\+local\+Search\+Operators}
+std\+::vector$<$ std\+::function$<$ void(\hyperlink{class_solution}{Solution} \&)$>$ $>$ \hyperlink{class_solver_ae7a9ecebd1a5c4048c8d74f4176700b9}{d\+\_\+local\+Search\+Operators}
 \item 
 \mbox{\Hypertarget{class_solver_a3dc9e044184f8159a310b18f8a0abe57}\label{class_solver_a3dc9e044184f8159a310b18f8a0abe57}} 
-std\+::vector$<$ std\+::function$<$ std\+::vector$<$ int $>$\hyperlink{class_solution}{Solution} \&, int)$>$ $>$ {\bfseries d\+\_\+perturbation\+Operators}
-\end{DoxyCompactItemize}
+std\+::vector$<$ std\+::function$<$ std\+::vector$<$ int $>$\hyperlink{class_solution}{Solution} \&, int)$>$ $>$ \hyperlink{class_solver_a3dc9e044184f8159a310b18f8a0abe57}{d\+\_\+perturbation\+Operators}
+\begin{DoxyCompactList}\small\item\em Vector of all perturbation operators. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
+The \hyperlink{class_solver}{Solver} class is where the actual work happens. Here the solutions in the environment instance are altered by using our algorithm using the large neighbourhood search. 
 
-
-Definition at line 17 of file solver.\+h.
+Definition at line 21 of file solver.\+h.
 
 
 
@@ -749,6 +751,29 @@ Local search operator which switches two arcs within a route.
 
 
 Definition at line 13 of file twooptintraroute.\+cpp.
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_solver_a00149486de31a8a01a5eb732a8ef0dae}\label{class_solver_a00149486de31a8a01a5eb732a8ef0dae}} 
+\index{Solver@{Solver}!d\+\_\+env@{d\+\_\+env}}
+\index{d\+\_\+env@{d\+\_\+env}!Solver@{Solver}}
+\subsubsection{\texorpdfstring{d\+\_\+env}{d\_env}}
+{\footnotesize\ttfamily \hyperlink{class_env}{Env}$\ast$ Solver\+::d\+\_\+env\hspace{0.3cm}{\ttfamily [private]}}
+
+Environment pointer 
+
+Definition at line 23 of file solver.\+h.
+
+\mbox{\Hypertarget{class_solver_ae7a9ecebd1a5c4048c8d74f4176700b9}\label{class_solver_ae7a9ecebd1a5c4048c8d74f4176700b9}} 
+\index{Solver@{Solver}!d\+\_\+local\+Search\+Operators@{d\+\_\+local\+Search\+Operators}}
+\index{d\+\_\+local\+Search\+Operators@{d\+\_\+local\+Search\+Operators}!Solver@{Solver}}
+\subsubsection{\texorpdfstring{d\+\_\+local\+Search\+Operators}{d\_localSearchOperators}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::function$<$void(\hyperlink{class_solution}{Solution} \&)$>$ $>$ Solver\+::d\+\_\+local\+Search\+Operators\hspace{0.3cm}{\ttfamily [private]}}
+
+Vector of all local search operators 
+
+Definition at line 24 of file solver.\+h.
 
 
 

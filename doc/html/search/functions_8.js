@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['oneinsertioninterroute',['oneInsertionInterRoute',['../class_solver.html#a9e3d5af3cb04785f221a5f7887bd083e',1,'Solver']]],
-  ['oneinsertionintraroute',['oneInsertionIntraRoute',['../class_solver.html#a1856ef1df8590c2a76d8f71f707ba39f',1,'Solver']]]
+  ['localsearch',['localSearch',['../class_solver.html#a6879ef613e34893b535ff3554324fca9',1,'Solver']]]
 ];

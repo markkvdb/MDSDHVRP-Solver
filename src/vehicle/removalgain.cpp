@@ -2,6 +2,12 @@
 // Created by Mark van der Broek on 11/03/2017.
 //
 
+/**
+ * Gain of removing customer from the route of the vehicle.
+ * @param [in] customerID   ID of the customer
+ * @return Gain of removing the customer of the route
+ */
+
 #include "vehicle.ih"
 
 double Vehicle::removalGain(int customerID)

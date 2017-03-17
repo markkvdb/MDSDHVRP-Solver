@@ -2,6 +2,13 @@
 // Created by Mark van der Broek on 13/03/2017.
 //
 
+/**
+ * Find the cheapest insertion option for the customer within the vehicle's route where splits are allowed.
+ * @param customerID    ID of the customer to be inserted
+ * @return Pair with the first element the position of the best insertion move, and the second element the cost
+ *         of this insertion
+ */
+
 #include "vehicle.ih"
 
 pair<int, double> Vehicle::cheapestInsertionWithSplits(int customerID) const

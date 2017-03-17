@@ -2,6 +2,14 @@
 // Created by Mark van der Broek on 06/03/2017.
 //
 
+/**
+ * @brief Output operator of the vehicle class
+ *
+ * @param [in] os       The stream to write to
+ * @param [in] customer The vehicle to write to the stream
+ */
+
+
 #include "vehicle.ih"
 
 ostream& operator<<(ostream &os, Vehicle const &vehicle)

@@ -2,6 +2,10 @@
 // Created by Mark van der Broek on 12/03/2017.
 //
 
+/**
+ * @brief Find the best two-opt move within the vehicle's route.
+ */
+
 #include "vehicle.ih"
 
 void Vehicle::bestTwoOpt()

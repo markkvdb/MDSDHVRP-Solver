@@ -4,6 +4,14 @@
 
 #include "vehicle.ih"
 
+/**
+ * Find the cheapest insertion option for the customer within the vehicle's route.
+ * @param customerID    ID of the customer to be inserted
+ * @param random        Boolean to indicate whether the insertion cost has to be muliplied by a random factor
+ * @return Pair with the first element the position of the best insertion move, and the second element the cost
+ *         of this insertion
+ */
+
 pair<int, double> Vehicle::cheapestInsertion(int customerID, bool random) const
 {
     int position = -1;

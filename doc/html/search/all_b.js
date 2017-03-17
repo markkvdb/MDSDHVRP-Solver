@@ -1,14 +1,13 @@
 var searchData=
 [
-  ['selectq',['selectq',['../class_solver.html#a30596315142e384f8616f8a1915c21aa',1,'Solver']]],
-  ['showcustomermatrix',['showCustomerMatrix',['../class_init.html#a977b73b6cde475c66a77da062a4fb847',1,'Init']]],
-  ['showdepotmatrix',['showDepotMatrix',['../class_init.html#ae48e74d855e16384caf464dd27f6edee',1,'Init']]],
-  ['showdistancematrix',['showDistanceMatrix',['../class_init.html#a6a0c2ee0902aba32df707db9bce7d1d5',1,'Init']]],
-  ['showvehiclematrix',['showVehicleMatrix',['../class_init.html#ac21ef408e896d9eceee8455fe51845b0',1,'Init']]],
-  ['simulatedannealing',['simulatedAnnealing',['../class_solver.html#a7e155d2e2ce6b7f4b30d563741eca7cd',1,'Solver']]],
-  ['solution',['Solution',['../class_solution.html',1,'Solution'],['../class_solution.html#a3bdbdf455adecf7ab0f71bbce1efad66',1,'Solution::Solution()']]],
-  ['solver',['Solver',['../class_solver.html',1,'Solver'],['../class_solver.html#a05ec0ef6028f51c1eba417b41a14c2ea',1,'Solver::Solver()']]],
-  ['sortvehiclelist',['sortVehicleList',['../class_solver.html#abe099021d3e1329c3f185ed60271164e',1,'Solver']]],
-  ['swap',['swap',['../class_route.html#a463c649701eb3ed5c659f5e920460335',1,'Route::swap()'],['../class_solver.html#a9d960b7d4c3b329c430f4f3553bedb31',1,'Solver::swap()']]],
-  ['swapstar',['swapStar',['../class_solver.html#ab29d1f5b4e31eed975185d77312392a3',1,'Solver']]]
+  ['randomremoval',['randomRemoval',['../class_solver.html#aac5e62758bb4cd6f35fec178ab7aafd3',1,'Solver']]],
+  ['reinsert',['reinsert',['../class_solver.html#a86aab9a760c785feaf0dd65951b50895',1,'Solver']]],
+  ['removalgain',['removalGain',['../class_vehicle.html#a87f565121f05f568af1b59b3506cb59a',1,'Vehicle']]],
+  ['removecustomer',['removeCustomer',['../class_route.html#a3e52680923dc08fe57d7a622cf8ad17b',1,'Route::removeCustomer()'],['../class_vehicle.html#a6e9fa8957af9cec9ce1c43d6876aef1f',1,'Vehicle::removeCustomer()']]],
+  ['removecustomers',['removeCustomers',['../class_solver.html#a3ae8eae22345198c4b36c9ce4857f40b',1,'Solver']]],
+  ['resetremainingdemand',['resetRemainingDemand',['../class_customer.html#a0f06bdce903a3efcffe01008183b19bc',1,'Customer']]],
+  ['route',['Route',['../class_route.html',1,'Route'],['../class_route.html#a7b0add29f3255cd109649ca25db20d8d',1,'Route::Route(Env *env, int depotID)'],['../class_route.html#a95a55c89846e5e183b1749a8507275d5',1,'Route::Route(Env *env, int depotID, std::vector&lt; int &gt; route, std::vector&lt; int &gt; demandRoute)']]],
+  ['routeaddition',['routeAddition',['../class_solver.html#a89f48fca861b21e0927d41afcd7ccbc4',1,'Solver']]],
+  ['routeremoval',['routeRemoval',['../class_solver.html#a2f3a938ddd565bc92c2f27bed4749b8b',1,'Solver']]],
+  ['run',['run',['../class_solver.html#a1f31e2d38dacd7e828c1bf428eb2ed96',1,'Solver']]]
 ];
