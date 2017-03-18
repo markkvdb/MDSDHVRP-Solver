@@ -22,7 +22,6 @@ void Solver::localSearch(Solution &s)
 
         if (newCost > oldTotalCost) {
             cerr << "Local search deteriorated the solution, operatorIdx: " << operatorIdx << "\n";
-            cerr << "Old cost: " << oldTotalCost << ". New cost: " << newCost << "\n";
         }
 
         if (newCost < oldTotalCost) {

@@ -18,13 +18,13 @@ Env::Env(Init &init)
         d_newSolution(Solution{this}),
         d_bestFeasibleSolution(Solution{this}),
         d_rng(0),
-        d_delta(1),
-        d_penalty(1000),
-        d_penaltyLower(1000),
-        d_penaltyUpper(10000),
+        d_delta(1.1),
+        d_penalty(100),
+        d_penaltyLower(100),
+        d_penaltyUpper(100000),
         d_temp(100),
-        d_r(0.5),
-        d_tempMin(10)
+        d_r(0.95),
+        d_tempMin(5)
 {
     vector<vector<double>> depotMatrix      (init.getDepotMatrix());
     vector<vector<double>> vehicleMatrix    (init.getVehicleMatrix());

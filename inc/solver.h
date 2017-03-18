@@ -50,7 +50,8 @@ private:
                                                        std::vector<int> &customerDropOff);
 
     // Functions for perturbation
-    void                            perturbation(Solution &solution, int q);
+    void                            perturbation(Solution &solution, int q, bool random, double randomProb,
+                                                 double costProb, double routeProb);
     std::vector<int>                randomRemoval(Solution &solution, int q);
     std::vector<int>                costRemoval(Solution &solution, int q);
     std::vector<int>                routeRemoval(Solution &solution, int q);
@@ -83,7 +84,7 @@ private:
 
     // Other functions
     Solution &                      simulatedAnnealing(Solution &sPrime, Solution &s);
-    int                             selectq();
+    int                             selectq(double perc);
 
 };
 
