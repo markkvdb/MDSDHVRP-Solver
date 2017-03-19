@@ -22,9 +22,9 @@ Env::Env(Init &init)
         d_penalty(100),
         d_penaltyLower(100),
         d_penaltyUpper(100000),
-        d_temp(100),
+        d_temp(0),
         d_r(0.95),
-        d_tempMin(5)
+        d_tempMin(0)
 {
     vector<vector<double>> depotMatrix      (init.getDepotMatrix());
     vector<vector<double>> vehicleMatrix    (init.getVehicleMatrix());

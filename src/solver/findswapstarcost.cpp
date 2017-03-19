@@ -54,10 +54,10 @@ pair<int, double> Solver::findSwapStarCost(Solution &s, int customerIdx1, Vehicl
                             d_env->d_distanceMatrix[route2[customerIdx2-1]][route2[customerIdx2]] -
                             d_env->d_distanceMatrix[route2[customerIdx2]][route2[customerIdx2+1]];
 
-    double extraPenalty1 = (max(0.0, vehicle1.getPenaltyTime() + extraDistance1 / vehicle1.getDrivingSpeed()) -
-            vehicle1.getPenaltyTime() + customer2.getServiceTime()) * d_env->d_penalty;
-    double extraPenalty2 = (max(0.0, vehicle2.getPenaltyTime() + extraDistance2 / vehicle2.getDrivingSpeed()) -
-            vehicle2.getPenaltyTime() + customer1.getServiceTime() - customer2.getServiceTime()) * d_env->d_penalty;
+    double extraPenalty1 = (max(0.0, vehicle1.getPenaltyTime() + extraDistance1 / vehicle1.getDrivingSpeed()
+                                     + customer2.getServiceTime()) - vehicle1.getPenaltyTime()) * d_env->d_penalty;
+    double extraPenalty2 = (max(0.0, vehicle2.getPenaltyTime() + extraDistance2 / vehicle2.getDrivingSpeed() +
+            customer1.getServiceTime() - customer2.getServiceTime()) - vehicle2.getPenaltyTime()) * d_env->d_penalty;
     double insertionCost = extraDistance1 * vehicle1.getCost() + extraPenalty1 + extraDistance2 * vehicle2.getCost() + extraPenalty2;
     return make_pair(option, insertionCost);
 }

@@ -21,11 +21,13 @@ void Solver::localSearch(Solution &s)
         double newCost = s.totalCost();
 
         if (newCost > oldTotalCost) {
-            cerr << "Local search deteriorated the solution, operatorIdx: " << operatorIdx << "\n";
+            cout << "Local search deteriorated the solution, operatorIdx: " << operatorIdx << "\n";
+            cout << "Old: " << oldTotalCost << " new: " << newCost << "\n";
         }
 
         if (newCost < oldTotalCost) {
             operatorIdx = -1;
+
         }
 
     }

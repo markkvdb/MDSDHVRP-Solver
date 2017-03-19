@@ -9,8 +9,7 @@ tuple<double, int, int, int, int, int, int, int, int, int> Solver::bestSwapStar(
 {
     int customerID = vehicle.getRoute().getRoute()[customerIdx];
 
-    if (customerID == 143)
-        int hoi = 1;
+
 
     double minCost = numeric_limits<double>::max();
     int minCustomer1 = -1;
