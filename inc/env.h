@@ -11,6 +11,7 @@
 #include "solution.h"
 #include "init.h"
 #include <random>
+#include <fstream>
 
 /**
  * Env is a class that holds all the global data for the algorithm.
@@ -29,6 +30,8 @@ public:
     DoubleMatrix                d_distanceMatrix; /*!< Distance matrix for all instances */
 
     std::default_random_engine  d_rng; /*!< Random number engine */
+    std::ofstream               d_output; /*!< Output file */
+    std::ofstream               d_log; /*!< Log file */
 
     double                      d_delta; /*!< Parameter to multiply the penalty with */
     double                      d_penalty; /*!< Parameter for determining the penalty cost */

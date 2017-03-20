@@ -9,7 +9,7 @@
 #include <vector>
 
 /**
- * Init class reads the data from the input file, and puts it in the approriate data members.
+ * Init class reads the data from the input file, and puts it in the appropriate data members.
  */
 class Init
 {
@@ -20,10 +20,15 @@ class Init
     std::vector<std::vector<double>>    d_depotMatrix; /*!< List of all depots, and its attributes */
     std::vector<std::vector<double>>    d_customerMatrix; /*!< List of all customers, and its attributes */
     std::vector<std::vector<double>>    d_distanceMatrix; /*!< Distance matrix for all instances of the problem */
+    std::string                         d_inputFile;
+    std::string                         d_outputFile;
+    std::string                         d_logFile;
 
 public:
     Init() = delete;
     Init(std::string &file);
+
+    void                                    setup();
 
     void                                    showVehicleMatrix();
     void                                    showDepotMatrix();
@@ -38,6 +43,8 @@ public:
     const std::vector<std::vector<double>>  &getDepotMatrix()       const;
     const std::vector<std::vector<double>>  &getCustomerMatrix()    const;
     const std::vector<std::vector<double>>  &getDistanceMatrix()    const;
+    std::string const                       getOutputFile()         const;
+    std::string const                       getLogFile()            const;
 
 private:
     void                                    showMatrix(std::vector<std::vector<double>> matrix);
@@ -117,6 +124,24 @@ inline const std::vector<std::vector<double>> &Init::getCustomerMatrix() const
 inline const std::vector<std::vector<double>> &Init::getDistanceMatrix() const
 {
     return d_distanceMatrix;
+}
+
+/**
+ * Give the name of the output file we use.
+ * @return Name of the output file
+ */
+inline std::string const Init::getOutputFile() const
+{
+    return d_outputFile;
+}
+
+/**
+ * Give the name of the log file we use.
+ * @return Name of the log file
+ */
+inline std::string const Init::getLogFile() const
+{
+    return d_logFile;
 }
 
 #endif //ORACS_INIT_H

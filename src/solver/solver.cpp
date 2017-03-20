@@ -15,8 +15,8 @@ Solver::Solver(Env *env)
     d_env(env),
     d_maxIter1(1000000),
     d_maxIter2(1000000),
-    d_maxSeconds1(20),
-    d_maxSeconds2(20),
+    d_maxSeconds1(100),
+    d_maxSeconds2(100),
     d_theta(0.01),
     d_localIter(0),
     d_objectiveAfterFirst(0.0),
@@ -34,13 +34,13 @@ Solver::Solver(Env *env)
 
 
     // Add all local search operators
-    d_localSearchOperators.push_back(std::bind(&Solver::oneInsertionIntraRoute, this, std::placeholders::_1));
+    d_localSearchOperators.push_back(std::bind(&Solver::swapStar, this, std::placeholders::_1));
+    d_localSearchOperators.push_back(std::bind(&Solver::routeAddition, this, std::placeholders::_1));
     d_localSearchOperators.push_back(std::bind(&Solver::twoOptIntraRoute, this, std::placeholders::_1));
+    d_localSearchOperators.push_back(std::bind(&Solver::oneInsertionIntraRoute, this, std::placeholders::_1));
     d_localSearchOperators.push_back(std::bind(&Solver::swap, this, std::placeholders::_1));
     d_localSearchOperators.push_back(std::bind(&Solver::oneInsertionInterRoute, this, std::placeholders::_1));
     d_localSearchOperators.push_back(std::bind(&Solver::twoInsertionIntraRoute, this, std::placeholders::_1));
-    d_localSearchOperators.push_back(std::bind(&Solver::swapStar, this, std::placeholders::_1));
-    d_localSearchOperators.push_back(std::bind(&Solver::routeAddition, this, std::placeholders::_1));
 
     // Set local search operators
     d_localSearchTimes = vector<vector<double>>(d_localSearchOperators.size());
