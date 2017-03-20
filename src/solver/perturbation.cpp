@@ -18,5 +18,5 @@ void Solver::perturbation(Solution &solution, int q, bool random, double randomP
 
     vector<int> customersToRemove = d_perturbationOperators[dist(d_env->d_rng)](solution, q);
 
-    reinsert(solution, customersToRemove, random);
+    reinsert(solution, customersToRemove, random, true);
 }

@@ -12,7 +12,17 @@
 
 Solver::Solver(Env *env)
 :
-    d_env(env)
+    d_env(env),
+    d_maxIter1(1000000),
+    d_maxIter2(1000000),
+    d_maxSeconds1(5),
+    d_maxSeconds2(10),
+    d_theta(0.01),
+    d_localIter(0),
+    d_objectiveAfterFirst(0.0),
+    d_ratioSplitsAfterInitial(0.0),
+    d_ratioSplitsAfterFirst(0.0),
+    d_ratioSplitsAfterSecond(0.0)
 {
     // Add all perturbation operators
     d_perturbationOperators.push_back(std::bind(&Solver::randomRemoval, this, std::placeholders::_1,
@@ -31,4 +41,8 @@ Solver::Solver(Env *env)
     d_localSearchOperators.push_back(std::bind(&Solver::twoInsertionIntraRoute, this, std::placeholders::_1));
     d_localSearchOperators.push_back(std::bind(&Solver::swapStar, this, std::placeholders::_1));
     d_localSearchOperators.push_back(std::bind(&Solver::routeAddition, this, std::placeholders::_1));
+
+    // Set local search operators
+    d_localSearchTimes = vector<vector<double>>(d_localSearchOperators.size());
+    d_localSearchImprovements = vector<vector<double>>(d_localSearchOperators.size());
 }

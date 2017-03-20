@@ -25,7 +25,7 @@ void Solver::routeAddition(Solution &s)
 
         vector<int> customerToDelete = {customer.getId()};
         removeCustomers(newSolution, customerToDelete);
-        reinsert(newSolution, customerToDelete, false);
+        reinsert(newSolution, customerToDelete, false, false);
 
         if (newSolution.totalCost() < minTotalCost)
         {

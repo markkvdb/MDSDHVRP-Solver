@@ -12,23 +12,26 @@
 
 void Solver::localSearch(Solution &s)
 {
-    for (int operatorIdx = 0; operatorIdx != d_localSearchOperators.size(); ++operatorIdx) {
+    for (int operatorIdx = 0; operatorIdx != d_localSearchOperators.size(); ++operatorIdx)
+    {
+        // Start timing
+        auto start = chrono::system_clock::now();
+        double oldCost = s.totalCost();
 
-        double oldTotalCost = s.totalCost();
         d_localSearchOperators[operatorIdx](s);
 
-
+        auto end = chrono::system_clock::now();
         double newCost = s.totalCost();
 
-        if (newCost > oldTotalCost) {
-            cout << "Local search deteriorated the solution, operatorIdx: " << operatorIdx << "\n";
-            cout << "Old: " << oldTotalCost << " new: " << newCost << "\n";
-        }
+        d_localSearchTimes[operatorIdx].push_back(chrono::duration_cast<chrono::microseconds>(end - start).count());
 
-        if (newCost < oldTotalCost) {
+        if (newCost > oldCost)
+            cerr << "ROT OP!!!!!!!\n";
+
+        if (newCost < oldCost)
+        {
+            d_localSearchImprovements[operatorIdx].push_back(oldCost - newCost);
             operatorIdx = -1;
-
         }
-
     }
 }

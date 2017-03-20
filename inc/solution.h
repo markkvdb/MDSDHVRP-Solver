@@ -30,6 +30,7 @@ public:
     Solution(Env *env, std::vector<Depot> depots, std::vector<Customer> customer);
 
     void                    print();
+    double                  ratioSplits();
     double                  totalCost();
     double                  cost();
     bool                    feasible();

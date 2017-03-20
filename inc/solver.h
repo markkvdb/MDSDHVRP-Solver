@@ -20,10 +20,30 @@ class Env;
  */
 class Solver {
 
-    Env *d_env; /*!< Environment pointer */
-    std::vector<std::function<void(Solution &)>> d_localSearchOperators; /*!< Vector of all local search operators */
+    Env *                                           d_env; /*!< Environment pointer */
+    std::vector<std::function<void(Solution &)>>    d_localSearchOperators; /*!< Vector of all local search operators */
     /// Vector of all perturbation operators
     std::vector<std::function<std::vector<int>(Solution &, int)>> d_perturbationOperators;
+
+    int const                           d_maxIter1;
+    int const                           d_maxIter2;
+    double const                        d_maxSeconds1;
+    double const                        d_maxSeconds2;
+    double const                        d_theta;
+
+    int                                 d_localIter;
+    int                                 d_iter1;
+    int                                 d_iter2;
+    double                              d_ratioSplitsAfterInitial;
+    double                              d_ratioSplitsAfterFirst;
+    double                              d_ratioSplitsAfterSecond;
+    double                              d_elapsedSeconds1;
+    double                              d_elapsedSeconds2;
+    double                              d_objectiveAfterFirst;
+    std::vector<std::vector<double>>    d_localSearchTimes;
+    std::vector<std::vector<double>>    d_localSearchImprovements;
+
+
 
 public:
     Solver() = delete;
@@ -58,11 +78,12 @@ private:
     double                          computeRemovalGain(Solution &solution, int customerID);
     std::vector<std::pair<int, int>> getNonEmptyRoutes(Solution &solution);
     void                            removeCustomers(Solution &solution, std::vector<int> const &customersToRemove);
-    void                            reinsert(Solution &solution, std::vector<int> &customersToAdd, bool random);
+    void                            reinsert(Solution &solution, std::vector<int> &customersToAdd, bool random,
+                                             bool splitsAllowed);
     std::vector<int>                getClosestCustomers(int seedCustomer, int q);
     void                            insertCustomer(Solution &solution, int selectedCustomer, int positionCustomer,
                                                    int depotID, int vehicleID, int routePos,
-                                                   std::vector<int> &customersToAdd);
+                                                   std::vector<int> &customersToAdd, bool splitsAllowed);
 
     // Functions for local search
     void                            localSearch(Solution &s);
