@@ -26,7 +26,7 @@ void Solver::print()
         cout << "\t " << operatorIdx << ": "
              << accumulate(begin(d_localSearchImprovements[operatorIdx]), end(d_localSearchImprovements[operatorIdx]), 0)
                 / d_localSearchImprovements[operatorIdx].size() << "\t("
-             << static_cast<double>(d_localSearchImprovements[operatorIdx].size()) * 100
+             << setprecision(2) << fixed << static_cast<double>(d_localSearchImprovements[operatorIdx].size()) * 100
                 / d_localSearchTimes[operatorIdx].size() << "%) \n";
     }
     cout << '\n';
@@ -38,7 +38,7 @@ void Solver::print()
                 / d_localSearchTimes[operatorIdx].size() << " \u00B5s \n";
     }
     cout << '\n';
-    cout << "Number of splits after initial solution: \t" << d_ratioSplitsAfterInitial << '\n';
-    cout << "Number of splits after first phase: \t" << d_ratioSplitsAfterFirst << '\n';
-    cout << "Number of splits after second phase: \t" << d_ratioSplitsAfterSecond << '\n';
+    cout << "Number of splits after initial solution: \t" << setprecision(5) << fixed << d_ratioSplitsAfterInitial << '\n';
+    cout << "Number of splits after first phase: \t\t" << d_ratioSplitsAfterFirst << '\n';
+    cout << "Number of splits after second phase: \t\t" << d_ratioSplitsAfterSecond << '\n';
 }

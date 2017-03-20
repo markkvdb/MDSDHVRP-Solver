@@ -46,7 +46,7 @@ void Solver::run()
         d_elapsedSeconds1 = chrono::duration<double>(chrono::system_clock::now() - start).count();
     }
     d_objectiveAfterFirst = d_env->d_bestFeasibleSolution.totalCost();
-    d_ratioSplitsAfterInitial = d_env->d_bestFeasibleSolution.ratioSplits();
+    d_ratioSplitsAfterFirst = d_env->d_bestFeasibleSolution.ratioSplits();
 
     q = selectq(0.10);
     start = chrono::system_clock::now();
