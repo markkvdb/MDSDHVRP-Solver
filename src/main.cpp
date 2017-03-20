@@ -27,4 +27,6 @@ int main(int argc, char* argv[])
     // Construct initial solution
     solver.run();
 
+    solver.print();
+
 }

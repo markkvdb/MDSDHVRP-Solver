@@ -30,7 +30,9 @@ public:
     Solution(Env *env, std::vector<Depot> depots, std::vector<Customer> customer);
 
     void                    print();
+    double                  ratioSplits();
     double                  totalCost();
+    double                  cost();
     bool                    feasible();
     std::vector<Depot> &    getDepots();
     std::vector<Customer> & getCustomers();
@@ -76,6 +78,7 @@ inline void Solution::addDepot(Depot depot)
 {
     d_depots.push_back(depot);
 }
+
 
 
 #endif //ORACS_SOLUTION_H

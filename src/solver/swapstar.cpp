@@ -33,7 +33,8 @@ void Solver::swapStar(Solution &s)
             for (int customerIdx = 1; customerIdx < route.getRoute().size() - 1; ++customerIdx)
             {
                 int customerID = route.getRoute()[customerIdx];
-                auto solutionTuple = bestSwapStar(s, customerIdx, vehicle, forbiddenPair.first[customerID], forbiddenPair.second[customerID]);
+                auto solutionTuple = bestSwapStar(s, customerIdx, vehicle, forbiddenPair.first[customerID],
+                                                  forbiddenPair.second[customerID]);
 
                 if (get<0>(solutionTuple) < minCost)
                 {

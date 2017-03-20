@@ -10,31 +10,57 @@
 
 void Solver::run()
 {
-    size_t maxIter  = 1000;
-    double theta    = 0.05;
     auto start = chrono::system_clock::now();
-    double secondsToRun = 10;
-    double elapsedSeconds = 0;
-    // TODO add time restrictions on runtime
+    d_elapsedSeconds1 = 0;
+
 
     initialSolution();
     d_env->d_bestSolution = d_env->d_currentSolution;
     d_env->d_bestFeasibleSolution = d_env->d_currentSolution;
+    d_env->d_temp = 0.01*d_env->d_currentSolution.cost();
+    d_ratioSplitsAfterInitial = d_env->d_bestFeasibleSolution.ratioSplits();
 
     // Set q and the iter counter
-    int q = selectq();
-    size_t iter = 0;
-    size_t localIter = 0;
+    int q = selectq(0.05);
+    d_iter1 = 0;
+    d_iter2 = 0;
+    d_localIter = 0;
 
-    while (iter != maxIter && elapsedSeconds < secondsToRun)
+
+    while (d_iter1 != d_maxIter1 && d_elapsedSeconds1 < d_maxSeconds1)
     {
         d_env->d_newSolution = d_env->d_currentSolution;
-        perturbation(d_env->d_newSolution, q);
+        perturbation(d_env->d_newSolution, q, true, 1, 1, 0);
 
-        if (d_env->d_newSolution.totalCost() < (1 + theta) * d_env->d_bestSolution.totalCost())
+        if (d_env->d_newSolution.totalCost() < d_env->d_bestSolution.totalCost())
+            d_env->d_bestSolution = d_env->d_newSolution;
+
+        if (d_env->d_newSolution.feasible() && d_env->d_newSolution.totalCost() < d_env->d_bestFeasibleSolution.totalCost())
+            d_env->d_bestFeasibleSolution = d_env->d_newSolution;
+
+
+
+        d_env->d_currentSolution = simulatedAnnealing(d_env->d_newSolution, d_env->d_currentSolution);
+        d_env->updatePenalty(d_env->d_currentSolution);
+        ++d_iter1;
+        d_elapsedSeconds1 = chrono::duration<double>(chrono::system_clock::now() - start).count();
+    }
+    d_objectiveAfterFirst = d_env->d_bestFeasibleSolution.totalCost();
+    d_ratioSplitsAfterFirst = d_env->d_bestFeasibleSolution.ratioSplits();
+
+    q = selectq(0.10);
+    start = chrono::system_clock::now();
+    d_elapsedSeconds2 = 0;
+
+    while (d_iter2 != d_maxIter2 && d_elapsedSeconds2 < d_maxSeconds2)
+    {
+        d_env->d_newSolution = d_env->d_currentSolution;
+        perturbation(d_env->d_newSolution, q, true, 3, 2, 1);
+
+        if (d_env->d_newSolution.totalCost() < (1 + d_theta) * d_env->d_bestSolution.totalCost())
         {
             localSearch(d_env->d_newSolution);
-            localIter++;
+            d_localIter++;
         }
 
         if (d_env->d_newSolution.totalCost() < d_env->d_bestSolution.totalCost())
@@ -45,11 +71,8 @@ void Solver::run()
 
         d_env->d_currentSolution = simulatedAnnealing(d_env->d_newSolution, d_env->d_currentSolution);
         d_env->updatePenalty(d_env->d_currentSolution);
-        ++iter;
-        elapsedSeconds = chrono::duration<double>(chrono::system_clock::now() - start).count();
+        ++d_iter2;
+        d_elapsedSeconds2 = chrono::duration<double>(chrono::system_clock::now() - start).count();
     }
-
-    if (d_env->d_bestFeasibleSolution.feasible())
-        d_env->d_bestFeasibleSolution.print();
-
+    d_ratioSplitsAfterSecond = d_env->d_bestFeasibleSolution.ratioSplits();
 }

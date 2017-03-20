@@ -12,11 +12,11 @@
 
 #include "solver.ih"
 
-void Solver::perturbation(Solution &solution, int q)
+void Solver::perturbation(Solution &solution, int q, bool random, double randomProb, double costProb, double routeProb)
 {
-    discrete_distribution<int> dist{5, 5, 1};
+    discrete_distribution<int> dist{randomProb, costProb, routeProb};
 
     vector<int> customersToRemove = d_perturbationOperators[dist(d_env->d_rng)](solution, q);
 
-    reinsert(solution, customersToRemove, true);
+    reinsert(solution, customersToRemove, random, true);
 }

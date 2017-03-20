@@ -8,11 +8,12 @@
  * @param [in] solution         Solution
  * @param [in] customersToAdd   Vector of customers IDs to reinsert in the solution
  * @param [in] random           Bool where true indicates insertion cost multiplied by random factor
+ * @param [in] splitsAllowed    Bool where true indicates that splits are allowed
  */
 
 #include "solver.ih"
 
-void Solver::reinsert(Solution &solution, std::vector<int> &customersToAdd, bool random)
+void Solver::reinsert(Solution &solution, std::vector<int> &customersToAdd, bool random, bool splitsAllowed)
 {
     while (not customersToAdd.empty())
     {
@@ -57,7 +58,8 @@ void Solver::reinsert(Solution &solution, std::vector<int> &customersToAdd, bool
         }
         else
         {
-            insertCustomer(solution, selectedCustomer, positionCustomer, depotID, vehicleID, routePos, customersToAdd);
+            insertCustomer(solution, selectedCustomer, positionCustomer, depotID, vehicleID, routePos, customersToAdd,
+                           splitsAllowed);
         }
     }
 }

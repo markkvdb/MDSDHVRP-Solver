@@ -12,12 +12,13 @@
  * @param [in] vehicleID        ID of the vehicle
  * @param [in] routePos         Position in the route to insert the customer in
  * @param [in] customersToAdd   Vector of customers still to be inserted
+ * @param [in] splitsAllowed    Bool where true indicates that splits are allowed
  */
 
 #include "solver.ih"
 
 void Solver::insertCustomer(Solution &solution, int selectedCustomer, int positionCustomer, int depotID, int vehicleID,
-                            int routePos, vector<int> &customersToAdd)
+                            int routePos, vector<int> &customersToAdd, bool splitsAllowed)
 {
     Depot &depot = solution.getDepots()[depotID];
     Vehicle &vehicle = depot.getVehicle(vehicleID);

@@ -15,6 +15,7 @@
 
 Solution &Solver::simulatedAnnealing(Solution &sPrime, Solution &s)
 {
+    d_env->d_temp = d_env->d_temp * d_env->d_r;
     if (sPrime.totalCost() <= s.totalCost())
     {
         return sPrime;
@@ -27,7 +28,6 @@ Solution &Solver::simulatedAnnealing(Solution &sPrime, Solution &s)
         double U(uni(d_env->d_rng));
         if (U < exp(-diff/d_env->d_temp))
         {
-            d_env->d_temp = max(d_env->d_temp * d_env->d_r, d_env->d_tempMin);
             return sPrime;
         }
         else
