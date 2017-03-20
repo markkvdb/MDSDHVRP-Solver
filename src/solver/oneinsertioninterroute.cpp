@@ -33,6 +33,7 @@ void Solver::oneInsertionInterRoute(Solution &s)
                 // Select customer to change
                 int const customerID = vehicleOut.getRoute().getRoute()[customerIdx];
                 int const customerDemand = vehicleOut.getRoute().getDemandRoute()[customerIdx];
+                double removalGain = vehicleOut.removalGain(customerID);
                 depotOut.changeInventory(-customerDemand);
 
                 for (Depot &depotIn: s.getDepots())
@@ -48,7 +49,7 @@ void Solver::oneInsertionInterRoute(Solution &s)
 
                         auto insert = depotIn.getVehicle(vehicleIdx2).cheapestInsertionWithSplits(customerID);
 
-                        if (insert.second < minInsertion)
+                        if (insert.second - removalGain < minInsertion)
                         {
                             minCustomer = customerID;
                             minDepotIn = depotIn.getID();
@@ -57,7 +58,7 @@ void Solver::oneInsertionInterRoute(Solution &s)
                             minVehicleOut = vehicleIdx;
                             minDemand = customerDemand;
                             minPos = insert.first;
-                            minInsertion = insert.second;
+                            minInsertion = insert.second - removalGain;
                         }
                     }
                 }

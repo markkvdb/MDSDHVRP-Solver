@@ -29,7 +29,6 @@ double Vehicle::removalGain(int customerID)
         penaltyReduction = d_env->d_penalty * (oldPenalty - newPenalty);
     }
 
-
-
+    // POSITIVE = GOOD
     return penaltyReduction + minusDistance / d_drivingSpeed;
 }
