@@ -25,10 +25,7 @@ void Solver::localSearch(Solution &s)
 
         d_localSearchTimes[operatorIdx].push_back(chrono::duration_cast<chrono::microseconds>(end - start).count());
 
-        if (newCost > oldCost)
-            cerr << "ROT OP!!!!!!!\n";
-
-        if (newCost < oldCost)
+        if (newCost + d_env->d_eps < oldCost)
         {
             d_localSearchImprovements[operatorIdx].push_back(oldCost - newCost);
             operatorIdx = -1;

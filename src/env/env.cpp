@@ -21,5 +21,6 @@ Env::Env()
         d_penaltyUpper(1000),
         d_temp(100),
         d_r(0.5),
-        d_tempMin(10)
+        d_tempMin(10),
+        d_eps(1.0e-8)
 {}

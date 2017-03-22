@@ -75,4 +75,7 @@ void Solver::run()
         d_elapsedSeconds2 = chrono::duration<double>(chrono::system_clock::now() - start).count();
     }
     d_ratioSplitsAfterSecond = d_env->d_bestFeasibleSolution.ratioSplits();
+
+    if (d_env->d_bestFeasibleSolution.feasible())
+        d_env->d_bestFeasibleSolution.print();
 }
