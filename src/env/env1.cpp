@@ -26,7 +26,8 @@ Env::Env(Init &init)
         d_r(0.95),
         d_tempMin(0),
         d_output(init.getOutputFile()),
-        d_log(init.getLogFile())
+        d_log(init.getLogFile()),
+        d_eps(1.0e-8)
 {
     vector<vector<double>> depotMatrix      (init.getDepotMatrix());
     vector<vector<double>> vehicleMatrix    (init.getVehicleMatrix());

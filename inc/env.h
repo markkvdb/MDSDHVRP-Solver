@@ -32,6 +32,7 @@ public:
     std::default_random_engine  d_rng; /*!< Random number engine */
     std::ofstream               d_output; /*!< Output file */
     std::ofstream               d_log; /*!< Log file */
+    double                      d_eps; /*!< Rounding error */
 
     double                      d_delta; /*!< Parameter to multiply the penalty with */
     double                      d_penalty; /*!< Parameter for determining the penalty cost */
