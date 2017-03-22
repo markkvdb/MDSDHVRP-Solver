@@ -17,7 +17,7 @@ void Solver::run()
     initialSolution();
     d_env->d_bestSolution = d_env->d_currentSolution;
     d_env->d_bestFeasibleSolution = d_env->d_currentSolution;
-    d_env->d_temp = 0.02*d_env->d_currentSolution.cost();
+    d_env->d_temp = 0.01*d_env->d_currentSolution.cost();
     d_ratioSplitsAfterInitial = d_env->d_bestFeasibleSolution.ratioSplits();
 
     // Set q and the iter counter

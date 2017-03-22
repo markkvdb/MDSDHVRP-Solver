@@ -33,6 +33,11 @@ void Solver::print()
     d_env->d_log << "Average time of operator: \n";
     for (int operatorIdx = 0; operatorIdx != d_localSearchOperators.size(); ++operatorIdx)
     {
+        if (d_localSearchTimes[operatorIdx].size() == 0)
+        {
+            d_env->d_log << "\t " << operatorIdx << ": None\n";
+            continue;
+        }
         d_env->d_log << "\t " << operatorIdx << ": "
              << accumulate(begin(d_localSearchTimes[operatorIdx]), end(d_localSearchTimes[operatorIdx]), 0)
                 / d_localSearchTimes[operatorIdx].size() << " \u00B5s \n";
