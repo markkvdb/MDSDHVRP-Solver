@@ -29,14 +29,14 @@ pair<int, double> Solver::findSwapStarCost(Solution &s, int customerIdx1, Vehicl
     double extraDistance1 = -1;
 
     // Insert before
-    double extraDistance1Option1 = d_env->d_distanceMatrix[route1[customerIdx1-1]][route2[customerIdx2]] +
-                                   d_env->d_distanceMatrix[route2[customerIdx2]][route1[customerIdx1]] -
-                                   d_env->d_distanceMatrix[route1[customerIdx1-1]][route1[customerIdx1]];
+    double extraDistance1Option1 = d_env->distanceMatrix(route1[customerIdx1-1], route2[customerIdx2]) +
+                                   d_env->distanceMatrix(route2[customerIdx2], route1[customerIdx1]) -
+                                   d_env->distanceMatrix(route1[customerIdx1-1], route1[customerIdx1]);
 
     // Insert after
-    double extraDistance1Option2 = d_env->d_distanceMatrix[route1[customerIdx1]][route2[customerIdx2]] +
-                                   d_env->d_distanceMatrix[route2[customerIdx2]][route1[customerIdx1+1]] -
-                                   d_env->d_distanceMatrix[route1[customerIdx1]][route1[customerIdx1+1]];
+    double extraDistance1Option2 = d_env->distanceMatrix(route1[customerIdx1], route2[customerIdx2]) +
+                                   d_env->distanceMatrix(route2[customerIdx2], route1[customerIdx1+1]) -
+                                   d_env->distanceMatrix(route1[customerIdx1], route1[customerIdx1+1]);
 
     if (extraDistance1Option1 < extraDistance1Option2)
     {
@@ -49,10 +49,10 @@ pair<int, double> Solver::findSwapStarCost(Solution &s, int customerIdx1, Vehicl
         extraDistance1 = extraDistance1Option2;
     }
 
-    double extraDistance2 = d_env->d_distanceMatrix[route2[customerIdx2-1]][route1[customerIdx1]] +
-                            d_env->d_distanceMatrix[route1[customerIdx1]][route2[customerIdx2+1]] -
-                            d_env->d_distanceMatrix[route2[customerIdx2-1]][route2[customerIdx2]] -
-                            d_env->d_distanceMatrix[route2[customerIdx2]][route2[customerIdx2+1]];
+    double extraDistance2 = d_env->distanceMatrix(route2[customerIdx2-1], route1[customerIdx1]) +
+                            d_env->distanceMatrix(route1[customerIdx1], route2[customerIdx2+1]) -
+                            d_env->distanceMatrix(route2[customerIdx2-1], route2[customerIdx2]) -
+                            d_env->distanceMatrix(route2[customerIdx2], route2[customerIdx2+1]);
 
     double extraPenalty1 = (max(0.0, vehicle1.getPenaltyTime() + extraDistance1 / vehicle1.getDrivingSpeed()
                                      + customer2.getServiceTime()) - vehicle1.getPenaltyTime()) * d_env->d_penalty;

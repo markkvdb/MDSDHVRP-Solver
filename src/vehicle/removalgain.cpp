@@ -16,9 +16,9 @@ double Vehicle::removalGain(int customerID)
     Solution &solution = d_env->d_newSolution;
     long positionCustomer = find(begin(route), end(route), customerID) - begin(route);
 
-    double minusDistance = d_env->d_distanceMatrix[route[positionCustomer-1]][customerID] +
-                           d_env->d_distanceMatrix[customerID][route[positionCustomer+1]] -
-                           d_env->d_distanceMatrix[route[positionCustomer - 1]][route[positionCustomer + 1]];
+    double minusDistance = d_env->distanceMatrix(route[positionCustomer-1], customerID) +
+                           d_env->distanceMatrix(customerID, route[positionCustomer+1]) -
+                           d_env->distanceMatrix(route[positionCustomer - 1], route[positionCustomer + 1]);
 
     double penaltyReduction = 0;
     if (getPenaltyTime() != 0.0)

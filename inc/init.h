@@ -13,13 +13,13 @@
  */
 class Init
 {
-    int                                 d_noOfDepots; /*!< Number of depots */
-    int                                 d_noOfVehicleTypes; /*!< Number of vehicle types */
-    int                                 d_noOfCustomers; /*!< Number of customers */
+    std::size_t                         d_noOfDepots; /*!< Number of depots */
+    std::size_t                         d_noOfVehicleTypes; /*!< Number of vehicle types */
+    std::size_t                         d_noOfCustomers; /*!< Number of customers */
     std::vector<std::vector<double>>    d_vehicleMatrix; /*!< List of all vehicles, and its attributes */
     std::vector<std::vector<double>>    d_depotMatrix; /*!< List of all depots, and its attributes */
     std::vector<std::vector<double>>    d_customerMatrix; /*!< List of all customers, and its attributes */
-    std::vector<std::vector<double>>    d_distanceMatrix; /*!< Distance matrix for all instances of the problem */
+    std::vector<double>                 d_distanceMatrix; /*!< Distance matrix for all instances of the problem */
     std::string                         d_inputFile;
     std::string                         d_outputFile;
     std::string                         d_logFile;
@@ -36,13 +36,13 @@ public:
     void                                    showDistanceMatrix();
     void                                    show();
 
-    int                                     getNoOfDepots()         const;
-    int                                     getNoOfVehicleTypes()   const;
-    int                                     getNoOfCustomers()      const;
+    std::size_t                             getNoOfDepots()         const;
+    std::size_t                             getNoOfVehicleTypes()   const;
+    std::size_t                             getNoOfCustomers()      const;
     const std::vector<std::vector<double>>  &getVehicleMatrix()     const;
     const std::vector<std::vector<double>>  &getDepotMatrix()       const;
     const std::vector<std::vector<double>>  &getCustomerMatrix()    const;
-    const std::vector<std::vector<double>>  &getDistanceMatrix()    const;
+    const std::vector<double> &             getDistanceMatrix()     const;
     std::string const                       getOutputFile()         const;
     std::string const                       getLogFile()            const;
 
@@ -67,7 +67,7 @@ inline void Init::show()
  * Find the number of depots in the problem.
  * @return Number of depots
  */
-inline int Init::getNoOfDepots() const
+inline std::size_t Init::getNoOfDepots() const
 {
     return d_noOfDepots;
 }
@@ -76,7 +76,7 @@ inline int Init::getNoOfDepots() const
  * Find the number of vehicle types in the problem
  * @return Number of vehicle types
  */
-inline int Init::getNoOfVehicleTypes() const
+inline std::size_t Init::getNoOfVehicleTypes() const
 {
     return d_noOfVehicleTypes;
 }
@@ -85,7 +85,7 @@ inline int Init::getNoOfVehicleTypes() const
  * Find the number of customers in the problem
  * @return Number of customers
  */
-inline int Init::getNoOfCustomers() const
+inline std::size_t Init::getNoOfCustomers() const
 {
     return d_noOfCustomers;
 }
@@ -121,7 +121,7 @@ inline const std::vector<std::vector<double>> &Init::getCustomerMatrix() const
  * Find the matrix with all distances between each instance in the problem.
  * @return Matrix with all distances between every instance (Depots and Customers)
  */
-inline const std::vector<std::vector<double>> &Init::getDistanceMatrix() const
+inline const std::vector<double> &Init::getDistanceMatrix() const
 {
     return d_distanceMatrix;
 }

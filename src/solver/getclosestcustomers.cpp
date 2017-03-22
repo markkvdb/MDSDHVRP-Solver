@@ -22,7 +22,7 @@ vector<int> Solver::getClosestCustomers(int seedCustomer, int q)
     sort(begin(orderedCustomers), end(orderedCustomers),
          [&](int lhs, int rhs)
          {
-             return d_env->d_distanceMatrix[seedCustomer][lhs] < d_env->d_distanceMatrix[seedCustomer][rhs];
+             return d_env->distanceMatrix(seedCustomer,lhs) < d_env->distanceMatrix(seedCustomer, rhs);
          });
 
     return vector<int>{begin(orderedCustomers), begin(orderedCustomers) + q};

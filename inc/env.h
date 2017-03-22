@@ -27,7 +27,8 @@ public:
     Solution                    d_newSolution; /*!< The new solution */
     Solution                    d_bestFeasibleSolution; /*!< The best feasible solution */
 
-    DoubleMatrix                d_distanceMatrix; /*!< Distance matrix for all instances */
+    std::vector<double>         d_distanceMatrix; /*!< Distance matrix for all instances */
+    std::size_t                 d_numberOfEntities;
 
     std::default_random_engine  d_rng; /*!< Random number engine */
     std::ofstream               d_output; /*!< Output file */
@@ -47,6 +48,12 @@ public:
     Env(Init &init);
 
     void updatePenalty(Solution &solution);
+    double distanceMatrix(int entity1, int entity2);
 };
+
+inline double Env::distanceMatrix(int entity1, int entity2)
+{
+    return d_distanceMatrix[entity1 * d_numberOfEntities + entity2];
+}
 
 #endif //ORACS_ENV_H

@@ -27,7 +27,8 @@ Env::Env(Init &init)
         d_tempMin(0),
         d_output(init.getOutputFile()),
         d_log(init.getLogFile()),
-        d_eps(1.0e-8)
+        d_eps(1.0e-8),
+        d_numberOfEntities(init.getNoOfCustomers() + init.getNoOfDepots())
 {
     vector<vector<double>> depotMatrix      (init.getDepotMatrix());
     vector<vector<double>> vehicleMatrix    (init.getVehicleMatrix());
@@ -66,6 +67,4 @@ Env::Env(Init &init)
                                customerMatrix[customer][4]};
         d_currentSolution.addCustomer(customerToAdd);
     }
-
-
 }

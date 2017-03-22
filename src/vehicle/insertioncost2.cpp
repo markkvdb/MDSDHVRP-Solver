@@ -14,9 +14,9 @@
 
 double Vehicle::insertionCost(int option, int customerID1, int customerID2) const
 {
-    double extraDistance = d_env->d_distanceMatrix[d_route.getRoute()[option]][customerID1] +
-                           d_env->d_distanceMatrix[customerID2][d_route.getRoute()[option + 1]] -
-                           d_env->d_distanceMatrix[d_route.getRoute()[option]][d_route.getRoute()[option+1]];
+    double extraDistance = d_env->distanceMatrix(d_route.getRoute()[option], customerID1) +
+                           d_env->distanceMatrix(customerID2, d_route.getRoute()[option + 1]) -
+                           d_env->distanceMatrix(d_route.getRoute()[option], d_route.getRoute()[option+1]);
 
     return extraDistance;
 }

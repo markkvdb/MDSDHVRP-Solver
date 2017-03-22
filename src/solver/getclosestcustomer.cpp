@@ -22,10 +22,10 @@ void Solver::getClosestCustomer(int seedCustomer, int &pickedCustomer, vector<pa
         if (customer.first == pickedCustomer)
             continue;
 
-        if (d_env->d_distanceMatrix[seedCustomer][customer.first] < minDistance)
+        if (d_env->distanceMatrix(seedCustomer, customer.first) < minDistance)
         {
             minCustomer = customer.first;
-            minDistance = d_env->d_distanceMatrix[seedCustomer][customer.first];
+            minDistance = d_env->distanceMatrix(seedCustomer, customer.first);
         }
     }
 

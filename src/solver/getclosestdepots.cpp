@@ -22,8 +22,8 @@ vector<int> Solver::getClosestDepots(int customer)
     sort(begin(orderedDepots), end(orderedDepots),
          [&](int lhs, int rhs)
          {
-             return d_env->d_distanceMatrix[customer][lhs + d_env->d_currentSolution.getCustomers().size()]
-                    < d_env->d_distanceMatrix[customer][rhs + d_env->d_currentSolution.getCustomers().size()];
+             return d_env->distanceMatrix(customer, lhs + d_env->d_currentSolution.getCustomers().size())
+                    < d_env->distanceMatrix(customer, rhs + d_env->d_currentSolution.getCustomers().size());
          });
 
     return orderedDepots;
