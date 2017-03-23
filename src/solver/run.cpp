@@ -36,10 +36,16 @@ void Solver::run()
             d_env->d_bestSolution = d_env->d_newSolution;
 
         if (d_env->d_newSolution.feasible() && d_env->d_newSolution.totalCost() < d_env->d_bestFeasibleSolution.totalCost())
+        {
             d_env->d_bestFeasibleSolution = d_env->d_newSolution;
+            d_env->d_temp = 0.005 * d_env->d_bestFeasibleSolution.cost();
+        }
 
         d_env->d_currentSolution = simulatedAnnealing(d_env->d_newSolution, d_env->d_currentSolution);
         d_env->updatePenalty(d_env->d_currentSolution);
+
+        if (d_env->d_currentSolution.totalCost() > 1.05 * d_env->d_bestFeasibleSolution.totalCost())
+            d_env->d_currentSolution = d_env->d_bestFeasibleSolution;
 
         cout << d_iter1 << ' ' << d_env->d_bestFeasibleSolution.cost() << ' ' << d_env->d_currentSolution.cost()
              << ' ' << d_env->d_temp << '\n';
@@ -68,10 +74,16 @@ void Solver::run()
             d_env->d_bestSolution = d_env->d_newSolution;
 
         if (d_env->d_newSolution.feasible() && d_env->d_newSolution.cost() < d_env->d_bestFeasibleSolution.cost())
+        {
             d_env->d_bestFeasibleSolution = d_env->d_newSolution;
+            d_env->d_temp = 0.005 * d_env->d_bestFeasibleSolution.cost();
+        }
 
         d_env->d_currentSolution = simulatedAnnealing(d_env->d_newSolution, d_env->d_currentSolution);
         d_env->updatePenalty(d_env->d_currentSolution);
+
+        if (d_env->d_currentSolution.totalCost() > 1.05 * d_env->d_bestFeasibleSolution.totalCost())
+            d_env->d_currentSolution = d_env->d_bestFeasibleSolution;
 
         cout << d_iter2 + d_iter1 << ' ' << d_env->d_bestFeasibleSolution.totalCost() << ' '
              << d_env->d_currentSolution.totalCost() << ' ' << d_env->d_temp << '\n';
