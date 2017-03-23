@@ -17,7 +17,7 @@ Solution &Solver::simulatedAnnealing(Solution &sPrime, Solution &s)
 {
     if (sPrime.totalCost() <= s.totalCost())
     {
-        d_env->d_temp = 0.001 * sPrime.totalCost();
+        d_env->d_temp = d_env->d_percTemp * sPrime.totalCost();
         return sPrime;
     }
     else

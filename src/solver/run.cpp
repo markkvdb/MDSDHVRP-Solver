@@ -37,10 +37,7 @@ void Solver::run()
             d_env->d_bestSolution = d_env->d_newSolution;
 
         if (d_env->d_newSolution.feasible() && d_env->d_newSolution.totalCost() < d_env->d_bestFeasibleSolution.totalCost())
-        {
             d_env->d_bestFeasibleSolution = d_env->d_newSolution;
-            d_env->d_temp = d_env->d_percTemp * d_env->d_bestFeasibleSolution.cost();
-        }
 
         d_env->d_currentSolution = simulatedAnnealing(d_env->d_newSolution, d_env->d_currentSolution);
         d_env->updatePenalty(d_env->d_currentSolution);
@@ -75,10 +72,7 @@ void Solver::run()
             d_env->d_bestSolution = d_env->d_newSolution;
 
         if (d_env->d_newSolution.feasible() && d_env->d_newSolution.cost() < d_env->d_bestFeasibleSolution.cost())
-        {
             d_env->d_bestFeasibleSolution = d_env->d_newSolution;
-            d_env->d_temp = d_env->d_percTemp * d_env->d_bestFeasibleSolution.cost();
-        }
 
         d_env->d_currentSolution = simulatedAnnealing(d_env->d_newSolution, d_env->d_currentSolution);
         d_env->updatePenalty(d_env->d_currentSolution);
