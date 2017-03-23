@@ -18,7 +18,7 @@ void Solver::run()
     initialSolution();
     d_env->d_bestSolution = d_env->d_currentSolution;
     d_env->d_bestFeasibleSolution = d_env->d_currentSolution;
-    d_env->d_temp = 0.01*d_env->d_currentSolution.cost();
+    d_env->d_temp = d_env->d_percTemp * d_env->d_currentSolution.cost();
     d_ratioSplitsAfterInitial = d_env->d_bestFeasibleSolution.ratioSplits();
 
     // Set q and the iter counter
@@ -39,7 +39,7 @@ void Solver::run()
         if (d_env->d_newSolution.feasible() && d_env->d_newSolution.totalCost() < d_env->d_bestFeasibleSolution.totalCost())
         {
             d_env->d_bestFeasibleSolution = d_env->d_newSolution;
-            d_env->d_temp = 0.005 * d_env->d_bestFeasibleSolution.cost();
+            d_env->d_temp = d_env->d_percTemp * d_env->d_bestFeasibleSolution.cost();
         }
 
         d_env->d_currentSolution = simulatedAnnealing(d_env->d_newSolution, d_env->d_currentSolution);
@@ -77,7 +77,7 @@ void Solver::run()
         if (d_env->d_newSolution.feasible() && d_env->d_newSolution.cost() < d_env->d_bestFeasibleSolution.cost())
         {
             d_env->d_bestFeasibleSolution = d_env->d_newSolution;
-            d_env->d_temp = 0.005 * d_env->d_bestFeasibleSolution.cost();
+            d_env->d_temp = d_env->d_percTemp * d_env->d_bestFeasibleSolution.cost();
         }
 
         d_env->d_currentSolution = simulatedAnnealing(d_env->d_newSolution, d_env->d_currentSolution);
