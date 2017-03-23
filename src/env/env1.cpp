@@ -24,6 +24,7 @@ Env::Env(Init &init)
         d_penaltyUpper(100000),
         d_temp(0),
         d_r(0.9),
+        d_percTemp(0.005),
         d_tempMin(0),
         d_output(init.getOutputFile()),
         d_log(init.getLogFile()),

@@ -42,9 +42,11 @@ public:
     double                      d_temp; /*!< Temperature used for simulated annealing */
     double                      d_r; /*!< Parameter of the simulated annealing */
     double                      d_tempMin; /*!< Minimum temperature of the simulated annealing */
+    double                      d_percTemp; /*!< Multiplier for simulated annealing */
 
-    Env();
+    Env() = delete;
     Env(Init &init);
+    Env(Init &init, double r, double percTemp);
 
     void updatePenalty(Solution &solution);
 };

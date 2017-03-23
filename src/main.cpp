@@ -8,9 +8,9 @@
 int main(int argc, char* argv[])
 {
     // LOAD DATA
-    if (argc != 2)
+    if (argc != 4)
     {
-        cerr << "Usage: " << argv[0] << " <FILENAME>\n";
+        cerr << "Usage: " << argv[0] << " <FILENAME> <R> <PERCTEMP>\n";
         return 1;
     }
 
@@ -19,7 +19,9 @@ int main(int argc, char* argv[])
     init.setup();
 
     // Create environment with all the data
-    Env env{init};
+    double r = atof(argv[2]);
+    double percTemp = atof(argv[2]);
+    Env env{init, r, percTemp};
 
     // Create empty solution
     Solver solver{&env};
@@ -28,5 +30,4 @@ int main(int argc, char* argv[])
     solver.run();
 
     solver.print();
-
 }

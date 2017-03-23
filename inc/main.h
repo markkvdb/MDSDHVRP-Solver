@@ -6,6 +6,7 @@
 #define ORACS_MAIN_H
 
 #include <iostream>
+#include <stdlib.h>
 #include "env.h"
 #include "solver.h"
 #include "solution.h"
