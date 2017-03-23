@@ -20,7 +20,7 @@ int main(int argc, char* argv[])
 
     // Create environment with all the data
     double r = atof(argv[2]);
-    double percTemp = atof(argv[2]);
+    double percTemp = atof(argv[3]);
     Env env{init, r, percTemp};
 
     // Create empty solution
