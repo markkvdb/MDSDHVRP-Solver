@@ -13,10 +13,10 @@
 Solver::Solver(Env *env)
 :
     d_env(env),
-    d_maxIter1(1000000),
-    d_maxIter2(1000000),
-    d_maxSeconds1(40),
-    d_maxSeconds2(80),
+    d_maxIter1(2000000),
+    d_maxIter2(500000),
+    d_maxSeconds1(1800),
+    d_maxSeconds2(1800),
     d_theta(0.01),
     d_localIter(0),
     d_objectiveAfterFirst(0.0),
