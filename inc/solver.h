@@ -34,6 +34,7 @@ class Solver {
     int                                 d_localIter;
     int                                 d_iter1;
     int                                 d_iter2;
+    int                                 d_feasibleIter;
     double                              d_ratioSplitsAfterInitial;
     double                              d_ratioSplitsAfterFirst;
     double                              d_ratioSplitsAfterSecond;
@@ -42,6 +43,8 @@ class Solver {
     double                              d_objectiveAfterFirst;
     std::vector<std::vector<double>>    d_localSearchTimes;
     std::vector<std::vector<double>>    d_localSearchImprovements;
+    std::vector<std::vector<double>>    d_perturbationTimes;
+    std::vector<std::vector<double>>    d_perturbationImprovements;
 
 
 
@@ -52,6 +55,7 @@ public:
     void initialSolution();
     void run();
     void print();
+    void experimentPrint();
 
 private:
     // Functions for initial solution
