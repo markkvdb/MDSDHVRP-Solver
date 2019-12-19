@@ -15,13 +15,14 @@
 
 Solution &Solver::simulatedAnnealing(Solution &sPrime, Solution &s)
 {
-    d_env->d_temp = d_env->d_temp * d_env->d_r;
     if (sPrime.totalCost() <= s.totalCost())
     {
+        d_env->d_temp = 0.0001 * sPrime.totalCost();
         return sPrime;
     }
     else
     {
+        d_env->d_temp = d_env->d_temp * d_env->d_r;
         double diff = sPrime.totalCost() - s.totalCost();
         uniform_real_distribution<double> uni(0.0, 1.0);
 

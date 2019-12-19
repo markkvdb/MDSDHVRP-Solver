@@ -14,12 +14,8 @@ double Solution::cost()
 {
     double cost = 0;
     for (Depot &depot: d_depots)
-    {
         for (Vehicle const &vehicle: depot.getVehicles())
-        {
             cost += vehicle.getTotalCost();
-        }
-    }
 
     return cost;
 }
