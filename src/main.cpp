@@ -23,10 +23,6 @@ int main(int argc, char* argv[])
 
     // Create empty solution
     Solver solver{&env};
-
-    // Construct initial solution
     solver.run();
-
     solver.print();
-
 }

@@ -15,8 +15,17 @@
 void Solver::perturbation(Solution &solution, int q, bool random, double randomProb, double costProb, double routeProb)
 {
     discrete_distribution<int> dist{randomProb, costProb, routeProb};
+    int operatorIdx = dist(d_env->d_rng);
+    auto start = chrono::system_clock::now();
+    double oldCost = solution.cost();
 
-    vector<int> customersToRemove = d_perturbationOperators[dist(d_env->d_rng)](solution, q);
+    vector<int> customersToRemove = d_perturbationOperators[operatorIdx](solution, q);
 
     reinsert(solution, customersToRemove, random, true);
+    auto end = chrono::system_clock::now();
+    d_perturbationTimes[operatorIdx].push_back(chrono::duration_cast<chrono::microseconds>(end - start).count());
+
+    double newCost = solution.cost();
+
+    d_perturbationImprovements[operatorIdx].push_back(oldCost - newCost);
 }

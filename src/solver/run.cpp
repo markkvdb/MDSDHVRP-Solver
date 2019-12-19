@@ -13,6 +13,7 @@ void Solver::run()
     auto start = chrono::system_clock::now();
     d_elapsedSeconds1 = 0;
     double gamma = 0.05;
+    bool feasible(false);
 
 
     initialSolution();
@@ -27,11 +28,10 @@ void Solver::run()
     d_iter2 = 0;
     d_localIter = 0;
 
-
     while (d_iter1 != d_maxIter1 && d_elapsedSeconds1 < d_maxSeconds1)
     {
         d_env->d_newSolution = d_env->d_currentSolution;
-        perturbation(d_env->d_newSolution, q, true, 3, 2, 1);
+        perturbation(d_env->d_newSolution, q, false, 1, 1, 1);
 
         if (d_env->d_newSolution.totalCost() < d_env->d_bestSolution.totalCost())
             d_env->d_bestSolution = d_env->d_newSolution;
@@ -58,7 +58,7 @@ void Solver::run()
     while (d_iter2 != d_maxIter2 && d_elapsedSeconds2 < d_maxSeconds2)
     {
         d_env->d_newSolution = d_env->d_currentSolution;
-        perturbation(d_env->d_newSolution, q, true, 3, 2, 1);
+        perturbation(d_env->d_newSolution, q, false, 3, 2, 1);
 
         if (d_env->d_newSolution.totalCost() < (1 + d_theta) * d_env->d_bestSolution.totalCost())
         {
@@ -84,5 +84,7 @@ void Solver::run()
     d_ratioSplitsAfterSecond = d_env->d_bestFeasibleSolution.ratioSplits();
 
     if (d_env->d_bestFeasibleSolution.feasible())
+    {
         d_env->d_bestFeasibleSolution.print();
+    }
 }
