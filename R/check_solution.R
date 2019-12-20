@@ -1,4 +1,4 @@
-instanceList <- 1:513
+instanceList <- 1:2
 splitsRatio <- objectives <- meanDemand <- maxDemand <- minDemand <- invDemandRatio <- noVehicles <- rep(NA, length(instanceList))
 
 emptyVehicles <- rep(0,length(instanceList))
